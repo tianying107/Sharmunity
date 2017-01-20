@@ -1,0 +1,545 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		442F48371E31CC0F00FB0561 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F48361E31CC0F00FB0561 /* main.m */; };
+		442F483A1E31CC0F00FB0561 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F48391E31CC0F00FB0561 /* AppDelegate.m */; };
+		442F483D1E31CC0F00FB0561 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F483C1E31CC0F00FB0561 /* FirstViewController.m */; };
+		442F48401E31CC0F00FB0561 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F483F1E31CC0F00FB0561 /* SecondViewController.m */; };
+		442F48431E31CC0F00FB0561 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442F48411E31CC0F00FB0561 /* Main.storyboard */; };
+		442F48451E31CC0F00FB0561 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 442F48441E31CC0F00FB0561 /* Assets.xcassets */; };
+		442F48481E31CC0F00FB0561 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442F48461E31CC0F00FB0561 /* LaunchScreen.storyboard */; };
+		442F48531E31CC1000FB0561 /* SharmunityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F48521E31CC1000FB0561 /* SharmunityTests.m */; };
+		442F485E1E31CC1000FB0561 /* SharmunityUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F485D1E31CC1000FB0561 /* SharmunityUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		442F484F1E31CC1000FB0561 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 442F482A1E31CC0F00FB0561 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 442F48311E31CC0F00FB0561;
+			remoteInfo = Sharmunity;
+		};
+		442F485A1E31CC1000FB0561 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 442F482A1E31CC0F00FB0561 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 442F48311E31CC0F00FB0561;
+			remoteInfo = Sharmunity;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		442F48321E31CC0F00FB0561 /* Sharmunity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sharmunity.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		442F48361E31CC0F00FB0561 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		442F48381E31CC0F00FB0561 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		442F48391E31CC0F00FB0561 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		442F483B1E31CC0F00FB0561 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		442F483C1E31CC0F00FB0561 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		442F483E1E31CC0F00FB0561 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		442F483F1E31CC0F00FB0561 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		442F48421E31CC0F00FB0561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		442F48441E31CC0F00FB0561 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		442F48471E31CC0F00FB0561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		442F48491E31CC0F00FB0561 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		442F484E1E31CC1000FB0561 /* SharmunityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharmunityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		442F48521E31CC1000FB0561 /* SharmunityTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharmunityTests.m; sourceTree = "<group>"; };
+		442F48541E31CC1000FB0561 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		442F48591E31CC1000FB0561 /* SharmunityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharmunityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		442F485D1E31CC1000FB0561 /* SharmunityUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharmunityUITests.m; sourceTree = "<group>"; };
+		442F485F1E31CC1000FB0561 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		442F482F1E31CC0F00FB0561 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		442F484B1E31CC1000FB0561 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		442F48561E31CC1000FB0561 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		442F48291E31CC0F00FB0561 = {
+			isa = PBXGroup;
+			children = (
+				442F48341E31CC0F00FB0561 /* Sharmunity */,
+				442F48511E31CC1000FB0561 /* SharmunityTests */,
+				442F485C1E31CC1000FB0561 /* SharmunityUITests */,
+				442F48331E31CC0F00FB0561 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		442F48331E31CC0F00FB0561 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				442F48321E31CC0F00FB0561 /* Sharmunity.app */,
+				442F484E1E31CC1000FB0561 /* SharmunityTests.xctest */,
+				442F48591E31CC1000FB0561 /* SharmunityUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		442F48341E31CC0F00FB0561 /* Sharmunity */ = {
+			isa = PBXGroup;
+			children = (
+				442F48381E31CC0F00FB0561 /* AppDelegate.h */,
+				442F48391E31CC0F00FB0561 /* AppDelegate.m */,
+				442F483B1E31CC0F00FB0561 /* FirstViewController.h */,
+				442F483C1E31CC0F00FB0561 /* FirstViewController.m */,
+				442F483E1E31CC0F00FB0561 /* SecondViewController.h */,
+				442F483F1E31CC0F00FB0561 /* SecondViewController.m */,
+				442F48411E31CC0F00FB0561 /* Main.storyboard */,
+				442F48441E31CC0F00FB0561 /* Assets.xcassets */,
+				442F48461E31CC0F00FB0561 /* LaunchScreen.storyboard */,
+				442F48491E31CC0F00FB0561 /* Info.plist */,
+				442F48351E31CC0F00FB0561 /* Supporting Files */,
+			);
+			path = Sharmunity;
+			sourceTree = "<group>";
+		};
+		442F48351E31CC0F00FB0561 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				442F48361E31CC0F00FB0561 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		442F48511E31CC1000FB0561 /* SharmunityTests */ = {
+			isa = PBXGroup;
+			children = (
+				442F48521E31CC1000FB0561 /* SharmunityTests.m */,
+				442F48541E31CC1000FB0561 /* Info.plist */,
+			);
+			path = SharmunityTests;
+			sourceTree = "<group>";
+		};
+		442F485C1E31CC1000FB0561 /* SharmunityUITests */ = {
+			isa = PBXGroup;
+			children = (
+				442F485D1E31CC1000FB0561 /* SharmunityUITests.m */,
+				442F485F1E31CC1000FB0561 /* Info.plist */,
+			);
+			path = SharmunityUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		442F48311E31CC0F00FB0561 /* Sharmunity */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 442F48621E31CC1000FB0561 /* Build configuration list for PBXNativeTarget "Sharmunity" */;
+			buildPhases = (
+				442F482E1E31CC0F00FB0561 /* Sources */,
+				442F482F1E31CC0F00FB0561 /* Frameworks */,
+				442F48301E31CC0F00FB0561 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sharmunity;
+			productName = Sharmunity;
+			productReference = 442F48321E31CC0F00FB0561 /* Sharmunity.app */;
+			productType = "com.apple.product-type.application";
+		};
+		442F484D1E31CC1000FB0561 /* SharmunityTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 442F48651E31CC1000FB0561 /* Build configuration list for PBXNativeTarget "SharmunityTests" */;
+			buildPhases = (
+				442F484A1E31CC1000FB0561 /* Sources */,
+				442F484B1E31CC1000FB0561 /* Frameworks */,
+				442F484C1E31CC1000FB0561 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				442F48501E31CC1000FB0561 /* PBXTargetDependency */,
+			);
+			name = SharmunityTests;
+			productName = SharmunityTests;
+			productReference = 442F484E1E31CC1000FB0561 /* SharmunityTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		442F48581E31CC1000FB0561 /* SharmunityUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 442F48681E31CC1000FB0561 /* Build configuration list for PBXNativeTarget "SharmunityUITests" */;
+			buildPhases = (
+				442F48551E31CC1000FB0561 /* Sources */,
+				442F48561E31CC1000FB0561 /* Frameworks */,
+				442F48571E31CC1000FB0561 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				442F485B1E31CC1000FB0561 /* PBXTargetDependency */,
+			);
+			name = SharmunityUITests;
+			productName = SharmunityUITests;
+			productReference = 442F48591E31CC1000FB0561 /* SharmunityUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		442F482A1E31CC0F00FB0561 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Sharmunity;
+				TargetAttributes = {
+					442F48311E31CC0F00FB0561 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = T844TE94T5;
+						ProvisioningStyle = Automatic;
+					};
+					442F484D1E31CC1000FB0561 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = T844TE94T5;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 442F48311E31CC0F00FB0561;
+					};
+					442F48581E31CC1000FB0561 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = T844TE94T5;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 442F48311E31CC0F00FB0561;
+					};
+				};
+			};
+			buildConfigurationList = 442F482D1E31CC0F00FB0561 /* Build configuration list for PBXProject "Sharmunity" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 442F48291E31CC0F00FB0561;
+			productRefGroup = 442F48331E31CC0F00FB0561 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				442F48311E31CC0F00FB0561 /* Sharmunity */,
+				442F484D1E31CC1000FB0561 /* SharmunityTests */,
+				442F48581E31CC1000FB0561 /* SharmunityUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		442F48301E31CC0F00FB0561 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				442F48481E31CC0F00FB0561 /* LaunchScreen.storyboard in Resources */,
+				442F48451E31CC0F00FB0561 /* Assets.xcassets in Resources */,
+				442F48431E31CC0F00FB0561 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		442F484C1E31CC1000FB0561 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		442F48571E31CC1000FB0561 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		442F482E1E31CC0F00FB0561 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				442F48401E31CC0F00FB0561 /* SecondViewController.m in Sources */,
+				442F483A1E31CC0F00FB0561 /* AppDelegate.m in Sources */,
+				442F483D1E31CC0F00FB0561 /* FirstViewController.m in Sources */,
+				442F48371E31CC0F00FB0561 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		442F484A1E31CC1000FB0561 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				442F48531E31CC1000FB0561 /* SharmunityTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		442F48551E31CC1000FB0561 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				442F485E1E31CC1000FB0561 /* SharmunityUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		442F48501E31CC1000FB0561 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 442F48311E31CC0F00FB0561 /* Sharmunity */;
+			targetProxy = 442F484F1E31CC1000FB0561 /* PBXContainerItemProxy */;
+		};
+		442F485B1E31CC1000FB0561 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 442F48311E31CC0F00FB0561 /* Sharmunity */;
+			targetProxy = 442F485A1E31CC1000FB0561 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		442F48411E31CC0F00FB0561 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				442F48421E31CC0F00FB0561 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		442F48461E31CC0F00FB0561 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				442F48471E31CC0F00FB0561 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		442F48601E31CC1000FB0561 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		442F48611E31CC1000FB0561 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		442F48631E31CC1000FB0561 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = T844TE94T5;
+				INFOPLIST_FILE = Sharmunity/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Andy.Sharmunity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		442F48641E31CC1000FB0561 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = T844TE94T5;
+				INFOPLIST_FILE = Sharmunity/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Andy.Sharmunity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		442F48661E31CC1000FB0561 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = T844TE94T5;
+				INFOPLIST_FILE = SharmunityTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Andy.SharmunityTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sharmunity.app/Sharmunity";
+			};
+			name = Debug;
+		};
+		442F48671E31CC1000FB0561 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = T844TE94T5;
+				INFOPLIST_FILE = SharmunityTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Andy.SharmunityTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sharmunity.app/Sharmunity";
+			};
+			name = Release;
+		};
+		442F48691E31CC1000FB0561 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = T844TE94T5;
+				INFOPLIST_FILE = SharmunityUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Andy.SharmunityUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Sharmunity;
+			};
+			name = Debug;
+		};
+		442F486A1E31CC1000FB0561 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = T844TE94T5;
+				INFOPLIST_FILE = SharmunityUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Andy.SharmunityUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Sharmunity;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		442F482D1E31CC0F00FB0561 /* Build configuration list for PBXProject "Sharmunity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				442F48601E31CC1000FB0561 /* Debug */,
+				442F48611E31CC1000FB0561 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		442F48621E31CC1000FB0561 /* Build configuration list for PBXNativeTarget "Sharmunity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				442F48631E31CC1000FB0561 /* Debug */,
+				442F48641E31CC1000FB0561 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		442F48651E31CC1000FB0561 /* Build configuration list for PBXNativeTarget "SharmunityTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				442F48661E31CC1000FB0561 /* Debug */,
+				442F48671E31CC1000FB0561 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		442F48681E31CC1000FB0561 /* Build configuration list for PBXNativeTarget "SharmunityUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				442F48691E31CC1000FB0561 /* Debug */,
+				442F486A1E31CC1000FB0561 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 442F482A1E31CC0F00FB0561 /* Project object */;
+}
