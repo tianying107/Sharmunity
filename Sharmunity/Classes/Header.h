@@ -23,4 +23,22 @@
 #define SYSeparatorColor UIColorFromRGB(0xF2F2F2)
 #define SYSeparatorHeight 2
 
+#define SYFont13T [UIFont fontWithName:@"SFUIDisplay-Light" size:13]
+#define SYFont13S [UIFont fontWithName:@"SFUIDisplay-Semibold" size:13]
+#define SYFont13B [UIFont fontWithName:@"SFUIDisplay-Bold" size:13]
+#define SYFont13 [UIFont fontWithName:@"SFUIDisplay-Regular" size:13]
+#define SYFont15 [UIFont fontWithName:@"SFUIDisplay-Regular" size:15]
+#define SYFont15M [UIFont fontWithName:@"SFUIDisplay-Medium" size:15]
+#define SYFont15S [UIFont fontWithName:@"SFUIDisplay-Semibold" size:15]
+#define SYFont15B [UIFont fontWithName:@"SFUIDisplay-Bold" size:15]
+#define SYFont18 [UIFont fontWithName:@"SFUIDisplay-Regular" size:18]
+#define SYFont18M [UIFont fontWithName:@"SFUIDisplay-Medium" size:18]
+#define SYFont18S [UIFont fontWithName:@"SFUIDisplay-Semibold" size:18]
+#define SYFont18B [UIFont fontWithName:@"SFUIDisplay-Bold" size:18]
+#define SYFont20S [UIFont fontWithName:@"SFUIDisplay-Semibold" size:20]
+#define SYFont20 [UIFont fontWithName:@"SFUIDisplay-Regular" size:20]
+#define SYFont30T [UIFont fontWithName:@"SFUIDisplay-Thin" size:30]
+#define SYFont30 [UIFont fontWithName:@"SFUIDisplay-Regular" size:30]
+#define SYFont30S [UIFont fontWithName:@"SFUIDisplay-Semibold" size:30]
+
 #endif /* Header_h */

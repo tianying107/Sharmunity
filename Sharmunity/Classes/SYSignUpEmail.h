@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SYSignUpEmail : UIView
+#import "Header.h"
+@class SYSignUpEmail;
+@interface SYSignUpEmail : UIView<UITextFieldDelegate>{
+    UILabel *emailLabel;
+    UIImageView *logoImageView;
+    UIView *separator1;
+}
+- (void)contentWithEmail:(NSString*)email code:(NSString*)code english:(BOOL)english;
+- (void)complete;
+@property UITextField *emailTextField;
 
 @end
