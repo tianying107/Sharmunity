@@ -47,6 +47,7 @@
 		447E41161E3296EF0010CAA4 /* AccountMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E41151E3296EF0010CAA4 /* AccountMainViewController.m */; };
 		447E41191E32B0030010CAA4 /* DiscoverMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E41181E32B0030010CAA4 /* DiscoverMainViewController.m */; };
 		447E411E1E32B5010010CAA4 /* SYCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E411D1E32B5010010CAA4 /* SYCell.m */; };
+		447E41221E32BE3C0010CAA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447E41211E32BE3C0010CAA4 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		447E41181E32B0030010CAA4 /* DiscoverMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverMainViewController.m; path = ViewControllers/DiscoverMainViewController.m; sourceTree = "<group>"; };
 		447E411C1E32B5010010CAA4 /* SYCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYCell.h; path = Classes/SYCell.h; sourceTree = "<group>"; };
 		447E411D1E32B5010010CAA4 /* SYCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYCell.m; path = Classes/SYCell.m; sourceTree = "<group>"; };
+		447E41211E32BE3C0010CAA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				447E41221E32BE3C0010CAA4 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +166,7 @@
 				442F48511E31CC1000FB0561 /* SharmunityTests */,
 				442F485C1E31CC1000FB0561 /* SharmunityUITests */,
 				442F48331E31CC0F00FB0561 /* Products */,
+				447E41201E32BE3C0010CAA4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -350,6 +354,14 @@
 				447E411D1E32B5010010CAA4 /* SYCell.m */,
 			);
 			name = SYCell;
+			sourceTree = "<group>";
+		};
+		447E41201E32BE3C0010CAA4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				447E41211E32BE3C0010CAA4 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
