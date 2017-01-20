@@ -45,6 +45,8 @@
 		447E410E1E327D0D0010CAA4 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40F81E327D0D0010CAA4 /* SF-UI-Text-SemiboldItalic.otf */; };
 		447E41111E327FD90010CAA4 /* VerificationWarningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E41101E327FD90010CAA4 /* VerificationWarningViewController.m */; };
 		447E41161E3296EF0010CAA4 /* AccountMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E41151E3296EF0010CAA4 /* AccountMainViewController.m */; };
+		447E41191E32B0030010CAA4 /* DiscoverMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E41181E32B0030010CAA4 /* DiscoverMainViewController.m */; };
+		447E411E1E32B5010010CAA4 /* SYCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E411D1E32B5010010CAA4 /* SYCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +125,10 @@
 		447E41101E327FD90010CAA4 /* VerificationWarningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VerificationWarningViewController.m; path = ViewControllers/VerificationWarningViewController.m; sourceTree = "<group>"; };
 		447E41141E3296EF0010CAA4 /* AccountMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountMainViewController.h; path = ViewControllers/AccountMainViewController.h; sourceTree = "<group>"; };
 		447E41151E3296EF0010CAA4 /* AccountMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountMainViewController.m; path = ViewControllers/AccountMainViewController.m; sourceTree = "<group>"; };
+		447E41171E32B0030010CAA4 /* DiscoverMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverMainViewController.h; path = ViewControllers/DiscoverMainViewController.h; sourceTree = "<group>"; };
+		447E41181E32B0030010CAA4 /* DiscoverMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverMainViewController.m; path = ViewControllers/DiscoverMainViewController.m; sourceTree = "<group>"; };
+		447E411C1E32B5010010CAA4 /* SYCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYCell.h; path = Classes/SYCell.h; sourceTree = "<group>"; };
+		447E411D1E32B5010010CAA4 /* SYCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYCell.m; path = Classes/SYCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +189,8 @@
 				442F48761E31D4ED00FB0561 /* MainTabBarViewController.m */,
 				442F48741E31D30300FB0561 /* logInAndSignUp */,
 				447E41121E3296B70010CAA4 /* Discover */,
+				447E411A1E32B39D0010CAA4 /* Nearby */,
+				447E411B1E32B3AE0010CAA4 /* Match */,
 				447E41131E3296C20010CAA4 /* Account */,
 				442F48441E31CC0F00FB0561 /* Assets.xcassets */,
 				442F48461E31CC0F00FB0561 /* LaunchScreen.storyboard */,
@@ -227,6 +235,7 @@
 				442F48701E31D2D300FB0561 /* Header.h */,
 				447E40D91E3271660010CAA4 /* SYSuscard */,
 				442F48781E31D6CB00FB0561 /* SYSignUp */,
+				447E411F1E32B5080010CAA4 /* SYCell */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -305,6 +314,8 @@
 		447E41121E3296B70010CAA4 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				447E41171E32B0030010CAA4 /* DiscoverMainViewController.h */,
+				447E41181E32B0030010CAA4 /* DiscoverMainViewController.m */,
 			);
 			name = Discover;
 			sourceTree = "<group>";
@@ -316,6 +327,29 @@
 				447E41151E3296EF0010CAA4 /* AccountMainViewController.m */,
 			);
 			name = Account;
+			sourceTree = "<group>";
+		};
+		447E411A1E32B39D0010CAA4 /* Nearby */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Nearby;
+			sourceTree = "<group>";
+		};
+		447E411B1E32B3AE0010CAA4 /* Match */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Match;
+			sourceTree = "<group>";
+		};
+		447E411F1E32B5080010CAA4 /* SYCell */ = {
+			isa = PBXGroup;
+			children = (
+				447E411C1E32B5010010CAA4 /* SYCell.h */,
+				447E411D1E32B5010010CAA4 /* SYCell.m */,
+			);
+			name = SYCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -483,7 +517,9 @@
 			files = (
 				442F48771E31D4ED00FB0561 /* MainTabBarViewController.m in Sources */,
 				442F483A1E31CC0F00FB0561 /* AppDelegate.m in Sources */,
+				447E41191E32B0030010CAA4 /* DiscoverMainViewController.m in Sources */,
 				447E40E01E32789F0010CAA4 /* SYSignUpPassword.m in Sources */,
+				447E411E1E32B5010010CAA4 /* SYCell.m in Sources */,
 				447E41161E3296EF0010CAA4 /* AccountMainViewController.m in Sources */,
 				442F487C1E31DE4B00FB0561 /* SignUpViewController.m in Sources */,
 				447E41111E327FD90010CAA4 /* VerificationWarningViewController.m in Sources */,

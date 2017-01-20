@@ -82,7 +82,7 @@
         if ([dictionary valueForKey:@"status"]) {
             statusString = [dictionary valueForKey:@"status"];
         }
-        NSDictionary *adminDict = [[NSDictionary alloc] initWithObjectsAndKeys:[emailTextField.text lowercaseString],@"id",[passwordTextField.text valueForKey:@"password"],@"password",statusString,@"status", nil];
+        NSDictionary *adminDict = [[NSDictionary alloc] initWithObjectsAndKeys:[emailTextField.text lowercaseString],@"id",[passwordTextField.text lowercaseString],@"password",statusString,@"status", nil];
         NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
         [userDefault setObject:adminDict forKey:@"admin"];
         [userDefault synchronize];

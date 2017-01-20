@@ -10,5 +10,6 @@
 #define SYHeader_h
 
 #import "SYSuscard.h" 
+#import "SYCell.h"
 
 #endif /* SYHeader_h */
