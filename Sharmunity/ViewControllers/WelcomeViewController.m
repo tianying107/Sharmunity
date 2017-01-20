@@ -76,9 +76,17 @@
 - (void)handleSubmit:(NSDictionary*)dictionary{
     BOOL success = [[dictionary valueForKey:@"success"] boolValue];
     if (success) {
-        UITabBarController *viewController = (UITabBarController *)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"tabBarViewController"];
+        UITabBarController *viewController = (UITabBarController *)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"MainTabBar"];
         [self presentViewController:viewController animated:YES completion:nil];
-        //        [self updateToken:viewController idString:[[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"admin"] valueForKey:@"id"]];
+        NSString *statusString = @"0";
+        if ([dictionary valueForKey:@"status"]) {
+            statusString = [dictionary valueForKey:@"status"];
+        }
+        NSDictionary *adminDict = [[NSDictionary alloc] initWithObjectsAndKeys:[emailTextField.text lowercaseString],@"id",[passwordTextField.text valueForKey:@"password"],@"password",statusString,@"status", nil];
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        [userDefault setObject:adminDict forKey:@"admin"];
+        [userDefault synchronize];
+        
     }
     else if ([[dictionary valueForKey:@"message"] isEqualToString:@"You've already registered, please verify your email!"]){
         UIViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"verificationWarningPage"];

@@ -26,6 +26,16 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SF-UI-Display-Regular.otf</string>
+		<string>SF-UI-Display-Thin.otf</string>
+		<string>SF-UI-Display-Medium.otf</string>
+		<string>SF-UI-Display-Semibold.otf</string>
+		<string>SF-UI-Display-Bold.otf</string>
+	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>My App would pretty please like to use your GPS.</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

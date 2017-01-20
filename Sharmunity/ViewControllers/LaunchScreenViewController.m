@@ -65,7 +65,7 @@
 - (void)handleSubmit:(NSDictionary*)dictionary{
     BOOL success = [[dictionary valueForKey:@"success"] boolValue];
     if (success) {
-        UITabBarController *viewController = (UITabBarController *)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"tabBarViewController"];
+        UITabBarController *viewController = (UITabBarController *)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"MainTabBar"];
         [self presentViewController:viewController animated:YES completion:nil];
         //        [self updateToken:viewController idString:[[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"admin"] valueForKey:@"id"]];
     }

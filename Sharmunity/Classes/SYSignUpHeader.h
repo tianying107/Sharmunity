@@ -9,5 +9,8 @@
 #ifndef SYSignUpHeader_h
 #define SYSignUpHeader_h
 
+#import "SYSignUpEmail.h"
+#import "SYSignUpPassword.h"
+
 
 #endif /* SYSignUpHeader_h */

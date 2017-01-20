@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SignUpViewController : UIViewController
+#import "SYSignUpHeader.h"
+#import "Header.h"
+#import "SYHeader.h"
+@interface SignUpViewController : UIViewController{
+    SYSuscard *currentSuscard;
+    id firstView;
+    NSMutableArray *viewArray;
+    NSMutableArray *cardArray;
+    NSMutableDictionary *infoSummary;
+}
 
 @end

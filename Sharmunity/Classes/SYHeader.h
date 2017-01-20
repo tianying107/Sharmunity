@@ -2,12 +2,13 @@
 //  SYHeader.h
 //  Sharmunity
 //
-//  Created by st chen on 2017/1/19.
+//  Created by st chen on 2017/1/20.
 //  Copyright © 2017年 Sharmunity. All rights reserved.
 //
 
-#ifndef Header_h
-#define Header_h
+#ifndef SYHeader_h
+#define SYHeader_h
 
+#import "SYSuscard.h" 
 
-#endif /* Header_h */
+#endif /* SYHeader_h */

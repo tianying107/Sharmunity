@@ -19,6 +19,32 @@
 		442F48771E31D4ED00FB0561 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F48761E31D4ED00FB0561 /* MainTabBarViewController.m */; };
 		442F487C1E31DE4B00FB0561 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F487B1E31DE4B00FB0561 /* SignUpViewController.m */; };
 		442F48801E31E03D00FB0561 /* SYSignUpEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F487F1E31E03D00FB0561 /* SYSignUpEmail.m */; };
+		447E40DC1E3271E40010CAA4 /* SYSuscard.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E40DB1E3271E40010CAA4 /* SYSuscard.m */; };
+		447E40E01E32789F0010CAA4 /* SYSignUpPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E40DF1E32789F0010CAA4 /* SYSignUpPassword.m */; };
+		447E40F91E327D0D0010CAA4 /* License Agreement for SF UI Font.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40E31E327D0C0010CAA4 /* License Agreement for SF UI Font.pdf */; };
+		447E40FA1E327D0D0010CAA4 /* SF-UI-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40E41E327D0C0010CAA4 /* SF-UI-Display-Black.otf */; };
+		447E40FB1E327D0D0010CAA4 /* SF-UI-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40E51E327D0C0010CAA4 /* SF-UI-Display-Bold.otf */; };
+		447E40FC1E327D0D0010CAA4 /* SF-UI-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40E61E327D0C0010CAA4 /* SF-UI-Display-Heavy.otf */; };
+		447E40FD1E327D0D0010CAA4 /* SF-UI-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40E71E327D0C0010CAA4 /* SF-UI-Display-Light.otf */; };
+		447E40FE1E327D0D0010CAA4 /* SF-UI-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40E81E327D0C0010CAA4 /* SF-UI-Display-Medium.otf */; };
+		447E40FF1E327D0D0010CAA4 /* SF-UI-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40E91E327D0C0010CAA4 /* SF-UI-Display-Regular.otf */; };
+		447E41001E327D0D0010CAA4 /* SF-UI-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40EA1E327D0C0010CAA4 /* SF-UI-Display-Semibold.otf */; };
+		447E41011E327D0D0010CAA4 /* SF-UI-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40EB1E327D0C0010CAA4 /* SF-UI-Display-Thin.otf */; };
+		447E41021E327D0D0010CAA4 /* SF-UI-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40EC1E327D0C0010CAA4 /* SF-UI-Display-Ultralight.otf */; };
+		447E41031E327D0D0010CAA4 /* SF-UI-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40ED1E327D0C0010CAA4 /* SF-UI-Text-Bold.otf */; };
+		447E41041E327D0D0010CAA4 /* SF-UI-Text-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40EE1E327D0C0010CAA4 /* SF-UI-Text-BoldItalic.otf */; };
+		447E41051E327D0D0010CAA4 /* SF-UI-Text-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40EF1E327D0D0010CAA4 /* SF-UI-Text-Heavy.otf */; };
+		447E41061E327D0D0010CAA4 /* SF-UI-Text-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40F01E327D0D0010CAA4 /* SF-UI-Text-HeavyItalic.otf */; };
+		447E41071E327D0D0010CAA4 /* SF-UI-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40F11E327D0D0010CAA4 /* SF-UI-Text-Light.otf */; };
+		447E41081E327D0D0010CAA4 /* SF-UI-Text-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40F21E327D0D0010CAA4 /* SF-UI-Text-LightItalic.otf */; };
+		447E41091E327D0D0010CAA4 /* SF-UI-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40F31E327D0D0010CAA4 /* SF-UI-Text-Medium.otf */; };
+		447E410A1E327D0D0010CAA4 /* SF-UI-Text-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40F41E327D0D0010CAA4 /* SF-UI-Text-MediumItalic.otf */; };
+		447E410B1E327D0D0010CAA4 /* SF-UI-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40F51E327D0D0010CAA4 /* SF-UI-Text-Regular.otf */; };
+		447E410C1E327D0D0010CAA4 /* SF-UI-Text-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40F61E327D0D0010CAA4 /* SF-UI-Text-RegularItalic.otf */; };
+		447E410D1E327D0D0010CAA4 /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40F71E327D0D0010CAA4 /* SF-UI-Text-Semibold.otf */; };
+		447E410E1E327D0D0010CAA4 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40F81E327D0D0010CAA4 /* SF-UI-Text-SemiboldItalic.otf */; };
+		447E41111E327FD90010CAA4 /* VerificationWarningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E41101E327FD90010CAA4 /* VerificationWarningViewController.m */; };
+		447E41161E3296EF0010CAA4 /* AccountMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E41151E3296EF0010CAA4 /* AccountMainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +81,6 @@
 		442F485F1E31CC1000FB0561 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		442F486B1E31D11500FB0561 /* LaunchScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LaunchScreenViewController.h; path = ViewControllers/LaunchScreenViewController.h; sourceTree = "<group>"; };
 		442F486C1E31D11500FB0561 /* LaunchScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LaunchScreenViewController.m; path = ViewControllers/LaunchScreenViewController.m; sourceTree = "<group>"; };
-		442F486E1E31D19A00FB0561 /* SYHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SYHeader.h; path = Classes/SYHeader.h; sourceTree = "<group>"; };
 		442F48701E31D2D300FB0561 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Header.h; path = Classes/Header.h; sourceTree = "<group>"; };
 		442F48711E31D2F600FB0561 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WelcomeViewController.h; path = ViewControllers/WelcomeViewController.h; sourceTree = "<group>"; };
 		442F48721E31D2F600FB0561 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WelcomeViewController.m; path = ViewControllers/WelcomeViewController.m; sourceTree = "<group>"; };
@@ -67,6 +92,37 @@
 		442F487D1E31DF8200FB0561 /* SYSignUpHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SYSignUpHeader.h; path = Classes/SYSignUpHeader.h; sourceTree = "<group>"; };
 		442F487E1E31E03D00FB0561 /* SYSignUpEmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYSignUpEmail.h; path = Classes/SYSignUpEmail.h; sourceTree = "<group>"; };
 		442F487F1E31E03D00FB0561 /* SYSignUpEmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYSignUpEmail.m; path = Classes/SYSignUpEmail.m; sourceTree = "<group>"; };
+		447E40DA1E3271E40010CAA4 /* SYSuscard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYSuscard.h; path = Classes/SYSuscard.h; sourceTree = "<group>"; };
+		447E40DB1E3271E40010CAA4 /* SYSuscard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYSuscard.m; path = Classes/SYSuscard.m; sourceTree = "<group>"; };
+		447E40DD1E3272C70010CAA4 /* SYHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SYHeader.h; path = Classes/SYHeader.h; sourceTree = "<group>"; };
+		447E40DE1E32789F0010CAA4 /* SYSignUpPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYSignUpPassword.h; path = Classes/SYSignUpPassword.h; sourceTree = "<group>"; };
+		447E40DF1E32789F0010CAA4 /* SYSignUpPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYSignUpPassword.m; path = Classes/SYSignUpPassword.m; sourceTree = "<group>"; };
+		447E40E31E327D0C0010CAA4 /* License Agreement for SF UI Font.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "License Agreement for SF UI Font.pdf"; path = "Resource/Font/SF/License Agreement for SF UI Font.pdf"; sourceTree = "<group>"; };
+		447E40E41E327D0C0010CAA4 /* SF-UI-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Black.otf"; path = "Resource/Font/SF/SF-UI-Display-Black.otf"; sourceTree = "<group>"; };
+		447E40E51E327D0C0010CAA4 /* SF-UI-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Bold.otf"; path = "Resource/Font/SF/SF-UI-Display-Bold.otf"; sourceTree = "<group>"; };
+		447E40E61E327D0C0010CAA4 /* SF-UI-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Heavy.otf"; path = "Resource/Font/SF/SF-UI-Display-Heavy.otf"; sourceTree = "<group>"; };
+		447E40E71E327D0C0010CAA4 /* SF-UI-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Light.otf"; path = "Resource/Font/SF/SF-UI-Display-Light.otf"; sourceTree = "<group>"; };
+		447E40E81E327D0C0010CAA4 /* SF-UI-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Medium.otf"; path = "Resource/Font/SF/SF-UI-Display-Medium.otf"; sourceTree = "<group>"; };
+		447E40E91E327D0C0010CAA4 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Regular.otf"; path = "Resource/Font/SF/SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
+		447E40EA1E327D0C0010CAA4 /* SF-UI-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Semibold.otf"; path = "Resource/Font/SF/SF-UI-Display-Semibold.otf"; sourceTree = "<group>"; };
+		447E40EB1E327D0C0010CAA4 /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Thin.otf"; path = "Resource/Font/SF/SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
+		447E40EC1E327D0C0010CAA4 /* SF-UI-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Ultralight.otf"; path = "Resource/Font/SF/SF-UI-Display-Ultralight.otf"; sourceTree = "<group>"; };
+		447E40ED1E327D0C0010CAA4 /* SF-UI-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Bold.otf"; path = "Resource/Font/SF/SF-UI-Text-Bold.otf"; sourceTree = "<group>"; };
+		447E40EE1E327D0C0010CAA4 /* SF-UI-Text-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-BoldItalic.otf"; path = "Resource/Font/SF/SF-UI-Text-BoldItalic.otf"; sourceTree = "<group>"; };
+		447E40EF1E327D0D0010CAA4 /* SF-UI-Text-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Heavy.otf"; path = "Resource/Font/SF/SF-UI-Text-Heavy.otf"; sourceTree = "<group>"; };
+		447E40F01E327D0D0010CAA4 /* SF-UI-Text-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-HeavyItalic.otf"; path = "Resource/Font/SF/SF-UI-Text-HeavyItalic.otf"; sourceTree = "<group>"; };
+		447E40F11E327D0D0010CAA4 /* SF-UI-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Light.otf"; path = "Resource/Font/SF/SF-UI-Text-Light.otf"; sourceTree = "<group>"; };
+		447E40F21E327D0D0010CAA4 /* SF-UI-Text-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-LightItalic.otf"; path = "Resource/Font/SF/SF-UI-Text-LightItalic.otf"; sourceTree = "<group>"; };
+		447E40F31E327D0D0010CAA4 /* SF-UI-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Medium.otf"; path = "Resource/Font/SF/SF-UI-Text-Medium.otf"; sourceTree = "<group>"; };
+		447E40F41E327D0D0010CAA4 /* SF-UI-Text-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-MediumItalic.otf"; path = "Resource/Font/SF/SF-UI-Text-MediumItalic.otf"; sourceTree = "<group>"; };
+		447E40F51E327D0D0010CAA4 /* SF-UI-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Regular.otf"; path = "Resource/Font/SF/SF-UI-Text-Regular.otf"; sourceTree = "<group>"; };
+		447E40F61E327D0D0010CAA4 /* SF-UI-Text-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-RegularItalic.otf"; path = "Resource/Font/SF/SF-UI-Text-RegularItalic.otf"; sourceTree = "<group>"; };
+		447E40F71E327D0D0010CAA4 /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Semibold.otf"; path = "Resource/Font/SF/SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
+		447E40F81E327D0D0010CAA4 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-SemiboldItalic.otf"; path = "Resource/Font/SF/SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		447E410F1E327FD90010CAA4 /* VerificationWarningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VerificationWarningViewController.h; path = ViewControllers/VerificationWarningViewController.h; sourceTree = "<group>"; };
+		447E41101E327FD90010CAA4 /* VerificationWarningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VerificationWarningViewController.m; path = ViewControllers/VerificationWarningViewController.m; sourceTree = "<group>"; };
+		447E41141E3296EF0010CAA4 /* AccountMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountMainViewController.h; path = ViewControllers/AccountMainViewController.h; sourceTree = "<group>"; };
+		447E41151E3296EF0010CAA4 /* AccountMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountMainViewController.m; path = ViewControllers/AccountMainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				442F48791E31DDEA00FB0561 /* Sharmunity.entitlements */,
+				447E40E11E327CE00010CAA4 /* Resource */,
 				442F486F1E31D19F00FB0561 /* Class */,
 				442F48381E31CC0F00FB0561 /* AppDelegate.h */,
 				442F48391E31CC0F00FB0561 /* AppDelegate.m */,
@@ -125,6 +182,8 @@
 				442F48751E31D4ED00FB0561 /* MainTabBarViewController.h */,
 				442F48761E31D4ED00FB0561 /* MainTabBarViewController.m */,
 				442F48741E31D30300FB0561 /* logInAndSignUp */,
+				447E41121E3296B70010CAA4 /* Discover */,
+				447E41131E3296C20010CAA4 /* Account */,
 				442F48441E31CC0F00FB0561 /* Assets.xcassets */,
 				442F48461E31CC0F00FB0561 /* LaunchScreen.storyboard */,
 				442F486B1E31D11500FB0561 /* LaunchScreenViewController.h */,
@@ -164,9 +223,10 @@
 		442F486F1E31D19F00FB0561 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				442F48781E31D6CB00FB0561 /* SYSignUp */,
-				442F486E1E31D19A00FB0561 /* SYHeader.h */,
+				447E40DD1E3272C70010CAA4 /* SYHeader.h */,
 				442F48701E31D2D300FB0561 /* Header.h */,
+				447E40D91E3271660010CAA4 /* SYSuscard */,
+				442F48781E31D6CB00FB0561 /* SYSignUp */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -178,6 +238,8 @@
 				442F48721E31D2F600FB0561 /* WelcomeViewController.m */,
 				442F487A1E31DE4B00FB0561 /* SignUpViewController.h */,
 				442F487B1E31DE4B00FB0561 /* SignUpViewController.m */,
+				447E410F1E327FD90010CAA4 /* VerificationWarningViewController.h */,
+				447E41101E327FD90010CAA4 /* VerificationWarningViewController.m */,
 			);
 			name = logInAndSignUp;
 			sourceTree = "<group>";
@@ -188,8 +250,72 @@
 				442F487D1E31DF8200FB0561 /* SYSignUpHeader.h */,
 				442F487E1E31E03D00FB0561 /* SYSignUpEmail.h */,
 				442F487F1E31E03D00FB0561 /* SYSignUpEmail.m */,
+				447E40DE1E32789F0010CAA4 /* SYSignUpPassword.h */,
+				447E40DF1E32789F0010CAA4 /* SYSignUpPassword.m */,
 			);
 			name = SYSignUp;
+			sourceTree = "<group>";
+		};
+		447E40D91E3271660010CAA4 /* SYSuscard */ = {
+			isa = PBXGroup;
+			children = (
+				447E40DA1E3271E40010CAA4 /* SYSuscard.h */,
+				447E40DB1E3271E40010CAA4 /* SYSuscard.m */,
+			);
+			name = SYSuscard;
+			sourceTree = "<group>";
+		};
+		447E40E11E327CE00010CAA4 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				447E40E21E327CF10010CAA4 /* Font */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		447E40E21E327CF10010CAA4 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				447E40E31E327D0C0010CAA4 /* License Agreement for SF UI Font.pdf */,
+				447E40E41E327D0C0010CAA4 /* SF-UI-Display-Black.otf */,
+				447E40E51E327D0C0010CAA4 /* SF-UI-Display-Bold.otf */,
+				447E40E61E327D0C0010CAA4 /* SF-UI-Display-Heavy.otf */,
+				447E40E71E327D0C0010CAA4 /* SF-UI-Display-Light.otf */,
+				447E40E81E327D0C0010CAA4 /* SF-UI-Display-Medium.otf */,
+				447E40E91E327D0C0010CAA4 /* SF-UI-Display-Regular.otf */,
+				447E40EA1E327D0C0010CAA4 /* SF-UI-Display-Semibold.otf */,
+				447E40EB1E327D0C0010CAA4 /* SF-UI-Display-Thin.otf */,
+				447E40EC1E327D0C0010CAA4 /* SF-UI-Display-Ultralight.otf */,
+				447E40ED1E327D0C0010CAA4 /* SF-UI-Text-Bold.otf */,
+				447E40EE1E327D0C0010CAA4 /* SF-UI-Text-BoldItalic.otf */,
+				447E40EF1E327D0D0010CAA4 /* SF-UI-Text-Heavy.otf */,
+				447E40F01E327D0D0010CAA4 /* SF-UI-Text-HeavyItalic.otf */,
+				447E40F11E327D0D0010CAA4 /* SF-UI-Text-Light.otf */,
+				447E40F21E327D0D0010CAA4 /* SF-UI-Text-LightItalic.otf */,
+				447E40F31E327D0D0010CAA4 /* SF-UI-Text-Medium.otf */,
+				447E40F41E327D0D0010CAA4 /* SF-UI-Text-MediumItalic.otf */,
+				447E40F51E327D0D0010CAA4 /* SF-UI-Text-Regular.otf */,
+				447E40F61E327D0D0010CAA4 /* SF-UI-Text-RegularItalic.otf */,
+				447E40F71E327D0D0010CAA4 /* SF-UI-Text-Semibold.otf */,
+				447E40F81E327D0D0010CAA4 /* SF-UI-Text-SemiboldItalic.otf */,
+			);
+			name = Font;
+			sourceTree = "<group>";
+		};
+		447E41121E3296B70010CAA4 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Discover;
+			sourceTree = "<group>";
+		};
+		447E41131E3296C20010CAA4 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				447E41141E3296EF0010CAA4 /* AccountMainViewController.h */,
+				447E41151E3296EF0010CAA4 /* AccountMainViewController.m */,
+			);
+			name = Account;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,9 +432,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				447E410D1E327D0D0010CAA4 /* SF-UI-Text-Semibold.otf in Resources */,
+				447E40FA1E327D0D0010CAA4 /* SF-UI-Display-Black.otf in Resources */,
+				447E410A1E327D0D0010CAA4 /* SF-UI-Text-MediumItalic.otf in Resources */,
+				447E40F91E327D0D0010CAA4 /* License Agreement for SF UI Font.pdf in Resources */,
+				447E40FF1E327D0D0010CAA4 /* SF-UI-Display-Regular.otf in Resources */,
+				447E40FD1E327D0D0010CAA4 /* SF-UI-Display-Light.otf in Resources */,
+				447E41021E327D0D0010CAA4 /* SF-UI-Display-Ultralight.otf in Resources */,
+				447E41011E327D0D0010CAA4 /* SF-UI-Display-Thin.otf in Resources */,
+				447E40FE1E327D0D0010CAA4 /* SF-UI-Display-Medium.otf in Resources */,
 				442F48481E31CC0F00FB0561 /* LaunchScreen.storyboard in Resources */,
+				447E41091E327D0D0010CAA4 /* SF-UI-Text-Medium.otf in Resources */,
+				447E41031E327D0D0010CAA4 /* SF-UI-Text-Bold.otf in Resources */,
 				442F48451E31CC0F00FB0561 /* Assets.xcassets in Resources */,
+				447E40FB1E327D0D0010CAA4 /* SF-UI-Display-Bold.otf in Resources */,
+				447E41051E327D0D0010CAA4 /* SF-UI-Text-Heavy.otf in Resources */,
+				447E410C1E327D0D0010CAA4 /* SF-UI-Text-RegularItalic.otf in Resources */,
+				447E410B1E327D0D0010CAA4 /* SF-UI-Text-Regular.otf in Resources */,
+				447E410E1E327D0D0010CAA4 /* SF-UI-Text-SemiboldItalic.otf in Resources */,
+				447E40FC1E327D0D0010CAA4 /* SF-UI-Display-Heavy.otf in Resources */,
 				442F48431E31CC0F00FB0561 /* Main.storyboard in Resources */,
+				447E41061E327D0D0010CAA4 /* SF-UI-Text-HeavyItalic.otf in Resources */,
+				447E41041E327D0D0010CAA4 /* SF-UI-Text-BoldItalic.otf in Resources */,
+				447E41081E327D0D0010CAA4 /* SF-UI-Text-LightItalic.otf in Resources */,
+				447E41071E327D0D0010CAA4 /* SF-UI-Text-Light.otf in Resources */,
+				447E41001E327D0D0010CAA4 /* SF-UI-Display-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,11 +483,15 @@
 			files = (
 				442F48771E31D4ED00FB0561 /* MainTabBarViewController.m in Sources */,
 				442F483A1E31CC0F00FB0561 /* AppDelegate.m in Sources */,
+				447E40E01E32789F0010CAA4 /* SYSignUpPassword.m in Sources */,
+				447E41161E3296EF0010CAA4 /* AccountMainViewController.m in Sources */,
 				442F487C1E31DE4B00FB0561 /* SignUpViewController.m in Sources */,
+				447E41111E327FD90010CAA4 /* VerificationWarningViewController.m in Sources */,
 				442F486D1E31D11500FB0561 /* LaunchScreenViewController.m in Sources */,
 				442F48801E31E03D00FB0561 /* SYSignUpEmail.m in Sources */,
 				442F48371E31CC0F00FB0561 /* main.m in Sources */,
 				442F48731E31D2F600FB0561 /* WelcomeViewController.m in Sources */,
+				447E40DC1E3271E40010CAA4 /* SYSuscard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +647,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SY.Sharmunity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -509,6 +662,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SY.Sharmunity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -581,6 +735,7 @@
 				442F48641E31CC1000FB0561 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		442F48651E31CC1000FB0561 /* Build configuration list for PBXNativeTarget "SharmunityTests" */ = {
 			isa = XCConfigurationList;
@@ -589,6 +744,7 @@
 				442F48671E31CC1000FB0561 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		442F48681E31CC1000FB0561 /* Build configuration list for PBXNativeTarget "SharmunityUITests" */ = {
 			isa = XCConfigurationList;
@@ -597,6 +753,7 @@
 				442F486A1E31CC1000FB0561 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
