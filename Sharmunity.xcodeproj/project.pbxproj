@@ -63,6 +63,7 @@
 		442F48791E31DDEA00FB0561 /* Sharmunity.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sharmunity.entitlements; sourceTree = "<group>"; };
 		442F487A1E31DE4B00FB0561 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = ViewControllers/SignUpViewController.h; sourceTree = "<group>"; };
 		442F487B1E31DE4B00FB0561 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = ViewControllers/SignUpViewController.m; sourceTree = "<group>"; };
+		442F487D1E31DF8200FB0561 /* SYSignUpHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SYSignUpHeader.h; path = Classes/SYSignUpHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,9 +172,9 @@
 			isa = PBXGroup;
 			children = (
 				442F48711E31D2F600FB0561 /* WelcomeViewController.h */,
+				442F48721E31D2F600FB0561 /* WelcomeViewController.m */,
 				442F487A1E31DE4B00FB0561 /* SignUpViewController.h */,
 				442F487B1E31DE4B00FB0561 /* SignUpViewController.m */,
-				442F48721E31D2F600FB0561 /* WelcomeViewController.m */,
 			);
 			name = logInAndSignUp;
 			sourceTree = "<group>";
@@ -181,6 +182,7 @@
 		442F48781E31D6CB00FB0561 /* SYSignUp */ = {
 			isa = PBXGroup;
 			children = (
+				442F487D1E31DF8200FB0561 /* SYSignUpHeader.h */,
 			);
 			name = SYSignUp;
 			sourceTree = "<group>";
