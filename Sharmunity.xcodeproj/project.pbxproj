@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		442F48371E31CC0F00FB0561 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F48361E31CC0F00FB0561 /* main.m */; };
 		442F483A1E31CC0F00FB0561 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F48391E31CC0F00FB0561 /* AppDelegate.m */; };
-		442F483D1E31CC0F00FB0561 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F483C1E31CC0F00FB0561 /* FirstViewController.m */; };
-		442F48401E31CC0F00FB0561 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F483F1E31CC0F00FB0561 /* SecondViewController.m */; };
 		442F48431E31CC0F00FB0561 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442F48411E31CC0F00FB0561 /* Main.storyboard */; };
 		442F48451E31CC0F00FB0561 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 442F48441E31CC0F00FB0561 /* Assets.xcassets */; };
 		442F48481E31CC0F00FB0561 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442F48461E31CC0F00FB0561 /* LaunchScreen.storyboard */; };
 		442F48531E31CC1000FB0561 /* SharmunityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F48521E31CC1000FB0561 /* SharmunityTests.m */; };
 		442F485E1E31CC1000FB0561 /* SharmunityUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F485D1E31CC1000FB0561 /* SharmunityUITests.m */; };
+		442F486D1E31D11500FB0561 /* LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F486C1E31D11500FB0561 /* LaunchScreenViewController.m */; };
+		442F48731E31D2F600FB0561 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F48721E31D2F600FB0561 /* WelcomeViewController.m */; };
+		442F48771E31D4ED00FB0561 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F48761E31D4ED00FB0561 /* MainTabBarViewController.m */; };
+		442F487C1E31DE4B00FB0561 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F487B1E31DE4B00FB0561 /* SignUpViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +42,6 @@
 		442F48361E31CC0F00FB0561 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		442F48381E31CC0F00FB0561 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		442F48391E31CC0F00FB0561 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		442F483B1E31CC0F00FB0561 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		442F483C1E31CC0F00FB0561 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		442F483E1E31CC0F00FB0561 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		442F483F1E31CC0F00FB0561 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		442F48421E31CC0F00FB0561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		442F48441E31CC0F00FB0561 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		442F48471E31CC0F00FB0561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +52,17 @@
 		442F48591E31CC1000FB0561 /* SharmunityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharmunityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		442F485D1E31CC1000FB0561 /* SharmunityUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharmunityUITests.m; sourceTree = "<group>"; };
 		442F485F1E31CC1000FB0561 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		442F486B1E31D11500FB0561 /* LaunchScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LaunchScreenViewController.h; path = ViewControllers/LaunchScreenViewController.h; sourceTree = "<group>"; };
+		442F486C1E31D11500FB0561 /* LaunchScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LaunchScreenViewController.m; path = ViewControllers/LaunchScreenViewController.m; sourceTree = "<group>"; };
+		442F486E1E31D19A00FB0561 /* SYHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SYHeader.h; path = Classes/SYHeader.h; sourceTree = "<group>"; };
+		442F48701E31D2D300FB0561 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Header.h; path = Classes/Header.h; sourceTree = "<group>"; };
+		442F48711E31D2F600FB0561 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WelcomeViewController.h; path = ViewControllers/WelcomeViewController.h; sourceTree = "<group>"; };
+		442F48721E31D2F600FB0561 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WelcomeViewController.m; path = ViewControllers/WelcomeViewController.m; sourceTree = "<group>"; };
+		442F48751E31D4ED00FB0561 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTabBarViewController.h; path = ViewControllers/MainTabBarViewController.h; sourceTree = "<group>"; };
+		442F48761E31D4ED00FB0561 /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTabBarViewController.m; path = ViewControllers/MainTabBarViewController.m; sourceTree = "<group>"; };
+		442F48791E31DDEA00FB0561 /* Sharmunity.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sharmunity.entitlements; sourceTree = "<group>"; };
+		442F487A1E31DE4B00FB0561 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = ViewControllers/SignUpViewController.h; sourceTree = "<group>"; };
+		442F487B1E31DE4B00FB0561 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = ViewControllers/SignUpViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,15 +113,18 @@
 		442F48341E31CC0F00FB0561 /* Sharmunity */ = {
 			isa = PBXGroup;
 			children = (
+				442F48791E31DDEA00FB0561 /* Sharmunity.entitlements */,
+				442F486F1E31D19F00FB0561 /* Class */,
 				442F48381E31CC0F00FB0561 /* AppDelegate.h */,
 				442F48391E31CC0F00FB0561 /* AppDelegate.m */,
-				442F483B1E31CC0F00FB0561 /* FirstViewController.h */,
-				442F483C1E31CC0F00FB0561 /* FirstViewController.m */,
-				442F483E1E31CC0F00FB0561 /* SecondViewController.h */,
-				442F483F1E31CC0F00FB0561 /* SecondViewController.m */,
 				442F48411E31CC0F00FB0561 /* Main.storyboard */,
+				442F48751E31D4ED00FB0561 /* MainTabBarViewController.h */,
+				442F48761E31D4ED00FB0561 /* MainTabBarViewController.m */,
+				442F48741E31D30300FB0561 /* logInAndSignUp */,
 				442F48441E31CC0F00FB0561 /* Assets.xcassets */,
 				442F48461E31CC0F00FB0561 /* LaunchScreen.storyboard */,
+				442F486B1E31D11500FB0561 /* LaunchScreenViewController.h */,
+				442F486C1E31D11500FB0561 /* LaunchScreenViewController.m */,
 				442F48491E31CC0F00FB0561 /* Info.plist */,
 				442F48351E31CC0F00FB0561 /* Supporting Files */,
 			);
@@ -143,6 +155,34 @@
 				442F485F1E31CC1000FB0561 /* Info.plist */,
 			);
 			path = SharmunityUITests;
+			sourceTree = "<group>";
+		};
+		442F486F1E31D19F00FB0561 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				442F48781E31D6CB00FB0561 /* SYSignUp */,
+				442F486E1E31D19A00FB0561 /* SYHeader.h */,
+				442F48701E31D2D300FB0561 /* Header.h */,
+			);
+			name = Class;
+			sourceTree = "<group>";
+		};
+		442F48741E31D30300FB0561 /* logInAndSignUp */ = {
+			isa = PBXGroup;
+			children = (
+				442F48711E31D2F600FB0561 /* WelcomeViewController.h */,
+				442F487A1E31DE4B00FB0561 /* SignUpViewController.h */,
+				442F487B1E31DE4B00FB0561 /* SignUpViewController.m */,
+				442F48721E31D2F600FB0561 /* WelcomeViewController.m */,
+			);
+			name = logInAndSignUp;
+			sourceTree = "<group>";
+		};
+		442F48781E31D6CB00FB0561 /* SYSignUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SYSignUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +254,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = T844TE94T5;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					442F484D1E31CC1000FB0561 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -281,10 +326,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				442F48401E31CC0F00FB0561 /* SecondViewController.m in Sources */,
+				442F48771E31D4ED00FB0561 /* MainTabBarViewController.m in Sources */,
 				442F483A1E31CC0F00FB0561 /* AppDelegate.m in Sources */,
-				442F483D1E31CC0F00FB0561 /* FirstViewController.m in Sources */,
+				442F487C1E31DE4B00FB0561 /* SignUpViewController.m in Sources */,
+				442F486D1E31D11500FB0561 /* LaunchScreenViewController.m in Sources */,
 				442F48371E31CC0F00FB0561 /* main.m in Sources */,
+				442F48731E31D2F600FB0561 /* WelcomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,10 +480,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sharmunity/Sharmunity.entitlements;
 				DEVELOPMENT_TEAM = T844TE94T5;
 				INFOPLIST_FILE = Sharmunity/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Andy.Sharmunity;
+				PRODUCT_BUNDLE_IDENTIFIER = SY.Sharmunity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -445,10 +494,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sharmunity/Sharmunity.entitlements;
 				DEVELOPMENT_TEAM = T844TE94T5;
 				INFOPLIST_FILE = Sharmunity/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Andy.Sharmunity;
+				PRODUCT_BUNDLE_IDENTIFIER = SY.Sharmunity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

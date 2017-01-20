@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  LaunchScreenViewController.h
 //  Sharmunity
 //
 //  Created by st chen on 2017/1/19.
@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SecondViewController : UIViewController
-
+#import "Header.h"
+@interface LaunchScreenViewController : UIViewController
 
 @end
-

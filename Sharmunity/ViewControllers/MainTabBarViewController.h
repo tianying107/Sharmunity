@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  MainTabBarViewController.h
 //  Sharmunity
 //
 //  Created by st chen on 2017/1/19.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
-
+@interface MainTabBarViewController : UITabBarController
 
 @end
-
