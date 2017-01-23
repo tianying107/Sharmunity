@@ -22,6 +22,8 @@
     [loginButton addTarget:self action:@selector(logInResponse) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginButton];
     
+    [_forgetPasswordButton addTarget:self action:@selector(forgetPasswordResponse) forControlEvents:UIControlEventTouchUpInside];
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
@@ -35,6 +37,7 @@
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [self.locationManager requestWhenInUseAuthorization];
     }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,12 +86,22 @@
 - (void)handleSubmit:(NSDictionary*)dictionary{
     BOOL success = [[dictionary valueForKey:@"success"] boolValue];
     if (success) {
-        UITabBarController *viewController = (UITabBarController *)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"MainTabBar"];
-        [self presentViewController:viewController animated:YES completion:nil];
+        
+        UIViewController *viewController;
         NSString *statusString = @"0";
-        if ([dictionary valueForKey:@"status"]) {
+        if ([dictionary valueForKey:@"status"]){
             statusString = [dictionary valueForKey:@"status"];
+            if ([statusString boolValue])
+                viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"MainTabBar"];
+            else
+                viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"verificationWarningPage"];
         }
+        else
+            viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"verificationWarningPage"];
+        
+        [self presentViewController:viewController animated:YES completion:nil];
+        
+
         NSDictionary *adminDict = [[NSDictionary alloc] initWithObjectsAndKeys:[emailTextField.text lowercaseString],@"id",[passwordTextField.text lowercaseString],@"password",statusString,@"status", nil];
         NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
         [userDefault setObject:adminDict forKey:@"admin"];
@@ -103,5 +116,37 @@
         NSLog(@"wrong!");
 }
 
-
+-(void)forgetPasswordResponse{
+    NSString *requestBody = [NSString stringWithFormat:@"email=%@",emailTextField.text];
+    NSLog(@"%@/n",requestBody);
+    
+    /*改上面的 query 和 URLstring 就好了*/
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@resetpwd",basicURL]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = @"POST";
+    request.HTTPBody = [requestBody dataUsingEncoding:NSUTF8StringEncoding];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionTask *task = [session dataTaskWithRequest:request];
+    [task resume];
+    [self testget];
+}
+-(void)testget{
+    NSString *requestQuery = [NSString stringWithFormat:@"email=%@",emailTextField.text];
+    NSString *urlString = [NSString stringWithFormat:@"%@reqprofile?%@",basicURL,requestQuery];
+    NSLog(@"%@",requestQuery);
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLSessionTask *task = [session dataTaskWithURL:url
+                                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
+                                                                                             options:kNilOptions
+                                                                                               error:&error];
+                                        NSLog(@"server said: %@",dict);
+//                                        dispatch_async(dispatch_get_main_queue(), ^{
+//                                            [self handleSubmit:dict];
+//                                        });
+                                        
+                                    }];
+    [task resume];
+}
 @end

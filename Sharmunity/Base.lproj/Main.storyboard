@@ -35,7 +35,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jJI-dL-pWG" id="BNw-rK-vhn">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -314,6 +314,7 @@
                     <navigationItem key="navigationItem" id="wlR-3P-y3n"/>
                     <connections>
                         <outlet property="emailTextField" destination="7py-Bz-Aur" id="iNw-c5-J96"/>
+                        <outlet property="forgetPasswordButton" destination="mXG-zm-ABE" id="n6Q-v4-imW"/>
                         <outlet property="passwordTextField" destination="1fW-ss-qgM" id="VgT-B4-CgR"/>
                     </connections>
                 </viewController>
