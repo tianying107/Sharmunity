@@ -334,22 +334,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="An E-mail has sent to your email address. Please verify your email." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDR-j2-5vU">
-                                <rect key="frame" x="29" y="239" width="317" height="101"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我们已向您发送电子邮件，以帮助您完成身份验证。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDR-j2-5vU">
+                                <rect key="frame" x="16" y="239" width="343" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWh-ab-f3x">
-                                <rect key="frame" x="169" y="389" width="37" height="30"/>
+                                <rect key="frame" x="149" y="389" width="77" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Done"/>
+                                <state key="normal" title="已完成验证"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1E-9q-adb">
-                                <rect key="frame" x="138" y="439" width="99" height="30"/>
+                                <rect key="frame" x="157" y="439" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Resend E-mail"/>
+                                <state key="normal" title="重新发送"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WaM-Ea-Em0">
+                                <rect key="frame" x="149" y="494" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="返回登陆页"/>
+                                <connections>
+                                    <segue destination="3iq-7f-pPk" kind="show" id="z7z-ox-WtR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -513,7 +521,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CHq-7g-lnp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="发现" image="first" id="acW-dT-cKf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="O6N-Fa-dCq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="O6N-Fa-dCq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -532,7 +540,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MJD-fw-8J6" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="附近" image="second" id="cPa-gy-q4n"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XCb-2G-byx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XCb-2G-byx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -551,7 +559,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JBW-b3-nQz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="匹配" image="first" id="60S-JU-YEj"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Fzo-rb-OBR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fzo-rb-OBR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -570,7 +578,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uBy-OG-v72" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我的" image="second" id="ran-g5-ZaM"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9ll-gY-kvY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9ll-gY-kvY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -588,7 +596,7 @@
             <objects>
                 <navigationController storyboardIdentifier="WelcomeNavigator" automaticallyAdjustsScrollViewInsets="NO" id="3iq-7f-pPk" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JXu-IO-hyZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JXu-IO-hyZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
