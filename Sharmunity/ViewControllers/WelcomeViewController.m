@@ -8,7 +8,10 @@
 
 #import "WelcomeViewController.h"
 #import "Header.h"
-@interface WelcomeViewController ()
+#import "SYHeader.h"
+@interface WelcomeViewController (){
+    SYPopOut *popOut;
+}
 
 @end
 
@@ -38,6 +41,7 @@
         [self.locationManager requestWhenInUseAuthorization];
     }
     
+    popOut = [SYPopOut new];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,36 +88,42 @@
 }
 
 - (void)handleSubmit:(NSDictionary*)dictionary{
-    BOOL success = [[dictionary valueForKey:@"success"] boolValue];
-    if (success) {
-        
-        UIViewController *viewController;
-        NSString *statusString = @"0";
-        if ([dictionary valueForKey:@"status"]){
-            statusString = [dictionary valueForKey:@"status"];
-            if ([statusString boolValue])
-                viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"MainTabBar"];
+    if ([dictionary valueForKey:@"success"]) {
+        BOOL success = [[dictionary valueForKey:@"success"] boolValue];
+        if (success) {
+            
+            UIViewController *viewController;
+            NSString *statusString = @"0";
+            if ([dictionary valueForKey:@"status"]){
+                statusString = [dictionary valueForKey:@"status"];
+                if ([statusString boolValue])
+                    viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"MainTabBar"];
+                else
+                    viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"verificationWarningPage"];
+            }
             else
                 viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"verificationWarningPage"];
+            
+            [self presentViewController:viewController animated:YES completion:nil];
+            
+            
+            NSDictionary *adminDict = [[NSDictionary alloc] initWithObjectsAndKeys:[emailTextField.text lowercaseString],@"id",[passwordTextField.text lowercaseString],@"password",statusString,@"status", nil];
+            NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+            [userDefault setObject:adminDict forKey:@"admin"];
+            [userDefault synchronize];
+            
+        }
+        else if ([[dictionary valueForKey:@"message"] isEqualToString:@"You've already registered, please verify your email!"]){
+            UIViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"verificationWarningPage"];
+            [self presentViewController:viewController animated:YES completion:nil];
         }
         else
-            viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"verificationWarningPage"];
-        
-        [self presentViewController:viewController animated:YES completion:nil];
-        
-
-        NSDictionary *adminDict = [[NSDictionary alloc] initWithObjectsAndKeys:[emailTextField.text lowercaseString],@"id",[passwordTextField.text lowercaseString],@"password",statusString,@"status", nil];
-        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-        [userDefault setObject:adminDict forKey:@"admin"];
-        [userDefault synchronize];
-        
+            [popOut showUpPop:SYPopLogInFail];
     }
-    else if ([[dictionary valueForKey:@"message"] isEqualToString:@"You've already registered, please verify your email!"]){
-        UIViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"verificationWarningPage"];
-        [self presentViewController:viewController animated:YES completion:nil];
+    else{
+        [popOut showUpPop:SYPopLogInNetwork];
     }
-    else
-        NSLog(@"wrong!");
+    
 }
 
 -(void)forgetPasswordResponse{
@@ -128,7 +138,7 @@
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionTask *task = [session dataTaskWithRequest:request];
     [task resume];
-    [self testget];
+//    [self testget];
 }
 -(void)testget{
     NSString *requestQuery = [NSString stringWithFormat:@"email=%@",emailTextField.text];

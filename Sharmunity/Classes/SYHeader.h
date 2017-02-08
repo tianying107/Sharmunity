@@ -12,4 +12,7 @@
 #import "SYSuscard.h" 
 #import "SYCell.h"
 
+
+#import "SYPopOut.h"
+
 #endif /* SYHeader_h */

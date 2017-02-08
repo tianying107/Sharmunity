@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44101A851E3E64F200BB96B1 /* DiscoverEatHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44101A841E3E64F200BB96B1 /* DiscoverEatHelpViewController.m */; };
+		44101A881E46AEE100BB96B1 /* SYPopOut.m in Sources */ = {isa = PBXBuildFile; fileRef = 44101A871E46AEE100BB96B1 /* SYPopOut.m */; };
 		442F48371E31CC0F00FB0561 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F48361E31CC0F00FB0561 /* main.m */; };
 		442F483A1E31CC0F00FB0561 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F48391E31CC0F00FB0561 /* AppDelegate.m */; };
 		442F48431E31CC0F00FB0561 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442F48411E31CC0F00FB0561 /* Main.storyboard */; };
@@ -48,6 +50,7 @@
 		447E41191E32B0030010CAA4 /* DiscoverMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E41181E32B0030010CAA4 /* DiscoverMainViewController.m */; };
 		447E411E1E32B5010010CAA4 /* SYCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E411D1E32B5010010CAA4 /* SYCell.m */; };
 		447E41221E32BE3C0010CAA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447E41211E32BE3C0010CAA4 /* MapKit.framework */; };
+		44A502C51E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A502C41E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		44101A831E3E64F200BB96B1 /* DiscoverEatHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverEatHelpViewController.h; path = ViewControllers/DiscoverEatHelpViewController.h; sourceTree = "<group>"; };
+		44101A841E3E64F200BB96B1 /* DiscoverEatHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverEatHelpViewController.m; path = ViewControllers/DiscoverEatHelpViewController.m; sourceTree = "<group>"; };
+		44101A861E46AEE100BB96B1 /* SYPopOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYPopOut.h; path = Classes/SYPopOut.h; sourceTree = "<group>"; };
+		44101A871E46AEE100BB96B1 /* SYPopOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYPopOut.m; path = Classes/SYPopOut.m; sourceTree = "<group>"; };
 		442F48321E31CC0F00FB0561 /* Sharmunity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sharmunity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		442F48361E31CC0F00FB0561 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		442F48381E31CC0F00FB0561 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -131,6 +138,8 @@
 		447E411C1E32B5010010CAA4 /* SYCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYCell.h; path = Classes/SYCell.h; sourceTree = "<group>"; };
 		447E411D1E32B5010010CAA4 /* SYCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYCell.m; path = Classes/SYCell.m; sourceTree = "<group>"; };
 		447E41211E32BE3C0010CAA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		44A502C31E47AB5A0008C4AD /* DiscoverLiveHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLiveHelpViewController.h; path = ViewControllers/DiscoverLiveHelpViewController.h; sourceTree = "<group>"; };
+		44A502C41E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLiveHelpViewController.m; path = ViewControllers/DiscoverLiveHelpViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +249,7 @@
 				447E40D91E3271660010CAA4 /* SYSuscard */,
 				442F48781E31D6CB00FB0561 /* SYSignUp */,
 				447E411F1E32B5080010CAA4 /* SYCell */,
+				44A502C21E46BE570008C4AD /* SYPopOut */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -320,6 +330,8 @@
 			children = (
 				447E41171E32B0030010CAA4 /* DiscoverMainViewController.h */,
 				447E41181E32B0030010CAA4 /* DiscoverMainViewController.m */,
+				44A502C71E47AB6B0008C4AD /* Eat */,
+				44A502C61E47AB5F0008C4AD /* Live */,
 			);
 			name = Discover;
 			sourceTree = "<group>";
@@ -362,6 +374,33 @@
 				447E41211E32BE3C0010CAA4 /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		44A502C21E46BE570008C4AD /* SYPopOut */ = {
+			isa = PBXGroup;
+			children = (
+				44101A861E46AEE100BB96B1 /* SYPopOut.h */,
+				44101A871E46AEE100BB96B1 /* SYPopOut.m */,
+			);
+			name = SYPopOut;
+			sourceTree = "<group>";
+		};
+		44A502C61E47AB5F0008C4AD /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				44A502C31E47AB5A0008C4AD /* DiscoverLiveHelpViewController.h */,
+				44A502C41E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m */,
+			);
+			name = Live;
+			sourceTree = "<group>";
+		};
+		44A502C71E47AB6B0008C4AD /* Eat */ = {
+			isa = PBXGroup;
+			children = (
+				44101A831E3E64F200BB96B1 /* DiscoverEatHelpViewController.h */,
+				44101A841E3E64F200BB96B1 /* DiscoverEatHelpViewController.m */,
+			);
+			name = Eat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -531,9 +570,12 @@
 				442F483A1E31CC0F00FB0561 /* AppDelegate.m in Sources */,
 				447E41191E32B0030010CAA4 /* DiscoverMainViewController.m in Sources */,
 				447E40E01E32789F0010CAA4 /* SYSignUpPassword.m in Sources */,
+				44A502C51E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m in Sources */,
 				447E411E1E32B5010010CAA4 /* SYCell.m in Sources */,
 				447E41161E3296EF0010CAA4 /* AccountMainViewController.m in Sources */,
+				44101A881E46AEE100BB96B1 /* SYPopOut.m in Sources */,
 				442F487C1E31DE4B00FB0561 /* SignUpViewController.m in Sources */,
+				44101A851E3E64F200BB96B1 /* DiscoverEatHelpViewController.m in Sources */,
 				447E41111E327FD90010CAA4 /* VerificationWarningViewController.m in Sources */,
 				442F486D1E31D11500FB0561 /* LaunchScreenViewController.m in Sources */,
 				442F48801E31E03D00FB0561 /* SYSignUpEmail.m in Sources */,

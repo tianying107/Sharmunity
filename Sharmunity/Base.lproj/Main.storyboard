@@ -35,7 +35,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jJI-dL-pWG" id="BNw-rK-vhn">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -418,10 +418,10 @@
             </objects>
             <point key="canvasLocation" x="4782" y="-2193"/>
         </scene>
-        <!--View Controller-->
+        <!--Discover Eat Help View Controller-->
         <scene sceneID="cMb-BD-RTo">
             <objects>
-                <viewController id="gkh-yy-CRL" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="gkh-yy-CRL" customClass="DiscoverEatHelpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tMZ-GH-fPG"/>
                         <viewControllerLayoutGuide type="bottom" id="aPB-Ee-n2c"/>
@@ -429,8 +429,24 @@
                     <view key="view" contentMode="scaleToFill" id="13b-il-pW7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2et-kL-QgP">
+                                <rect key="frame" x="150" y="318" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Post Share"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDb-G2-Zin">
+                                <rect key="frame" x="154" y="415" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="New Help"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="helpTestButton" destination="RDb-G2-Zin" id="iMx-Es-c0G"/>
+                        <outlet property="testButton" destination="2et-kL-QgP" id="Wrk-Tt-ome"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZRi-cZ-PSt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -454,10 +470,10 @@
             </objects>
             <point key="canvasLocation" x="4782" y="-1517"/>
         </scene>
-        <!--View Controller-->
+        <!--住-->
         <scene sceneID="PfB-Qa-i62">
             <objects>
-                <viewController id="ttY-Di-51D" sceneMemberID="viewController">
+                <viewController title="住" hidesBottomBarWhenPushed="YES" id="ttY-Di-51D" customClass="DiscoverLiveHelpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mp7-FF-Wf6"/>
                         <viewControllerLayoutGuide type="bottom" id="T1j-QV-BEQ"/>
@@ -465,8 +481,42 @@
                     <view key="view" contentMode="scaleToFill" id="U01-iB-E9O">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2L-dr-6aF">
+                                <rect key="frame" x="87" y="222" width="200" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.64843770771134324" blue="0.3194830852998769" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="租房子">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5x-3y-gDq">
+                                <rect key="frame" x="87" y="303" width="200" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.25882352939999997" green="0.4039215686" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="出租房">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tz1-Nu-NLn">
+                                <rect key="frame" x="87" y="387" width="200" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.24667945711900252" green="0.51398558937823835" blue="0.22146448046860762" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="搬家">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="leaseButton" destination="P5x-3y-gDq" id="BQq-hs-tT1"/>
+                        <outlet property="moveButton" destination="Tz1-Nu-NLn" id="WVN-Qt-49C"/>
+                        <outlet property="rentButton" destination="Y2L-dr-6aF" id="BZ6-d1-mBf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l9L-Qs-ZyP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -532,7 +582,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CHq-7g-lnp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="发现" image="first" id="acW-dT-cKf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="O6N-Fa-dCq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="O6N-Fa-dCq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
