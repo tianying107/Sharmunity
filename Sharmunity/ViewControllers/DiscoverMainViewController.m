@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    isHelp = YES;
+    
+    [self viewsSetup];
     // Do any additional setup after loading the view.
 }
 
@@ -23,6 +26,43 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)viewsSetup{
+    [_currentShareButton addTarget:self action:@selector(shareHelpSwitch:) forControlEvents:UIControlEventTouchUpInside];
+    [_currentHelpButton addTarget:self action:@selector(shareHelpSwitch:) forControlEvents:UIControlEventTouchUpInside];
+    [_liveButton addTarget:self action:@selector(liveButtonResponse) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(IBAction)shareHelpSwitch:(id)sender{
+    isHelp = ([sender isEqual:_currentHelpButton])?YES:NO;
+}
+
+- (void)liveButtonResponse{
+    if (isHelp) {
+        DiscoverLiveHelpViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"liveHelpFirst"];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
+    else{
+        DiscoverLiveShareViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"liveShareFirst"];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //** the number of section and rows
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

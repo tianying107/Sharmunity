@@ -9,6 +9,7 @@
 #import "WelcomeViewController.h"
 #import "Header.h"
 #import "SYHeader.h"
+
 @interface WelcomeViewController (){
     SYPopOut *popOut;
 }
@@ -16,14 +17,11 @@
 @end
 
 @implementation WelcomeViewController
-@synthesize emailTextField, passwordTextField;
+@synthesize emailTextField, passwordTextField, loginButton;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    loginButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width-30-48, self.view.frame.size.height-48-30-216, 48, 48)];
-    loginButton.hidden = YES;
-    [loginButton setImage:[UIImage imageNamed:@"confirmCircle"] forState:UIControlStateNormal];
+
     [loginButton addTarget:self action:@selector(logInResponse) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:loginButton];
     
     [_forgetPasswordButton addTarget:self action:@selector(forgetPasswordResponse) forControlEvents:UIControlEventTouchUpInside];
     
@@ -31,7 +29,7 @@
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShowUp:) name:UIKeyboardWillShowNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShowUp:) name:UIKeyboardWillShowNotification object:nil];
     passwordTextField.secureTextEntry = YES;
     
     
@@ -52,17 +50,17 @@
 -(void)dismissKeyboard {
     [emailTextField resignFirstResponder];
     [passwordTextField resignFirstResponder];
-    loginButton.hidden = YES;
+//    loginButton.hidden = YES;
 }
-- (void)keyboardShowUp:(NSNotification *)notification{
-    NSDictionary* keyboardInfo = [notification userInfo];
-    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameEndUserInfoKey];
-    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
-    float height = keyboardFrameBeginRect.size.height;
-    
-    loginButton.frame = CGRectMake(loginButton.frame.origin.x, self.view.frame.size.height-30-loginButton.frame.size.height-height, loginButton.frame.size.width, loginButton.frame.size.height);
-    loginButton.hidden = NO;
-}
+//- (void)keyboardShowUp:(NSNotification *)notification{
+//    NSDictionary* keyboardInfo = [notification userInfo];
+//    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+//    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+////    float height = keyboardFrameBeginRect.size.height;
+//    
+////    loginButton.frame = CGRectMake(loginButton.frame.origin.x, self.view.frame.size.height-30-loginButton.frame.size.height-height, loginButton.frame.size.width, loginButton.frame.size.height);
+////    loginButton.hidden = NO;
+//}
 - (void)logInResponse{
     NSString *requestBody = [NSString stringWithFormat:@"email=%@&password=%@",emailTextField.text, passwordTextField.text];
     NSLog(@"%@/n",requestBody);

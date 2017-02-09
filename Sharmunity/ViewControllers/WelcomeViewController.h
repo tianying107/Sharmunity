@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 @interface WelcomeViewController : UIViewController<UITextFieldDelegate,CLLocationManagerDelegate>{
-    UIButton *loginButton;
+//    UIButton *loginButton;
 }
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *forgetPasswordButton;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @end

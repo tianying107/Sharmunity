@@ -15,7 +15,7 @@
 #define SYColor1 UIColorFromRGB(0x50514F)
 #define SYColor2 UIColorFromRGB(0x247BA0)
 #define SYColor3 UIColorFromRGB(0xB5B5B7)
-#define SYColor4 UIColorFromRGB(0xECB363)
+#define SYColor4 UIColorFromRGB(0xEF7F40)
 #define SYColor5 UIColorFromRGB(0x70C1B3)
 
 #define SYBackgroundColorExtraLight UIColorFromRGB(0xFAFAFA)

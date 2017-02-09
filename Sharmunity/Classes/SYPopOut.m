@@ -68,6 +68,16 @@
             [firstButton setTitle:@"确定" forState:UIControlStateNormal];
             firstButton.hidden = NO;
             break;
+        case SYPopDiscoverShareSuccess:
+            contentLabel.text = @"帮助信息发布成功。";
+            [firstButton setTitle:@"确定" forState:UIControlStateNormal];
+            firstButton.hidden = NO;
+            break;
+        case SYPopDiscoverShareFail:
+            contentLabel.text = @"帮助信息发布错误，请检查后重新发布。";
+            [firstButton setTitle:@"确定" forState:UIControlStateNormal];
+            firstButton.hidden = NO;
+            break;
             
         default:
             break;

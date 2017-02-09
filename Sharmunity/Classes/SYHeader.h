@@ -12,7 +12,10 @@
 #import "SYSuscard.h" 
 #import "SYCell.h"
 
-
+#import "SYMap.h"
 #import "SYPopOut.h"
-
+#import "SYPriceSlider.h"
+#import "SYDistanceSlider.h"
+#import "SYHelp.h"
+#import "SYChoiceAbstract.h"
 #endif /* SYHeader_h */

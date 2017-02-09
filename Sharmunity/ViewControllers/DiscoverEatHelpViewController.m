@@ -33,7 +33,7 @@
     }
     
     [_testButton addTarget:self action:@selector(submitShareResponse) forControlEvents:UIControlEventTouchUpInside];
-    [_helpTestButton addTarget:self action:@selector(submitHelpResponse) forControlEvents:UIControlEventTouchUpInside];
+    [_helpTestButton addTarget:self action:@selector(testget) forControlEvents:UIControlEventTouchUpInside];
     // Do any additional setup after loading the view.
 }
 
@@ -87,8 +87,8 @@
 }
 
 -(void)testget{
-    NSString *requestQuery = [NSString stringWithFormat:@"latitude=%f&longitude=%f&distance=30",self.locationManager.location.coordinate.latitude,self.locationManager.location.coordinate.longitude];
-    NSString *urlString = [NSString stringWithFormat:@"%@nearby?%@",basicURL,requestQuery];
+    NSString *requestQuery = [NSString stringWithFormat:@"email=%@",MEID];
+    NSString *urlString = [NSString stringWithFormat:@"%@getsynoti?%@",basicURL,requestQuery];
     NSLog(@"%@",requestQuery);
     NSURLSession *session = [NSURLSession sharedSession];
     NSURL *url = [NSURL URLWithString:urlString];

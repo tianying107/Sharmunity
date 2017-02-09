@@ -50,6 +50,23 @@
 		447E41191E32B0030010CAA4 /* DiscoverMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E41181E32B0030010CAA4 /* DiscoverMainViewController.m */; };
 		447E411E1E32B5010010CAA4 /* SYCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E411D1E32B5010010CAA4 /* SYCell.m */; };
 		447E41221E32BE3C0010CAA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447E41211E32BE3C0010CAA4 /* MapKit.framework */; };
+		44A494021E4C7F7A006CD069 /* DiscoverLiveHelpRentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494011E4C7F7A006CD069 /* DiscoverLiveHelpRentViewController.m */; };
+		44A494051E4C8180006CD069 /* DiscoverLiveShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494041E4C8180006CD069 /* DiscoverLiveShareViewController.m */; };
+		44A494081E4C84C7006CD069 /* DiscoverLiveShareLeaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494071E4C84C7006CD069 /* DiscoverLiveShareLeaseViewController.m */; };
+		44A4940B1E4CA659006CD069 /* roomType.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44A4940A1E4CA659006CD069 /* roomType.txt */; };
+		44A4940E1E4CB169006CD069 /* DiscoverLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A4940D1E4CB169006CD069 /* DiscoverLocationViewController.m */; };
+		44A494111E4CB3DD006CD069 /* SYMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494101E4CB3DD006CD069 /* SYMap.m */; };
+		44A494151E4CB515006CD069 /* MapPin.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494141E4CB515006CD069 /* MapPin.m */; };
+		44A494181E4CB74B006CD069 /* SYAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494171E4CB74B006CD069 /* SYAnnotationView.m */; };
+		44A4941B1E4CBA7D006CD069 /* DiscoverLiveShareSubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A4941A1E4CBA7D006CD069 /* DiscoverLiveShareSubmitViewController.m */; };
+		44A4941E1E4CCE79006CD069 /* NMRangeSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A4941D1E4CCE79006CD069 /* NMRangeSlider.m */; };
+		44A494221E4CCEBA006CD069 /* SYPriceSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494211E4CCEBA006CD069 /* SYPriceSlider.m */; };
+		44A494261E4CD516006CD069 /* SYDistanceSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494251E4CD516006CD069 /* SYDistanceSlider.m */; };
+		44A4942B1E4CE380006CD069 /* SYActiveMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A4942A1E4CE380006CD069 /* SYActiveMap.m */; };
+		44A4942E1E4CE4A7006CD069 /* NearbyMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A4942D1E4CE4A7006CD069 /* NearbyMapViewController.m */; };
+		44A494311E4CE79F006CD069 /* DiscoverLiveHelpSubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494301E4CE79F006CD069 /* DiscoverLiveHelpSubmitViewController.m */; };
+		44A494341E4CF07B006CD069 /* SYHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494331E4CF07B006CD069 /* SYHelp.m */; };
+		44A494381E4CF5E1006CD069 /* SYChoiceAbstract.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494371E4CF5E1006CD069 /* SYChoiceAbstract.m */; };
 		44A502C51E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A502C41E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +155,39 @@
 		447E411C1E32B5010010CAA4 /* SYCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYCell.h; path = Classes/SYCell.h; sourceTree = "<group>"; };
 		447E411D1E32B5010010CAA4 /* SYCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYCell.m; path = Classes/SYCell.m; sourceTree = "<group>"; };
 		447E41211E32BE3C0010CAA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		44A494001E4C7F7A006CD069 /* DiscoverLiveHelpRentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLiveHelpRentViewController.h; path = ViewControllers/DiscoverLiveHelpRentViewController.h; sourceTree = "<group>"; };
+		44A494011E4C7F7A006CD069 /* DiscoverLiveHelpRentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLiveHelpRentViewController.m; path = ViewControllers/DiscoverLiveHelpRentViewController.m; sourceTree = "<group>"; };
+		44A494031E4C8180006CD069 /* DiscoverLiveShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLiveShareViewController.h; path = ViewControllers/DiscoverLiveShareViewController.h; sourceTree = "<group>"; };
+		44A494041E4C8180006CD069 /* DiscoverLiveShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLiveShareViewController.m; path = ViewControllers/DiscoverLiveShareViewController.m; sourceTree = "<group>"; };
+		44A494061E4C84C7006CD069 /* DiscoverLiveShareLeaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLiveShareLeaseViewController.h; path = ViewControllers/DiscoverLiveShareLeaseViewController.h; sourceTree = "<group>"; };
+		44A494071E4C84C7006CD069 /* DiscoverLiveShareLeaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLiveShareLeaseViewController.m; path = ViewControllers/DiscoverLiveShareLeaseViewController.m; sourceTree = "<group>"; };
+		44A4940A1E4CA659006CD069 /* roomType.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = roomType.txt; path = Resource/Category/roomType.txt; sourceTree = "<group>"; };
+		44A4940C1E4CB169006CD069 /* DiscoverLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLocationViewController.h; path = ViewControllers/DiscoverLocationViewController.h; sourceTree = "<group>"; };
+		44A4940D1E4CB169006CD069 /* DiscoverLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLocationViewController.m; path = ViewControllers/DiscoverLocationViewController.m; sourceTree = "<group>"; };
+		44A4940F1E4CB3DD006CD069 /* SYMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYMap.h; path = Classes/SYMap.h; sourceTree = "<group>"; };
+		44A494101E4CB3DD006CD069 /* SYMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYMap.m; path = Classes/SYMap.m; sourceTree = "<group>"; };
+		44A494131E4CB515006CD069 /* MapPin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapPin.h; path = Classes/MapPin.h; sourceTree = "<group>"; };
+		44A494141E4CB515006CD069 /* MapPin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapPin.m; path = Classes/MapPin.m; sourceTree = "<group>"; };
+		44A494161E4CB74B006CD069 /* SYAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYAnnotationView.h; path = Classes/SYAnnotationView.h; sourceTree = "<group>"; };
+		44A494171E4CB74B006CD069 /* SYAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYAnnotationView.m; path = Classes/SYAnnotationView.m; sourceTree = "<group>"; };
+		44A494191E4CBA7D006CD069 /* DiscoverLiveShareSubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLiveShareSubmitViewController.h; path = ViewControllers/DiscoverLiveShareSubmitViewController.h; sourceTree = "<group>"; };
+		44A4941A1E4CBA7D006CD069 /* DiscoverLiveShareSubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLiveShareSubmitViewController.m; path = ViewControllers/DiscoverLiveShareSubmitViewController.m; sourceTree = "<group>"; };
+		44A4941C1E4CCE79006CD069 /* NMRangeSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NMRangeSlider.h; path = Classes/NMRangeSlider.h; sourceTree = "<group>"; };
+		44A4941D1E4CCE79006CD069 /* NMRangeSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NMRangeSlider.m; path = Classes/NMRangeSlider.m; sourceTree = "<group>"; };
+		44A494201E4CCEBA006CD069 /* SYPriceSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYPriceSlider.h; path = Classes/SYPriceSlider.h; sourceTree = "<group>"; };
+		44A494211E4CCEBA006CD069 /* SYPriceSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYPriceSlider.m; path = Classes/SYPriceSlider.m; sourceTree = "<group>"; };
+		44A494241E4CD516006CD069 /* SYDistanceSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYDistanceSlider.h; path = Classes/SYDistanceSlider.h; sourceTree = "<group>"; };
+		44A494251E4CD516006CD069 /* SYDistanceSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYDistanceSlider.m; path = Classes/SYDistanceSlider.m; sourceTree = "<group>"; };
+		44A494291E4CE380006CD069 /* SYActiveMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYActiveMap.h; path = Classes/SYActiveMap.h; sourceTree = "<group>"; };
+		44A4942A1E4CE380006CD069 /* SYActiveMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYActiveMap.m; path = Classes/SYActiveMap.m; sourceTree = "<group>"; };
+		44A4942C1E4CE4A7006CD069 /* NearbyMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NearbyMapViewController.h; path = ViewControllers/NearbyMapViewController.h; sourceTree = "<group>"; };
+		44A4942D1E4CE4A7006CD069 /* NearbyMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NearbyMapViewController.m; path = ViewControllers/NearbyMapViewController.m; sourceTree = "<group>"; };
+		44A4942F1E4CE79F006CD069 /* DiscoverLiveHelpSubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLiveHelpSubmitViewController.h; path = ViewControllers/DiscoverLiveHelpSubmitViewController.h; sourceTree = "<group>"; };
+		44A494301E4CE79F006CD069 /* DiscoverLiveHelpSubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLiveHelpSubmitViewController.m; path = ViewControllers/DiscoverLiveHelpSubmitViewController.m; sourceTree = "<group>"; };
+		44A494321E4CF07B006CD069 /* SYHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYHelp.h; path = Classes/SYHelp.h; sourceTree = "<group>"; };
+		44A494331E4CF07B006CD069 /* SYHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYHelp.m; path = Classes/SYHelp.m; sourceTree = "<group>"; };
+		44A494361E4CF5E1006CD069 /* SYChoiceAbstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYChoiceAbstract.h; path = Classes/SYChoiceAbstract.h; sourceTree = "<group>"; };
+		44A494371E4CF5E1006CD069 /* SYChoiceAbstract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYChoiceAbstract.m; path = Classes/SYChoiceAbstract.m; sourceTree = "<group>"; };
 		44A502C31E47AB5A0008C4AD /* DiscoverLiveHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLiveHelpViewController.h; path = ViewControllers/DiscoverLiveHelpViewController.h; sourceTree = "<group>"; };
 		44A502C41E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLiveHelpViewController.m; path = ViewControllers/DiscoverLiveHelpViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -244,12 +294,17 @@
 		442F486F1E31D19F00FB0561 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				44A4941F1E4CCE80006CD069 /* NMRangeSlider */,
 				447E40DD1E3272C70010CAA4 /* SYHeader.h */,
 				442F48701E31D2D300FB0561 /* Header.h */,
 				447E40D91E3271660010CAA4 /* SYSuscard */,
 				442F48781E31D6CB00FB0561 /* SYSignUp */,
 				447E411F1E32B5080010CAA4 /* SYCell */,
 				44A502C21E46BE570008C4AD /* SYPopOut */,
+				44A494121E4CB3E0006CD069 /* SYMap */,
+				44A494281E4CD52E006CD069 /* SYSlider */,
+				44A4943A1E4CF5F6006CD069 /* SYChoice */,
+				44A494351E4CF087006CD069 /* SYHelp */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -291,6 +346,7 @@
 		447E40E11E327CE00010CAA4 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				44A494091E4CA649006CD069 /* category */,
 				447E40E21E327CF10010CAA4 /* Font */,
 			);
 			name = Resource;
@@ -332,6 +388,8 @@
 				447E41181E32B0030010CAA4 /* DiscoverMainViewController.m */,
 				44A502C71E47AB6B0008C4AD /* Eat */,
 				44A502C61E47AB5F0008C4AD /* Live */,
+				44A4940C1E4CB169006CD069 /* DiscoverLocationViewController.h */,
+				44A4940D1E4CB169006CD069 /* DiscoverLocationViewController.m */,
 			);
 			name = Discover;
 			sourceTree = "<group>";
@@ -348,6 +406,8 @@
 		447E411A1E32B39D0010CAA4 /* Nearby */ = {
 			isa = PBXGroup;
 			children = (
+				44A4942C1E4CE4A7006CD069 /* NearbyMapViewController.h */,
+				44A4942D1E4CE4A7006CD069 /* NearbyMapViewController.m */,
 			);
 			name = Nearby;
 			sourceTree = "<group>";
@@ -376,6 +436,91 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		44A494091E4CA649006CD069 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				44A4940A1E4CA659006CD069 /* roomType.txt */,
+			);
+			name = category;
+			sourceTree = "<group>";
+		};
+		44A494121E4CB3E0006CD069 /* SYMap */ = {
+			isa = PBXGroup;
+			children = (
+				44A4940F1E4CB3DD006CD069 /* SYMap.h */,
+				44A494101E4CB3DD006CD069 /* SYMap.m */,
+				44A494131E4CB515006CD069 /* MapPin.h */,
+				44A494141E4CB515006CD069 /* MapPin.m */,
+				44A494161E4CB74B006CD069 /* SYAnnotationView.h */,
+				44A494171E4CB74B006CD069 /* SYAnnotationView.m */,
+				44A494291E4CE380006CD069 /* SYActiveMap.h */,
+				44A4942A1E4CE380006CD069 /* SYActiveMap.m */,
+			);
+			name = SYMap;
+			sourceTree = "<group>";
+		};
+		44A4941F1E4CCE80006CD069 /* NMRangeSlider */ = {
+			isa = PBXGroup;
+			children = (
+				44A4941C1E4CCE79006CD069 /* NMRangeSlider.h */,
+				44A4941D1E4CCE79006CD069 /* NMRangeSlider.m */,
+			);
+			name = NMRangeSlider;
+			sourceTree = "<group>";
+		};
+		44A494231E4CCEBF006CD069 /* SYPriceSlider */ = {
+			isa = PBXGroup;
+			children = (
+				44A494201E4CCEBA006CD069 /* SYPriceSlider.h */,
+				44A494211E4CCEBA006CD069 /* SYPriceSlider.m */,
+			);
+			name = SYPriceSlider;
+			sourceTree = "<group>";
+		};
+		44A494271E4CD51F006CD069 /* SYDistanceSlider */ = {
+			isa = PBXGroup;
+			children = (
+				44A494241E4CD516006CD069 /* SYDistanceSlider.h */,
+				44A494251E4CD516006CD069 /* SYDistanceSlider.m */,
+			);
+			name = SYDistanceSlider;
+			sourceTree = "<group>";
+		};
+		44A494281E4CD52E006CD069 /* SYSlider */ = {
+			isa = PBXGroup;
+			children = (
+				44A494271E4CD51F006CD069 /* SYDistanceSlider */,
+				44A494231E4CCEBF006CD069 /* SYPriceSlider */,
+			);
+			name = SYSlider;
+			sourceTree = "<group>";
+		};
+		44A494351E4CF087006CD069 /* SYHelp */ = {
+			isa = PBXGroup;
+			children = (
+				44A494321E4CF07B006CD069 /* SYHelp.h */,
+				44A494331E4CF07B006CD069 /* SYHelp.m */,
+			);
+			name = SYHelp;
+			sourceTree = "<group>";
+		};
+		44A494391E4CF5E9006CD069 /* SYChoiceAbstract */ = {
+			isa = PBXGroup;
+			children = (
+				44A494361E4CF5E1006CD069 /* SYChoiceAbstract.h */,
+				44A494371E4CF5E1006CD069 /* SYChoiceAbstract.m */,
+			);
+			name = SYChoiceAbstract;
+			sourceTree = "<group>";
+		};
+		44A4943A1E4CF5F6006CD069 /* SYChoice */ = {
+			isa = PBXGroup;
+			children = (
+				44A494391E4CF5E9006CD069 /* SYChoiceAbstract */,
+			);
+			name = SYChoice;
+			sourceTree = "<group>";
+		};
 		44A502C21E46BE570008C4AD /* SYPopOut */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,8 +533,18 @@
 		44A502C61E47AB5F0008C4AD /* Live */ = {
 			isa = PBXGroup;
 			children = (
+				44A494031E4C8180006CD069 /* DiscoverLiveShareViewController.h */,
+				44A494041E4C8180006CD069 /* DiscoverLiveShareViewController.m */,
+				44A494061E4C84C7006CD069 /* DiscoverLiveShareLeaseViewController.h */,
+				44A494071E4C84C7006CD069 /* DiscoverLiveShareLeaseViewController.m */,
+				44A494191E4CBA7D006CD069 /* DiscoverLiveShareSubmitViewController.h */,
+				44A4941A1E4CBA7D006CD069 /* DiscoverLiveShareSubmitViewController.m */,
 				44A502C31E47AB5A0008C4AD /* DiscoverLiveHelpViewController.h */,
 				44A502C41E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m */,
+				44A494001E4C7F7A006CD069 /* DiscoverLiveHelpRentViewController.h */,
+				44A494011E4C7F7A006CD069 /* DiscoverLiveHelpRentViewController.m */,
+				44A4942F1E4CE79F006CD069 /* DiscoverLiveHelpSubmitViewController.h */,
+				44A494301E4CE79F006CD069 /* DiscoverLiveHelpSubmitViewController.m */,
 			);
 			name = Live;
 			sourceTree = "<group>";
@@ -538,6 +693,7 @@
 				447E40FC1E327D0D0010CAA4 /* SF-UI-Display-Heavy.otf in Resources */,
 				442F48431E31CC0F00FB0561 /* Main.storyboard in Resources */,
 				447E41061E327D0D0010CAA4 /* SF-UI-Text-HeavyItalic.otf in Resources */,
+				44A4940B1E4CA659006CD069 /* roomType.txt in Resources */,
 				447E41041E327D0D0010CAA4 /* SF-UI-Text-BoldItalic.otf in Resources */,
 				447E41081E327D0D0010CAA4 /* SF-UI-Text-LightItalic.otf in Resources */,
 				447E41071E327D0D0010CAA4 /* SF-UI-Text-Light.otf in Resources */,
@@ -566,22 +722,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44A494261E4CD516006CD069 /* SYDistanceSlider.m in Sources */,
 				442F48771E31D4ED00FB0561 /* MainTabBarViewController.m in Sources */,
+				44A4942B1E4CE380006CD069 /* SYActiveMap.m in Sources */,
 				442F483A1E31CC0F00FB0561 /* AppDelegate.m in Sources */,
+				44A494181E4CB74B006CD069 /* SYAnnotationView.m in Sources */,
 				447E41191E32B0030010CAA4 /* DiscoverMainViewController.m in Sources */,
 				447E40E01E32789F0010CAA4 /* SYSignUpPassword.m in Sources */,
 				44A502C51E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m in Sources */,
 				447E411E1E32B5010010CAA4 /* SYCell.m in Sources */,
+				44A494081E4C84C7006CD069 /* DiscoverLiveShareLeaseViewController.m in Sources */,
 				447E41161E3296EF0010CAA4 /* AccountMainViewController.m in Sources */,
+				44A494341E4CF07B006CD069 /* SYHelp.m in Sources */,
+				44A4940E1E4CB169006CD069 /* DiscoverLocationViewController.m in Sources */,
 				44101A881E46AEE100BB96B1 /* SYPopOut.m in Sources */,
 				442F487C1E31DE4B00FB0561 /* SignUpViewController.m in Sources */,
 				44101A851E3E64F200BB96B1 /* DiscoverEatHelpViewController.m in Sources */,
+				44A494111E4CB3DD006CD069 /* SYMap.m in Sources */,
 				447E41111E327FD90010CAA4 /* VerificationWarningViewController.m in Sources */,
+				44A4941B1E4CBA7D006CD069 /* DiscoverLiveShareSubmitViewController.m in Sources */,
+				44A494151E4CB515006CD069 /* MapPin.m in Sources */,
 				442F486D1E31D11500FB0561 /* LaunchScreenViewController.m in Sources */,
+				44A4941E1E4CCE79006CD069 /* NMRangeSlider.m in Sources */,
 				442F48801E31E03D00FB0561 /* SYSignUpEmail.m in Sources */,
+				44A494051E4C8180006CD069 /* DiscoverLiveShareViewController.m in Sources */,
+				44A494381E4CF5E1006CD069 /* SYChoiceAbstract.m in Sources */,
+				44A494021E4C7F7A006CD069 /* DiscoverLiveHelpRentViewController.m in Sources */,
+				44A494311E4CE79F006CD069 /* DiscoverLiveHelpSubmitViewController.m in Sources */,
+				44A494221E4CCEBA006CD069 /* SYPriceSlider.m in Sources */,
 				442F48371E31CC0F00FB0561 /* main.m in Sources */,
 				442F48731E31D2F600FB0561 /* WelcomeViewController.m in Sources */,
 				447E40DC1E3271E40010CAA4 /* SYSuscard.m in Sources */,
+				44A4942E1E4CE4A7006CD069 /* NearbyMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

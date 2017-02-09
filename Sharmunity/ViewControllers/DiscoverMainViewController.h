@@ -9,7 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "SYHeader.h"
 #import "Header.h"
-@interface DiscoverMainViewController : UIViewController
+#import "DiscoverLiveHelpViewController.h"
+#import "DiscoverLiveShareViewController.h"
+@interface DiscoverMainViewController : UIViewController{
+    BOOL isHelp;
+}
+@property (weak, nonatomic) IBOutlet UIButton *currentShareButton;
+@property (weak, nonatomic) IBOutlet UIButton *currentHelpButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *liveButton;
 @property (weak, nonatomic) IBOutlet UITableView *discoverTable;
 @end

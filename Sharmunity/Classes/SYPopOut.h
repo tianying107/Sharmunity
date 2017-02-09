@@ -15,6 +15,8 @@
 #define SYPopLogInNetwork 102
 #define SYPopSignUpDuplicate 111
 #define SYPopSignUpVerify 112
+#define SYPopDiscoverShareSuccess 201
+#define SYPopDiscoverShareFail 202
 
 @interface SYPopOut : NSObject{
     UILabel *contentLabel;
