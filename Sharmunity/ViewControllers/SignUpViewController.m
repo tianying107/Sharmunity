@@ -30,16 +30,25 @@
 
 - (void)viewsSetup{
     /*define targets here*/
+    [_signUpButton addTarget:self action:@selector(submit) forControlEvents:UIControlEventTouchUpInside];
+    [_loginButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+
     
+}
+-(void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)submit{
     /*insert password check and empty check here*/
     NSString *passwordString;
     NSString *emailString;
-    NSString *nameString;
+    NSString *nameString = _nameTextField.text;
     NSString *requestBody = [NSString stringWithFormat:@"email=%@&password=%@&name=%@",emailString,passwordString,nameString];
     
-    
+    if([nameString isEqualToString:@""]){
+        SYPopOut *namePopout = [SYPopOut new];
+        [namePopout showUpPop:SYPopSignUpDuplicate];
+    }
     /*改上面的 query 和 URLstring 就好了*/
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@signup",basicURL]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];

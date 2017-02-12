@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FKL-4H-ZFz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FKL-4H-ZFz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -443,7 +443,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="welcomeBackground" translatesAutoresizingMaskIntoConstraints="NO" id="LaO-tB-6Yw">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lB6-67-BUE">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="邮箱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lB6-67-BUE">
                                 <rect key="frame" x="10" y="80" width="355" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="dWb-MT-Px0"/>
@@ -452,16 +452,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8S1-jB-8gj">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8S1-jB-8gj">
                                 <rect key="frame" x="10" y="123" width="355" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="ElZ-BZ-oMp"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t25-W0-Ab6">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t25-W0-Ab6">
                                 <rect key="frame" x="10" y="161" width="355" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="mmA-cC-8MK"/>
@@ -470,7 +469,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="syG-0t-GWj">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="确认密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="syG-0t-GWj">
                                 <rect key="frame" x="10" y="199" width="355" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="aF5-on-Ufb"/>
@@ -480,7 +479,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0CT-Ad-4TK">
-                                <rect key="frame" x="164" y="237" width="46" height="35"/>
+                                <rect key="frame" x="10" y="237" width="355" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.64843770769999998" blue="0.31948308530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="qWG-h0-8BV"/>
@@ -489,6 +488,23 @@
                                     <color key="titleColor" red="0.1450980392" green="0.15686274510000001" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zP-c8-ZLQ">
+                                <rect key="frame" x="10" y="296" width="355" height="33"/>
+                                <color key="backgroundColor" red="1" green="0.64843770769999998" blue="0.31948308530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="3SO-eX-SSb"/>
+                                </constraints>
+                                <state key="normal" title="已有众享国账号？去登陆">
+                                    <color key="titleColor" red="0.1450980392" green="0.15686274510000001" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="欢迎来到众享国" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rp-5B-ZUB">
+                                <rect key="frame" x="16" y="20" width="347" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -513,6 +529,14 @@
                             <constraint firstItem="LaO-tB-6Yw" firstAttribute="leading" secondItem="nT4-MZ-0dR" secondAttribute="leadingMargin" id="vnY-Qv-2rp"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="lB6-67-BUE" id="Qm0-yc-6Vk"/>
+                        <outlet property="loginButton" destination="4zP-c8-ZLQ" id="8pu-gp-gbz"/>
+                        <outlet property="nameTextField" destination="8S1-jB-8gj" id="0xn-77-QFR"/>
+                        <outlet property="passwordConfirmTextField" destination="syG-0t-GWj" id="fPc-fk-FLG"/>
+                        <outlet property="passwordTextField" destination="t25-W0-Ab6" id="jQC-IM-GaJ"/>
+                        <outlet property="signUpButton" destination="0CT-Ad-4TK" id="XD3-k9-cul"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Tl-Si-jjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
