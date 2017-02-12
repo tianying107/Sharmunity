@@ -7,6 +7,7 @@
 //
 
 #import "DiscoverEatHelpViewController.h"
+#import "DiscoverEatHelpSecondViewController.h"
 
 @interface DiscoverEatHelpViewController ()
 
@@ -32,8 +33,8 @@
         [self.locationManager startUpdatingLocation];
     }
     
-    [_testButton addTarget:self action:@selector(submitShareResponse) forControlEvents:UIControlEventTouchUpInside];
-    [_helpTestButton addTarget:self action:@selector(testget) forControlEvents:UIControlEventTouchUpInside];
+    [_testButton addTarget:self action:@selector(regionResponse) forControlEvents:UIControlEventTouchUpInside];
+    [_helpTestButton addTarget:self action:@selector(foodResponse) forControlEvents:UIControlEventTouchUpInside];
     // Do any additional setup after loading the view.
 }
 
@@ -41,7 +42,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)regionResponse{
+    DiscoverEatHelpSecondViewController *viewController = [DiscoverEatHelpSecondViewController new];
+    viewController.controllerType = discoverEatRegion;
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+-(void)foodResponse{
+    DiscoverEatHelpSecondViewController *viewController = [DiscoverEatHelpSecondViewController new];
+    viewController.controllerType = discoverEatFood;
+    [self.navigationController pushViewController:viewController animated:YES];
+}
 - (void)submitShareResponse{
     
     NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=4&subcate=02010000&price=100",MEID,self.locationManager.location.coordinate.latitude,self.locationManager.location.coordinate.longitude];
@@ -75,6 +85,32 @@
     request.HTTPBody = [requestBody dataUsingEncoding:NSUTF8StringEncoding];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
+                                                             options:kNilOptions
+                                                               error:&error];
+        NSLog(@"server said: %@",dict);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+        });
+    }];
+    [task resume];
+}
+
+- (void)testPost{
+    
+    NSString *requestBody = [NSString stringWithFormat:@"owner_id=%@&author_id=huizi0702@126.com&msg=test",MEID];
+    NSLog(@"%@/n",requestBody);
+    
+    /*改上面的 query 和 URLstring 就好了*/
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@sendmsg",basicURL]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = @"POST";
+    request.HTTPBody = [requestBody dataUsingEncoding:NSUTF8StringEncoding];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"server said: %@",string);
+        
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
                                                              options:kNilOptions
                                                                error:&error];

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface DiscoverLiveShareSubmitViewController : UIViewController<UIScrollViewDelegate>{
+@interface DiscoverLiveShareSubmitViewController : UIViewController<UIScrollViewDelegate,UITextViewDelegate>{
     UIScrollView *mainScrollView;
     UIView *locationView;
     UIView *dateView;

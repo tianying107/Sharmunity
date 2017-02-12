@@ -7,6 +7,7 @@
 //
 
 #import "DiscoverLocationViewController.h"
+#import "DiscoverEatShareSecondViewController.h"
 #import "DiscoverLiveShareSubmitViewController.h"
 #import "DiscoverLiveHelpSubmitViewController.h"
 #import "SYHeader.h"
@@ -183,6 +184,13 @@
     
     UIViewController *viewController;
     switch (_nextControllerType) {
+        case SYDiscoverNextShareEat:
+            viewController = _previousController;
+            ((DiscoverEatShareSecondViewController*)viewController).selectedItem = selectedItem;
+            [(DiscoverEatShareSecondViewController*)viewController locationCompleteResponse];
+            [self.navigationController popViewControllerAnimated:YES];
+            return;
+            break;
         case SYDiscoverNextShareLease:
             viewController = [DiscoverLiveShareSubmitViewController new];
             ((DiscoverLiveShareSubmitViewController*)viewController).shareDict = _summaryDict;
@@ -202,7 +210,6 @@
         default:
             break;
     }
-
 
     [self.navigationController pushViewController:viewController animated:YES];
     

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FKL-4H-ZFz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FKL-4H-ZFz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -56,9 +57,6 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="20"/>
                                         <state key="normal" title="吃"/>
-                                        <connections>
-                                            <segue destination="gkh-yy-CRL" kind="show" id="xmw-nn-4OP"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pwU-yz-09Q">
                                         <rect key="frame" x="136" y="73" width="30" height="30"/>
@@ -144,6 +142,7 @@
                         <outlet property="currentHelpButton" destination="z3N-cQ-Ubk" id="8KM-3P-pIp"/>
                         <outlet property="currentShareButton" destination="0iU-kd-fe1" id="t1P-en-9TR"/>
                         <outlet property="discoverTable" destination="xb8-bV-xkw" id="EwJ-jL-1Cw"/>
+                        <outlet property="eatButton" destination="hAr-2B-HS8" id="rJy-zF-dr5"/>
                         <outlet property="liveButton" destination="pwU-yz-09Q" id="d1k-xs-8ZE"/>
                     </connections>
                 </viewController>
@@ -440,12 +439,84 @@
                     <view key="view" contentMode="scaleToFill" id="nT4-MZ-0dR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="welcomeBackground" translatesAutoresizingMaskIntoConstraints="NO" id="LaO-tB-6Yw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lB6-67-BUE">
+                                <rect key="frame" x="10" y="80" width="355" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="dWb-MT-Px0"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8S1-jB-8gj">
+                                <rect key="frame" x="10" y="123" width="355" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="ElZ-BZ-oMp"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t25-W0-Ab6">
+                                <rect key="frame" x="10" y="161" width="355" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="mmA-cC-8MK"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="syG-0t-GWj">
+                                <rect key="frame" x="10" y="199" width="355" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="aF5-on-Ufb"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0CT-Ad-4TK">
+                                <rect key="frame" x="164" y="237" width="46" height="35"/>
+                                <color key="backgroundColor" red="1" green="0.64843770769999998" blue="0.31948308530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="qWG-h0-8BV"/>
+                                </constraints>
+                                <state key="normal" title="注册">
+                                    <color key="titleColor" red="0.1450980392" green="0.15686274510000001" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lB6-67-BUE" firstAttribute="top" secondItem="A4r-Zb-UTd" secondAttribute="bottom" constant="60" id="3JK-JZ-Nd9"/>
+                            <constraint firstItem="0CT-Ad-4TK" firstAttribute="leading" secondItem="nT4-MZ-0dR" secondAttribute="leadingMargin" constant="10" id="6GM-Hg-QaU"/>
+                            <constraint firstItem="syG-0t-GWj" firstAttribute="top" secondItem="t25-W0-Ab6" secondAttribute="bottom" constant="10" id="CBr-Wt-Wfe"/>
+                            <constraint firstItem="xd4-qS-1dV" firstAttribute="top" secondItem="LaO-tB-6Yw" secondAttribute="bottom" id="DhO-sv-8TA"/>
+                            <constraint firstItem="8S1-jB-8gj" firstAttribute="top" secondItem="lB6-67-BUE" secondAttribute="bottom" constant="10" id="KaQ-fy-wte"/>
+                            <constraint firstItem="0CT-Ad-4TK" firstAttribute="top" secondItem="syG-0t-GWj" secondAttribute="bottom" constant="10" id="KeU-ef-eGJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8S1-jB-8gj" secondAttribute="trailing" constant="10" id="LRm-52-qL7"/>
+                            <constraint firstItem="LaO-tB-6Yw" firstAttribute="top" secondItem="A4r-Zb-UTd" secondAttribute="bottom" id="MqC-DQ-wOi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="t25-W0-Ab6" secondAttribute="trailing" constant="10" id="Rkv-Z3-HNV"/>
+                            <constraint firstItem="lB6-67-BUE" firstAttribute="leading" secondItem="nT4-MZ-0dR" secondAttribute="leading" constant="10" id="UNj-D8-Ngy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LaO-tB-6Yw" secondAttribute="trailing" id="Uz1-Oo-xng"/>
+                            <constraint firstItem="t25-W0-Ab6" firstAttribute="top" secondItem="8S1-jB-8gj" secondAttribute="bottom" constant="10" id="VmZ-yQ-dHM"/>
+                            <constraint firstItem="syG-0t-GWj" firstAttribute="leading" secondItem="nT4-MZ-0dR" secondAttribute="leadingMargin" constant="10" id="Y1L-3m-TUE"/>
+                            <constraint firstItem="8S1-jB-8gj" firstAttribute="leading" secondItem="nT4-MZ-0dR" secondAttribute="leadingMargin" constant="10" id="YKv-Ur-c6f"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="syG-0t-GWj" secondAttribute="trailing" constant="10" id="bdJ-ia-c5c"/>
+                            <constraint firstItem="t25-W0-Ab6" firstAttribute="leading" secondItem="nT4-MZ-0dR" secondAttribute="leadingMargin" constant="10" id="dOF-2O-CQ9"/>
+                            <constraint firstAttribute="trailing" secondItem="lB6-67-BUE" secondAttribute="trailing" constant="10" id="dsS-fW-VRO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0CT-Ad-4TK" secondAttribute="trailing" constant="10" id="s8I-tQ-zOe"/>
+                            <constraint firstItem="LaO-tB-6Yw" firstAttribute="leading" secondItem="nT4-MZ-0dR" secondAttribute="leadingMargin" id="vnY-Qv-2rp"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Tl-Si-jjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2418" y="-1517"/>
+            <point key="canvasLocation" x="2416.8000000000002" y="-1517.0914542728638"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="UWy-Pd-oIa">
@@ -465,10 +536,10 @@
             </objects>
             <point key="canvasLocation" x="4782" y="-2193"/>
         </scene>
-        <!--Discover Eat Help View Controller-->
+        <!--Help-->
         <scene sceneID="cMb-BD-RTo">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="gkh-yy-CRL" customClass="DiscoverEatHelpViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="eatHelpFirst" title="Help" hidesBottomBarWhenPushed="YES" id="gkh-yy-CRL" customClass="DiscoverEatHelpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tMZ-GH-fPG"/>
                         <viewControllerLayoutGuide type="bottom" id="aPB-Ee-n2c"/>
@@ -478,14 +549,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2et-kL-QgP">
-                                <rect key="frame" x="150" y="318" width="75" height="30"/>
+                                <rect key="frame" x="172" y="318" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Post Share"/>
+                                <state key="normal" title="地域"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDb-G2-Zin">
-                                <rect key="frame" x="154" y="415" width="67" height="30"/>
+                                <rect key="frame" x="172" y="415" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="New Help"/>
+                                <state key="normal" title="食材"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -497,7 +568,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZRi-cZ-PSt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3983" y="-1517"/>
+            <point key="canvasLocation" x="5758" y="-1517"/>
+        </scene>
+        <!--帮助-->
+        <scene sceneID="AqJ-ir-MGT">
+            <objects>
+                <viewController storyboardIdentifier="eatShareFirst" title="帮助" hidesBottomBarWhenPushed="YES" id="g7V-dZ-vCT" customClass="DiscoverEatShareViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XoE-Th-EMD"/>
+                        <viewControllerLayoutGuide type="bottom" id="JJs-u2-0OI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z2Z-ue-VC9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIh-jz-Uva">
+                                <rect key="frame" x="172" y="318" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="地域"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNC-I4-kH8">
+                                <rect key="frame" x="172" y="405" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="食材"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="foodButton" destination="TNC-I4-kH8" id="7d8-z5-X28"/>
+                        <outlet property="regionButton" destination="LIh-jz-Uva" id="rfK-2g-2E1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HGp-dh-WcS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6638" y="-1517"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="p5T-fk-58n">

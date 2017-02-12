@@ -104,8 +104,16 @@
         [self submit];
     }
 }
+- (void)viewsSetup{
+    /*define targets here*/
+    
+}
 - (void)submit{
-    NSString *requestBody = [NSString stringWithFormat:@"email=%@&password=%@",[infoSummary valueForKey:@"email"],[infoSummary valueForKey:@"password"]];
+    /*insert password check and empty check here*/
+    NSString *passwordString;
+    NSString *emailString;
+    NSString *nameString;
+    NSString *requestBody = [NSString stringWithFormat:@"email=%@&password=%@&name=%@",emailString,passwordString,nameString];
     
     
     /*改上面的 query 和 URLstring 就好了*/
@@ -116,7 +124,6 @@
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionTask *task = [session dataTaskWithRequest:request
                                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                            NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                             
                                             
                                             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data

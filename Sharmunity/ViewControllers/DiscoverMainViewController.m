@@ -30,6 +30,8 @@
 - (void)viewsSetup{
     [_currentShareButton addTarget:self action:@selector(shareHelpSwitch:) forControlEvents:UIControlEventTouchUpInside];
     [_currentHelpButton addTarget:self action:@selector(shareHelpSwitch:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [_eatButton addTarget:self action:@selector(eatButtonResponse) forControlEvents:UIControlEventTouchUpInside];
     [_liveButton addTarget:self action:@selector(liveButtonResponse) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -37,6 +39,16 @@
     isHelp = ([sender isEqual:_currentHelpButton])?YES:NO;
 }
 
+- (void)eatButtonResponse{
+    if (isHelp) {
+        DiscoverEatHelpViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"eatHelpFirst"];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
+    else{
+        DiscoverEatShareViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"eatShareFirst"];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
+}
 - (void)liveButtonResponse{
     if (isHelp) {
         DiscoverLiveHelpViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"liveHelpFirst"];

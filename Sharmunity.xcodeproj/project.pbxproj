@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		44101A851E3E64F200BB96B1 /* DiscoverEatHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44101A841E3E64F200BB96B1 /* DiscoverEatHelpViewController.m */; };
 		44101A881E46AEE100BB96B1 /* SYPopOut.m in Sources */ = {isa = PBXBuildFile; fileRef = 44101A871E46AEE100BB96B1 /* SYPopOut.m */; };
+		4426A0D51E4FD44600D91D6F /* EatRegion_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4426A0D41E4FD44600D91D6F /* EatRegion_cn.txt */; };
+		4426A0D81E4FD7B300D91D6F /* DiscoverEatShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4426A0D71E4FD7B300D91D6F /* DiscoverEatShareViewController.m */; };
+		4426A0DB1E4FD97800D91D6F /* DiscoverEatShareRegionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4426A0DA1E4FD97800D91D6F /* DiscoverEatShareRegionViewController.m */; };
+		4426A0DE1E4FF22B00D91D6F /* EatFood_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4426A0DC1E4FF22B00D91D6F /* EatFood_cn.txt */; };
+		4426A0DF1E4FF22B00D91D6F /* EatSubRegion_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4426A0DD1E4FF22B00D91D6F /* EatSubRegion_cn.txt */; };
 		442F48371E31CC0F00FB0561 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F48361E31CC0F00FB0561 /* main.m */; };
 		442F483A1E31CC0F00FB0561 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F48391E31CC0F00FB0561 /* AppDelegate.m */; };
 		442F48431E31CC0F00FB0561 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442F48411E31CC0F00FB0561 /* Main.storyboard */; };
@@ -68,6 +73,7 @@
 		44A494341E4CF07B006CD069 /* SYHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494331E4CF07B006CD069 /* SYHelp.m */; };
 		44A494381E4CF5E1006CD069 /* SYChoiceAbstract.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494371E4CF5E1006CD069 /* SYChoiceAbstract.m */; };
 		44A502C51E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A502C41E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m */; };
+		44FBAAA11E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FBAAA01E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +98,13 @@
 		44101A841E3E64F200BB96B1 /* DiscoverEatHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverEatHelpViewController.m; path = ViewControllers/DiscoverEatHelpViewController.m; sourceTree = "<group>"; };
 		44101A861E46AEE100BB96B1 /* SYPopOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYPopOut.h; path = Classes/SYPopOut.h; sourceTree = "<group>"; };
 		44101A871E46AEE100BB96B1 /* SYPopOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYPopOut.m; path = Classes/SYPopOut.m; sourceTree = "<group>"; };
+		4426A0D41E4FD44600D91D6F /* EatRegion_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EatRegion_cn.txt; path = Resource/Category/EatRegion_cn.txt; sourceTree = "<group>"; };
+		4426A0D61E4FD7B300D91D6F /* DiscoverEatShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverEatShareViewController.h; path = ViewControllers/DiscoverEatShareViewController.h; sourceTree = "<group>"; };
+		4426A0D71E4FD7B300D91D6F /* DiscoverEatShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverEatShareViewController.m; path = ViewControllers/DiscoverEatShareViewController.m; sourceTree = "<group>"; };
+		4426A0D91E4FD97800D91D6F /* DiscoverEatShareSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverEatShareSecondViewController.h; path = ViewControllers/DiscoverEatShareSecondViewController.h; sourceTree = "<group>"; };
+		4426A0DA1E4FD97800D91D6F /* DiscoverEatShareRegionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverEatShareRegionViewController.m; path = ViewControllers/DiscoverEatShareRegionViewController.m; sourceTree = "<group>"; };
+		4426A0DC1E4FF22B00D91D6F /* EatFood_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EatFood_cn.txt; path = Resource/Category/EatFood_cn.txt; sourceTree = "<group>"; };
+		4426A0DD1E4FF22B00D91D6F /* EatSubRegion_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EatSubRegion_cn.txt; path = Resource/Category/EatSubRegion_cn.txt; sourceTree = "<group>"; };
 		442F48321E31CC0F00FB0561 /* Sharmunity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sharmunity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		442F48361E31CC0F00FB0561 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		442F48381E31CC0F00FB0561 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -190,6 +203,8 @@
 		44A494371E4CF5E1006CD069 /* SYChoiceAbstract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYChoiceAbstract.m; path = Classes/SYChoiceAbstract.m; sourceTree = "<group>"; };
 		44A502C31E47AB5A0008C4AD /* DiscoverLiveHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLiveHelpViewController.h; path = ViewControllers/DiscoverLiveHelpViewController.h; sourceTree = "<group>"; };
 		44A502C41E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLiveHelpViewController.m; path = ViewControllers/DiscoverLiveHelpViewController.m; sourceTree = "<group>"; };
+		44FBAA9F1E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverEatHelpSecondViewController.h; path = ViewControllers/DiscoverEatHelpSecondViewController.h; sourceTree = "<group>"; };
+		44FBAAA01E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverEatHelpSecondViewController.m; path = ViewControllers/DiscoverEatHelpSecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,6 +454,9 @@
 		44A494091E4CA649006CD069 /* category */ = {
 			isa = PBXGroup;
 			children = (
+				4426A0DC1E4FF22B00D91D6F /* EatFood_cn.txt */,
+				4426A0DD1E4FF22B00D91D6F /* EatSubRegion_cn.txt */,
+				4426A0D41E4FD44600D91D6F /* EatRegion_cn.txt */,
 				44A4940A1E4CA659006CD069 /* roomType.txt */,
 			);
 			name = category;
@@ -552,8 +570,14 @@
 		44A502C71E47AB6B0008C4AD /* Eat */ = {
 			isa = PBXGroup;
 			children = (
+				4426A0D61E4FD7B300D91D6F /* DiscoverEatShareViewController.h */,
+				4426A0D71E4FD7B300D91D6F /* DiscoverEatShareViewController.m */,
+				4426A0D91E4FD97800D91D6F /* DiscoverEatShareSecondViewController.h */,
+				4426A0DA1E4FD97800D91D6F /* DiscoverEatShareRegionViewController.m */,
 				44101A831E3E64F200BB96B1 /* DiscoverEatHelpViewController.h */,
 				44101A841E3E64F200BB96B1 /* DiscoverEatHelpViewController.m */,
+				44FBAA9F1E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.h */,
+				44FBAAA01E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m */,
 			);
 			name = Eat;
 			sourceTree = "<group>";
@@ -677,7 +701,9 @@
 				447E410A1E327D0D0010CAA4 /* SF-UI-Text-MediumItalic.otf in Resources */,
 				447E40F91E327D0D0010CAA4 /* License Agreement for SF UI Font.pdf in Resources */,
 				447E40FF1E327D0D0010CAA4 /* SF-UI-Display-Regular.otf in Resources */,
+				4426A0DF1E4FF22B00D91D6F /* EatSubRegion_cn.txt in Resources */,
 				447E40FD1E327D0D0010CAA4 /* SF-UI-Display-Light.otf in Resources */,
+				4426A0D51E4FD44600D91D6F /* EatRegion_cn.txt in Resources */,
 				447E41021E327D0D0010CAA4 /* SF-UI-Display-Ultralight.otf in Resources */,
 				447E41011E327D0D0010CAA4 /* SF-UI-Display-Thin.otf in Resources */,
 				447E40FE1E327D0D0010CAA4 /* SF-UI-Display-Medium.otf in Resources */,
@@ -697,6 +723,7 @@
 				447E41041E327D0D0010CAA4 /* SF-UI-Text-BoldItalic.otf in Resources */,
 				447E41081E327D0D0010CAA4 /* SF-UI-Text-LightItalic.otf in Resources */,
 				447E41071E327D0D0010CAA4 /* SF-UI-Text-Light.otf in Resources */,
+				4426A0DE1E4FF22B00D91D6F /* EatFood_cn.txt in Resources */,
 				447E41001E327D0D0010CAA4 /* SF-UI-Display-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -734,6 +761,7 @@
 				44A494081E4C84C7006CD069 /* DiscoverLiveShareLeaseViewController.m in Sources */,
 				447E41161E3296EF0010CAA4 /* AccountMainViewController.m in Sources */,
 				44A494341E4CF07B006CD069 /* SYHelp.m in Sources */,
+				4426A0DB1E4FD97800D91D6F /* DiscoverEatShareRegionViewController.m in Sources */,
 				44A4940E1E4CB169006CD069 /* DiscoverLocationViewController.m in Sources */,
 				44101A881E46AEE100BB96B1 /* SYPopOut.m in Sources */,
 				442F487C1E31DE4B00FB0561 /* SignUpViewController.m in Sources */,
@@ -741,6 +769,7 @@
 				44A494111E4CB3DD006CD069 /* SYMap.m in Sources */,
 				447E41111E327FD90010CAA4 /* VerificationWarningViewController.m in Sources */,
 				44A4941B1E4CBA7D006CD069 /* DiscoverLiveShareSubmitViewController.m in Sources */,
+				4426A0D81E4FD7B300D91D6F /* DiscoverEatShareViewController.m in Sources */,
 				44A494151E4CB515006CD069 /* MapPin.m in Sources */,
 				442F486D1E31D11500FB0561 /* LaunchScreenViewController.m in Sources */,
 				44A4941E1E4CCE79006CD069 /* NMRangeSlider.m in Sources */,
@@ -754,6 +783,7 @@
 				442F48731E31D2F600FB0561 /* WelcomeViewController.m in Sources */,
 				447E40DC1E3271E40010CAA4 /* SYSuscard.m in Sources */,
 				44A4942E1E4CE4A7006CD069 /* NearbyMapViewController.m in Sources */,
+				44FBAAA11E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

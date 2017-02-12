@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#define SYDiscoverNextShareEat 1001
+#define SYDiscoverNextHelpEat 1101
 #define SYDiscoverNextShareLease 2001
 #define SYDiscoverNextHelpRent 2101
 @interface DiscoverLocationViewController : UIViewController
@@ -23,4 +25,5 @@
 @property float preferLatitude;
 @property float preferLongitude;
 @property float preferDistance;
+@property id previousController;
 @end

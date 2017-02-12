@@ -37,7 +37,12 @@
     NSString *abstractInformation = [NSString new];
     NSInteger category = [[shareDict valueForKey:@"category"] integerValue];
     NSInteger subcate = [[shareDict valueForKey:@"subcate"] integerValue];
-    if (category==2) {
+    if (category ==1) {
+        abstractInformation = @"美食信息";
+        
+        titleLabel.text = ([[personDict valueForKey:@"name"] isEqualToString:@""])?abstractInformation:[NSString stringWithFormat:@"%@发布的%@",[personDict valueForKey:@"name"],abstractInformation];
+    }
+    else if (category==2) {
         NSInteger mode = subcate/1000000;
         if (mode==1) {
             abstractInformation = @"租房信息";
