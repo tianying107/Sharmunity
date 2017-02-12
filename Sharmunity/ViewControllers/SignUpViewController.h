@@ -17,5 +17,13 @@
     NSMutableArray *cardArray;
     NSMutableDictionary *infoSummary;
 }
+@property (strong, nonatomic) IBOutlet UITextField *emailTextField;
+@property (strong, nonatomic) IBOutlet UITextField *nameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordConfirmTextField;
+
+@property (strong, nonatomic) IBOutlet UIButton *signUpButton;
+@property (strong, nonatomic) IBOutlet UIButton *loginButton;
+
 
 @end
