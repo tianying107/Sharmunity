@@ -33,10 +33,19 @@
     
     [_eatButton addTarget:self action:@selector(eatButtonResponse) forControlEvents:UIControlEventTouchUpInside];
     [_liveButton addTarget:self action:@selector(liveButtonResponse) forControlEvents:UIControlEventTouchUpInside];
+    [_learnButton addTarget:self action:@selector(learnButtonResponse) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(IBAction)shareHelpSwitch:(id)sender{
     isHelp = ([sender isEqual:_currentHelpButton])?YES:NO;
+    if ([sender isEqual:_currentHelpButton]) {
+        _currentHelpButton.backgroundColor = SYColor4;
+        _currentShareButton.backgroundColor = [UIColor clearColor];
+    }
+    else{
+        _currentShareButton.backgroundColor = SYColor4;
+        _currentHelpButton.backgroundColor = [UIColor clearColor];
+    }
 }
 
 - (void)eatButtonResponse{
@@ -59,7 +68,16 @@
         [self.navigationController pushViewController:viewController animated:YES];
     }
 }
-
+- (void)learnButtonResponse{
+    if (isHelp) {
+        DiscoverLiveHelpViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"learnHelpFirst"];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
+    else{
+        DiscoverLiveShareViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"learnShareFirst"];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
+}
 
 
 

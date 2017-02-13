@@ -12,6 +12,11 @@
 #define SYDiscoverNextHelpEat 1101
 #define SYDiscoverNextShareLease 2001
 #define SYDiscoverNextHelpRent 2101
+#define SYDiscoverNextShareMove 2002
+#define SYDiscoverNextHelpMove 2102
+#define SYDiscoverNextShareLearn 3001
+#define SYDiscoverNextHelpLearn 3101
+
 @interface DiscoverLocationViewController : UIViewController
 
 @property NSInteger nextControllerType;

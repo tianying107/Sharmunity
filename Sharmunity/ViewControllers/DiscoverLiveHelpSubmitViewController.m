@@ -189,7 +189,7 @@
         [view setFrame:frame];
         height += frame.size.height;
     }
-    mainScrollView.contentSize = CGSizeMake(0, height+20);
+    mainScrollView.contentSize = CGSizeMake(0, height+20+44+10);
 }
 
 -(IBAction)dateResponse:(id)sender{

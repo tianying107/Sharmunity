@@ -55,6 +55,10 @@
 		447E41191E32B0030010CAA4 /* DiscoverMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E41181E32B0030010CAA4 /* DiscoverMainViewController.m */; };
 		447E411E1E32B5010010CAA4 /* SYCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E411D1E32B5010010CAA4 /* SYCell.m */; };
 		447E41221E32BE3C0010CAA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447E41211E32BE3C0010CAA4 /* MapKit.framework */; };
+		44A173E11E52354000FABC4F /* DiscoverLearnShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A173E01E52354000FABC4F /* DiscoverLearnShareViewController.m */; };
+		44A173E41E52355A00FABC4F /* DiscoverLearnHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A173E31E52355A00FABC4F /* DiscoverLearnHelpViewController.m */; };
+		44A173E71E52387800FABC4F /* DiscoverLearnShareSubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A173E61E52387800FABC4F /* DiscoverLearnShareSubmitViewController.m */; };
+		44A173EA1E52388D00FABC4F /* DiscoverLearnHelpSubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A173E91E52388D00FABC4F /* DiscoverLearnHelpSubmitViewController.m */; };
 		44A494021E4C7F7A006CD069 /* DiscoverLiveHelpRentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494011E4C7F7A006CD069 /* DiscoverLiveHelpRentViewController.m */; };
 		44A494051E4C8180006CD069 /* DiscoverLiveShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494041E4C8180006CD069 /* DiscoverLiveShareViewController.m */; };
 		44A494081E4C84C7006CD069 /* DiscoverLiveShareLeaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494071E4C84C7006CD069 /* DiscoverLiveShareLeaseViewController.m */; };
@@ -168,6 +172,14 @@
 		447E411C1E32B5010010CAA4 /* SYCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYCell.h; path = Classes/SYCell.h; sourceTree = "<group>"; };
 		447E411D1E32B5010010CAA4 /* SYCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYCell.m; path = Classes/SYCell.m; sourceTree = "<group>"; };
 		447E41211E32BE3C0010CAA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		44A173DF1E52354000FABC4F /* DiscoverLearnShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLearnShareViewController.h; path = ViewControllers/DiscoverLearnShareViewController.h; sourceTree = "<group>"; };
+		44A173E01E52354000FABC4F /* DiscoverLearnShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLearnShareViewController.m; path = ViewControllers/DiscoverLearnShareViewController.m; sourceTree = "<group>"; };
+		44A173E21E52355A00FABC4F /* DiscoverLearnHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLearnHelpViewController.h; path = ViewControllers/DiscoverLearnHelpViewController.h; sourceTree = "<group>"; };
+		44A173E31E52355A00FABC4F /* DiscoverLearnHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLearnHelpViewController.m; path = ViewControllers/DiscoverLearnHelpViewController.m; sourceTree = "<group>"; };
+		44A173E51E52387800FABC4F /* DiscoverLearnShareSubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLearnShareSubmitViewController.h; path = ViewControllers/DiscoverLearnShareSubmitViewController.h; sourceTree = "<group>"; };
+		44A173E61E52387800FABC4F /* DiscoverLearnShareSubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLearnShareSubmitViewController.m; path = ViewControllers/DiscoverLearnShareSubmitViewController.m; sourceTree = "<group>"; };
+		44A173E81E52388D00FABC4F /* DiscoverLearnHelpSubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLearnHelpSubmitViewController.h; path = ViewControllers/DiscoverLearnHelpSubmitViewController.h; sourceTree = "<group>"; };
+		44A173E91E52388D00FABC4F /* DiscoverLearnHelpSubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLearnHelpSubmitViewController.m; path = ViewControllers/DiscoverLearnHelpSubmitViewController.m; sourceTree = "<group>"; };
 		44A494001E4C7F7A006CD069 /* DiscoverLiveHelpRentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLiveHelpRentViewController.h; path = ViewControllers/DiscoverLiveHelpRentViewController.h; sourceTree = "<group>"; };
 		44A494011E4C7F7A006CD069 /* DiscoverLiveHelpRentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLiveHelpRentViewController.m; path = ViewControllers/DiscoverLiveHelpRentViewController.m; sourceTree = "<group>"; };
 		44A494031E4C8180006CD069 /* DiscoverLiveShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLiveShareViewController.h; path = ViewControllers/DiscoverLiveShareViewController.h; sourceTree = "<group>"; };
@@ -403,6 +415,7 @@
 				447E41181E32B0030010CAA4 /* DiscoverMainViewController.m */,
 				44A502C71E47AB6B0008C4AD /* Eat */,
 				44A502C61E47AB5F0008C4AD /* Live */,
+				44A173DE1E52351B00FABC4F /* Learn */,
 				44A4940C1E4CB169006CD069 /* DiscoverLocationViewController.h */,
 				44A4940D1E4CB169006CD069 /* DiscoverLocationViewController.m */,
 			);
@@ -449,6 +462,21 @@
 				447E41211E32BE3C0010CAA4 /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		44A173DE1E52351B00FABC4F /* Learn */ = {
+			isa = PBXGroup;
+			children = (
+				44A173DF1E52354000FABC4F /* DiscoverLearnShareViewController.h */,
+				44A173E01E52354000FABC4F /* DiscoverLearnShareViewController.m */,
+				44A173E51E52387800FABC4F /* DiscoverLearnShareSubmitViewController.h */,
+				44A173E61E52387800FABC4F /* DiscoverLearnShareSubmitViewController.m */,
+				44A173E21E52355A00FABC4F /* DiscoverLearnHelpViewController.h */,
+				44A173E31E52355A00FABC4F /* DiscoverLearnHelpViewController.m */,
+				44A173E81E52388D00FABC4F /* DiscoverLearnHelpSubmitViewController.h */,
+				44A173E91E52388D00FABC4F /* DiscoverLearnHelpSubmitViewController.m */,
+			);
+			name = Learn;
 			sourceTree = "<group>";
 		};
 		44A494091E4CA649006CD069 /* category */ = {
@@ -756,6 +784,7 @@
 				44A494181E4CB74B006CD069 /* SYAnnotationView.m in Sources */,
 				447E41191E32B0030010CAA4 /* DiscoverMainViewController.m in Sources */,
 				447E40E01E32789F0010CAA4 /* SYSignUpPassword.m in Sources */,
+				44A173E41E52355A00FABC4F /* DiscoverLearnHelpViewController.m in Sources */,
 				44A502C51E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m in Sources */,
 				447E411E1E32B5010010CAA4 /* SYCell.m in Sources */,
 				44A494081E4C84C7006CD069 /* DiscoverLiveShareLeaseViewController.m in Sources */,
@@ -774,6 +803,7 @@
 				442F486D1E31D11500FB0561 /* LaunchScreenViewController.m in Sources */,
 				44A4941E1E4CCE79006CD069 /* NMRangeSlider.m in Sources */,
 				442F48801E31E03D00FB0561 /* SYSignUpEmail.m in Sources */,
+				44A173E71E52387800FABC4F /* DiscoverLearnShareSubmitViewController.m in Sources */,
 				44A494051E4C8180006CD069 /* DiscoverLiveShareViewController.m in Sources */,
 				44A494381E4CF5E1006CD069 /* SYChoiceAbstract.m in Sources */,
 				44A494021E4C7F7A006CD069 /* DiscoverLiveHelpRentViewController.m in Sources */,
@@ -781,7 +811,9 @@
 				44A494221E4CCEBA006CD069 /* SYPriceSlider.m in Sources */,
 				442F48371E31CC0F00FB0561 /* main.m in Sources */,
 				442F48731E31D2F600FB0561 /* WelcomeViewController.m in Sources */,
+				44A173E11E52354000FABC4F /* DiscoverLearnShareViewController.m in Sources */,
 				447E40DC1E3271E40010CAA4 /* SYSuscard.m in Sources */,
+				44A173EA1E52388D00FABC4F /* DiscoverLearnHelpSubmitViewController.m in Sources */,
 				44A4942E1E4CE4A7006CD069 /* NearbyMapViewController.m in Sources */,
 				44FBAAA11E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m in Sources */,
 			);

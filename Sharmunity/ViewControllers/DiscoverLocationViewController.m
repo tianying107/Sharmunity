@@ -10,6 +10,8 @@
 #import "DiscoverEatShareSecondViewController.h"
 #import "DiscoverLiveShareSubmitViewController.h"
 #import "DiscoverLiveHelpSubmitViewController.h"
+#import "DiscoverLearnShareSubmitViewController.h"
+#import "DiscoverLearnHelpSubmitViewController.h"
 #import "SYHeader.h"
 #define cardUnselectOriginalY 0
 #define cardSelectOriginalY 80
@@ -204,6 +206,34 @@
             ((DiscoverLiveHelpSubmitViewController*)viewController).distanceAvailable = YES;
             ((DiscoverLiveHelpSubmitViewController*)viewController).dateAvailable = YES;
             ((DiscoverLiveHelpSubmitViewController*)viewController).selectedItem = selectedItem;
+            break;
+        case SYDiscoverNextShareMove:
+            viewController = [DiscoverLiveShareSubmitViewController new];
+            ((DiscoverLiveShareSubmitViewController*)viewController).shareDict = _summaryDict;
+            ((DiscoverLiveShareSubmitViewController*)viewController).distanceAvailable = YES;
+            ((DiscoverLiveShareSubmitViewController*)viewController).dateAvailable = YES;
+            ((DiscoverLiveShareSubmitViewController*)viewController).selectedItem = selectedItem;
+            break;
+        case SYDiscoverNextHelpMove:
+            viewController = [DiscoverLiveHelpSubmitViewController new];
+            ((DiscoverLiveHelpSubmitViewController*)viewController).helpDict = _summaryDict;
+            ((DiscoverLiveHelpSubmitViewController*)viewController).distanceAvailable = NO;
+            ((DiscoverLiveHelpSubmitViewController*)viewController).dateAvailable = YES;
+            ((DiscoverLiveHelpSubmitViewController*)viewController).selectedItem = selectedItem;
+            break;
+        case SYDiscoverNextShareLearn:
+            viewController = _previousController;
+            ((DiscoverLearnShareSubmitViewController*)viewController).selectedItem = selectedItem;
+            [(DiscoverLearnShareSubmitViewController*)viewController locationCompleteResponse];
+            [self.navigationController popViewControllerAnimated:YES];
+            return;
+            break;
+        case SYDiscoverNextHelpLearn:
+            viewController = [DiscoverLearnHelpSubmitViewController new];
+//            ((DiscoverLearnHelpSubmitViewController*)viewController).helpDict = _summaryDict;
+//            ((DiscoverLearnHelpSubmitViewController*)viewController).distanceAvailable = NO;
+//            ((DiscoverLearnHelpSubmitViewController*)viewController).dateAvailable = YES;
+//            ((DiscoverLearnHelpSubmitViewController*)viewController).selectedItem = selectedItem;
             break;
             
             

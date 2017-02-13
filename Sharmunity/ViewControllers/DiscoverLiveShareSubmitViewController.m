@@ -125,7 +125,7 @@
     
     /*price*/
     priceView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 140)];
-    priceView.hidden = _dateAvailable;
+    priceView.hidden = YES;
     [mainScrollView addSubview:priceView];
     [viewsArray addObject:priceView];
     UILabel *priceTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 60)];
@@ -194,7 +194,7 @@
         [view setFrame:frame];
         height += frame.size.height;
     }
-    mainScrollView.contentSize = CGSizeMake(0, height+20);
+    mainScrollView.contentSize = CGSizeMake(0, height+20+44+10);
 }
 
 -(IBAction)dateResponse:(id)sender{
