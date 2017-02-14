@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DiscoverLiveShareViewController : UIViewController
+@interface DiscoverLiveShareViewController : UIViewController{
+    NSString *MEID;
+}
+@property (weak, nonatomic) IBOutlet UIButton *rentButton;
+@property (weak, nonatomic) IBOutlet UIButton *moveButton;
 
 @end

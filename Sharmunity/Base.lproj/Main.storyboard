@@ -69,9 +69,6 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="20"/>
                                         <state key="normal" title="学"/>
-                                        <connections>
-                                            <segue destination="50t-ER-My7" kind="show" id="3vY-AP-7uB"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5R-B9-P9e">
                                         <rect key="frame" x="295" y="73" width="30" height="30"/>
@@ -103,6 +100,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3N-cQ-Ubk">
                                         <rect key="frame" x="17" y="8" width="62" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.94901960780000005" green="0.71372549019999998" blue="0.1960784314" alpha="1" colorSpace="deviceRGB"/>
                                         <state key="normal" title="我要求助"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1r-XC-19i">
@@ -143,6 +141,7 @@
                         <outlet property="currentShareButton" destination="0iU-kd-fe1" id="t1P-en-9TR"/>
                         <outlet property="discoverTable" destination="xb8-bV-xkw" id="EwJ-jL-1Cw"/>
                         <outlet property="eatButton" destination="hAr-2B-HS8" id="rJy-zF-dr5"/>
+                        <outlet property="learnButton" destination="GhW-9V-mql" id="WNX-fO-Udz"/>
                         <outlet property="liveButton" destination="pwU-yz-09Q" id="d1k-xs-8ZE"/>
                     </connections>
                 </viewController>
@@ -458,6 +457,7 @@
                                     <constraint firstAttribute="height" constant="35" id="ElZ-BZ-oMp"/>
                                 </constraints>
                                 <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t25-W0-Ab6">
@@ -701,7 +701,7 @@
         <!--住-->
         <scene sceneID="7QR-Ho-i9r">
             <objects>
-                <viewController storyboardIdentifier="liveShareFirst" title="住" id="GgO-np-Ejd" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="liveShareFirst" title="住" hidesBottomBarWhenPushed="YES" id="GgO-np-Ejd" customClass="DiscoverLiveShareViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tqh-Hz-w4N"/>
                         <viewControllerLayoutGuide type="bottom" id="6bG-wY-EsT"/>
@@ -731,6 +731,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="moveButton" destination="0m4-dd-fDd" id="91M-7e-lcF"/>
+                        <outlet property="rentButton" destination="c6U-B9-elw" id="eiE-Zp-dhB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yx5-B8-bcF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -754,10 +758,10 @@
             </objects>
             <point key="canvasLocation" x="4782" y="-853"/>
         </scene>
-        <!--View Controller-->
+        <!--Discover Learn Help View Controller-->
         <scene sceneID="xHU-u6-DHE">
             <objects>
-                <viewController id="50t-ER-My7" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="learnHelpFirst" hidesBottomBarWhenPushed="YES" id="50t-ER-My7" customClass="DiscoverLearnHelpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cyF-IB-GAl"/>
                         <viewControllerLayoutGuide type="bottom" id="UD7-Cu-qT1"/>
@@ -765,12 +769,74 @@
                     <view key="view" contentMode="scaleToFill" id="Bac-aq-rKO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOC-9R-tUX">
+                                <rect key="frame" x="164" y="309" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="找辅导"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnH-0V-X2n">
+                                <rect key="frame" x="156" y="440" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="上兴趣班"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78i-YZ-rCX">
+                                <rect key="frame" x="164" y="191" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="找学长"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="experienceButton" destination="78i-YZ-rCX" id="Qm5-dd-Iu3"/>
+                        <outlet property="interestButton" destination="BnH-0V-X2n" id="IEp-bn-RW9"/>
+                        <outlet property="tutorButton" destination="dOC-9R-tUX" id="Ahv-eY-nTA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HoQ-Gu-Q68" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3982" y="-170"/>
+            <point key="canvasLocation" x="5758" y="-170"/>
+        </scene>
+        <!--Discover Learn Share View Controller-->
+        <scene sceneID="wf2-yh-ckx">
+            <objects>
+                <viewController storyboardIdentifier="learnShareFirst" hidesBottomBarWhenPushed="YES" id="okr-7r-YwS" customClass="DiscoverLearnShareViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="stb-Zy-BIe"/>
+                        <viewControllerLayoutGuide type="bottom" id="2xD-GT-PBR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OdU-rh-niP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfP-e0-HwK">
+                                <rect key="frame" x="156" y="194" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="传授经验"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m04-hO-IOs">
+                                <rect key="frame" x="156" y="318" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="课程辅导"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SyK-HJ-2ad">
+                                <rect key="frame" x="149" y="447" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="开设兴趣班"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="experienceButton" destination="kfP-e0-HwK" id="8yz-qS-kd0"/>
+                        <outlet property="interestButton" destination="SyK-HJ-2ad" id="kA2-pG-Nni"/>
+                        <outlet property="tutorButton" destination="m04-hO-IOs" id="GZz-Du-uId"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R2E-xW-6s8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6638" y="-170"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Ovl-JV-TbE">

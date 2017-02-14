@@ -21,5 +21,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *eatButton;
 @property (weak, nonatomic) IBOutlet UIButton *liveButton;
+@property (weak, nonatomic) IBOutlet UIButton *learnButton;
 @property (weak, nonatomic) IBOutlet UITableView *discoverTable;
 @end

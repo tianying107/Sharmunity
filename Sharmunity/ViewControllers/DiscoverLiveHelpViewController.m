@@ -9,6 +9,7 @@
 #import "DiscoverLiveHelpViewController.h"
 #import "DiscoverLiveHelpRentViewController.h"
 #import "DiscoverLiveShareLeaseViewController.h"
+#import "DiscoverLocationViewController.h"
 #import "Header.h"
 @interface DiscoverLiveHelpViewController ()
 
@@ -18,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    MEID = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"admin"] valueForKey:@"id"];
     [self viewsSetup];
     // Do any additional setup after loading the view.
 }
@@ -31,7 +32,7 @@
 -(void)viewsSetup{
     [_rentButton addTarget:self action:@selector(rentHomeResponse) forControlEvents:UIControlEventTouchUpInside];
     [_leaseButton addTarget:self action:@selector(leaseResponse) forControlEvents:UIControlEventTouchUpInside];
-    [_moveButton addTarget:self action:@selector(moveButton) forControlEvents:UIControlEventTouchUpInside];
+    [_moveButton addTarget:self action:@selector(moveResponse) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)rentHomeResponse{
@@ -45,7 +46,16 @@
 }
 
 -(void)moveResponse{
-    
+    NSString *subCate = @"02000000";
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:subCate, @"subcate", nil];
+    NSMutableDictionary *shareDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:MEID,@"email",@"2",@"category",@"2099-01-01",@"expire_date", nil];;
+    [shareDict addEntriesFromDictionary:dict];
+    DiscoverLocationViewController *viewController = [DiscoverLocationViewController new];
+    viewController.subCate = subCate;
+    viewController.summaryDict = shareDict;
+    viewController.needDistance = NO;
+    viewController.nextControllerType = SYDiscoverNextHelpMove;
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 @end

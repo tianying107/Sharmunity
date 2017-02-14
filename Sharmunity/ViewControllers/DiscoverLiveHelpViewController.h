@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DiscoverLiveHelpViewController : UIViewController
+@interface DiscoverLiveHelpViewController : UIViewController{
+    NSString *MEID;
+}
 @property (weak, nonatomic) IBOutlet UIButton *rentButton;
 @property (weak, nonatomic) IBOutlet UIButton *leaseButton;
 @property (weak, nonatomic) IBOutlet UIButton *moveButton;
