@@ -31,6 +31,8 @@
     NSArray *subRegionArray;
     NSArray *foodArray;
     NSMutableArray *viewsArray;
+    
+    BOOL is_other;
 }
 
 @property (strong, nonatomic) CLLocationManager *locationManager;

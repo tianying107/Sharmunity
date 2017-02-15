@@ -58,6 +58,7 @@
 }
 
 -(void)dataSetup{
+    is_other = NO;
     /*region data*/
     NSString* filePath = [[NSBundle mainBundle] pathForResource:@"EatRegion_cn"
                                                          ofType:@"txt"];
@@ -66,13 +67,13 @@
     regionArray = [categoryString componentsSeparatedByString:@","];
     /*subregion data*/
     filePath = [[NSBundle mainBundle] pathForResource:@"EatSubRegion_cn"
-                                                         ofType:@"txt"];
+                                               ofType:@"txt"];
     categoryString = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     subRegionArray = [NSArray new];
     subRegionArray = [categoryString componentsSeparatedByString:@","];
     /*food data*/
     filePath = [[NSBundle mainBundle] pathForResource:@"EatFood_cn"
-                                                         ofType:@"txt"];
+                                               ofType:@"txt"];
     categoryString = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     foodArray = [NSArray new];
     foodArray = [categoryString componentsSeparatedByString:@","];
@@ -84,7 +85,7 @@
     
     /*region type*/
     regionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
-
+    
     UILabel *regionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
     regionTitleLabel.text = @"地域";
     regionTitleLabel.textColor = SYColor1;
@@ -287,7 +288,7 @@
     
     confirmBackgroundView.hidden = NO;
     subRegionPickerView.hidden = NO;
-
+    
 }
 -(IBAction)foodResponse:(id)sender{
     [self pickerConfirmResponse];
@@ -312,7 +313,7 @@
 
 -(void)locationResponse{
     [self pickerConfirmResponse];
-
+    
     DiscoverLocationViewController *viewController = [DiscoverLocationViewController new];
     viewController.previousController = self;
     viewController.nextControllerType = SYDiscoverNextShareEat;
@@ -337,7 +338,12 @@
     UITextField *title = [titleView viewWithTag:11];
     UITextView *introduction = [introductionView viewWithTag:11];
     
-    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=1&subcate=%@&title=%@&introduction=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,title.text, introduction.text];
+    NSString *requestBody;
+    if (is_other) {
+        requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=1&subcate=%@&title=%@&description=%@&is_other=1",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,title.text, introduction.text];
+    }
+    else
+        requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=1&subcate=%@&title=%@&introduction=%@&is_other=0",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,title.text, introduction.text];
     NSLog(@"%@/n",requestBody);
     /*改上面的 query 和 URLstring 就好了*/
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@newshare",basicURL]];
@@ -418,7 +424,7 @@
         resultString = [subRegionArray objectAtIndex:row];
     else if ([pickerView isEqual:foodPickerView])
         resultString = [foodArray objectAtIndex:row];
-
+    
     return resultString;
 }
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
@@ -451,9 +457,11 @@
         subRegionString = [NSString stringWithFormat:@"%ld",row];
     }
     else if ([pickerView isEqual:foodPickerView]){
+        is_other = (row==foodArray.count-1)?YES:NO;
+        
         UIButton *foodButton = [foodView viewWithTag:11];
         [foodButton setTitle:[foodArray objectAtIndex:row] forState:UIControlStateSelected];
-        foodString = [NSString stringWithFormat:@"%ld",row];
+        foodString = (row==foodArray.count-1)?@"99":[NSString stringWithFormat:@"%ld",row];
     }
     
 }

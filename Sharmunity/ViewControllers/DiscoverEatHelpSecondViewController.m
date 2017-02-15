@@ -67,6 +67,7 @@
 }
 
 -(void)dataSetup{
+    is_other = NO;
     /*region data*/
     NSString* filePath = [[NSBundle mainBundle] pathForResource:@"EatRegion_cn"
                                                          ofType:@"txt"];
@@ -296,7 +297,12 @@
     }
     UITextField *keyword = [keywordView viewWithTag:11];
     
-    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=1&subcate=%@&keyword=%@",MEID,self.locationManager.location.coordinate.latitude,self.locationManager.location.coordinate.longitude,subCate,keyword.text];
+    NSString *requestBody;
+    if (is_other) {
+        requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=1&subcate=%@&keyword=%@&is_other=1",MEID,self.locationManager.location.coordinate.latitude,self.locationManager.location.coordinate.longitude,subCate,keyword.text];
+    }
+    else
+        requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=1&subcate=%@&keyword=%@&is_other=0",MEID,self.locationManager.location.coordinate.latitude,self.locationManager.location.coordinate.longitude,subCate,keyword.text];
     NSLog(@"%@/n",requestBody);
     /*改上面的 query 和 URLstring 就好了*/
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@newhelp",basicURL]];
@@ -410,9 +416,11 @@
         subRegionString = [NSString stringWithFormat:@"%ld",row];
     }
     else if ([pickerView isEqual:foodPickerView]){
+        is_other = (row==foodArray.count-1)?YES:NO;
+        
         UIButton *foodButton = [foodView viewWithTag:11];
         [foodButton setTitle:[foodArray objectAtIndex:row] forState:UIControlStateSelected];
-        foodString = [NSString stringWithFormat:@"%ld",row];
+        foodString = (row==foodArray.count-1)?@"99":[NSString stringWithFormat:@"%ld",row];
     }
     
 }

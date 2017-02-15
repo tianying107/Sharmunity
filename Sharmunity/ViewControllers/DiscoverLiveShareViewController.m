@@ -26,7 +26,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewsSetup{
+    [_rentButton addTarget:self action:@selector(leaseResponse) forControlEvents:UIControlEventTouchUpInside];
+    [_moveButton addTarget:self action:@selector(moveResponse) forControlEvents:UIControlEventTouchUpInside];
+}
 
+-(void)leaseResponse{
+    DiscoverLiveShareLeaseViewController *viewController = [DiscoverLiveShareLeaseViewController new];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
 
 -(void)moveResponse{
     NSString *subCate = @"02000000";
