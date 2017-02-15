@@ -52,73 +52,112 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nht-Pg-bqP">
                                 <rect key="frame" x="0.0" y="64" width="375" height="220"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAr-2B-HS8">
-                                        <rect key="frame" x="49" y="73" width="30" height="30"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="helpShareButtonBackground" translatesAutoresizingMaskIntoConstraints="NO" id="MZe-4y-VNm">
+                                        <rect key="frame" x="0.0" y="13" width="375" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="20"/>
-                                        <state key="normal" title="吃"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAr-2B-HS8">
+                                        <rect key="frame" x="164" y="71" width="47" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="EatHelp"/>
+                                        <state key="selected" image="EatShare"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pwU-yz-09Q">
-                                        <rect key="frame" x="136" y="73" width="30" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhW-9V-mql">
+                                        <rect key="frame" x="173" y="163" width="31" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="20"/>
-                                        <state key="normal" title="住"/>
+                                        <state key="normal" image="LearnHelp"/>
+                                        <state key="selected" image="LearnShare"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhW-9V-mql">
-                                        <rect key="frame" x="219" y="73" width="30" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5R-B9-P9e">
+                                        <rect key="frame" x="256" y="71" width="32" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="20"/>
-                                        <state key="normal" title="学"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5R-B9-P9e">
-                                        <rect key="frame" x="295" y="73" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="20"/>
-                                        <state key="normal" title="行"/>
+                                        <state key="normal" image="TravelHelp"/>
+                                        <state key="selected" image="TravelShare"/>
                                         <connections>
                                             <segue destination="GQx-nU-aNf" kind="show" id="pKk-JZ-bdo"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0JK-SR-vSR">
-                                        <rect key="frame" x="130" y="161" width="43" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0JK-SR-vSR">
+                                        <rect key="frame" x="258" y="163" width="29" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="20"/>
-                                        <state key="normal" title="交易"/>
+                                        <state key="normal" image="tradeHelp"/>
+                                        <state key="selected" image="TradeShare"/>
                                         <connections>
                                             <segue destination="zM3-vM-cdo" kind="show" id="Cdq-G5-GbU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xej-03-z6p">
-                                        <rect key="frame" x="212" y="161" width="45" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="20"/>
-                                        <state key="normal" title="提问"/>
-                                        <connections>
-                                            <segue destination="Kux-Hc-xVn" kind="show" id="8GB-pr-FrC"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3N-cQ-Ubk">
-                                        <rect key="frame" x="17" y="8" width="62" height="30"/>
+                                        <rect key="frame" x="-1" y="8" width="257" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.94901960780000005" green="0.71372549019999998" blue="0.1960784314" alpha="1" colorSpace="deviceRGB"/>
-                                        <state key="normal" title="我要求助"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <state key="normal" title="我要求助">
+                                            <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1r-XC-19i">
-                                        <rect key="frame" x="49" y="161" width="30" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1r-XC-19i">
+                                        <rect key="frame" x="70" y="161" width="50" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="20"/>
-                                        <state key="normal" title="玩"/>
-                                        <connections>
-                                            <segue destination="H0y-bm-1KZ" kind="show" id="WUX-Rw-0XD"/>
-                                        </connections>
+                                        <state key="normal" image="PlayHelp"/>
+                                        <state key="selected" image="PlayShare"/>
+                                        <state key="focused" image="PlayShare"/>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pwU-yz-09Q">
+                                        <rect key="frame" x="69" y="68" width="53" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="LiveHelp"/>
+                                        <state key="selected" image="LiveShare"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="住" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0N3-jr-5DA">
+                                        <rect key="frame" x="74" y="100" width="43" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="吃" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YvP-Zm-tH9">
+                                        <rect key="frame" x="165" y="100" width="46" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="行" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqy-ao-ZCi">
+                                        <rect key="frame" x="251" y="100" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="玩" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNb-DH-Cib">
+                                        <rect key="frame" x="74" y="199" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="学" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qF-Fx-coo">
+                                        <rect key="frame" x="167" y="199" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="交易" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGY-vO-Rli">
+                                        <rect key="frame" x="251" y="199" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0iU-kd-fe1">
-                                        <rect key="frame" x="295" y="8" width="62" height="30"/>
+                                        <rect key="frame" x="256" y="8" width="119" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="我要帮助"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <state key="normal" title="我要帮助">
+                                            <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.94859041734272564" blue="0.8830349329943965" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -137,12 +176,14 @@
                         <barButtonItem key="leftBarButtonItem" title="城市" id="OOR-pf-UNh"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonBackgroundImageView" destination="MZe-4y-VNm" id="CeL-bm-FZ7"/>
                         <outlet property="currentHelpButton" destination="z3N-cQ-Ubk" id="8KM-3P-pIp"/>
                         <outlet property="currentShareButton" destination="0iU-kd-fe1" id="t1P-en-9TR"/>
                         <outlet property="discoverTable" destination="xb8-bV-xkw" id="EwJ-jL-1Cw"/>
                         <outlet property="eatButton" destination="hAr-2B-HS8" id="rJy-zF-dr5"/>
                         <outlet property="learnButton" destination="GhW-9V-mql" id="WNX-fO-Udz"/>
                         <outlet property="liveButton" destination="pwU-yz-09Q" id="d1k-xs-8ZE"/>
+                        <outlet property="playButton" destination="F1r-XC-19i" id="CtL-ge-mmT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -628,10 +669,10 @@
             </objects>
             <point key="canvasLocation" x="6638" y="-1517"/>
         </scene>
-        <!--View Controller-->
+        <!--Discover Play Help View Controller-->
         <scene sceneID="p5T-fk-58n">
             <objects>
-                <viewController id="H0y-bm-1KZ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="playHelpFirst" id="H0y-bm-1KZ" customClass="DiscoverPlayHelpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NlB-zI-n4k"/>
                         <viewControllerLayoutGuide type="bottom" id="rgS-af-KfG"/>
@@ -639,12 +680,86 @@
                     <view key="view" contentMode="scaleToFill" id="yOa-Ew-ttO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wG-0N-qLz">
+                                <rect key="frame" x="164" y="142" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="找玩伴"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFe-Yr-8PW">
+                                <rect key="frame" x="164" y="241" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="找活动"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQJ-m5-q8a">
+                                <rect key="frame" x="164" y="329" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="找攻略"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lda-6B-KJu">
+                                <rect key="frame" x="172" y="425" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="其他"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="activityButton" destination="LFe-Yr-8PW" id="w7u-UO-rak"/>
+                        <outlet property="articalButton" destination="sQJ-m5-q8a" id="aKp-Pa-n5H"/>
+                        <outlet property="otherButton" destination="Lda-6B-KJu" id="DHv-6O-wt8"/>
+                        <outlet property="partnerButton" destination="7wG-0N-qLz" id="fCx-xD-7hB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7rS-UC-Rw6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4782" y="-1517"/>
+            <point key="canvasLocation" x="5758" y="518"/>
+        </scene>
+        <!--Discover Play Share View Controller-->
+        <scene sceneID="Qnz-7R-Y1t">
+            <objects>
+                <viewController storyboardIdentifier="playShareFirst" id="uJs-KA-hss" customClass="DiscoverPlayShareViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wxc-mv-Wt2"/>
+                        <viewControllerLayoutGuide type="bottom" id="G2u-cY-Eil"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wkP-Ll-Vbq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIi-OE-Swk">
+                                <rect key="frame" x="164" y="160" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="找玩伴"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9f-ck-vp3">
+                                <rect key="frame" x="156" y="264" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="组织活动"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WwB-KN-Rsa">
+                                <rect key="frame" x="164" y="364" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="写攻略"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bak-OB-ger">
+                                <rect key="frame" x="172" y="459" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="其他"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityButton" destination="L9f-ck-vp3" id="haG-46-Y9M"/>
+                        <outlet property="articalButton" destination="WwB-KN-Rsa" id="SEe-Lm-7Cg"/>
+                        <outlet property="otherButton" destination="Bak-OB-ger" id="hpP-dH-GfG"/>
+                        <outlet property="partnerButton" destination="qIi-OE-Swk" id="3tn-Oz-J3a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ueg-KQ-MiU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6638" y="518"/>
         </scene>
         <!--住-->
         <scene sceneID="PfB-Qa-i62">
@@ -856,11 +971,11 @@
             </objects>
             <point key="canvasLocation" x="4782" y="-169"/>
         </scene>
-        <!--发现-->
+        <!--首页-->
         <scene sceneID="GDs-33-Rza">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CHq-7g-lnp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="发现" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="首页" image="logoTabBar" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="O6N-Fa-dCq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -879,7 +994,7 @@
         <scene sceneID="JZj-3B-ZyM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MJD-fw-8J6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="附近" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="附近" image="nearbyTabBar" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XCb-2G-byx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -894,11 +1009,11 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
         </scene>
-        <!--匹配-->
+        <!--信息-->
         <scene sceneID="UZl-dU-Fjd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JBW-b3-nQz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="匹配" image="first" id="60S-JU-YEj"/>
+                    <tabBarItem key="tabBarItem" title="信息" image="messageTabBar" id="60S-JU-YEj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Fzo-rb-OBR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -917,7 +1032,7 @@
         <scene sceneID="i9y-gH-Tgs">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uBy-OG-v72" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" image="second" id="ran-g5-ZaM"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="accountTabBar" id="ran-g5-ZaM"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9ll-gY-kvY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -953,8 +1068,23 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="EatHelp" width="28" height="26"/>
+        <image name="EatShare" width="29" height="26"/>
+        <image name="LearnHelp" width="31" height="26"/>
+        <image name="LearnShare" width="30" height="26"/>
+        <image name="LiveHelp" width="34" height="29"/>
+        <image name="LiveShare" width="34" height="29"/>
+        <image name="PlayHelp" width="31" height="31"/>
+        <image name="PlayShare" width="31" height="31"/>
+        <image name="TradeShare" width="29" height="27"/>
+        <image name="TravelHelp" width="32" height="23"/>
+        <image name="TravelShare" width="32" height="23"/>
+        <image name="accountTabBar" width="18" height="19"/>
+        <image name="helpShareButtonBackground" width="320" height="19"/>
+        <image name="logoTabBar" width="20" height="17"/>
+        <image name="messageTabBar" width="20" height="20"/>
+        <image name="nearbyTabBar" width="20" height="20"/>
+        <image name="tradeHelp" width="29" height="27"/>
         <image name="welcomeBackground" width="320" height="568"/>
     </resources>
 </document>

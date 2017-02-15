@@ -7,7 +7,7 @@
 //
 
 #import "MainTabBarViewController.h"
-
+#import "Header.h"
 @interface MainTabBarViewController ()
 
 @end
@@ -16,6 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tabBar.tintColor = SYColor4;
     // Do any additional setup after loading the view.
 }
 

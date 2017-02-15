@@ -26,6 +26,7 @@
 		442F48771E31D4ED00FB0561 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F48761E31D4ED00FB0561 /* MainTabBarViewController.m */; };
 		442F487C1E31DE4B00FB0561 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F487B1E31DE4B00FB0561 /* SignUpViewController.m */; };
 		442F48801E31E03D00FB0561 /* SYSignUpEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F487F1E31E03D00FB0561 /* SYSignUpEmail.m */; };
+		4470840D1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4470840C1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m */; };
 		447E40DC1E3271E40010CAA4 /* SYSuscard.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E40DB1E3271E40010CAA4 /* SYSuscard.m */; };
 		447E40E01E32789F0010CAA4 /* SYSignUpPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E40DF1E32789F0010CAA4 /* SYSignUpPassword.m */; };
 		447E40F91E327D0D0010CAA4 /* License Agreement for SF UI Font.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40E31E327D0C0010CAA4 /* License Agreement for SF UI Font.pdf */; };
@@ -59,6 +60,8 @@
 		44A173E41E52355A00FABC4F /* DiscoverLearnHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A173E31E52355A00FABC4F /* DiscoverLearnHelpViewController.m */; };
 		44A173E71E52387800FABC4F /* DiscoverLearnShareSubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A173E61E52387800FABC4F /* DiscoverLearnShareSubmitViewController.m */; };
 		44A173EA1E52388D00FABC4F /* DiscoverLearnHelpSubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A173E91E52388D00FABC4F /* DiscoverLearnHelpSubmitViewController.m */; };
+		44A173EE1E540F8300FABC4F /* DiscoverPlayShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A173ED1E540F8300FABC4F /* DiscoverPlayShareViewController.m */; };
+		44A173F11E54105C00FABC4F /* DiscoverPlayHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A173F01E54105C00FABC4F /* DiscoverPlayHelpViewController.m */; };
 		44A494021E4C7F7A006CD069 /* DiscoverLiveHelpRentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494011E4C7F7A006CD069 /* DiscoverLiveHelpRentViewController.m */; };
 		44A494051E4C8180006CD069 /* DiscoverLiveShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494041E4C8180006CD069 /* DiscoverLiveShareViewController.m */; };
 		44A494081E4C84C7006CD069 /* DiscoverLiveShareLeaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494071E4C84C7006CD069 /* DiscoverLiveShareLeaseViewController.m */; };
@@ -136,6 +139,8 @@
 		442F487D1E31DF8200FB0561 /* SYSignUpHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SYSignUpHeader.h; path = Classes/SYSignUpHeader.h; sourceTree = "<group>"; };
 		442F487E1E31E03D00FB0561 /* SYSignUpEmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYSignUpEmail.h; path = Classes/SYSignUpEmail.h; sourceTree = "<group>"; };
 		442F487F1E31E03D00FB0561 /* SYSignUpEmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYSignUpEmail.m; path = Classes/SYSignUpEmail.m; sourceTree = "<group>"; };
+		4470840B1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverPlayShareActiveViewController.h; path = ViewControllers/DiscoverPlayShareActiveViewController.h; sourceTree = "<group>"; };
+		4470840C1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverPlayShareActiveViewController.m; path = ViewControllers/DiscoverPlayShareActiveViewController.m; sourceTree = "<group>"; };
 		447E40DA1E3271E40010CAA4 /* SYSuscard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYSuscard.h; path = Classes/SYSuscard.h; sourceTree = "<group>"; };
 		447E40DB1E3271E40010CAA4 /* SYSuscard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYSuscard.m; path = Classes/SYSuscard.m; sourceTree = "<group>"; };
 		447E40DD1E3272C70010CAA4 /* SYHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SYHeader.h; path = Classes/SYHeader.h; sourceTree = "<group>"; };
@@ -180,6 +185,10 @@
 		44A173E61E52387800FABC4F /* DiscoverLearnShareSubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLearnShareSubmitViewController.m; path = ViewControllers/DiscoverLearnShareSubmitViewController.m; sourceTree = "<group>"; };
 		44A173E81E52388D00FABC4F /* DiscoverLearnHelpSubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLearnHelpSubmitViewController.h; path = ViewControllers/DiscoverLearnHelpSubmitViewController.h; sourceTree = "<group>"; };
 		44A173E91E52388D00FABC4F /* DiscoverLearnHelpSubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLearnHelpSubmitViewController.m; path = ViewControllers/DiscoverLearnHelpSubmitViewController.m; sourceTree = "<group>"; };
+		44A173EC1E540F8300FABC4F /* DiscoverPlayShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverPlayShareViewController.h; path = ViewControllers/DiscoverPlayShareViewController.h; sourceTree = "<group>"; };
+		44A173ED1E540F8300FABC4F /* DiscoverPlayShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverPlayShareViewController.m; path = ViewControllers/DiscoverPlayShareViewController.m; sourceTree = "<group>"; };
+		44A173EF1E54105C00FABC4F /* DiscoverPlayHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverPlayHelpViewController.h; path = ViewControllers/DiscoverPlayHelpViewController.h; sourceTree = "<group>"; };
+		44A173F01E54105C00FABC4F /* DiscoverPlayHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverPlayHelpViewController.m; path = ViewControllers/DiscoverPlayHelpViewController.m; sourceTree = "<group>"; };
 		44A494001E4C7F7A006CD069 /* DiscoverLiveHelpRentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLiveHelpRentViewController.h; path = ViewControllers/DiscoverLiveHelpRentViewController.h; sourceTree = "<group>"; };
 		44A494011E4C7F7A006CD069 /* DiscoverLiveHelpRentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLiveHelpRentViewController.m; path = ViewControllers/DiscoverLiveHelpRentViewController.m; sourceTree = "<group>"; };
 		44A494031E4C8180006CD069 /* DiscoverLiveShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLiveShareViewController.h; path = ViewControllers/DiscoverLiveShareViewController.h; sourceTree = "<group>"; };
@@ -416,6 +425,7 @@
 				44A502C71E47AB6B0008C4AD /* Eat */,
 				44A502C61E47AB5F0008C4AD /* Live */,
 				44A173DE1E52351B00FABC4F /* Learn */,
+				44A173EB1E540F2C00FABC4F /* Play */,
 				44A4940C1E4CB169006CD069 /* DiscoverLocationViewController.h */,
 				44A4940D1E4CB169006CD069 /* DiscoverLocationViewController.m */,
 			);
@@ -477,6 +487,19 @@
 				44A173E91E52388D00FABC4F /* DiscoverLearnHelpSubmitViewController.m */,
 			);
 			name = Learn;
+			sourceTree = "<group>";
+		};
+		44A173EB1E540F2C00FABC4F /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				44A173EC1E540F8300FABC4F /* DiscoverPlayShareViewController.h */,
+				44A173ED1E540F8300FABC4F /* DiscoverPlayShareViewController.m */,
+				4470840B1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.h */,
+				4470840C1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m */,
+				44A173EF1E54105C00FABC4F /* DiscoverPlayHelpViewController.h */,
+				44A173F01E54105C00FABC4F /* DiscoverPlayHelpViewController.m */,
+			);
+			name = Play;
 			sourceTree = "<group>";
 		};
 		44A494091E4CA649006CD069 /* category */ = {
@@ -779,6 +802,7 @@
 			files = (
 				44A494261E4CD516006CD069 /* SYDistanceSlider.m in Sources */,
 				442F48771E31D4ED00FB0561 /* MainTabBarViewController.m in Sources */,
+				44A173F11E54105C00FABC4F /* DiscoverPlayHelpViewController.m in Sources */,
 				44A4942B1E4CE380006CD069 /* SYActiveMap.m in Sources */,
 				442F483A1E31CC0F00FB0561 /* AppDelegate.m in Sources */,
 				44A494181E4CB74B006CD069 /* SYAnnotationView.m in Sources */,
@@ -802,6 +826,7 @@
 				44A494151E4CB515006CD069 /* MapPin.m in Sources */,
 				442F486D1E31D11500FB0561 /* LaunchScreenViewController.m in Sources */,
 				44A4941E1E4CCE79006CD069 /* NMRangeSlider.m in Sources */,
+				44A173EE1E540F8300FABC4F /* DiscoverPlayShareViewController.m in Sources */,
 				442F48801E31E03D00FB0561 /* SYSignUpEmail.m in Sources */,
 				44A173E71E52387800FABC4F /* DiscoverLearnShareSubmitViewController.m in Sources */,
 				44A494051E4C8180006CD069 /* DiscoverLiveShareViewController.m in Sources */,
@@ -810,6 +835,7 @@
 				44A494311E4CE79F006CD069 /* DiscoverLiveHelpSubmitViewController.m in Sources */,
 				44A494221E4CCEBA006CD069 /* SYPriceSlider.m in Sources */,
 				442F48371E31CC0F00FB0561 /* main.m in Sources */,
+				4470840D1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m in Sources */,
 				442F48731E31D2F600FB0561 /* WelcomeViewController.m in Sources */,
 				44A173E11E52354000FABC4F /* DiscoverLearnShareViewController.m in Sources */,
 				447E40DC1E3271E40010CAA4 /* SYSuscard.m in Sources */,
