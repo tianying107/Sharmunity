@@ -15,6 +15,9 @@
 #import "DiscoverEatHelpViewController.h"
 #import "DiscoverPlayShareViewController.h"
 #import "DiscoverPlayHelpViewController.h"
+#import "DiscoverTravelShareViewController.h"
+#import "DiscoverTravelHelpViewController.h"
+
 @interface DiscoverMainViewController : UIViewController{
     BOOL isHelp;
     NSString *MEID;
@@ -23,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *currentHelpButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet UIButton *travelButton;
+@property (weak, nonatomic) IBOutlet UIButton *tradeButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *eatButton;
 @property (weak, nonatomic) IBOutlet UIButton *liveButton;

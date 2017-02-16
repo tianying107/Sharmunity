@@ -85,6 +85,9 @@
 		44A494341E4CF07B006CD069 /* SYHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494331E4CF07B006CD069 /* SYHelp.m */; };
 		44A494381E4CF5E1006CD069 /* SYChoiceAbstract.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494371E4CF5E1006CD069 /* SYChoiceAbstract.m */; };
 		44A502C51E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A502C41E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m */; };
+		44B815031E552F18008B98F3 /* DiscoverTravelShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B815021E552F18008B98F3 /* DiscoverTravelShareViewController.m */; };
+		44B815061E552F2D008B98F3 /* DiscoverTravelHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B815051E552F2D008B98F3 /* DiscoverTravelHelpViewController.m */; };
+		44B815091E553467008B98F3 /* DiscoverTravelShareSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B815081E553467008B98F3 /* DiscoverTravelShareSecondViewController.m */; };
 		44FBAAA11E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FBAAA01E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -238,6 +241,12 @@
 		44A494371E4CF5E1006CD069 /* SYChoiceAbstract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYChoiceAbstract.m; path = Classes/SYChoiceAbstract.m; sourceTree = "<group>"; };
 		44A502C31E47AB5A0008C4AD /* DiscoverLiveHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLiveHelpViewController.h; path = ViewControllers/DiscoverLiveHelpViewController.h; sourceTree = "<group>"; };
 		44A502C41E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLiveHelpViewController.m; path = ViewControllers/DiscoverLiveHelpViewController.m; sourceTree = "<group>"; };
+		44B815011E552F18008B98F3 /* DiscoverTravelShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTravelShareViewController.h; path = ViewControllers/DiscoverTravelShareViewController.h; sourceTree = "<group>"; };
+		44B815021E552F18008B98F3 /* DiscoverTravelShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTravelShareViewController.m; path = ViewControllers/DiscoverTravelShareViewController.m; sourceTree = "<group>"; };
+		44B815041E552F2D008B98F3 /* DiscoverTravelHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTravelHelpViewController.h; path = ViewControllers/DiscoverTravelHelpViewController.h; sourceTree = "<group>"; };
+		44B815051E552F2D008B98F3 /* DiscoverTravelHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTravelHelpViewController.m; path = ViewControllers/DiscoverTravelHelpViewController.m; sourceTree = "<group>"; };
+		44B815071E553467008B98F3 /* DiscoverTravelShareSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTravelShareSecondViewController.h; path = ViewControllers/DiscoverTravelShareSecondViewController.h; sourceTree = "<group>"; };
+		44B815081E553467008B98F3 /* DiscoverTravelShareSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTravelShareSecondViewController.m; path = ViewControllers/DiscoverTravelShareSecondViewController.m; sourceTree = "<group>"; };
 		44FBAA9F1E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverEatHelpSecondViewController.h; path = ViewControllers/DiscoverEatHelpSecondViewController.h; sourceTree = "<group>"; };
 		44FBAAA01E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverEatHelpSecondViewController.m; path = ViewControllers/DiscoverEatHelpSecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -467,6 +476,7 @@
 				44A502C61E47AB5F0008C4AD /* Live */,
 				44A173DE1E52351B00FABC4F /* Learn */,
 				44A173EB1E540F2C00FABC4F /* Play */,
+				44B815001E552E74008B98F3 /* Travel */,
 				44A4940C1E4CB169006CD069 /* DiscoverLocationViewController.h */,
 				44A4940D1E4CB169006CD069 /* DiscoverLocationViewController.m */,
 			);
@@ -680,6 +690,19 @@
 			name = Eat;
 			sourceTree = "<group>";
 		};
+		44B815001E552E74008B98F3 /* Travel */ = {
+			isa = PBXGroup;
+			children = (
+				44B815011E552F18008B98F3 /* DiscoverTravelShareViewController.h */,
+				44B815021E552F18008B98F3 /* DiscoverTravelShareViewController.m */,
+				44B815071E553467008B98F3 /* DiscoverTravelShareSecondViewController.h */,
+				44B815081E553467008B98F3 /* DiscoverTravelShareSecondViewController.m */,
+				44B815041E552F2D008B98F3 /* DiscoverTravelHelpViewController.h */,
+				44B815051E552F2D008B98F3 /* DiscoverTravelHelpViewController.m */,
+			);
+			name = Travel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -858,6 +881,7 @@
 				447E40E01E32789F0010CAA4 /* SYSignUpPassword.m in Sources */,
 				44A173E41E52355A00FABC4F /* DiscoverLearnHelpViewController.m in Sources */,
 				44A502C51E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m in Sources */,
+				44B815061E552F2D008B98F3 /* DiscoverTravelHelpViewController.m in Sources */,
 				447E411E1E32B5010010CAA4 /* SYCell.m in Sources */,
 				44A494081E4C84C7006CD069 /* DiscoverLiveShareLeaseViewController.m in Sources */,
 				447084191E54FEB800DEAB75 /* ChoiceDetailViewController.m in Sources */,
@@ -881,6 +905,7 @@
 				44A173EE1E540F8300FABC4F /* DiscoverPlayShareViewController.m in Sources */,
 				442F48801E31E03D00FB0561 /* SYSignUpEmail.m in Sources */,
 				44A173E71E52387800FABC4F /* DiscoverLearnShareSubmitViewController.m in Sources */,
+				44B815091E553467008B98F3 /* DiscoverTravelShareSecondViewController.m in Sources */,
 				44A494051E4C8180006CD069 /* DiscoverLiveShareViewController.m in Sources */,
 				44A494381E4CF5E1006CD069 /* SYChoiceAbstract.m in Sources */,
 				44A494021E4C7F7A006CD069 /* DiscoverLiveHelpRentViewController.m in Sources */,
@@ -890,6 +915,7 @@
 				4470840D1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m in Sources */,
 				442F48731E31D2F600FB0561 /* WelcomeViewController.m in Sources */,
 				44A173E11E52354000FABC4F /* DiscoverLearnShareViewController.m in Sources */,
+				44B815031E552F18008B98F3 /* DiscoverTravelShareViewController.m in Sources */,
 				447E40DC1E3271E40010CAA4 /* SYSuscard.m in Sources */,
 				44A173EA1E52388D00FABC4F /* DiscoverLearnHelpSubmitViewController.m in Sources */,
 				44A4942E1E4CE4A7006CD069 /* NearbyMapViewController.m in Sources */,

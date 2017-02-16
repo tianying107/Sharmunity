@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FKL-4H-ZFz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FKL-4H-ZFz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -184,6 +184,8 @@
                         <outlet property="learnButton" destination="GhW-9V-mql" id="WNX-fO-Udz"/>
                         <outlet property="liveButton" destination="pwU-yz-09Q" id="d1k-xs-8ZE"/>
                         <outlet property="playButton" destination="F1r-XC-19i" id="CtL-ge-mmT"/>
+                        <outlet property="tradeButton" destination="0JK-SR-vSR" id="gpQ-9i-bxF"/>
+                        <outlet property="travelButton" destination="C5R-B9-P9e" id="K50-k4-6ua"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -751,6 +753,94 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ueg-KQ-MiU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6638" y="518"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="h80-BV-imm">
+            <objects>
+                <viewController storyboardIdentifier="travelHelpFirst" id="hHd-cL-1wF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7kB-tc-qHS"/>
+                        <viewControllerLayoutGuide type="bottom" id="1s4-gW-8yP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wfW-LI-XED">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Chj-JV-Ccy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5758" y="1216"/>
+        </scene>
+        <!--Discover Travel Share View Controller-->
+        <scene sceneID="9ZG-fk-6bB">
+            <objects>
+                <viewController storyboardIdentifier="travelShareFirst" id="PEs-2W-7a1" customClass="DiscoverTravelShareViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LZU-oO-jT8"/>
+                        <viewControllerLayoutGuide type="bottom" id="suI-uZ-Hep"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="inr-j5-IfK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHx-ke-u1v">
+                                <rect key="frame" x="70" y="81" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="PARTNER"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJw-hV-Zo1">
+                                <rect key="frame" x="182" y="81" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="dRIVE"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tut-kt-HFN">
+                                <rect key="frame" x="269" y="81" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="CARPOOL"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPq-0a-CBi">
+                                <rect key="frame" x="80" y="150" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="pickup"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRI-Nk-0aJ">
+                                <rect key="frame" x="179" y="150" width="47" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="buycar"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dek-a8-naM">
+                                <rect key="frame" x="284" y="150" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="repair"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a78-dQ-2uB">
+                                <rect key="frame" x="80" y="225" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="deliver"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qh-Hc-ule">
+                                <rect key="frame" x="184" y="225" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="other"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="buyCarButton" destination="sRI-Nk-0aJ" id="ULd-5H-86Y"/>
+                        <outlet property="carpoolButton" destination="Tut-kt-HFN" id="tnJ-BK-y7g"/>
+                        <outlet property="deliverButton" destination="a78-dQ-2uB" id="VPs-iX-lfd"/>
+                        <outlet property="driveButton" destination="kJw-hV-Zo1" id="KME-U3-xDC"/>
+                        <outlet property="otherButton" destination="2qh-Hc-ule" id="m4P-OD-BHl"/>
+                        <outlet property="partnerButton" destination="XHx-ke-u1v" id="csG-nF-sBw"/>
+                        <outlet property="pickupButton" destination="QPq-0a-CBi" id="uEE-Ee-OHD"/>
+                        <outlet property="repairButton" destination="Dek-a8-naM" id="61p-eQ-2Rj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f9P-7d-nmb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6638" y="1216"/>
         </scene>
         <!--住-->
         <scene sceneID="PfB-Qa-i62">

@@ -42,6 +42,7 @@
     [_liveButton addTarget:self action:@selector(liveButtonResponse) forControlEvents:UIControlEventTouchUpInside];
     [_learnButton addTarget:self action:@selector(learnButtonResponse) forControlEvents:UIControlEventTouchUpInside];
     [_playButton addTarget:self action:@selector(playButtonResponse) forControlEvents:UIControlEventTouchUpInside];
+    [_travelButton addTarget:self action:@selector(travelButtonResponse) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(IBAction)shareHelpSwitch:(id)sender{
@@ -54,6 +55,8 @@
         _liveButton.selected = NO;
         _learnButton.selected = NO;
         _playButton.selected = NO;
+        _travelButton.selected = NO;
+        _tradeButton.selected = NO;
         _buttonBackgroundImageView.image = [UIImage imageNamed:@"helpShareButtonBackground"];
     }
     else{
@@ -63,6 +66,8 @@
         _liveButton.selected = YES;
         _learnButton.selected = YES;
         _playButton.selected = YES;
+        _travelButton.selected = YES;
+        _tradeButton.selected = YES;
         _buttonBackgroundImageView.image = [UIImage imageNamed:@"shareHelpButtonBackground"];
     }
 }
@@ -107,7 +112,16 @@
         [self.navigationController pushViewController:viewController animated:YES];
     }
 }
-
+- (void)travelButtonResponse{
+    if (isHelp) {
+        DiscoverTravelHelpViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"travelHelpFirst"];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
+    else{
+        DiscoverTravelShareViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"travelShareFirst"];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
+}
 
 - (void)welcomeTitleRequest{
     MEID = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"admin"] valueForKey:@"id"];
