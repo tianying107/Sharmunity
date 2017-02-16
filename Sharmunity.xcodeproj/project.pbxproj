@@ -32,6 +32,8 @@
 		447084191E54FEB800DEAB75 /* ChoiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447084181E54FEB800DEAB75 /* ChoiceDetailViewController.m */; };
 		4470841E1E54FEFC00DEAB75 /* SYProfileHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 4470841D1E54FEFC00DEAB75 /* SYProfileHead.m */; };
 		447084221E5512FC00DEAB75 /* SYChoiceDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 447084211E5512FC00DEAB75 /* SYChoiceDetail.m */; };
+		447084261E55715800DEAB75 /* SYProfileExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 447084251E55715800DEAB75 /* SYProfileExtend.m */; };
+		447084291E5578CB00DEAB75 /* DiscoverTravelHelpSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447084281E5578CB00DEAB75 /* DiscoverTravelHelpSecondViewController.m */; };
 		447E40DC1E3271E40010CAA4 /* SYSuscard.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E40DB1E3271E40010CAA4 /* SYSuscard.m */; };
 		447E40E01E32789F0010CAA4 /* SYSignUpPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E40DF1E32789F0010CAA4 /* SYSignUpPassword.m */; };
 		447E40F91E327D0D0010CAA4 /* License Agreement for SF UI Font.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40E31E327D0C0010CAA4 /* License Agreement for SF UI Font.pdf */; };
@@ -158,6 +160,10 @@
 		4470841D1E54FEFC00DEAB75 /* SYProfileHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYProfileHead.m; path = Classes/SYProfileHead.m; sourceTree = "<group>"; };
 		447084201E5512FC00DEAB75 /* SYChoiceDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYChoiceDetail.h; path = Classes/SYChoiceDetail.h; sourceTree = "<group>"; };
 		447084211E5512FC00DEAB75 /* SYChoiceDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYChoiceDetail.m; path = Classes/SYChoiceDetail.m; sourceTree = "<group>"; };
+		447084241E55715800DEAB75 /* SYProfileExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYProfileExtend.h; path = Classes/SYProfileExtend.h; sourceTree = "<group>"; };
+		447084251E55715800DEAB75 /* SYProfileExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYProfileExtend.m; path = Classes/SYProfileExtend.m; sourceTree = "<group>"; };
+		447084271E5578CB00DEAB75 /* DiscoverTravelHelpSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTravelHelpSecondViewController.h; path = ViewControllers/DiscoverTravelHelpSecondViewController.h; sourceTree = "<group>"; };
+		447084281E5578CB00DEAB75 /* DiscoverTravelHelpSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTravelHelpSecondViewController.m; path = ViewControllers/DiscoverTravelHelpSecondViewController.m; sourceTree = "<group>"; };
 		447E40DA1E3271E40010CAA4 /* SYSuscard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYSuscard.h; path = Classes/SYSuscard.h; sourceTree = "<group>"; };
 		447E40DB1E3271E40010CAA4 /* SYSuscard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYSuscard.m; path = Classes/SYSuscard.m; sourceTree = "<group>"; };
 		447E40DD1E3272C70010CAA4 /* SYHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SYHeader.h; path = Classes/SYHeader.h; sourceTree = "<group>"; };
@@ -397,6 +403,7 @@
 		4470841A1E54FED200DEAB75 /* SYProfile */ = {
 			isa = PBXGroup;
 			children = (
+				447084231E55713F00DEAB75 /* SYProfileExtend */,
 				4470841B1E54FEDB00DEAB75 /* SYProfileHead */,
 			);
 			name = SYProfile;
@@ -418,6 +425,15 @@
 				447084211E5512FC00DEAB75 /* SYChoiceDetail.m */,
 			);
 			name = SYChoiceDetail;
+			sourceTree = "<group>";
+		};
+		447084231E55713F00DEAB75 /* SYProfileExtend */ = {
+			isa = PBXGroup;
+			children = (
+				447084241E55715800DEAB75 /* SYProfileExtend.h */,
+				447084251E55715800DEAB75 /* SYProfileExtend.m */,
+			);
+			name = SYProfileExtend;
 			sourceTree = "<group>";
 		};
 		447E40D91E3271660010CAA4 /* SYSuscard */ = {
@@ -699,6 +715,8 @@
 				44B815081E553467008B98F3 /* DiscoverTravelShareSecondViewController.m */,
 				44B815041E552F2D008B98F3 /* DiscoverTravelHelpViewController.h */,
 				44B815051E552F2D008B98F3 /* DiscoverTravelHelpViewController.m */,
+				447084271E5578CB00DEAB75 /* DiscoverTravelHelpSecondViewController.h */,
+				447084281E5578CB00DEAB75 /* DiscoverTravelHelpSecondViewController.m */,
 			);
 			name = Travel;
 			sourceTree = "<group>";
@@ -916,7 +934,9 @@
 				442F48731E31D2F600FB0561 /* WelcomeViewController.m in Sources */,
 				44A173E11E52354000FABC4F /* DiscoverLearnShareViewController.m in Sources */,
 				44B815031E552F18008B98F3 /* DiscoverTravelShareViewController.m in Sources */,
+				447084261E55715800DEAB75 /* SYProfileExtend.m in Sources */,
 				447E40DC1E3271E40010CAA4 /* SYSuscard.m in Sources */,
+				447084291E5578CB00DEAB75 /* DiscoverTravelHelpSecondViewController.m in Sources */,
 				44A173EA1E52388D00FABC4F /* DiscoverLearnHelpSubmitViewController.m in Sources */,
 				44A4942E1E4CE4A7006CD069 /* NearbyMapViewController.m in Sources */,
 				44FBAAA11E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m in Sources */,

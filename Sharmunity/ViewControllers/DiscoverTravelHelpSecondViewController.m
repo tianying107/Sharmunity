@@ -1,22 +1,22 @@
 //
-//  DiscoverTravelShareSecondViewController.m
+//  DiscoverTravelHelpSecondViewController.m
 //  Sharmunity
 //
-//  Created by Star Chen on 2/15/17.
-//  Copyright © 2017 Sharmunity. All rights reserved.
+//  Created by st chen on 2017/2/15.
+//  Copyright © 2017年 Sharmunity. All rights reserved.
 //
 
-#import "DiscoverTravelShareSecondViewController.h"
+#import "DiscoverTravelHelpSecondViewController.h"
 #import "DiscoverLocationViewController.h"
 #import "Header.h"
 #import "SYHeader.h"
-@interface DiscoverTravelShareSecondViewController ()<SYPriceSliderDelegate>{
+@interface DiscoverTravelHelpSecondViewController ()<SYPriceSliderDelegate>{
     SYPopOut *popOut;
 }
 
 @end
 
-@implementation DiscoverTravelShareSecondViewController
+@implementation DiscoverTravelHelpSecondViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -249,31 +249,18 @@
     layer.shadowOpacity = .25f;
     layer.shadowPath = [[UIBezierPath bezierPathWithRect:layer.bounds] CGPath];
     
-    /*title*/
-    titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
-    titleView.hidden = YES;
-    UILabel *titleTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 40)];
-    titleTitleLabel.text = @"标题";
-    titleTitleLabel.textColor = SYColor1;
-    [titleView addSubview:titleTitleLabel];
-    UITextField *textfield = [[UITextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30)];
-    textfield.tag = 11;
-    [textfield addTarget:self action:@selector(titleEmptyCheck) forControlEvents:UIControlEventEditingChanged];
-    textfield.backgroundColor = [UIColor whiteColor];
-    [titleView addSubview:textfield];
-    
-    /*introduction*/
-    introductionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 180)];
-    introductionView.hidden = YES;
-    UILabel *introductionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 40)];
-    introductionTitleLabel.text = @"简介";
-    introductionTitleLabel.textColor = SYColor1;
-    [introductionView addSubview:introductionTitleLabel];
-    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 100)];
-    textView.tag = 11;
-    textView.delegate = self;
-    textView.backgroundColor = [UIColor whiteColor];
-    [introductionView addSubview:textView];
+    /*keyword*/
+    keywordView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    keywordView.hidden = YES;
+    UILabel *keywordTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 40)];
+    keywordTitleLabel.text = @"标题";
+    keywordTitleLabel.textColor = SYColor1;
+    [keywordView addSubview:keywordTitleLabel];
+    UITextField *keywordTextfield = [[UITextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30)];
+    keywordTextfield.tag = 11;
+    [keywordTextfield addTarget:self action:@selector(titleEmptyCheck) forControlEvents:UIControlEventEditingChanged];
+    keywordTextfield.backgroundColor = [UIColor whiteColor];
+    [keywordView addSubview:keywordTextfield];
     
     /*price*/
     priceView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 140)];
@@ -282,10 +269,11 @@
     priceTitleLabel.text = @"价格";
     priceTitleLabel.textColor = SYColor1;
     [priceView addSubview:priceTitleLabel];
-    SYPriceSlider *priceSlider = [[SYPriceSlider alloc] initWithFrame:CGRectMake(originX, 60, viewWidth-2*originX, 50) type:SYPriceSliderSingle];
+    SYPriceSlider *priceSlider = [[SYPriceSlider alloc] initWithFrame:CGRectMake(originX, 60, viewWidth-2*originX, 50) type:SYPriceSliderDouble];
     priceSlider.delegate = self;
     [priceView addSubview:priceSlider];
-    priceString = @"150";
+    lowerPriceString = @"100";
+    upperPriceString = @"1000";
     
     nextButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 44)];
     [nextButton setTitle:@"下一步" forState:UIControlStateNormal];
@@ -315,10 +303,8 @@
             [viewsArray addObject:locationView];
             [mainScrollView addSubview:priceView];
             [viewsArray addObject:priceView];
-            [mainScrollView addSubview:titleView];
-            [viewsArray addObject:titleView];
-            [mainScrollView addSubview:introductionView];
-            [viewsArray addObject:introductionView];
+            [mainScrollView addSubview:keywordView];
+            [viewsArray addObject:keywordView];
             break;
         case DiscoverTravelCarpool:
             departCityView.hidden = NO; arriveCityView.hidden = NO;
@@ -337,18 +323,14 @@
             [viewsArray addObject:priceView];
             break;
         case DiscoverTravelBuyCar:
-            titleView.hidden = NO;
-            [mainScrollView addSubview:titleView];
-            [viewsArray addObject:titleView];
-            [mainScrollView addSubview:introductionView];
-            [viewsArray addObject:introductionView];
+            keywordView.hidden = NO;
+            [mainScrollView addSubview:keywordView];
+            [viewsArray addObject:keywordView];
             break;
         case DiscoverTravelRepair:
-            titleView.hidden = NO;
-            [mainScrollView addSubview:titleView];
-            [viewsArray addObject:titleView];
-            [mainScrollView addSubview:introductionView];
-            [viewsArray addObject:introductionView];
+            keywordView.hidden = NO;
+            [mainScrollView addSubview:keywordView];
+            [viewsArray addObject:keywordView];
             break;
         case DiscoverTravelDeliver:
             cityView.hidden = NO;
@@ -363,10 +345,9 @@
             locationView.hidden = NO;
             [mainScrollView addSubview:locationView];
             [viewsArray addObject:locationView];
-            [mainScrollView addSubview:titleView];
-            [viewsArray addObject:titleView];
-            [mainScrollView addSubview:introductionView];
-            [viewsArray addObject:introductionView];
+            [mainScrollView addSubview:keywordView];
+            [viewsArray addObject:keywordView];
+
             break;
         default:
             break;
@@ -482,10 +463,10 @@
     switch (_controllerType) {
         case DiscoverTravelDrive:
             priceView.hidden = NO;
-            titleView.hidden = NO;
+            keywordView.hidden = NO;
             break;
         case DiscoverTravelOther:
-            titleView.hidden = NO;
+            keywordView.hidden = NO;
             break;
             
         default:
@@ -510,11 +491,9 @@
     UITextField *arriveCity = [arriveCityView viewWithTag:11];
     UITextField *airport = [airportsView viewWithTag:11];
     UITextField *city = [cityView viewWithTag:11];
-    UITextField *title = [titleView viewWithTag:11];
-    UITextView *introduction = [introductionView viewWithTag:11];
+    UITextField *keyword = [keywordView viewWithTag:11];
     
     NSString *requestBody;
-//    = [NSString stringWithFormat:@"expire_date=%@&email=%@&latitude=%f&longitude=%f&category=3&subcate=%@&title=%@&introduction=%@&start_lati=%@&start_long=%@&price=%@",dateString,MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,title.text, introduction.text,startLatitude,startLongitude,priceString];
     
     switch (_controllerType) {
         case DiscoverTravelPartner:
@@ -527,11 +506,11 @@
             }
             else
                 requestBody = [NSString stringWithFormat:@"expire_date=%@&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&date=%@&depart=%@&arrive=%@",expireDate,MEID,latitude,longitude,subCate,expireDate,departAirport.text,arriveAirport.text];
-
+            
             break;
         case DiscoverTravelDrive:
             subCate=@"02000000";
-            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%f&longitude=%f&category=5&subcate=%@&title=%@&introduction=%@&price=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,title.text, introduction.text,priceString];
+            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%f&longitude=%f&category=5&subcate=%@&keyword=%@&lower_price=%@&upper_price=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,keyword.text,lowerPriceString,upperPriceString];
             break;
         case DiscoverTravelCarpool:
             subCate=@"03000000";
@@ -543,28 +522,28 @@
             subCate=@"04000000";
             latitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
             longitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
-            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&airport=%@&price=%@",MEID,latitude,longitude,subCate,airport.text,priceString];
+            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&airport=%@&lower_price=%@&upper_price=%@",MEID,latitude,longitude,subCate,airport.text,lowerPriceString,upperPriceString];
             break;
         case DiscoverTravelBuyCar:
             subCate=@"05030000";
-            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%f&longitude=%f&category=5&subcate=%@&title=%@&introduction=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,title.text, introduction.text];
+            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%f&longitude=%f&category=5&subcate=%@&keyword=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,keyword.text];
             break;
         case DiscoverTravelRepair:
             subCate=@"06000000";
-            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%f&longitude=%f&category=5&subcate=%@&title=%@&introduction=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,title.text, introduction.text];
+            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%f&longitude=%f&category=5&subcate=%@&keyword=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,keyword.text];
             break;
         case DiscoverTravelDeliver:
             subCate=@"07000000";
             latitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
             longitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
-            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&airport=%@&price=%@&date=%@",MEID,latitude,longitude,subCate,city.text,priceString,dateString];
+            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&airport=%@&lower_price=%@&upper_price=%@&date=%@",MEID,latitude,longitude,subCate,city.text,lowerPriceString,upperPriceString,dateString];
             break;
         case DiscoverTravelOther:
             subCate=@"99000000";
-            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%f&longitude=%f&category=5&subcate=%@&title=%@&introduction=%@&is_other=1",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,title.text, introduction.text];
+            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%f&longitude=%f&category=5&subcate=%@&keyword=%@&is_other=1",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,keyword.text];
             break;
-
-         
+            
+            
         default:
             break;
     }
@@ -572,7 +551,7 @@
     
     NSLog(@"%@/n",requestBody);
     /*改上面的 query 和 URLstring 就好了*/
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@newshare",basicURL]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@newhelp",basicURL]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
     request.HTTPBody = [requestBody dataUsingEncoding:NSUTF8StringEncoding];
@@ -592,17 +571,35 @@
 
 -(void)submitHandle:(NSDictionary*)dict{
     if ([[dict valueForKey:@"success"] boolValue]){
-        [popOut showUpPop:SYPopDiscoverShareSuccess];
+        [self helpResponse:[dict valueForKey:@"help_id"]];
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
     else [popOut showUpPop:SYPopDiscoverShareFail];
     
 }
+-(void)helpResponse:(NSString*)helpID{
+    SYSuscard *baseView = [[SYSuscard alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen]bounds].size.height) withCardSize:CGSizeMake(320, 300) keyboard:NO];
+    baseView.cardBackgroundView.backgroundColor = SYBackgroundColorExtraLight;
+    baseView.scrollView.scrollEnabled = NO;
+    baseView.backButton.hidden = YES;
+    
+    UIWindow* currentWindow = [UIApplication sharedApplication].keyWindow;
+    [currentWindow addSubview:baseView];
+    baseView.alpha = 0;
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.258];
+    baseView.alpha = 1;
+    [UIView commitAnimations];
+    
+    /**************content***************/
+    SYHelp *helpView = [[SYHelp alloc] initWithFrame:CGRectMake(0, 0, baseView.cardSize.width, baseView.cardSize.height) helpID:helpID withHeadView:YES];
+    [baseView addGoSubview:helpView];
+}
 
 -(void)titleEmptyCheck{
-    UITextField *textField = [titleView viewWithTag:11];
-    if ([textField.text length]) {        
-        introductionView.hidden = NO;
+    UITextField *textField = [keywordView viewWithTag:11];
+    if ([textField.text length]) {
+        nextButton.hidden = NO;
         
     }
 }
@@ -650,21 +647,19 @@
     }
 }
 -(void)dismissKeyboard {
-    UITextField *textField = [titleView viewWithTag:11];
+    UITextField *textField = [keywordView viewWithTag:11];
     [textField resignFirstResponder];
-    UITextView *textView = [introductionView viewWithTag:11];
-    [textView resignFirstResponder];
 }
 
 
 
 - (void)priceSlider:(UISlider *)slider priceChangeToValue:(NSInteger)price{
-    priceString = [NSString stringWithFormat:@"%ld",price];
-    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:priceString, @"price", nil];
-    [_shareDict addEntriesFromDictionary:dict];
-}
--(void)lowerPriceChangeToValue:(NSInteger)lowerPrice upperToValue:(NSInteger)upperPrice{
     
 }
+-(void)lowerPriceChangeToValue:(NSInteger)lowerPrice upperToValue:(NSInteger)upperPrice{
+    lowerPriceString = [NSString stringWithFormat:@"%ld",lowerPrice];
+    upperPriceString = [NSString stringWithFormat:@"%ld",upperPrice];
+}
+
 
 @end

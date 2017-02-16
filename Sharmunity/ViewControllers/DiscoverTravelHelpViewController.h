@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface DiscoverTravelHelpViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *partnerButton;
+@property (weak, nonatomic) IBOutlet UIButton *driveButton;
+@property (weak, nonatomic) IBOutlet UIButton *carpoolButton;
+@property (weak, nonatomic) IBOutlet UIButton *pickupButton;
+@property (weak, nonatomic) IBOutlet UIButton *buyCarButton;
+@property (weak, nonatomic) IBOutlet UIButton *repairButton;
+@property (weak, nonatomic) IBOutlet UIButton *deliverButton;
+@property (weak, nonatomic) IBOutlet UIButton *otherButton;
 
 
 @end

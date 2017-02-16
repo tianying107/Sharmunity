@@ -1,47 +1,45 @@
 //
-//  SYProfileHead.m
+//  SYProfileExtend.m
 //  Sharmunity
 //
 //  Created by st chen on 2017/2/15.
 //  Copyright © 2017年 Sharmunity. All rights reserved.
 //
 
-#import "SYProfileHead.h"
+#import "SYProfileExtend.h"
 #import "Header.h"
-@implementation SYProfileHead
+@implementation SYProfileExtend
 @synthesize userDict;
 -(id)initWithUserID:(NSString*)ID frame:(CGRect)frame{
     self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 100)];
     if (self) {
         userID = ID;
-        _avatarButton = [UIButton new];
         [self requestionUserInformation];
     }
     return self;
 }
 
 -(void)viewsSetup{
-    self.backgroundColor = SYBackgroundColorExtraLight;
+    UILabel *expTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, 200, 30)];
+    expTitleLabel.text = @"经验值：";
+    expTitleLabel.textColor = SYColor1;
+    [expTitleLabel setFont:SYFont15M];
+    [self addSubview:expTitleLabel];
     
-    avatarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 10, 80, 80)];
-    avatarImageView.image = [UIImage imageNamed:@"defaultAvatar"];
-    avatarImageView.layer.cornerRadius = 3;
-    avatarImageView.clipsToBounds = YES;
-    [self addSubview:avatarImageView];
-    _avatarButton.frame = avatarImageView.frame;
-    [self addSubview:_avatarButton];
+
+    UILabel *reviewTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 35, 200, 30)];
+    reviewTitleLabel.text = @"评价：";
+    reviewTitleLabel.textColor = SYColor1;
+    [reviewTitleLabel setFont:SYFont15M];
+    [self addSubview:reviewTitleLabel];
     
-    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(avatarImageView.frame.origin.x*2+avatarImageView.frame.size.width, 10, 200, 40)];
-    nameLabel.text = [NSString stringWithFormat:@"昵称: %@",[userDict valueForKey:@"name"]];
-    nameLabel.textColor = SYColor1;
-    [nameLabel setFont:SYFont15M];
-    [self addSubview:nameLabel];
     
-    UILabel *signUpLabel = [[UILabel alloc] initWithFrame:CGRectMake(nameLabel.frame.origin.x, nameLabel.frame.size.height+nameLabel.frame.origin.y, 200, nameLabel.frame.size.height)];
-    signUpLabel.text = [NSString stringWithFormat:@"注册时间: %@",[userDict valueForKey:@"join_data"]];
-    signUpLabel.textColor = SYColor1;
-    [signUpLabel setFont:SYFont15M];
-    [self addSubview:signUpLabel];
+    UILabel *goldenTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 65, 200, 30)];
+    goldenTitleLabel.text = @"徽章：";
+    goldenTitleLabel.textColor = SYColor1;
+    [goldenTitleLabel setFont:SYFont15M];
+    [self addSubview:goldenTitleLabel];
+    
 }
 -(void)requestionUserInformation{
     NSString *requestQuery = [NSString stringWithFormat:@"email=%@",userID];
@@ -64,6 +62,8 @@
                                         
                                     }];
     [task resume];
-
+    
 }
+
+
 @end

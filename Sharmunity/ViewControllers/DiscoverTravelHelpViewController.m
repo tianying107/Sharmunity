@@ -7,7 +7,7 @@
 //
 
 #import "DiscoverTravelHelpViewController.h"
-
+#import "DiscoverTravelHelpSecondViewController.h"
 @interface DiscoverTravelHelpViewController ()
 
 @end
@@ -16,7 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self viewsSetup];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +25,31 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)viewsSetup{
+    _partnerButton.tag = DiscoverTravelPartner;
+    _driveButton.tag = DiscoverTravelDrive;
+    _carpoolButton.tag = DiscoverTravelCarpool;
+    _pickupButton.tag = DiscoverTravelPickup;
+    _buyCarButton.tag = DiscoverTravelBuyCar;
+    _repairButton.tag = DiscoverTravelRepair;
+    _deliverButton.tag = DiscoverTravelDeliver;
+    _otherButton.tag = DiscoverTravelOther;
+    [_partnerButton addTarget:self action:@selector(selectResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [_driveButton addTarget:self action:@selector(selectResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [_carpoolButton addTarget:self action:@selector(selectResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [_pickupButton addTarget:self action:@selector(selectResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [_buyCarButton addTarget:self action:@selector(selectResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [_repairButton addTarget:self action:@selector(selectResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [_deliverButton addTarget:self action:@selector(selectResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [_otherButton addTarget:self action:@selector(selectResponse:) forControlEvents:UIControlEventTouchUpInside];
 }
-*/
+
+-(IBAction)selectResponse:(id)sender{
+    UIButton *button = sender;
+    DiscoverTravelHelpSecondViewController *viewController = [DiscoverTravelHelpSecondViewController new];
+    viewController.controllerType = button.tag;
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 
 @end

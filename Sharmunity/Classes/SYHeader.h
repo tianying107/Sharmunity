@@ -20,4 +20,5 @@
 #import "SYChoiceAbstract.h"
 #import "SYChoiceDetail.h"
 #import "SYProfileHead.h"
+#import "SYProfileExtend.h"
 #endif /* SYHeader_h */

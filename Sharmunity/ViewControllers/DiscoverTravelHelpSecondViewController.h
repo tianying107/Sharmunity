@@ -1,9 +1,9 @@
 //
-//  DiscoverTravelShareSecondViewController.h
+//  DiscoverTravelHelpSecondViewController.h
 //  Sharmunity
 //
-//  Created by Star Chen on 2/15/17.
-//  Copyright © 2017 Sharmunity. All rights reserved.
+//  Created by st chen on 2017/2/15.
+//  Copyright © 2017年 Sharmunity. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -16,7 +16,7 @@
 #define DiscoverTravelRepair 106
 #define DiscoverTravelDeliver 107
 #define DiscoverTravelOther 199
-@interface DiscoverTravelShareSecondViewController : UIViewController<UIScrollViewDelegate,UITextViewDelegate, CLLocationManagerDelegate>{
+@interface DiscoverTravelHelpSecondViewController : UIViewController<UIScrollViewDelegate,UITextViewDelegate, CLLocationManagerDelegate>{
     UIScrollView *mainScrollView;
     UIView *hasTicketView;
     UIView *flightView;
@@ -29,14 +29,14 @@
     UIView *priceView;
     UIView *locationView;
     UIView *dateView;
-    UIView *titleView;
-    UIView *introductionView;
+    UIView *keywordView;
     UIDatePicker *datePicker;
     UIView *confirmBackgroundView;
     UIButton *nextButton;
     
     NSString *MEID;
-    NSString *priceString;
+    NSString *upperPriceString;
+    NSString *lowerPriceString;
     NSString *dateString;
     NSString *ticketString;
     BOOL is_other;
@@ -49,5 +49,7 @@
 @property NSMutableDictionary *shareDict;
 @property MKMapItem *selectedItem;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+
+
 
 @end
