@@ -209,10 +209,10 @@
             </objects>
             <point key="canvasLocation" x="1688.8" y="359.37031484257875"/>
         </scene>
-        <!--View Controller-->
+        <!--Choice Detail View Controller-->
         <scene sceneID="4vm-BK-nFj">
             <objects>
-                <viewController id="OkR-XU-MrP" sceneMemberID="viewController">
+                <viewController id="OkR-XU-MrP" customClass="ChoiceDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oMz-Q8-AlT"/>
                         <viewControllerLayoutGuide type="bottom" id="czb-Fh-sQ0"/>
@@ -224,15 +224,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="dnD-TU-VYy">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="kwE-ZO-9JI">
-                            <rect key="frame" x="27" y="7" width="321" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="消息"/>
-                                <segment title="求助"/>
-                                <segment title="帮忙"/>
-                            </segments>
-                        </segmentedControl>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GaM-Tp-dhm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -672,7 +663,7 @@
         <!--Discover Play Help View Controller-->
         <scene sceneID="p5T-fk-58n">
             <objects>
-                <viewController storyboardIdentifier="playHelpFirst" id="H0y-bm-1KZ" customClass="DiscoverPlayHelpViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="playHelpFirst" hidesBottomBarWhenPushed="YES" id="H0y-bm-1KZ" customClass="DiscoverPlayHelpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NlB-zI-n4k"/>
                         <viewControllerLayoutGuide type="bottom" id="rgS-af-KfG"/>
@@ -682,22 +673,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wG-0N-qLz">
-                                <rect key="frame" x="164" y="142" width="46" height="30"/>
+                                <rect key="frame" x="43" y="60" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="找玩伴"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFe-Yr-8PW">
-                                <rect key="frame" x="164" y="241" width="46" height="30"/>
+                                <rect key="frame" x="128" y="60" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="找活动"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQJ-m5-q8a">
-                                <rect key="frame" x="164" y="329" width="46" height="30"/>
+                                <rect key="frame" x="216" y="60" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="找攻略"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lda-6B-KJu">
-                                <rect key="frame" x="172" y="425" width="31" height="30"/>
+                                <rect key="frame" x="303" y="60" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="其他"/>
                             </button>
@@ -718,7 +709,7 @@
         <!--Discover Play Share View Controller-->
         <scene sceneID="Qnz-7R-Y1t">
             <objects>
-                <viewController storyboardIdentifier="playShareFirst" id="uJs-KA-hss" customClass="DiscoverPlayShareViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="playShareFirst" hidesBottomBarWhenPushed="YES" id="uJs-KA-hss" customClass="DiscoverPlayShareViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wxc-mv-Wt2"/>
                         <viewControllerLayoutGuide type="bottom" id="G2u-cY-Eil"/>

@@ -8,6 +8,7 @@
 
 #import "SYChoiceAbstract.h"
 #import "Header.h"
+#import "SYHeader.h"
 @implementation SYChoiceAbstract
 @synthesize choiceID, choiceDict,shareDict, personDict;
 -(id)initWithFrame:(CGRect)frame choiceID:(NSString*)ID{
@@ -21,39 +22,76 @@
 }
 
 -(void)viewsSetup{
-    self.backgroundColor = SYColor3;
+    self.backgroundColor = SYBackgroundColorExtraLight;
     float heightCount = 0;
     if (shareDict&&personDict) {
-        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount, self.frame.size.width-40, 40)];
+        
+        
+        avatarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 15, 20, 20)];
+        avatarImageView.image = [UIImage imageNamed:@"defaultAvatar"];
+        avatarImageView.layer.cornerRadius = avatarImageView.frame.size.height/2;
+        avatarImageView.clipsToBounds = YES;
+        [self addSubview:avatarImageView];
+        
+        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, heightCount, self.frame.size.width-40, 50)];
         titleLabel.textColor = SYColor1;
+        [titleLabel setFont:SYFont13];
         [self addSubview:titleLabel];
         
-        priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount, self.frame.size.width-40, 40)];
+        priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, heightCount, self.frame.size.width-40, 50)];
         priceLabel.textColor = SYColor1;
         priceLabel.textAlignment = NSTextAlignmentRight;
         [self addSubview:priceLabel];
+        
+        NSString *abstractInformation = [NSString new];
+        NSInteger category = [[shareDict valueForKey:@"category"] integerValue];
+        NSInteger subcate = [[shareDict valueForKey:@"subcate"] integerValue];
+        if (category ==1) {
+            abstractInformation = @"美食信息";
+            
+            titleLabel.text = ([[personDict valueForKey:@"name"] isEqualToString:@""])?abstractInformation:[NSString stringWithFormat:@"%@发布的%@",[personDict valueForKey:@"name"],abstractInformation];
+        }
+        else if (category==2) {
+            NSInteger mode = subcate/1000000;
+            if (mode==1) {
+                abstractInformation = @"租房信息";
+            }
+            else if (mode==2){
+                abstractInformation = @"搬家信息";
+            }
+            titleLabel.text = ([[personDict valueForKey:@"name"] isEqualToString:@""])?abstractInformation:[NSString stringWithFormat:@"%@发布的%@",[personDict valueForKey:@"name"],abstractInformation];
+            priceLabel.text = [NSString stringWithFormat:@"$%@",[[shareDict valueForKey:@"keyword"] valueForKey:@"price"]];
+        }else{
+            titleLabel.text = [NSString stringWithFormat:@"%@发布的信息",[personDict valueForKey:@"name"]];
+        }
+
+        _selectButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        [_selectButton addTarget:self action:@selector(selectChoice:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:_selectButton];
     }
     
-    NSString *abstractInformation = [NSString new];
-    NSInteger category = [[shareDict valueForKey:@"category"] integerValue];
-    NSInteger subcate = [[shareDict valueForKey:@"subcate"] integerValue];
-    if (category ==1) {
-        abstractInformation = @"美食信息";
-        
-        titleLabel.text = ([[personDict valueForKey:@"name"] isEqualToString:@""])?abstractInformation:[NSString stringWithFormat:@"%@发布的%@",[personDict valueForKey:@"name"],abstractInformation];
-    }
-    else if (category==2) {
-        NSInteger mode = subcate/1000000;
-        if (mode==1) {
-            abstractInformation = @"租房信息";
-        }
-        else if (mode==2){
-            abstractInformation = @"搬家信息";
-        }
-        titleLabel.text = ([[personDict valueForKey:@"name"] isEqualToString:@""])?abstractInformation:[NSString stringWithFormat:@"%@发布的%@",[personDict valueForKey:@"name"],abstractInformation];
-        priceLabel.text = [NSString stringWithFormat:@"$%@",[[shareDict valueForKey:@"keyword"] valueForKey:@"price"]];
-    }
+    
 
+    
+}
+
+-(IBAction)selectChoice:(id)sender{
+    SYSuscard *baseView = [[SYSuscard alloc] initWithFullSize];
+    baseView.cardBackgroundView.backgroundColor = SYBackgroundColorExtraLight;
+    baseView.backButton.hidden = NO;
+    baseView.cancelButton.hidden = YES;
+    
+    UIWindow* currentWindow = [UIApplication sharedApplication].keyWindow;
+    [currentWindow addSubview:baseView];
+    baseView.alpha = 0;
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.258];
+    baseView.alpha = 1;
+    [UIView commitAnimations];
+    
+    /**************content***************/
+    SYChoiceDetail *detailView = [[SYChoiceDetail alloc] initWithChoiceDict:self.choiceDict frame:CGRectMake(0, 44+20, baseView.cardSize.width, 0)];
+    [baseView addGoSubview:detailView];
     
 }
 

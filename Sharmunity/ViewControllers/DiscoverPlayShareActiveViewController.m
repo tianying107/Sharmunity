@@ -62,6 +62,7 @@
     }
     
     popOut = [SYPopOut new];
+    [self dataSetup];
     [self viewsSetup];
 
 }
@@ -93,11 +94,8 @@
     float viewWidth = mainScrollView.frame.size.width;
     float originX = 30;
     
-    /*room type*/
+    /*activity type*/
     typeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
-    typeView.hidden = YES;
-    [mainScrollView addSubview:typeView];
-    [viewsArray addObject:typeView];
     UILabel *typeTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
     typeTitleLabel.text = @"活动";
     typeTitleLabel.textColor = SYColor1;
@@ -139,7 +137,6 @@
     /*location*/
     locationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
     locationView.hidden = YES;
-    
     UILabel *locationTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
     locationTitleLabel.text = @"位置";
     locationTitleLabel.textColor = SYColor1;
@@ -152,6 +149,31 @@
     [locationButton addTarget:self action:@selector(locationResponse) forControlEvents:UIControlEventTouchUpInside];
     locationButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     [locationView addSubview:locationButton];
+    
+    /*date*/
+    dateView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    dateView.hidden = YES;
+    UILabel *dateTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
+    dateTitleLabel.text = @"日期";
+    dateTitleLabel.textColor = SYColor1;
+    [dateView addSubview:dateTitleLabel];
+    UIButton *dateButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
+    [dateButton setTitle:@"请选择活动日期" forState:UIControlStateNormal];
+    [dateButton setTitleColor:SYColor3 forState:UIControlStateNormal];
+    [dateButton setTitleColor:SYColor1 forState:UIControlStateSelected];
+    dateButton.tag = 11;
+    dateButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    [dateButton addTarget:self action:@selector(dateResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [dateView addSubview:dateButton];
+    
+    datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-216, self.view.frame.size.width, 216)];
+    datePicker.backgroundColor = [UIColor whiteColor];
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    NSDate *currentDate = [NSDate date];
+    [datePicker setDate:currentDate];
+    [datePicker addTarget:self action:@selector(datePickerChanged) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:datePicker];
+    datePicker.hidden = YES;
     
     /*title*/
     titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
@@ -209,6 +231,8 @@
         case DiscoverPlayPartner:
             [mainScrollView addSubview:typeView];
             [viewsArray addObject:typeView];
+            [mainScrollView addSubview:locationView];
+            [viewsArray addObject:locationView];
             [mainScrollView addSubview:titleView];
             [viewsArray addObject:titleView];
             [mainScrollView addSubview:introductionView];
@@ -217,13 +241,25 @@
         case DiscoverPlayActivity:
             [mainScrollView addSubview:typeView];
             [viewsArray addObject:typeView];
+            [mainScrollView addSubview:dateView];
+            [viewsArray addObject:dateView];
+            [mainScrollView addSubview:locationView];
+            [viewsArray addObject:locationView];
+            [mainScrollView addSubview:titleView];
+            [viewsArray addObject:titleView];
+            [mainScrollView addSubview:priceView];
+            [viewsArray addObject:priceView];
+            [mainScrollView addSubview:introductionView];
+            [viewsArray addObject:introductionView];
+            break;
+        case DiscoverPlayOther:
+            locationView.hidden = NO;
+            [mainScrollView addSubview:locationView];
+            [viewsArray addObject:locationView];
             [mainScrollView addSubview:titleView];
             [viewsArray addObject:titleView];
             [mainScrollView addSubview:introductionView];
             [viewsArray addObject:introductionView];
-            [mainScrollView addSubview:priceView];
-            [viewsArray addObject:priceView];
-            break;
         default:
             break;
     }
@@ -244,7 +280,34 @@
     }
     mainScrollView.contentSize = CGSizeMake(0, height+20+44+10);
 }
-
+-(IBAction)dateResponse:(id)sender{
+    if (!dateString) {
+        NSDate *currentDate = [NSDate date];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        NSString *dtrDate = [dateFormatter stringFromDate:currentDate];
+        UIButton *button = [dateView viewWithTag:11];
+        button.selected = YES;
+        [button setTitle:dtrDate forState:UIControlStateSelected];
+        
+        NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:dtrDate, @"available_date", nil];
+        [_shareDict addEntriesFromDictionary:dict];
+        dateString = dtrDate;
+    }
+    datePicker.hidden = NO;
+    confirmBackgroundView.hidden = NO;
+    locationView.hidden = NO;
+}
+-(void)datePickerChanged{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *dtrDate = [dateFormatter stringFromDate:datePicker.date];
+    UIButton *button = [dateView viewWithTag:11];
+    [button setTitle:dtrDate forState:UIControlStateSelected];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:dtrDate, @"available_date", nil];
+    [_shareDict addEntriesFromDictionary:dict];
+    dateString = dtrDate;
+}
 -(IBAction)typeResponse:(id)sender{
     UIButton *button = sender;
     button.selected = YES;
@@ -254,10 +317,15 @@
     }
     typePickerView.hidden = NO;
     confirmBackgroundView.hidden = NO;
-    locationView.hidden = NO;
+    if (_controllerType==DiscoverPlayActivity) {
+        dateView.hidden = NO;
+    }
+    else
+        locationView.hidden = NO;
 }
 -(void)locationResponse{
     [self dismissKeyboard];
+    [self pickerConfirmResponse];
     
     DiscoverLocationViewController *viewController = [DiscoverLocationViewController new];
     viewController.previousController = self;
@@ -269,41 +337,46 @@
     UIButton *locationButton = [locationView viewWithTag:11];
     locationButton.selected = YES;
     [locationButton setTitle:[[[_selectedItem placemark] addressDictionary] valueForKey:@"Street"] forState:UIControlStateSelected];
-    introductionView.hidden = NO;
+    
+    titleView.hidden = NO;
+    
 }
-
+- (void)pickerConfirmResponse{
+    confirmBackgroundView.hidden = YES;
+    datePicker.hidden = YES;
+    typePickerView.hidden = YES;
+}
 -(void)nextResponse{
     NSString *subCate;
-    NSString *majorString;
-    NSString *numberString;
-    NSString *latitude;
-    NSString *longitude;
-//    UITextField *major = [majorView viewWithTag:11];
-//    UITextField *number = [numberView viewWithTag:11];
-//    switch (_controllerType) {
-//        case discoverLearnExper:
-//            subCate= @"01000000";
-//            majorString = major.text;
-//            numberString = number.text;
-//            latitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
-//            longitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
-//            break;
-//        case discoverLearnTutor:
-//            subCate= @"02000000";
-//            majorString = major.text;
-//            numberString = number.text;
-//            latitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
-//            longitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
-//            break;
-//            
-//        default:
-//            break;
-//    }
+    NSString *startLatitude;
+    NSString *startLongitude;
+
+    switch (_controllerType) {
+        case DiscoverPlayPartner:
+            subCate= [NSString stringWithFormat:@"01%02ld0000",[typeString integerValue]];
+            startLatitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
+            startLongitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
+            priceString = @"1";
+            break;
+        case DiscoverPlayActivity:
+            subCate= [NSString stringWithFormat:@"02%02ld0000",[typeString integerValue]];
+            startLatitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
+            startLongitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
+            break;
+        case DiscoverPlayOther:
+            subCate= [NSString stringWithFormat:@"99%02ld0000",[typeString integerValue]];
+            startLatitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
+            startLongitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
+            break;
+            
+        default:
+            break;
+    }
     
     UITextField *title = [titleView viewWithTag:11];
     UITextView *introduction = [introductionView viewWithTag:11];
     
-    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%@&longitude=%@&category=3&subcate=%@&title=%@&introduction=%@&major=%@&number=%@&price=%@",MEID,latitude,longitude,subCate,title.text, introduction.text,majorString,numberString,priceString];
+    NSString *requestBody = [NSString stringWithFormat:@"expire_date=%@&email=%@&latitude=%f&longitude=%f&category=3&subcate=%@&title=%@&introduction=%@&start_lati=%@&start_long=%@&price=%@",dateString,MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,title.text, introduction.text,startLatitude,startLongitude,priceString];
     NSLog(@"%@/n",requestBody);
     /*改上面的 query 和 URLstring 就好了*/
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@newshare",basicURL]];
@@ -336,14 +409,15 @@
 -(void)titleEmptyCheck{
     UITextField *textField = [titleView viewWithTag:11];
     if ([textField.text length]) {
+        if (_controllerType==DiscoverPlayActivity)
+            priceView.hidden = NO;
+        
         introductionView.hidden = NO;
+        
     }
 }
 -(void)textViewDidChange:(UITextView *)textView{
     if ([textView.text length]) {
-        if (_controllerType!=DiscoverPlayActivity) {
-            priceView.hidden = NO;
-        }
         nextButton.hidden = NO;
     }
 }
@@ -368,5 +442,33 @@
 }
 -(void)lowerPriceChangeToValue:(NSInteger)lowerPrice upperToValue:(NSInteger)upperPrice{
     
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component
+{
+    float result;
+    if ([pickerView isEqual:typePickerView]) {
+        result = typeArray.count;
+    }
+    return result;
+}
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row   forComponent:(NSInteger)component{
+    NSString *resultString = [NSString new];
+    if ([pickerView isEqual:typePickerView]) {
+        resultString = [typeArray objectAtIndex:row];
+    }
+    return resultString;
+}
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    if ([pickerView isEqual:typePickerView]) {
+        is_other = (row==typeArray.count-1)?YES:NO;
+        UIButton *typeButton = [typeView viewWithTag:11];
+        [typeButton setTitle:[typeArray objectAtIndex:row] forState:UIControlStateSelected];
+        typeString = (row==typeArray.count-1)?@"99":[NSString stringWithFormat:@"%ld",row];
+        
+    }
 }
 @end

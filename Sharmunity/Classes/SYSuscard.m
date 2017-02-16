@@ -55,7 +55,7 @@
     [cancelButton addTarget:self action:@selector(cancelResponse) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:cancelButton];
     backButton = [[UIButton alloc] initWithFrame:leftButtonFrame];
-    [backButton setImage:[UIImage imageNamed:@"goBack"] forState:UIControlStateNormal];
+    [backButton setImage:[UIImage imageNamed:@"SYBackBackground"] forState:UIControlStateNormal];
     [backButton addTarget:self action:@selector(backPreviousCard) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -108,7 +108,7 @@
         
         [self initCommon];
         [cancelButton setImage:[UIImage imageNamed:@"cancelClearColor5"] forState:UIControlStateNormal];
-        [backButton setImage:[UIImage imageNamed:@"goBackShort"] forState:UIControlStateNormal];
+        [backButton setImage:[UIImage imageNamed:@"SYBackCommon"] forState:UIControlStateNormal];
         backButton.hidden = YES;
         [self addSubview:backButton];
         [backButton addTarget:self action:@selector(cancelResponse) forControlEvents:UIControlEventTouchUpInside];

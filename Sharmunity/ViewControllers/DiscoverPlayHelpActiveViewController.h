@@ -1,8 +1,8 @@
 //
-//  DiscoverPlayShareActiveViewController.h
+//  DiscoverPlayHelpActiveViewController.h
 //  Sharmunity
 //
-//  Created by st chen on 2017/2/14.
+//  Created by st chen on 2017/2/15.
 //  Copyright © 2017年 Sharmunity. All rights reserved.
 //
 
@@ -11,23 +11,20 @@
 #define DiscoverPlayPartner 101
 #define DiscoverPlayActivity 102
 #define DiscoverPlayOther 199
-@interface DiscoverPlayShareActiveViewController : UIViewController<UIScrollViewDelegate,UITextViewDelegate, CLLocationManagerDelegate,UIPickerViewDelegate, UIPickerViewDataSource>{
+@interface DiscoverPlayHelpActiveViewController : UIViewController<UIScrollViewDelegate,UITextViewDelegate, CLLocationManagerDelegate,UIPickerViewDelegate, UIPickerViewDataSource>{
     UIScrollView *mainScrollView;
     UIView *typeView;
     UIView *priceView;
     UIView *locationView;
-    UIView *dateView;
-    UIView *titleView;
-    UIView *introductionView;
+    UIView *keywordView;
     UIPickerView *typePickerView;
-    UIDatePicker *datePicker;
     UIView *confirmBackgroundView;
     UIButton *nextButton;
     
     NSString *MEID;
-    NSString *priceString;
+    NSString *upperPriceString;
+    NSString *lowerPriceString;
     NSString *typeString;
-    NSString *dateString;
     BOOL is_other;
     NSArray *typeArray;
     
@@ -38,4 +35,6 @@
 @property NSMutableDictionary *shareDict;
 @property MKMapItem *selectedItem;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+
+
 @end

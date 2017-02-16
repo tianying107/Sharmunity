@@ -16,9 +16,10 @@
 #define SYColor2 UIColorFromRGB(0x247BA0)
 #define SYColor3 UIColorFromRGB(0xB5B5B7)
 #define SYColor4 UIColorFromRGB(0xEF7F40)
-#define SYColor5 UIColorFromRGB(0x70C1B3)
+#define SYColor5 UIColorFromRGB(0x6CBF3B)
 
 #define SYBackgroundColorExtraLight UIColorFromRGB(0xFAFAFA)
+#define SYBackgroundColorGreen UIColorFromRGB(0xD7F4D8)
 
 #define SYSeparatorColor UIColorFromRGB(0xF2F2F2)
 #define SYSeparatorHeight 2

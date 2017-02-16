@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 @class SYHelp;
-@interface SYHelp : UIView
--(id)initWithFrame:(CGRect)frame helpID:(NSString*)helpID;
+@interface SYHelp : UIView{
+    BOOL withHead;
+    UILabel *titleLabel;
+}
+
+-(id)initWithFrame:(CGRect)frame helpID:(NSString*)ID withHeadView:(BOOL)head;
 @property NSString *helpID;
 @property NSDictionary *helpDict;
 @end

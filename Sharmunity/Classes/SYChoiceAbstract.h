@@ -12,10 +12,12 @@
     UILabel *nameLabel;
     UILabel *titleLabel;
     UILabel *priceLabel;
+    UIImageView *avatarImageView;
 }
 -(id)initWithFrame:(CGRect)frame choiceID:(NSString*)ID;
 @property NSString *choiceID;
 @property NSDictionary *choiceDict;
 @property NSDictionary *shareDict;
 @property NSDictionary *personDict;
+@property UIButton *selectButton;
 @end

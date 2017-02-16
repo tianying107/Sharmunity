@@ -44,6 +44,8 @@
     
 }
 -(void)otherResponse{
-    
+    DiscoverPlayShareActiveViewController *viewController = [DiscoverPlayShareActiveViewController new];
+    viewController.controllerType = DiscoverPlayOther;
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 @end

@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DiscoverPlayHelpViewController : UIViewController
+@interface DiscoverPlayHelpViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+    UITableView *helpTable;
+    NSString *MEID;
+    NSArray *helpIDArray;
+}
 @property (weak, nonatomic) IBOutlet UIButton *partnerButton;
 @property (weak, nonatomic) IBOutlet UIButton *activityButton;
 @property (weak, nonatomic) IBOutlet UIButton *articalButton;

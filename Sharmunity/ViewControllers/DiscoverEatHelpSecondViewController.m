@@ -346,7 +346,7 @@
     [UIView commitAnimations];
     
     /**************content***************/
-    SYHelp *helpView = [[SYHelp alloc] initWithFrame:CGRectMake(0, 0, baseView.cardSize.width, baseView.cardSize.height) helpID:helpID];
+    SYHelp *helpView = [[SYHelp alloc] initWithFrame:CGRectMake(0, 0, baseView.cardSize.width, baseView.cardSize.height) helpID:helpID withHeadView:YES];
     [baseView addGoSubview:helpView];
 }
 

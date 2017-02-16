@@ -27,6 +27,11 @@
 		442F487C1E31DE4B00FB0561 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F487B1E31DE4B00FB0561 /* SignUpViewController.m */; };
 		442F48801E31E03D00FB0561 /* SYSignUpEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F487F1E31E03D00FB0561 /* SYSignUpEmail.m */; };
 		4470840D1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4470840C1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m */; };
+		4470840F1E54BC9800DEAB75 /* PlayType_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4470840E1E54BC9800DEAB75 /* PlayType_cn.txt */; };
+		447084121E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447084111E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.m */; };
+		447084191E54FEB800DEAB75 /* ChoiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447084181E54FEB800DEAB75 /* ChoiceDetailViewController.m */; };
+		4470841E1E54FEFC00DEAB75 /* SYProfileHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 4470841D1E54FEFC00DEAB75 /* SYProfileHead.m */; };
+		447084221E5512FC00DEAB75 /* SYChoiceDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 447084211E5512FC00DEAB75 /* SYChoiceDetail.m */; };
 		447E40DC1E3271E40010CAA4 /* SYSuscard.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E40DB1E3271E40010CAA4 /* SYSuscard.m */; };
 		447E40E01E32789F0010CAA4 /* SYSignUpPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = 447E40DF1E32789F0010CAA4 /* SYSignUpPassword.m */; };
 		447E40F91E327D0D0010CAA4 /* License Agreement for SF UI Font.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 447E40E31E327D0C0010CAA4 /* License Agreement for SF UI Font.pdf */; };
@@ -141,6 +146,15 @@
 		442F487F1E31E03D00FB0561 /* SYSignUpEmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYSignUpEmail.m; path = Classes/SYSignUpEmail.m; sourceTree = "<group>"; };
 		4470840B1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverPlayShareActiveViewController.h; path = ViewControllers/DiscoverPlayShareActiveViewController.h; sourceTree = "<group>"; };
 		4470840C1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverPlayShareActiveViewController.m; path = ViewControllers/DiscoverPlayShareActiveViewController.m; sourceTree = "<group>"; };
+		4470840E1E54BC9800DEAB75 /* PlayType_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PlayType_cn.txt; path = Resource/Category/PlayType_cn.txt; sourceTree = "<group>"; };
+		447084101E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverPlayHelpActiveViewController.h; path = ViewControllers/DiscoverPlayHelpActiveViewController.h; sourceTree = "<group>"; };
+		447084111E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverPlayHelpActiveViewController.m; path = ViewControllers/DiscoverPlayHelpActiveViewController.m; sourceTree = "<group>"; };
+		447084171E54FEB800DEAB75 /* ChoiceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoiceDetailViewController.h; path = ViewControllers/ChoiceDetailViewController.h; sourceTree = "<group>"; };
+		447084181E54FEB800DEAB75 /* ChoiceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChoiceDetailViewController.m; path = ViewControllers/ChoiceDetailViewController.m; sourceTree = "<group>"; };
+		4470841C1E54FEFC00DEAB75 /* SYProfileHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYProfileHead.h; path = Classes/SYProfileHead.h; sourceTree = "<group>"; };
+		4470841D1E54FEFC00DEAB75 /* SYProfileHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYProfileHead.m; path = Classes/SYProfileHead.m; sourceTree = "<group>"; };
+		447084201E5512FC00DEAB75 /* SYChoiceDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYChoiceDetail.h; path = Classes/SYChoiceDetail.h; sourceTree = "<group>"; };
+		447084211E5512FC00DEAB75 /* SYChoiceDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYChoiceDetail.m; path = Classes/SYChoiceDetail.m; sourceTree = "<group>"; };
 		447E40DA1E3271E40010CAA4 /* SYSuscard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYSuscard.h; path = Classes/SYSuscard.h; sourceTree = "<group>"; };
 		447E40DB1E3271E40010CAA4 /* SYSuscard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYSuscard.m; path = Classes/SYSuscard.m; sourceTree = "<group>"; };
 		447E40DD1E3272C70010CAA4 /* SYHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SYHeader.h; path = Classes/SYHeader.h; sourceTree = "<group>"; };
@@ -330,6 +344,7 @@
 		442F486F1E31D19F00FB0561 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				4470841A1E54FED200DEAB75 /* SYProfile */,
 				44A4941F1E4CCE80006CD069 /* NMRangeSlider */,
 				447E40DD1E3272C70010CAA4 /* SYHeader.h */,
 				442F48701E31D2D300FB0561 /* Header.h */,
@@ -368,6 +383,32 @@
 				447E40DF1E32789F0010CAA4 /* SYSignUpPassword.m */,
 			);
 			name = SYSignUp;
+			sourceTree = "<group>";
+		};
+		4470841A1E54FED200DEAB75 /* SYProfile */ = {
+			isa = PBXGroup;
+			children = (
+				4470841B1E54FEDB00DEAB75 /* SYProfileHead */,
+			);
+			name = SYProfile;
+			sourceTree = "<group>";
+		};
+		4470841B1E54FEDB00DEAB75 /* SYProfileHead */ = {
+			isa = PBXGroup;
+			children = (
+				4470841C1E54FEFC00DEAB75 /* SYProfileHead.h */,
+				4470841D1E54FEFC00DEAB75 /* SYProfileHead.m */,
+			);
+			name = SYProfileHead;
+			sourceTree = "<group>";
+		};
+		4470841F1E5512E700DEAB75 /* SYChoiceDetail */ = {
+			isa = PBXGroup;
+			children = (
+				447084201E5512FC00DEAB75 /* SYChoiceDetail.h */,
+				447084211E5512FC00DEAB75 /* SYChoiceDetail.m */,
+			);
+			name = SYChoiceDetail;
 			sourceTree = "<group>";
 		};
 		447E40D91E3271660010CAA4 /* SYSuscard */ = {
@@ -453,6 +494,8 @@
 		447E411B1E32B3AE0010CAA4 /* Match */ = {
 			isa = PBXGroup;
 			children = (
+				447084171E54FEB800DEAB75 /* ChoiceDetailViewController.h */,
+				447084181E54FEB800DEAB75 /* ChoiceDetailViewController.m */,
 			);
 			name = Match;
 			sourceTree = "<group>";
@@ -498,6 +541,8 @@
 				4470840C1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m */,
 				44A173EF1E54105C00FABC4F /* DiscoverPlayHelpViewController.h */,
 				44A173F01E54105C00FABC4F /* DiscoverPlayHelpViewController.m */,
+				447084101E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.h */,
+				447084111E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.m */,
 			);
 			name = Play;
 			sourceTree = "<group>";
@@ -505,6 +550,7 @@
 		44A494091E4CA649006CD069 /* category */ = {
 			isa = PBXGroup;
 			children = (
+				4470840E1E54BC9800DEAB75 /* PlayType_cn.txt */,
 				4426A0DC1E4FF22B00D91D6F /* EatFood_cn.txt */,
 				4426A0DD1E4FF22B00D91D6F /* EatSubRegion_cn.txt */,
 				4426A0D41E4FD44600D91D6F /* EatRegion_cn.txt */,
@@ -585,6 +631,7 @@
 		44A4943A1E4CF5F6006CD069 /* SYChoice */ = {
 			isa = PBXGroup;
 			children = (
+				4470841F1E5512E700DEAB75 /* SYChoiceDetail */,
 				44A494391E4CF5E9006CD069 /* SYChoiceAbstract */,
 			);
 			name = SYChoice;
@@ -758,6 +805,7 @@
 				447E41021E327D0D0010CAA4 /* SF-UI-Display-Ultralight.otf in Resources */,
 				447E41011E327D0D0010CAA4 /* SF-UI-Display-Thin.otf in Resources */,
 				447E40FE1E327D0D0010CAA4 /* SF-UI-Display-Medium.otf in Resources */,
+				4470840F1E54BC9800DEAB75 /* PlayType_cn.txt in Resources */,
 				442F48481E31CC0F00FB0561 /* LaunchScreen.storyboard in Resources */,
 				447E41091E327D0D0010CAA4 /* SF-UI-Text-Medium.otf in Resources */,
 				447E41031E327D0D0010CAA4 /* SF-UI-Text-Bold.otf in Resources */,
@@ -812,6 +860,8 @@
 				44A502C51E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m in Sources */,
 				447E411E1E32B5010010CAA4 /* SYCell.m in Sources */,
 				44A494081E4C84C7006CD069 /* DiscoverLiveShareLeaseViewController.m in Sources */,
+				447084191E54FEB800DEAB75 /* ChoiceDetailViewController.m in Sources */,
+				447084121E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.m in Sources */,
 				447E41161E3296EF0010CAA4 /* AccountMainViewController.m in Sources */,
 				44A494341E4CF07B006CD069 /* SYHelp.m in Sources */,
 				4426A0DB1E4FD97800D91D6F /* DiscoverEatShareRegionViewController.m in Sources */,
@@ -822,10 +872,12 @@
 				44A494111E4CB3DD006CD069 /* SYMap.m in Sources */,
 				447E41111E327FD90010CAA4 /* VerificationWarningViewController.m in Sources */,
 				44A4941B1E4CBA7D006CD069 /* DiscoverLiveShareSubmitViewController.m in Sources */,
+				4470841E1E54FEFC00DEAB75 /* SYProfileHead.m in Sources */,
 				4426A0D81E4FD7B300D91D6F /* DiscoverEatShareViewController.m in Sources */,
 				44A494151E4CB515006CD069 /* MapPin.m in Sources */,
 				442F486D1E31D11500FB0561 /* LaunchScreenViewController.m in Sources */,
 				44A4941E1E4CCE79006CD069 /* NMRangeSlider.m in Sources */,
+				447084221E5512FC00DEAB75 /* SYChoiceDetail.m in Sources */,
 				44A173EE1E540F8300FABC4F /* DiscoverPlayShareViewController.m in Sources */,
 				442F48801E31E03D00FB0561 /* SYSignUpEmail.m in Sources */,
 				44A173E71E52387800FABC4F /* DiscoverLearnShareSubmitViewController.m in Sources */,

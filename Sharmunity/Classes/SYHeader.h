@@ -18,4 +18,6 @@
 #import "SYDistanceSlider.h"
 #import "SYHelp.h"
 #import "SYChoiceAbstract.h"
+#import "SYChoiceDetail.h"
+#import "SYProfileHead.h"
 #endif /* SYHeader_h */
