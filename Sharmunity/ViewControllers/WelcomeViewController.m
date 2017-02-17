@@ -31,7 +31,12 @@
     [self.view addGestureRecognizer:tap];
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShowUp:) name:UIKeyboardWillShowNotification object:nil];
     passwordTextField.secureTextEntry = YES;
-    
+    _signUpButton.layer.cornerRadius = 5;
+    _signUpButton.clipsToBounds = YES;
+    _signUpButton.layer.borderColor = [SYColor5 CGColor];
+    _signUpButton.layer.borderWidth = 1;
+    emailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"您的邮箱", nil) attributes:@{NSForegroundColorAttributeName: SYColor5}];
+    passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"众享国密码", nil) attributes:@{NSForegroundColorAttributeName: SYColor5}];
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;

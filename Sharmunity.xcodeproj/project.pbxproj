@@ -91,6 +91,7 @@
 		44AD3C3F1E56333B008774CD /* TravelType_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44AD3C3E1E56333B008774CD /* TravelType_cn.txt */; };
 		44AD3C431E56557B008774CD /* SYChoiceCommentBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 44AD3C421E56557B008774CD /* SYChoiceCommentBasic.m */; };
 		44AD3C461E566B9D008774CD /* SYShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 44AD3C451E566B9D008774CD /* SYShare.m */; };
+		44AD3C481E56BFA1008774CD /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F487B1E31DE4B00FB0561 /* SignUpViewController.m */; };
 		44B815031E552F18008B98F3 /* DiscoverTravelShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B815021E552F18008B98F3 /* DiscoverTravelShareViewController.m */; };
 		44B815061E552F2D008B98F3 /* DiscoverTravelHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B815051E552F2D008B98F3 /* DiscoverTravelHelpViewController.m */; };
 		44B815091E553467008B98F3 /* DiscoverTravelShareSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B815081E553467008B98F3 /* DiscoverTravelShareSecondViewController.m */; };
@@ -993,6 +994,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44AD3C481E56BFA1008774CD /* SignUpViewController.m in Sources */,
 				442F48531E31CC1000FB0561 /* SharmunityTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

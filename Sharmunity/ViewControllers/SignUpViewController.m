@@ -13,11 +13,11 @@
 @end
 
 @implementation SignUpViewController
-
+@synthesize emailTextField,nameTextField,passwordTextField,passwordConfirmTextField;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    [self viewsSetup];
 }
 - (void)goBackResponse{
     [self.navigationController popViewControllerAnimated:YES];
@@ -31,18 +31,20 @@
 - (void)viewsSetup{
     /*define targets here*/
     [_signUpButton addTarget:self action:@selector(submit) forControlEvents:UIControlEventTouchUpInside];
-    [_loginButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
-
+    _signUpButton.layer.cornerRadius = 5;
+    _signUpButton.clipsToBounds = YES;
+    emailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"您的邮箱", nil) attributes:@{NSForegroundColorAttributeName: SYColor5}];
+    nameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"昵称", nil) attributes:@{NSForegroundColorAttributeName: SYColor5}];
+    passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"密码（请输入6-16数字或字母）", nil) attributes:@{NSForegroundColorAttributeName: SYColor5}];
+    passwordConfirmTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"确认密码", nil) attributes:@{NSForegroundColorAttributeName: SYColor5}];
     
 }
--(void)goBack{
-    [self.navigationController popViewControllerAnimated:YES];
-}
+
 - (void)submit{
     /*insert password check and empty check here*/
     NSString *passwordString;
     NSString *emailString;
-    NSString *nameString = _nameTextField.text;
+    NSString *nameString = nameTextField.text;
     NSString *requestBody = [NSString stringWithFormat:@"email=%@&password=%@&name=%@",emailString,passwordString,nameString];
     
     if([nameString isEqualToString:@""]){
