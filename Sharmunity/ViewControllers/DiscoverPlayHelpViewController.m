@@ -9,6 +9,7 @@
 #import "DiscoverPlayHelpViewController.h"
 #import "DiscoverPlayHelpActiveViewController.h"
 #import "Header.h"
+#import "SYHeader.h"
 @interface DiscoverPlayHelpViewController ()
 
 @end
@@ -33,12 +34,18 @@
     [_articalButton addTarget:self action:@selector(articalResponse) forControlEvents:UIControlEventTouchUpInside];
     [_otherButton addTarget:self action:@selector(otherResponse) forControlEvents:UIControlEventTouchUpInside];
     
-    helpTable = [[UITableView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-300, self.view.frame.size.width, 300) style:UITableViewStylePlain];
+    helpTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 160, self.view.frame.size.width, self.view.frame.size.height-160) style:UITableViewStylePlain];
     helpTable.delegate = self;
     helpTable.dataSource = self;
-    helpTable.scrollEnabled = NO;
     helpTable.alwaysBounceVertical = NO;
     [self.view addSubview:helpTable];
+    [self requestHelpFromServer];
+    [NSTimer scheduledTimerWithTimeInterval:1 repeats:NO block:^(NSTimer *timer){
+        [helpTable reloadData];
+        [NSTimer scheduledTimerWithTimeInterval:1 repeats:NO block:^(NSTimer *timer){
+            helpTable.hidden = NO;
+        }];
+    }];
 }
 
 -(void)partnerResponse{
@@ -64,21 +71,23 @@
 
 
 -(void)requestHelpFromServer{
+    basicViewArray = [NSMutableArray new];
     MEID = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"admin"] valueForKey:@"id"];
     NSString *requestQuery = [NSString stringWithFormat:@"email=%@&category=4",MEID];
-    NSString *urlString = [NSString stringWithFormat:@"%@reqhelp?%@",basicURL,requestQuery];
+    NSString *urlString = [NSString stringWithFormat:@"%@allhelps?%@",basicURL,requestQuery];
     NSLog(@"%@",requestQuery);
     NSURLSession *session = [NSURLSession sharedSession];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLSessionTask *task = [session dataTaskWithURL:url
                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
+                                        NSArray *array = [NSJSONSerialization JSONObjectWithData:data
                                                                                              options:kNilOptions
                                                                                                error:&error];
-                                        NSLog(@"server said: %@",dict);
+                                        NSLog(@"server said: %@",array);
                                         dispatch_async(dispatch_get_main_queue(), ^{
-//                                            helpIDArray = 
-//                                            self.navigationItem.title = [NSString stringWithFormat:@"您好！%@",[dict valueForKey:@"name"]];
+                                            helpIDArray = array;
+                                            [helpTable reloadData];
+
                                         });
                                         
                                     }];
@@ -89,53 +98,35 @@
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger integer;
-    
-    
-    return integer;
+
+    return helpIDArray.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
+    float height;
+    if (indexPath.row<basicViewArray.count)
+        height = [(SYHelp*)[basicViewArray objectAtIndex:indexPath.row] frame].size.height;
+    else
+        height = 200;
+    return height;
+    return height;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell;
-//    if ([tableView isEqual:inviteTable]) {
-//        static NSString *cellIdentifier = @"CellInv";
-//        cell = (goPendingStatusCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//        if (cell == nil) {
-//            if (_controllerType == goControllerSTD){
-//                cell = [[goPendingStatusCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier basic:[inviteArray objectAtIndex:indexPath.row] type:_controllerType];
-//            }
-//            //👆是学生发出的邀请，👇是老师发出的申请
-//            else{ cell = [[goPendingStatusCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier basic:[postArray objectAtIndex:indexPath.row] type:_controllerType];
-//                
-//                NSLog(@"application cell 1");
-//            }
-//        }
-//        cell.accessoryType = UITableViewCellAccessoryNone;
-//    }
-//    else if ([tableView isEqual:postTable]){
-//        static NSString *cellIdentifier = @"CellPost";
-//        if (_controllerType == goControllerSTD) {
-//            cell = (goPendingPostCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//            if (cell == nil) {
-//                cell = [[goPendingPostCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier basic:[postArray objectAtIndex:indexPath.row]];
-//            }
-//            cell.accessoryType = UITableViewCellAccessoryNone;
-//        }
-//        else{
-//            cell = (goPendingStatusCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//            if (cell == nil) {
-//                cell = [[goPendingStatusCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier basic:[inviteArray objectAtIndex:indexPath.row] type:_controllerType];
-//                NSLog(@"invitation cell 1");
-//                ((goPendingStatusCell*)cell).hideStatus = YES;
-//            }
-//            
-//            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//        }
-//    }
-//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//    cell.backgroundColor = goBackgroundColorExtraLight;
+    static NSString *CellIdentifier = @"discoverCell";
+    SYCell *cell;
+    if (cell == nil) {
+        cell = [[SYCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    
+    if ((indexPath.row+1)>basicViewArray.count) {
+        SYHelp *helpView = [[SYHelp alloc] initWithFrame:CGRectMake(0, 0, helpTable.frame.size.width, 60) helpID:[helpIDArray objectAtIndex:indexPath.row] withHeadView:NO];
+        [basicViewArray addObject:helpView];
+        [cell setBasicView:helpView];
+    }
+    else{
+        [cell setBasicView:[basicViewArray objectAtIndex:indexPath.row]];
+    }
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

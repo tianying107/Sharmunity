@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 #import "SYHeader.h"
 #import "Header.h"
 #import "DiscoverLiveHelpViewController.h"
@@ -18,10 +19,19 @@
 #import "DiscoverTravelShareViewController.h"
 #import "DiscoverTravelHelpViewController.h"
 
-@interface DiscoverMainViewController : UIViewController{
+@interface DiscoverMainViewController : UIViewController<CLLocationManagerDelegate>{
     BOOL isHelp;
     NSString *MEID;
+    
+    NSArray *recentHelpArray;
+    NSArray *recentShareArray;
 }
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cityItem;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (weak, nonatomic) IBOutlet UIImageView *slogenImageView;
+@property (weak, nonatomic) IBOutlet UIView *recentHelpView;
+@property (weak, nonatomic) IBOutlet UIView *recentShareView;
+
 @property (weak, nonatomic) IBOutlet UIButton *currentShareButton;
 @property (weak, nonatomic) IBOutlet UIButton *currentHelpButton;
 
@@ -34,4 +44,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *learnButton;
 @property (weak, nonatomic) IBOutlet UITableView *discoverTable;
 @property (weak, nonatomic) IBOutlet UIImageView *buttonBackgroundImageView;
+@property (weak, nonatomic) IBOutlet UILabel *liveLabel;
+@property (weak, nonatomic) IBOutlet UILabel *eatLabel;
+@property (weak, nonatomic) IBOutlet UILabel *travelLabel;
+@property (weak, nonatomic) IBOutlet UILabel *playLabel;
+@property (weak, nonatomic) IBOutlet UILabel *learnLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tradeLabel;
 @end

@@ -12,6 +12,7 @@
     UITableView *helpTable;
     NSString *MEID;
     NSArray *helpIDArray;
+    NSMutableArray *basicViewArray;
 }
 @property (weak, nonatomic) IBOutlet UIButton *partnerButton;
 @property (weak, nonatomic) IBOutlet UIButton *activityButton;

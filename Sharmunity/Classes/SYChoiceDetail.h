@@ -8,11 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SYChoiceDetail : UIView{
+@interface SYChoiceDetail : UIView<UITextViewDelegate,UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>{
+    UITapGestureRecognizer *tap;
     
+    UILabel *commentLabel;
+    UITableView *commentTableView;
+    NSMutableArray *commentBasicView;
+    UIView *commentBackgroundView;
+    UITextField *commentTextField;
+    UIButton *sendMessageButton;
+    
+    NSString *MEID;
 }
 
--(id)initWithChoiceDict:(NSDictionary*)Dict frame:(CGRect)frame;
+-(id)initWithChoiceDict:(NSDictionary*)Dict shareDict:(NSDictionary*)share frame:(CGRect)frame;
 @property NSDictionary *choiceDict;
+@property NSDictionary *shareDict;
+@property NSDictionary *personDict;
 @property NSString *helpeeID;
 @end

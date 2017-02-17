@@ -60,7 +60,7 @@
                 abstractInformation = @"搬家信息";
             }
             titleLabel.text = ([[personDict valueForKey:@"name"] isEqualToString:@""])?abstractInformation:[NSString stringWithFormat:@"%@发布的%@",[personDict valueForKey:@"name"],abstractInformation];
-            priceLabel.text = [NSString stringWithFormat:@"$%@",[[shareDict valueForKey:@"keyword"] valueForKey:@"price"]];
+//            priceLabel.text = [NSString stringWithFormat:@"$%@",[[shareDict valueForKey:@"keyword"] valueForKey:@"price"]];
         }else{
             titleLabel.text = [NSString stringWithFormat:@"%@发布的信息",[personDict valueForKey:@"name"]];
         }
@@ -90,7 +90,8 @@
     [UIView commitAnimations];
     
     /**************content***************/
-    SYChoiceDetail *detailView = [[SYChoiceDetail alloc] initWithChoiceDict:self.choiceDict frame:CGRectMake(0, 44+20, baseView.cardSize.width, 0)];
+    SYChoiceDetail *detailView = [[SYChoiceDetail alloc] initWithChoiceDict:self.choiceDict shareDict:shareDict frame:CGRectMake(0, 44+20, baseView.cardSize.width, 0)];
+    detailView.personDict = personDict;
     [baseView addGoSubview:detailView];
     
 }

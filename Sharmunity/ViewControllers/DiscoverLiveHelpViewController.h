@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DiscoverLiveHelpViewController : UIViewController{
+@interface DiscoverLiveHelpViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+    UITableView *helpTable;
     NSString *MEID;
+    NSArray *helpIDArray;
+    NSMutableArray *basicViewArray;
 }
 @property (weak, nonatomic) IBOutlet UIButton *rentButton;
 @property (weak, nonatomic) IBOutlet UIButton *leaseButton;

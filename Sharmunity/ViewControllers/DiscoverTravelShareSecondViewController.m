@@ -393,7 +393,7 @@
     /*0 has ticket; 1 no ticket*/
     UIButton *button = sender;
     if (button.tag-10) {
-        ticketString = @"02";
+        ticketString = @"01";
         [button setTitleColor:SYColor1 forState:UIControlStateNormal];
         UIButton *button2 = [hasTicketView viewWithTag:10];
         [button2 setTitleColor:SYColor3 forState:UIControlStateNormal];
@@ -406,7 +406,7 @@
         
     }
     else{
-        ticketString = @"01";
+        ticketString = @"02";
         [button setTitleColor:SYColor1 forState:UIControlStateNormal];
         UIButton *button2 = [hasTicketView viewWithTag:11];
         [button2 setTitleColor:SYColor3 forState:UIControlStateNormal];
@@ -435,6 +435,7 @@
         [_shareDict addEntriesFromDictionary:dict];
         dateString = dtrDate;
     }
+    [self dismissKeyboard];
     datePicker.hidden = NO;
     confirmBackgroundView.hidden = NO;
     locationView.hidden = NO;
@@ -521,9 +522,9 @@
             subCate= [NSString stringWithFormat:@"01%@0000",ticketString];
             latitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
             longitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
-            expireDate = ([ticketString isEqualToString:@"02"])?dateString:@"2099-01-01";
-            if ([ticketString isEqualToString:@"02"]) {
-                requestBody = [NSString stringWithFormat:@"expire_date=%@&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&date=%@&flight_number=%@",expireDate,MEID,latitude,longitude,subCate,expireDate,flight.text];
+            expireDate = ([ticketString isEqualToString:@"01"])?dateString:@"2099-01-01";
+            if ([ticketString isEqualToString:@"01"]) {
+                requestBody = [NSString stringWithFormat:@"expire_date=%@&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&date=%@&flight=%@",expireDate,MEID,latitude,longitude,subCate,expireDate,flight.text];
             }
             else
                 requestBody = [NSString stringWithFormat:@"expire_date=%@&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&date=%@&depart=%@&arrive=%@",expireDate,MEID,latitude,longitude,subCate,expireDate,departAirport.text,arriveAirport.text];
@@ -651,6 +652,8 @@
 }
 -(void)dismissKeyboard {
     UITextField *textField = [titleView viewWithTag:11];
+    [textField resignFirstResponder];
+    textField = [flightView viewWithTag:11];
     [textField resignFirstResponder];
     UITextView *textView = [introductionView viewWithTag:11];
     [textView resignFirstResponder];

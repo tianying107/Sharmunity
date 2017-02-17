@@ -12,12 +12,46 @@
 #import "SYChoiceAbstract.h"
 @implementation SYHelp
 @synthesize helpID, helpDict;
+-(id)initAbstractWithFrame:(CGRect)frame helpID:(NSString*)ID{
+    self = [super initWithFrame:frame];
+    if (self) {
+        helpID = ID;
+        [self requestHelpFromServer:YES];
+    }
+    return self;
+}
+-(void)abstractSetup{
+    float height = self.frame.size.height;
+    
+
+    UILabel *postDateLabel = [[UILabel alloc] init];
+    postDateLabel.textColor = SYColor5;
+    [postDateLabel setFont:SYFont13];
+    postDateLabel.text = [[[[helpDict valueForKey:@"post_date"] componentsSeparatedByString:@" "] firstObject] stringByReplacingOccurrencesOfString:@"-" withString:@"/"];
+    [postDateLabel sizeToFit];
+    postDateLabel.frame = CGRectMake(0, 0, postDateLabel.frame.size.width, height);
+    [self addSubview:postDateLabel];
+    
+    UILabel *absTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(postDateLabel.frame.size.width, 0, self.frame.size.width-postDateLabel.frame.size.width, height)];
+    absTitleLabel.textColor = SYColor1;
+    [absTitleLabel setFont:SYFont13];
+    SYTitle *titleGenerator = [SYTitle new];
+    NSString *titleString =[[titleGenerator titleFromHelpDict:helpDict] stringByReplacingOccurrencesOfString:@"我" withString:@" "];
+    absTitleLabel.text = [titleString stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+    [self addSubview:absTitleLabel];
+    
+    
+}
+
+
+
+
 -(id)initWithFrame:(CGRect)frame helpID:(NSString*)ID withHeadView:(BOOL)head{
     self = [super initWithFrame:frame];
     if (self) {
         helpID = ID;
         withHead = head;
-        [self requestHelpFromServer];
+        [self requestHelpFromServer:NO];
     }
     return self;
 }
@@ -25,10 +59,6 @@
 -(void)viewsSetup{
     float heightCount = 0;
     if (withHead) {
-        UIView *frontgroundView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, self.frame.size.width-20, self.frame.size.height-20)];
-        frontgroundView.backgroundColor = SYBackgroundColorExtraLight;
-        [self addSubview:frontgroundView];
-        
         /*Head View*/
         UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, heightCount, self.frame.size.width, 50)];
         headView.backgroundColor = SYColor5;
@@ -51,12 +81,28 @@
         [headView addSubview:label1];
         [headView addSubview:label2];
         
-        self.backgroundColor = SYBackgroundColorGreen;
         
     }
+    self.backgroundColor = SYBackgroundColorGreen;
     
-    UILabel *helpInfoLabel = [[UILabel alloc] init];
-    heightCount += 60;
+    SYTitle *titleGenerator = [SYTitle new];
+    UILabel *helpInfoLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount+10, self.frame.size.width-40, 60)];;
+    helpInfoLabel.text = [titleGenerator titleFromHelpDict:helpDict];
+    NSLog(@"%@",[titleGenerator titleFromHelpDict:helpDict]);
+    helpInfoLabel.textColor = SYColor1;
+    helpInfoLabel.textAlignment = NSTextAlignmentCenter;
+    [helpInfoLabel setFont:SYFont15S];
+    helpInfoLabel.numberOfLines = 0;
+    [self addSubview:helpInfoLabel];
+    heightCount += 70;
+    
+    UILabel *postLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount, self.frame.size.width-40, 20)];
+    postLabel.text = [helpDict valueForKey:@"post_date"];
+    postLabel.textColor = SYColor1;
+    [postLabel setFont: SYFont13];
+    postLabel.textAlignment = NSTextAlignmentCenter;
+    heightCount += postLabel.frame.size.height;
+    [self addSubview:postLabel];
     
     NSArray *choiceArray = [helpDict valueForKey:@"choices"];
     titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, heightCount, 200, 40)];
@@ -72,10 +118,20 @@
         heightCount += choiceAbstract.frame.size.height;
         
     }
+    CGRect frame = self.frame;
+    frame.size.height = heightCount;//MIN(heightCount, 200);
+    self.frame = frame;
+    UIView *frontgroundView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, self.frame.size.width-20, self.frame.size.height-20)];
+    frontgroundView.backgroundColor = SYBackgroundColorExtraLight;
+    frontgroundView.layer.cornerRadius = 5;
+    frontgroundView.clipsToBounds = YES;
+    [self addSubview:frontgroundView];
+    [self sendSubviewToBack:frontgroundView];
+//    [self.delegate SYHelp:self didLayoutWithHeight:heightCount];
 }
 
 
--(void)requestHelpFromServer{
+-(void)requestHelpFromServer:(BOOL)abstract{
     NSString *requestQuery = [NSString stringWithFormat:@"help_id=%@",helpID];
     NSString *urlString = [NSString stringWithFormat:@"%@reqhelp?%@",basicURL,requestQuery];
     NSLog(@"%@",requestQuery);
@@ -91,8 +147,7 @@
                                                                                 NSLog(@"server said: %@",dict);
                                                  dispatch_async(dispatch_get_main_queue(), ^{
                                                      helpDict = dict;
-                                                     [self viewsSetup];
-//                                                        [self handleSubmit:dict];
+                                                     (abstract)?[self abstractSetup]:[self viewsSetup];
                                                   });
                                         
                                     }];

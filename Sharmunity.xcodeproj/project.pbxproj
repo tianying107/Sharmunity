@@ -87,6 +87,10 @@
 		44A494341E4CF07B006CD069 /* SYHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494331E4CF07B006CD069 /* SYHelp.m */; };
 		44A494381E4CF5E1006CD069 /* SYChoiceAbstract.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A494371E4CF5E1006CD069 /* SYChoiceAbstract.m */; };
 		44A502C51E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A502C41E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m */; };
+		44AD3C3D1E561C9C008774CD /* SYTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 44AD3C3C1E561C9C008774CD /* SYTitle.m */; };
+		44AD3C3F1E56333B008774CD /* TravelType_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44AD3C3E1E56333B008774CD /* TravelType_cn.txt */; };
+		44AD3C431E56557B008774CD /* SYChoiceCommentBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 44AD3C421E56557B008774CD /* SYChoiceCommentBasic.m */; };
+		44AD3C461E566B9D008774CD /* SYShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 44AD3C451E566B9D008774CD /* SYShare.m */; };
 		44B815031E552F18008B98F3 /* DiscoverTravelShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B815021E552F18008B98F3 /* DiscoverTravelShareViewController.m */; };
 		44B815061E552F2D008B98F3 /* DiscoverTravelHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B815051E552F2D008B98F3 /* DiscoverTravelHelpViewController.m */; };
 		44B815091E553467008B98F3 /* DiscoverTravelShareSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B815081E553467008B98F3 /* DiscoverTravelShareSecondViewController.m */; };
@@ -247,6 +251,13 @@
 		44A494371E4CF5E1006CD069 /* SYChoiceAbstract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYChoiceAbstract.m; path = Classes/SYChoiceAbstract.m; sourceTree = "<group>"; };
 		44A502C31E47AB5A0008C4AD /* DiscoverLiveHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLiveHelpViewController.h; path = ViewControllers/DiscoverLiveHelpViewController.h; sourceTree = "<group>"; };
 		44A502C41E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLiveHelpViewController.m; path = ViewControllers/DiscoverLiveHelpViewController.m; sourceTree = "<group>"; };
+		44AD3C3B1E561C9C008774CD /* SYTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYTitle.h; path = Classes/SYTitle.h; sourceTree = "<group>"; };
+		44AD3C3C1E561C9C008774CD /* SYTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYTitle.m; path = Classes/SYTitle.m; sourceTree = "<group>"; };
+		44AD3C3E1E56333B008774CD /* TravelType_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TravelType_cn.txt; path = Resource/Category/TravelType_cn.txt; sourceTree = "<group>"; };
+		44AD3C411E56557B008774CD /* SYChoiceCommentBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYChoiceCommentBasic.h; path = Classes/SYChoiceCommentBasic.h; sourceTree = "<group>"; };
+		44AD3C421E56557B008774CD /* SYChoiceCommentBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYChoiceCommentBasic.m; path = Classes/SYChoiceCommentBasic.m; sourceTree = "<group>"; };
+		44AD3C441E566B9D008774CD /* SYShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYShare.h; path = Classes/SYShare.h; sourceTree = "<group>"; };
+		44AD3C451E566B9D008774CD /* SYShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYShare.m; path = Classes/SYShare.m; sourceTree = "<group>"; };
 		44B815011E552F18008B98F3 /* DiscoverTravelShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTravelShareViewController.h; path = ViewControllers/DiscoverTravelShareViewController.h; sourceTree = "<group>"; };
 		44B815021E552F18008B98F3 /* DiscoverTravelShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTravelShareViewController.m; path = ViewControllers/DiscoverTravelShareViewController.m; sourceTree = "<group>"; };
 		44B815041E552F2D008B98F3 /* DiscoverTravelHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTravelHelpViewController.h; path = ViewControllers/DiscoverTravelHelpViewController.h; sourceTree = "<group>"; };
@@ -359,6 +370,8 @@
 		442F486F1E31D19F00FB0561 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				44AD3C401E565551008774CD /* SYBasic */,
+				44AD3C3A1E561C70008774CD /* SYTitleGenerator */,
 				4470841A1E54FED200DEAB75 /* SYProfile */,
 				44A4941F1E4CCE80006CD069 /* NMRangeSlider */,
 				447E40DD1E3272C70010CAA4 /* SYHeader.h */,
@@ -369,6 +382,7 @@
 				44A502C21E46BE570008C4AD /* SYPopOut */,
 				44A494121E4CB3E0006CD069 /* SYMap */,
 				44A494281E4CD52E006CD069 /* SYSlider */,
+				44AD3C471E566BA3008774CD /* SYShare */,
 				44A4943A1E4CF5F6006CD069 /* SYChoice */,
 				44A494351E4CF087006CD069 /* SYHelp */,
 			);
@@ -576,6 +590,7 @@
 		44A494091E4CA649006CD069 /* category */ = {
 			isa = PBXGroup;
 			children = (
+				44AD3C3E1E56333B008774CD /* TravelType_cn.txt */,
 				4470840E1E54BC9800DEAB75 /* PlayType_cn.txt */,
 				4426A0DC1E4FF22B00D91D6F /* EatFood_cn.txt */,
 				4426A0DD1E4FF22B00D91D6F /* EatSubRegion_cn.txt */,
@@ -704,6 +719,33 @@
 				44FBAAA01E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m */,
 			);
 			name = Eat;
+			sourceTree = "<group>";
+		};
+		44AD3C3A1E561C70008774CD /* SYTitleGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				44AD3C3B1E561C9C008774CD /* SYTitle.h */,
+				44AD3C3C1E561C9C008774CD /* SYTitle.m */,
+			);
+			name = SYTitleGenerator;
+			sourceTree = "<group>";
+		};
+		44AD3C401E565551008774CD /* SYBasic */ = {
+			isa = PBXGroup;
+			children = (
+				44AD3C411E56557B008774CD /* SYChoiceCommentBasic.h */,
+				44AD3C421E56557B008774CD /* SYChoiceCommentBasic.m */,
+			);
+			name = SYBasic;
+			sourceTree = "<group>";
+		};
+		44AD3C471E566BA3008774CD /* SYShare */ = {
+			isa = PBXGroup;
+			children = (
+				44AD3C441E566B9D008774CD /* SYShare.h */,
+				44AD3C451E566B9D008774CD /* SYShare.m */,
+			);
+			name = SYShare;
 			sourceTree = "<group>";
 		};
 		44B815001E552E74008B98F3 /* Travel */ = {
@@ -844,6 +886,7 @@
 				447E40FD1E327D0D0010CAA4 /* SF-UI-Display-Light.otf in Resources */,
 				4426A0D51E4FD44600D91D6F /* EatRegion_cn.txt in Resources */,
 				447E41021E327D0D0010CAA4 /* SF-UI-Display-Ultralight.otf in Resources */,
+				44AD3C3F1E56333B008774CD /* TravelType_cn.txt in Resources */,
 				447E41011E327D0D0010CAA4 /* SF-UI-Display-Thin.otf in Resources */,
 				447E40FE1E327D0D0010CAA4 /* SF-UI-Display-Medium.otf in Resources */,
 				4470840F1E54BC9800DEAB75 /* PlayType_cn.txt in Resources */,
@@ -904,6 +947,7 @@
 				44A494081E4C84C7006CD069 /* DiscoverLiveShareLeaseViewController.m in Sources */,
 				447084191E54FEB800DEAB75 /* ChoiceDetailViewController.m in Sources */,
 				447084121E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.m in Sources */,
+				44AD3C431E56557B008774CD /* SYChoiceCommentBasic.m in Sources */,
 				447E41161E3296EF0010CAA4 /* AccountMainViewController.m in Sources */,
 				44A494341E4CF07B006CD069 /* SYHelp.m in Sources */,
 				4426A0DB1E4FD97800D91D6F /* DiscoverEatShareRegionViewController.m in Sources */,
@@ -915,11 +959,13 @@
 				447E41111E327FD90010CAA4 /* VerificationWarningViewController.m in Sources */,
 				44A4941B1E4CBA7D006CD069 /* DiscoverLiveShareSubmitViewController.m in Sources */,
 				4470841E1E54FEFC00DEAB75 /* SYProfileHead.m in Sources */,
+				44AD3C3D1E561C9C008774CD /* SYTitle.m in Sources */,
 				4426A0D81E4FD7B300D91D6F /* DiscoverEatShareViewController.m in Sources */,
 				44A494151E4CB515006CD069 /* MapPin.m in Sources */,
 				442F486D1E31D11500FB0561 /* LaunchScreenViewController.m in Sources */,
 				44A4941E1E4CCE79006CD069 /* NMRangeSlider.m in Sources */,
 				447084221E5512FC00DEAB75 /* SYChoiceDetail.m in Sources */,
+				44AD3C461E566B9D008774CD /* SYShare.m in Sources */,
 				44A173EE1E540F8300FABC4F /* DiscoverPlayShareViewController.m in Sources */,
 				442F48801E31E03D00FB0561 /* SYSignUpEmail.m in Sources */,
 				44A173E71E52387800FABC4F /* DiscoverLearnShareSubmitViewController.m in Sources */,

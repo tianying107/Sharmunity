@@ -38,10 +38,14 @@
     [self addSubview:nameLabel];
     
     UILabel *signUpLabel = [[UILabel alloc] initWithFrame:CGRectMake(nameLabel.frame.origin.x, nameLabel.frame.size.height+nameLabel.frame.origin.y, 200, nameLabel.frame.size.height)];
-    signUpLabel.text = [NSString stringWithFormat:@"注册时间: %@",[userDict valueForKey:@"join_data"]];
+    signUpLabel.text = [NSString stringWithFormat:@"注册时间: %@",[userDict valueForKey:@"join_date"]];
     signUpLabel.textColor = SYColor1;
     [signUpLabel setFont:SYFont15M];
     [self addSubview:signUpLabel];
+    
+    UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-SYSeparatorHeight, self.frame.size.width, SYSeparatorHeight)];
+    separator.backgroundColor = SYSeparatorColor;
+    [self addSubview:separator];
 }
 -(void)requestionUserInformation{
     NSString *requestQuery = [NSString stringWithFormat:@"email=%@",userID];

@@ -17,8 +17,10 @@
 #import "SYPriceSlider.h"
 #import "SYDistanceSlider.h"
 #import "SYHelp.h"
+#import "SYShare.h"
 #import "SYChoiceAbstract.h"
 #import "SYChoiceDetail.h"
 #import "SYProfileHead.h"
 #import "SYProfileExtend.h"
+#import "SYTitle.h"
 #endif /* SYHeader_h */

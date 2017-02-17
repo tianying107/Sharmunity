@@ -40,6 +40,10 @@
     [goldenTitleLabel setFont:SYFont15M];
     [self addSubview:goldenTitleLabel];
     
+    UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-SYSeparatorHeight, self.frame.size.width, SYSeparatorHeight)];
+    separator.backgroundColor = SYSeparatorColor;
+    [self addSubview:separator];
+    
 }
 -(void)requestionUserInformation{
     NSString *requestQuery = [NSString stringWithFormat:@"email=%@",userID];

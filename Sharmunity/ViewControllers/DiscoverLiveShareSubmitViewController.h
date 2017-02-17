@@ -17,6 +17,7 @@
     UIView *distanceView;
     UIDatePicker *datePicker;
     UIView *confirmBackgroundView;
+    UIView *titleView;
     UIView *introductionView;
     UIButton *nextButton;
     

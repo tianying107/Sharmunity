@@ -13,10 +13,10 @@
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define SYColor1 UIColorFromRGB(0x50514F)
-#define SYColor2 UIColorFromRGB(0x247BA0)
+#define SYColor2 UIColorFromRGB(0x3F7473)
 #define SYColor3 UIColorFromRGB(0xB5B5B7)
 #define SYColor4 UIColorFromRGB(0xEF7F40)
-#define SYColor5 UIColorFromRGB(0x6CBF3B)
+#define SYColor5 UIColorFromRGB(0x417505)
 
 #define SYBackgroundColorExtraLight UIColorFromRGB(0xFAFAFA)
 #define SYBackgroundColorGreen UIColorFromRGB(0xD7F4D8)

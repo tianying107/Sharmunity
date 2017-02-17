@@ -244,7 +244,7 @@
 }
 
 - (void)nextResponse{
-    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=2&subcate=%@&lower_price=%@&upper_price=%@&available_date=%@&distance=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,[_helpDict valueForKey:@"subcate"],lowerPriceString,upperPriceString,dateString,distanceString];
+    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=2&subcate=%@&lower_price=%@&upper_price=%@&date=%@&distance=%@&placemark=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,[_helpDict valueForKey:@"subcate"],lowerPriceString,upperPriceString,dateString,distanceString,_selectedItem.name];
     NSLog(@"%@/n",requestBody);
     /*改上面的 query 和 URLstring 就好了*/
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@newhelp",basicURL]];

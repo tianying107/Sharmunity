@@ -155,6 +155,20 @@
 
 
     }
+    /*title*/
+    titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    titleView.hidden = YES;
+    [mainScrollView addSubview:titleView];
+    [viewsArray addObject:titleView];
+    UILabel *titleTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 40)];
+    titleTitleLabel.text = @"标题";
+    titleTitleLabel.textColor = SYColor1;
+    [titleView addSubview:titleTitleLabel];
+    UITextField *textfield = [[UITextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30)];
+    textfield.tag = 11;
+    [textfield addTarget:self action:@selector(titleEmptyCheck) forControlEvents:UIControlEventEditingChanged];
+    textfield.backgroundColor = [UIColor whiteColor];
+    [titleView addSubview:textfield];
     
     /*introduction*/
     introductionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 180)];
@@ -167,6 +181,7 @@
     [introductionView addSubview:introductionTitleLabel];
     UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 100)];
     textView.tag = 11;
+    textView.delegate = self;
     textView.backgroundColor = [UIColor whiteColor];
     [introductionView addSubview:textView];
     
@@ -215,8 +230,7 @@
     confirmBackgroundView.hidden = NO;
     priceView.hidden = NO;
     distanceView.hidden = NO;
-    nextButton.hidden = NO;
-    introductionView.hidden = NO;
+    titleView.hidden = NO;
 }
 -(void)datePickerChanged{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -246,9 +260,26 @@
 - (void)updateDistance{
     distanceString = [NSString stringWithFormat:@"%ld",distanceSlider.distanceInteger];
 }
-
+-(void)titleEmptyCheck{
+    UITextField *textField = [titleView viewWithTag:11];
+    if ([textField.text length]) {
+        introductionView.hidden = NO;
+    }
+}
+-(void)textViewDidChange:(UITextView *)textView{
+    if ([textView.text length]) {
+        nextButton.hidden = NO;
+    }
+}
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+    if ([textView.text length]) {
+        nextButton.hidden = NO;
+    }
+}
 - (void)nextResponse{
-    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=2&subcate=%@&price=%@&available_date=%@&distance=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,[_shareDict valueForKey:@"subcate"],priceString,dateString,distanceString];
+    UITextField *title = [titleView viewWithTag:11];
+    UITextView *introduction = [introductionView viewWithTag:11];
+    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=2&subcate=%@&price=%@&available_date=%@&distance=%@&placemark=%@&title=%@&introduction=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,[_shareDict valueForKey:@"subcate"],priceString,dateString,distanceString,_selectedItem.name,title.text,introduction.text];
     NSLog(@"%@/n",requestBody);
     /*改上面的 query 和 URLstring 就好了*/
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@newshare",basicURL]];
@@ -271,6 +302,8 @@
 -(void)dismissKeyboard {
     UITextView *textField = [introductionView viewWithTag:11];
     [textField resignFirstResponder];
+    UITextField *title = [titleView viewWithTag:11];
+    [title resignFirstResponder];
 }
 
 -(void)submitHandle:(NSDictionary*)dict{
