@@ -72,7 +72,7 @@
     [task resume];
 }
 - (void)handleSubmit:(NSDictionary*)dict{
-    if ([[dict valueForKey:@"msg"] isEqualToString:@"An email has been sent to you. Please check it to verify your account."]) {
+    if ([[dict valueForKey:@"msg"] isEqualToString:@"You have already signed up. Please check your email to verify your account."]) {
         for (SYSuscard *baseView in cardArray){
             [baseView removeFromSuperview];
         }

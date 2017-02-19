@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-@interface NearbyMapViewController : UIViewController<CLLocationManagerDelegate>{
+#import "SYMap.h"
+@import CoreLocation;
+@interface NearbyMapViewController : UIViewController<CLLocationManagerDelegate, SYMapDelegate, UITextFieldDelegate>{
+    SYMap* mapView;
+    UIView *searchView;
+    UIButton *cardView;
+    UIButton *sortButton;
+    UITextField *searchTextField;
+    UITextField *distanceTextField;
+    UIButton *locationButton;
+//    goSortView *sortView;
     
     BOOL hasJobSelected;
 }

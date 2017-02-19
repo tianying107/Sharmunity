@@ -253,7 +253,7 @@
     keywordView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
     keywordView.hidden = YES;
     UILabel *keywordTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 40)];
-    keywordTitleLabel.text = @"标题";
+    keywordTitleLabel.text = @"关键词";
     keywordTitleLabel.textColor = SYColor1;
     [keywordView addSubview:keywordTitleLabel];
     UITextField *keywordTextfield = [[UITextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30)];
@@ -527,7 +527,9 @@
             break;
         case DiscoverTravelBuyCar:
             subCate=@"05030000";
-            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%f&longitude=%f&category=5&subcate=%@&keyword=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,keyword.text];
+            latitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
+            longitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
+            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&keyword=%@",MEID,latitude,longitude,subCate,keyword.text];
             break;
         case DiscoverTravelRepair:
             subCate=@"06000000";

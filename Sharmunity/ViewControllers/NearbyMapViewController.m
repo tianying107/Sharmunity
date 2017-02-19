@@ -14,6 +14,7 @@
 #define cardUnselectOriginalY 50
 #define cardSelectOriginalY 150
 #define barOriginalY 50
+
 @interface NearbyMapViewController ()
 
 @end
@@ -23,6 +24,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = SYBackgroundColorExtraLight;
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+        
+    }
+    CLAuthorizationStatus authorizationStatus= [CLLocationManager authorizationStatus];
+    if (authorizationStatus == kCLAuthorizationStatusAuthorizedAlways ||
+        authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        [self.locationManager startUpdatingLocation];
+    }
+    
+//    mapView = [[SYMap alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-45) withLatitude:_centerLatitude longitude:_centerLongitude];
+    
     // Do any additional setup after loading the view.
 }
 

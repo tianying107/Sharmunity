@@ -57,6 +57,12 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
 /**
+ * job map
+ */
+- (id)initWithFrame:(CGRect)frame withLatitude:(float)latitude longitude:(float)longitude;
+ 
+
+/**
  *search functions and properties
  */
 - (void)setupSearchBar;

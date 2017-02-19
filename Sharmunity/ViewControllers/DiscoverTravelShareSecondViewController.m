@@ -548,7 +548,9 @@
             break;
         case DiscoverTravelBuyCar:
             subCate=@"05030000";
-            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%f&longitude=%f&category=5&subcate=%@&title=%@&introduction=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,title.text, introduction.text];
+            latitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
+            longitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
+            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&title=%@&introduction=%@",MEID,latitude,longitude,subCate,title.text, introduction.text];
             break;
         case DiscoverTravelRepair:
             subCate=@"06000000";

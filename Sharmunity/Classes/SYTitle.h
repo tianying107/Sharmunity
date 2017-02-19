@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #define DiscoverEat 1
 #define DiscoverLive 2
+#define DiscoverLearn 3
 #define DiscoverTravel 5
 @interface SYTitle : NSObject{
     NSInteger category;

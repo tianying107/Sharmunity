@@ -33,14 +33,71 @@
     postDateLabel.frame = CGRectMake(0, 0, postDateLabel.frame.size.width, height);
     [self addSubview:postDateLabel];
     
-    UILabel *absTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(postDateLabel.frame.size.width, 0, self.frame.size.width-postDateLabel.frame.size.width, height)];
+    UILabel *absTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(postDateLabel.frame.size.width+5, 0, self.frame.size.width-postDateLabel.frame.size.width, height)];
     absTitleLabel.textColor = SYColor1;
     [absTitleLabel setFont:SYFont13];
     SYTitle *titleGenerator = [SYTitle new];
     NSString *titleString =[[titleGenerator titleFromShareDict:shareDict] stringByReplacingOccurrencesOfString:@"我" withString:@" "];
     absTitleLabel.text = [titleString stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
     [self addSubview:absTitleLabel];
+    
+    UIButton *selectButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    [selectButton addTarget:self action:@selector(abstractExpendResponse) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:selectButton];
 }
+-(void)abstractExpendResponse{
+    SYSuscard *baseView = [[SYSuscard alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height) withCardSize:CGSizeMake( [[UIScreen mainScreen] bounds].size.width-20, 200) keyboard:NO];
+    baseView.cardBackgroundView.backgroundColor = SYBackgroundColorExtraLight;
+    
+    UIWindow* currentWindow = [UIApplication sharedApplication].keyWindow;
+    [currentWindow addSubview:baseView];
+    baseView.alpha = 0;
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.258];
+    baseView.alpha = 1;
+    [UIView commitAnimations];
+    
+    /**************content***************/
+    float heightCount = 10;
+    float originX = 20;
+    UILabel *absTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, heightCount, baseView.cardSize.width-2*originX, 40)];
+    absTitleLabel.textColor = SYColor1;
+    [absTitleLabel setFont:SYFont15M];
+    absTitleLabel.numberOfLines = 0;
+    SYTitle *titleGenerator = [SYTitle new];
+    NSString *titleString =[[titleGenerator titleFromShareDict:shareDict] stringByReplacingOccurrencesOfString:@"我" withString:@" "];
+    absTitleLabel.text = titleString;//[titleString stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+    [baseView addGoSubview:absTitleLabel];
+    heightCount += absTitleLabel.frame.size.height;
+    
+    UILabel *postsDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, heightCount, baseView.cardSize.width-2*originX, 20)];
+    postsDateLabel.textColor = SYColor1;
+    [postsDateLabel setFont:SYFont15];
+    postsDateLabel.text = [shareDict valueForKey:@"post_date"];
+    [baseView addGoSubview:postsDateLabel];
+    heightCount += postsDateLabel.frame.size.height;
+    
+    UILabel *statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount, baseView.cardSize.width-40, 40)];
+    NSString *statusString = [shareDict valueForKey:@"count"];
+    statusLabel.text = [NSString stringWithFormat:@"已有%@人感兴趣",statusString];
+    statusLabel.textColor = SYColor1;
+    [statusLabel setFont:SYFont15M];
+    [baseView addGoSubview:statusLabel];
+    heightCount += statusLabel.frame.size.height;
+
+    
+    UIButton *selectButton = [[UIButton alloc] initWithFrame:CGRectMake(baseView.cardSize.width-originX-150, heightCount+10, 150, 40)];
+    selectButton.backgroundColor = SYColor4;
+    [selectButton setTitle:@"我感兴趣" forState:UIControlStateNormal];
+    [selectButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [selectButton.titleLabel setFont:SYFont18M];
+    selectButton.layer.cornerRadius = selectButton.frame.size.height/2;
+    selectButton.clipsToBounds = YES;
+    //            [selectButton addTarget:self action:@selector(abstractExpendResponse) forControlEvents:UIControlEventTouchUpInside];
+    [baseView addGoSubview:selectButton];
+}
+
+
 -(void)requestShareFromServer{
     
     NSString *requestQuery = [NSString stringWithFormat:@"share_id=%@",shareID];
