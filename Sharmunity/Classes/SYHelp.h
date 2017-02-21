@@ -23,6 +23,8 @@
 
 /*abstract help*/
 -(id)initAbstractWithFrame:(CGRect)frame helpID:(NSString*)ID;
+@property UIButton *helpButton;
+
 
 @property NSString *helpID;
 @property NSDictionary *helpDict;

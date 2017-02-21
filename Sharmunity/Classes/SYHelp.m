@@ -11,11 +11,12 @@
 #import "SYHeader.h"
 #import "SYChoiceAbstract.h"
 @implementation SYHelp
-@synthesize helpID, helpDict;
+@synthesize helpID, helpDict, helpButton;
 -(id)initAbstractWithFrame:(CGRect)frame helpID:(NSString*)ID{
     self = [super initWithFrame:frame];
     if (self) {
         helpID = ID;
+        helpButton = [UIButton new];
         [self requestHelpFromServer:YES];
     }
     return self;
@@ -99,15 +100,14 @@
     
     
     if (!statusInteger) {
-            UIButton *selectButton = [[UIButton alloc] initWithFrame:CGRectMake(baseView.cardSize.width-originX-150, heightCount+10, 150, 40)];
-        selectButton.backgroundColor = SYColor4;
-        [selectButton setTitle:@"我想提供帮助" forState:UIControlStateNormal];
-        [selectButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [selectButton.titleLabel setFont:SYFont18M];
-        selectButton.layer.cornerRadius = selectButton.frame.size.height/2;
-        selectButton.clipsToBounds = YES;
-//            [selectButton addTarget:self action:@selector(abstractExpendResponse) forControlEvents:UIControlEventTouchUpInside];
-        [baseView addGoSubview:selectButton];
+        helpButton.frame = CGRectMake(baseView.cardSize.width-originX-150, heightCount+10, 150, 40);
+        helpButton.backgroundColor = SYColor4;
+        [helpButton setTitle:@"我想提供帮助" forState:UIControlStateNormal];
+        [helpButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [helpButton.titleLabel setFont:SYFont18M];
+        helpButton.layer.cornerRadius = helpButton.frame.size.height/2;
+        helpButton.clipsToBounds = YES;
+        [baseView addGoSubview:helpButton];
     }
 }
 

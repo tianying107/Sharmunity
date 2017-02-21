@@ -49,6 +49,11 @@
     placemarkArray = [NSMutableArray new];
     normalPin =[UIImage imageNamed:@"mapPoint"];
     selectedPin = [UIImage imageNamed:@"mapPin"];
+    
+    /**
+     *job map
+     */
+    jobIDArray = [NSMutableArray new];
 }
 - (SYAnnotationView *)mapView:(MKMapView *)tmapView viewForAnnotation:(id <MKAnnotation>)annotation{
     SYAnnotationView *pinView = nil;
@@ -305,5 +310,36 @@
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [searchBar resignFirstResponder];
+}
+
+
+
+
+/*JOB MAP*/
+- (id)initWithFrame:(CGRect)frame withLatitude:(float)latitude longitude:(float)longitude{
+    NSNumber *latitudeNumber = [[NSNumber alloc] initWithFloat:latitude];
+    NSNumber *longitudeNumber = [[NSNumber alloc] initWithFloat:longitude];
+    NSArray *array = [[NSArray alloc] initWithObjects:latitudeNumber, longitudeNumber, nil];
+    regionCenterArray = [[NSMutableArray alloc] initWithObjects:array, nil];
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self mapInit];
+    }
+    
+    return self;
+}
+
+- (void)addShareAnnotation:(NSDictionary*)shareDict{
+    float latitude = [[[shareDict valueForKey:@"location"] valueForKey:@"latitude"] floatValue];
+    float longitude = [[[shareDict valueForKey:@"location"] valueForKey:@"longitude"] floatValue];
+    
+    MapPin *jobPin=[[MapPin alloc] init];
+    jobPin.coordinate = CLLocationCoordinate2DMake(latitude, longitude);
+    jobPin.orderDict = shareDict;
+    jobPin.index = pinIndex;
+    [jobIDArray insertObject:[shareDict valueForKey:@"share_id"] atIndex:pinIndex];
+    [self addAnnotation:jobPin];
+    pinIndex++;
+    //    [self selectAnnotation:jobPin animated:NO];
 }
 @end

@@ -20,6 +20,8 @@
     UIButton *locationButton;
 //    goSortView *sortView;
     
+    NSArray *shareIDArray;
+    
     BOOL hasJobSelected;
 }
 @property (strong, nonatomic) CLLocationManager *locationManager;

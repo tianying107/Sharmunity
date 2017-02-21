@@ -8,7 +8,9 @@
 
 #import "DiscoverMainViewController.h"
 
-@interface DiscoverMainViewController ()
+@interface DiscoverMainViewController (){
+    SYPopOut *popOut;
+}
 
 @end
 
@@ -223,8 +225,15 @@
     }
     for (int i=0; i<MIN(3, recentHelpArray.count); i++) {
         SYHelp *helpView = [[SYHelp alloc] initAbstractWithFrame:CGRectMake(0, i*20,_recentHelpView.frame.size.width, 20) helpID:[recentHelpArray objectAtIndex:i]];
+        helpView.helpButton.tag = i;
+        [helpView.helpButton addTarget:self action:@selector(solveHelp:) forControlEvents:UIControlEventTouchUpInside];
         [_recentHelpView addSubview:helpView];
     }
+}
+-(IBAction)solveHelp:(id)sender{
+    UIButton *interestButton = sender;
+    NSString *helpID = [recentHelpArray objectAtIndex:interestButton.tag];
+    
 }
 -(void)requestRecentShareFromServer{
     recentShareArray = [NSArray new];
@@ -255,8 +264,57 @@
     for (int i=0; i<MIN(3, recentShareArray.count); i++) {
         SYShare *shareView = [[SYShare alloc] initAbstractWithFrame:CGRectMake(0, i*20,_recentHelpView.frame.size.width, 20) shareID:[recentShareArray objectAtIndex:i]];
         [_recentShareView addSubview:shareView];
+        shareView.interestButton.tag = i;
+        [shareView.interestButton addTarget:self action:@selector(createInterestHelp:) forControlEvents:UIControlEventTouchUpInside];
+        
     }
 }
-
-
+-(IBAction)createInterestHelp:(id)sender{
+    UIButton *interestButton = sender;
+    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&share_id=%@&keyword= ",MEID,self.locationManager.location.coordinate.latitude,self.locationManager.location.coordinate.longitude,[recentShareArray objectAtIndex:interestButton.tag]];
+    NSLog(@"%@/n",requestBody);
+    /*改上面的 query 和 URLstring 就好了*/
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@otohelp",basicURL]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = @"POST";
+    request.HTTPBody = [requestBody dataUsingEncoding:NSUTF8StringEncoding];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
+                                                             options:kNilOptions
+                                                               error:&error];
+        NSLog(@"server said: %@",dict);
+        dispatch_async(dispatch_get_main_queue(), ^{
+         [self submitHandle:dict];
+        });
+    }];
+    [task resume];
+    
+}
+-(void)submitHandle:(NSDictionary*)dict{
+    if ([[dict valueForKey:@"success"] boolValue]){
+        [self helpResponse:[dict valueForKey:@"help_id"]];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+    else [popOut showUpPop:SYPopDiscoverShareFail];
+    
+}
+-(void)helpResponse:(NSString*)helpID{
+    SYSuscard *baseView = [[SYSuscard alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen]bounds].size.height) withCardSize:CGSizeMake(320, 300) keyboard:NO];
+    baseView.cardBackgroundView.backgroundColor = SYBackgroundColorExtraLight;
+    baseView.scrollView.scrollEnabled = NO;
+    baseView.backButton.hidden = YES;
+    
+    UIWindow* currentWindow = [UIApplication sharedApplication].keyWindow;
+    [currentWindow addSubview:baseView];
+    baseView.alpha = 0;
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.258];
+    baseView.alpha = 1;
+    [UIView commitAnimations];
+    
+    /**************content***************/
+    SYHelp *helpView = [[SYHelp alloc] initWithFrame:CGRectMake(0, 0, baseView.cardSize.width, baseView.cardSize.height) helpID:helpID withHeadView:YES];
+    [baseView addGoSubview:helpView];
+}
 @end

@@ -37,6 +37,12 @@
     UIButton *clearSearchButton;
     NSArray *searchResultArray;
     UITableView *resultTableView;
+    
+    
+    /**
+     *Job Map
+     */
+    NSMutableArray *jobIDArray;
 }
 
 
@@ -60,8 +66,7 @@
  * job map
  */
 - (id)initWithFrame:(CGRect)frame withLatitude:(float)latitude longitude:(float)longitude;
- 
-
+- (void)addShareAnnotation:(NSDictionary*)shareDict;
 /**
  *search functions and properties
  */

@@ -25,4 +25,5 @@
 
 -(id)initAbstractWithFrame:(CGRect)frame shareID:(NSString*)ID;
 @property NSDictionary *shareDict;
+@property UIButton *interestButton;
 @end

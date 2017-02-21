@@ -12,11 +12,12 @@
 #define DiscoverLive 2
 #define DiscoverTravel 5
 @implementation SYShare
-@synthesize shareDict;
+@synthesize shareDict, interestButton;
 -(id)initAbstractWithFrame:(CGRect)frame shareID:(NSString*)ID{
     self = [super initWithFrame:frame];
     if (self) {
         shareID = ID;
+        interestButton = [UIButton new];
         [self requestShareFromServer];
     }
     return self;
@@ -44,6 +45,7 @@
     UIButton *selectButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     [selectButton addTarget:self action:@selector(abstractExpendResponse) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:selectButton];
+    
 }
 -(void)abstractExpendResponse{
     SYSuscard *baseView = [[SYSuscard alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height) withCardSize:CGSizeMake( [[UIScreen mainScreen] bounds].size.width-20, 200) keyboard:NO];
@@ -86,20 +88,17 @@
     heightCount += statusLabel.frame.size.height;
 
     
-    UIButton *selectButton = [[UIButton alloc] initWithFrame:CGRectMake(baseView.cardSize.width-originX-150, heightCount+10, 150, 40)];
-    selectButton.backgroundColor = SYColor4;
-    [selectButton setTitle:@"我感兴趣" forState:UIControlStateNormal];
-    [selectButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [selectButton.titleLabel setFont:SYFont18M];
-    selectButton.layer.cornerRadius = selectButton.frame.size.height/2;
-    selectButton.clipsToBounds = YES;
-    //            [selectButton addTarget:self action:@selector(abstractExpendResponse) forControlEvents:UIControlEventTouchUpInside];
-    [baseView addGoSubview:selectButton];
+    interestButton.frame = CGRectMake(baseView.cardSize.width-originX-150, heightCount+10, 150, 40);
+    interestButton.backgroundColor = SYColor4;
+    [interestButton setTitle:@"我感兴趣" forState:UIControlStateNormal];
+    [interestButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [interestButton.titleLabel setFont:SYFont18M];
+    interestButton.layer.cornerRadius = interestButton.frame.size.height/2;
+    interestButton.clipsToBounds = YES;
+    [baseView addGoSubview:interestButton];
 }
 
-
 -(void)requestShareFromServer{
-    
     NSString *requestQuery = [NSString stringWithFormat:@"share_id=%@",shareID];
     NSString *urlString = [NSString stringWithFormat:@"%@reqShare?%@",basicURL,requestQuery];
     NSLog(@"%@",requestQuery);
@@ -124,7 +123,7 @@
 
 
 
-
+/************FULL SIZE SHARE**************/
 -(id)initContentWithFrame:(CGRect)frame shareDict:(NSDictionary*)share{
     self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 0)];
     if (self) {
