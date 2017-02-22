@@ -95,6 +95,8 @@
 		44B815031E552F18008B98F3 /* DiscoverTravelShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B815021E552F18008B98F3 /* DiscoverTravelShareViewController.m */; };
 		44B815061E552F2D008B98F3 /* DiscoverTravelHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B815051E552F2D008B98F3 /* DiscoverTravelHelpViewController.m */; };
 		44B815091E553467008B98F3 /* DiscoverTravelShareSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B815081E553467008B98F3 /* DiscoverTravelShareSecondViewController.m */; };
+		44C89E811E5CE6C500ADC9CF /* SYRelatedShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C89E801E5CE6C500ADC9CF /* SYRelatedShare.m */; };
+		44C89E841E5D0F0600ADC9CF /* SYHelpContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C89E831E5D0F0600ADC9CF /* SYHelpContentView.m */; };
 		44FBAAA11E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FBAAA01E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -265,6 +267,10 @@
 		44B815051E552F2D008B98F3 /* DiscoverTravelHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTravelHelpViewController.m; path = ViewControllers/DiscoverTravelHelpViewController.m; sourceTree = "<group>"; };
 		44B815071E553467008B98F3 /* DiscoverTravelShareSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTravelShareSecondViewController.h; path = ViewControllers/DiscoverTravelShareSecondViewController.h; sourceTree = "<group>"; };
 		44B815081E553467008B98F3 /* DiscoverTravelShareSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTravelShareSecondViewController.m; path = ViewControllers/DiscoverTravelShareSecondViewController.m; sourceTree = "<group>"; };
+		44C89E7F1E5CE6C500ADC9CF /* SYRelatedShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYRelatedShare.h; path = Classes/SYRelatedShare.h; sourceTree = "<group>"; };
+		44C89E801E5CE6C500ADC9CF /* SYRelatedShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYRelatedShare.m; path = Classes/SYRelatedShare.m; sourceTree = "<group>"; };
+		44C89E821E5D0F0600ADC9CF /* SYHelpContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYHelpContentView.h; path = Classes/SYHelpContentView.h; sourceTree = "<group>"; };
+		44C89E831E5D0F0600ADC9CF /* SYHelpContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYHelpContentView.m; path = Classes/SYHelpContentView.m; sourceTree = "<group>"; };
 		44FBAA9F1E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverEatHelpSecondViewController.h; path = ViewControllers/DiscoverEatHelpSecondViewController.h; sourceTree = "<group>"; };
 		44FBAAA01E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverEatHelpSecondViewController.m; path = ViewControllers/DiscoverEatHelpSecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -657,6 +663,8 @@
 			children = (
 				44A494321E4CF07B006CD069 /* SYHelp.h */,
 				44A494331E4CF07B006CD069 /* SYHelp.m */,
+				44C89E821E5D0F0600ADC9CF /* SYHelpContentView.h */,
+				44C89E831E5D0F0600ADC9CF /* SYHelpContentView.m */,
 			);
 			name = SYHelp;
 			sourceTree = "<group>";
@@ -745,6 +753,8 @@
 			children = (
 				44AD3C441E566B9D008774CD /* SYShare.h */,
 				44AD3C451E566B9D008774CD /* SYShare.m */,
+				44C89E7F1E5CE6C500ADC9CF /* SYRelatedShare.h */,
+				44C89E801E5CE6C500ADC9CF /* SYRelatedShare.m */,
 			);
 			name = SYShare;
 			sourceTree = "<group>";
@@ -966,6 +976,8 @@
 				442F486D1E31D11500FB0561 /* LaunchScreenViewController.m in Sources */,
 				44A4941E1E4CCE79006CD069 /* NMRangeSlider.m in Sources */,
 				447084221E5512FC00DEAB75 /* SYChoiceDetail.m in Sources */,
+				44C89E841E5D0F0600ADC9CF /* SYHelpContentView.m in Sources */,
+				44C89E811E5CE6C500ADC9CF /* SYRelatedShare.m in Sources */,
 				44AD3C461E566B9D008774CD /* SYShare.m in Sources */,
 				44A173EE1E540F8300FABC4F /* DiscoverPlayShareViewController.m in Sources */,
 				442F48801E31E03D00FB0561 /* SYSignUpEmail.m in Sources */,

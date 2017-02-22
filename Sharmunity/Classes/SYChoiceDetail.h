@@ -22,7 +22,9 @@
 }
 
 -(id)initWithChoiceDict:(NSDictionary*)Dict shareDict:(NSDictionary*)share frame:(CGRect)frame;
+-(id)initWithChoiceDict:(NSDictionary*)Dict helpDict:(NSDictionary*)help frame:(CGRect)frame;
 @property NSDictionary *choiceDict;
+@property NSDictionary *helpDict;
 @property NSDictionary *shareDict;
 @property NSDictionary *personDict;
 @property NSString *helpeeID;

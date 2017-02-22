@@ -69,20 +69,41 @@
     return pinView;
 }
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
-    [self.SYDelegate SYMap:self didSelectedSharePin:view mapItem:[placemarkArray objectAtIndex:view.tag]];
-//    [self.SYDelegate postMap:self didSelectedJobPin:view mapItem:[placemarkArray objectAtIndex:view.tag]];
-    view.image = selectedPin;
-    if (previousSelectedPin) {
-        previousSelectedPin.image = normalPin;
+    if ([view.annotation isKindOfClass:[MKUserLocation class]]) {
+        CLGeocoder *ceo = [[CLGeocoder alloc]init];
+        CLLocation *loc = [[CLLocation alloc]initWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude];
+        [ceo reverseGeocodeLocation:loc
+                  completionHandler:^(NSArray *placemarks, NSError *error) {
+                      CLPlacemark *placemark = [placemarks firstObject];
+                      MKPlacemark *mkplaceMark = [[MKPlacemark alloc]initWithPlacemark:placemark];
+                      MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:mkplaceMark];
+                      [self.SYDelegate SYMap:self didSelectedSharePin:view mapItem:mapItem];
+                  }
+         ];
     }
-    previousSelectedPin = view;
+    else{
+        [self.SYDelegate SYMap:self didSelectedSharePin:view mapItem:[placemarkArray objectAtIndex:view.tag]];
+        //    [self.SYDelegate postMap:self didSelectedJobPin:view mapItem:[placemarkArray objectAtIndex:view.tag]];
+        view.image = selectedPin;
+        if (previousSelectedPin) {
+            previousSelectedPin.image = normalPin;
+        }
+        previousSelectedPin = view;
+    }
+    
 }
 -(void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view{
-    [self.SYDelegate SYMap:self didDeselectedSharePin:view mapItem:[placemarkArray objectAtIndex:view.tag]];
-    if (previousSelectedPin) {
-        previousSelectedPin.image = normalPin;
-        previousSelectedPin = nil;
+    if ([view.annotation isKindOfClass:[MKUserLocation class]]) {
+
     }
+    else{
+        [self.SYDelegate SYMap:self didDeselectedSharePin:view mapItem:[placemarkArray objectAtIndex:view.tag]];
+        if (previousSelectedPin) {
+            previousSelectedPin.image = normalPin;
+            previousSelectedPin = nil;
+        }
+    }
+    
 }
 
 - (void)addMapItemAnnotation:(MKMapItem*)mapItem{
@@ -312,7 +333,13 @@
     [searchBar resignFirstResponder];
 }
 
-
+/*Current location*/
+- (void)setCurrentLocationWithAddress:(BOOL)addressBool{
+    _locationManager = [[CLLocationManager alloc] init];
+    _locationManager.delegate = self;
+    [_locationManager startUpdatingLocation];
+//    [self setLatitude:_locationManager.location.coordinate.latitude longitude:_locationManager.location.coordinate.longitude address:addressBool];
+}
 
 
 /*JOB MAP*/

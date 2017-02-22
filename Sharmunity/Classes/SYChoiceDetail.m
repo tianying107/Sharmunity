@@ -22,7 +22,123 @@
 }
 @end
 @implementation SYChoiceDetail
-@synthesize choiceDict, helpeeID, shareDict;
+@synthesize choiceDict, helpeeID, shareDict, helpDict;
+-(id)initWithChoiceDict:(NSDictionary*)Dict helpDict:(NSDictionary*)help frame:(CGRect)frame{
+    self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 500)];
+    if (self) {
+        choiceDict = Dict;
+        helpDict = help;
+        [self shareChoiceSetup];
+    }
+    return self;
+}
+-(void)shareChoiceSetup{
+    helpeeID = [choiceDict valueForKey:@"helpee_id"];
+    MEID = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"admin"] valueForKey:@"id"];
+    extended = NO;
+    float heightCount = 0;
+    headView = [[SYProfileHead alloc] initWithUserID:helpeeID frame:CGRectMake(0, heightCount, self.frame.size.width, 0)];
+    
+    heightCount += headView.frame.size.height;
+    [self addSubview:headView];
+    [headView.avatarButton addTarget:self action:@selector(extendResponse) forControlEvents:UIControlEventTouchUpInside];
+    
+    extendView = [[SYProfileExtend alloc] initWithUserID:helpeeID frame:CGRectMake(0, heightCount, self.frame.size.width, 0)];
+    unextend = heightCount-extendView.frame.size.height;
+    extend = heightCount;
+    extendView.frame = CGRectMake(0, unextend, extendView.frame.size.width, extendView.frame.size.height);
+    [self addSubview:extendView];
+    [self sendSubviewToBack:extendView];
+    
+    choiceContentView = [[UIView alloc] initWithFrame:CGRectMake(0, heightCount, self.frame.size.width, 500)];
+    [self addSubview:choiceContentView];
+    /****choice content view setup****/
+    float originX = 20;
+    heightCount = 10;
+    float width = self.frame.size.width-2*originX;
+    SYHelpContentView *helpView = [[SYHelpContentView alloc] initContentWithFrame:CGRectMake(originX, heightCount, width, 0) helpDict:helpDict];
+    heightCount += helpView.frame.size.height;
+    [choiceContentView addSubview:helpView];
+    
+    UIView *functionView = [[UIView alloc] initWithFrame:CGRectMake(originX, heightCount, width, 40)];
+    heightCount += functionView.frame.size.height;
+    [choiceContentView addSubview:functionView];
+    /*3 buttons*/
+    UIButton *messageButton = [[UIButton alloc] initWithFrame:CGRectMake(functionView.frame.size.width-120, 10, 40, 40)];
+    [messageButton setImage:[UIImage imageNamed:@"choiceMsgButton"] forState:UIControlStateNormal];
+    [messageButton addTarget:self action:@selector(writeCommentResponse) forControlEvents:UIControlEventTouchUpInside];
+    [functionView addSubview: messageButton];
+    
+    UIButton *shareButton = [[UIButton alloc] initWithFrame:CGRectMake(functionView.frame.size.width-80, 10, 40, 40)];
+    [shareButton setImage:[UIImage imageNamed:@"choiceShareButton"] forState:UIControlStateNormal];
+    [functionView addSubview: shareButton];
+    
+    UIButton *contactButton = [[UIButton alloc] initWithFrame:CGRectMake(functionView.frame.size.width-40, 10, 40, 40)];
+    [contactButton addTarget:self action:@selector(contactReponse) forControlEvents:UIControlEventTouchUpInside];
+    [contactButton setImage:[UIImage imageNamed:@"choiceContactButton"] forState:UIControlStateNormal];
+    [functionView addSubview: contactButton];
+    
+    
+    /*comment table*/
+    float commentYStart = heightCount;
+    commentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, commentYStart+5, self.frame.size.width, self.frame.size.height-commentYStart-44-5) style:UITableViewStylePlain];
+    [choiceContentView addSubview:commentTableView];
+    [commentTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    commentTableView.delegate = self;
+    commentTableView.dataSource = self;
+    commentTableView.hidden = YES;
+    commentTableView.backgroundColor = SYBackgroundColorExtraLight;
+    //        commentTableView.alwaysBounceVertical = NO;
+    [NSTimer scheduledTimerWithTimeInterval:1 repeats:NO block:^(NSTimer *timer){
+        [commentTableView reloadData];
+        [NSTimer scheduledTimerWithTimeInterval:1 repeats:NO block:^(NSTimer *timer){
+            commentTableView.hidden = NO;
+            //            [loading endLoading];
+        }];
+    }];
+    heightCount += commentTableView.frame.size.height;
+    
+    CGRect cframe = choiceContentView.frame;
+    cframe.size.height = heightCount;
+    
+    
+    
+    
+    
+    //comment textField at the bottom of the view
+    commentBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, uncommentOriginY, [[UIScreen mainScreen] bounds].size.width, 50)];
+    commentBackgroundView.backgroundColor = SYBackgroundColorExtraLight;
+    UIWindow* currentWindow = [UIApplication sharedApplication].keyWindow;
+    [currentWindow addSubview:commentBackgroundView];
+    commentTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 5, commentBackgroundView.frame.size.width-90, 40)];
+    commentTextField.backgroundColor = SYBackgroundColorExtraLight;
+    commentTextField.delegate = self;
+    [commentTextField addTarget:self action:@selector(checkEmpty) forControlEvents:UIControlEventEditingChanged];
+    [commentTextField setFont:SYFont13S];
+    commentTextField.textColor = SYColor1;
+    [commentBackgroundView addSubview:commentTextField];
+    sendMessageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    sendMessageButton.bounds = CGRectMake(0, 0, 32, 32);
+    [sendMessageButton setTitle:@"发送" forState:UIControlStateNormal];
+    [sendMessageButton setTitleColor:SYColor4 forState:UIControlStateNormal];
+    //    [sendMessageButton setImage:[UIImage imageNamed:@"sendMsgButton"] forState:UIControlStateNormal];
+    sendMessageButton.frame = CGRectMake(commentTextField.frame.origin.x+commentTextField.frame.size.width+10, 9, 50, 32);
+    sendMessageButton.enabled = NO;
+    [sendMessageButton addTarget:self action:@selector(submitCommentResponse) forControlEvents:UIControlEventTouchUpInside];
+    [commentBackgroundView addSubview:sendMessageButton];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShowUp:) name:UIKeyboardWillShowNotification object:nil];
+    
+    
+}
+
+
+
+
+
+
+
+
+
 -(id)initWithChoiceDict:(NSDictionary*)Dict shareDict:(NSDictionary*)share frame:(CGRect)frame{
     self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 500)];
     if (self) {

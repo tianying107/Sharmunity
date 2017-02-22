@@ -9,7 +9,10 @@
 #import "DiscoverLiveShareLeaseViewController.h"
 #import "DiscoverLocationViewController.h"
 #import "Header.h"
-@interface DiscoverLiveShareLeaseViewController ()
+#import "SYHeader.h"
+@interface DiscoverLiveShareLeaseViewController (){
+    SYPopOut *popOut;
+}
 
 @end
 
@@ -17,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"出租房";
+    self.navigationItem.title = @"出租";
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: SYColor1,
                                                                     NSFontAttributeName: SYFont20S};
     self.view.backgroundColor = SYBackgroundColorExtraLight;
@@ -36,6 +39,15 @@
     roomTypeArray = [[NSArray alloc] init];
     roomTypeArray = [categoryString componentsSeparatedByString:@","];
     
+    shortArray = @[ @[@"1", @"2", @"3", @"4",@"5", @"6", @"7", @"8",@"9", @"10", @"11", @"12",@"13", @"14", @"15", @"16",@"17", @"18", @"19", @"20",@"21", @"22", @"23", @"24",@"25", @"26", @"27", @"28",@"29", @"30"],
+                     @[@"日", @"月"]];
+    shortNumber = 30;
+    
+    popOut = [SYPopOut new];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [mainScrollView addGestureRecognizer:tap];
     [self viewsSetup];
 }
 -(void) viewWillAppear:(BOOL)animated{
@@ -62,15 +74,17 @@
     shareRentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
     [mainScrollView addSubview:shareRentView];
     [viewsArray addObject:shareRentView];
-    UIButton *shareRentButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, 150, 60)];
+    UIButton *shareRentButton = [[UIButton alloc] initWithFrame:CGRectMake(originX+30, 20, 150, 60)];
     [shareRentButton setTitle:@"合租" forState:UIControlStateNormal];
     [shareRentButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [shareRentButton.titleLabel setFont:SYFont20];
     shareRentButton.tag = 11;
     [shareRentButton addTarget:self action:@selector(shareRentResponse:) forControlEvents:UIControlEventTouchUpInside];
     [shareRentView addSubview:shareRentButton];
-    UIButton *soloRentButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth-originX-150, 20, 150, 60)];
+    UIButton *soloRentButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth-originX-30-150, 20, 150, 60)];
     [soloRentButton setTitle:@"独住" forState:UIControlStateNormal];
     [soloRentButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [soloRentButton.titleLabel setFont:SYFont20];
     soloRentButton.tag = 10;
     [soloRentButton addTarget:self action:@selector(shareRentResponse:) forControlEvents:UIControlEventTouchUpInside];
     [shareRentView addSubview:soloRentButton];
@@ -79,18 +93,21 @@
     UIButton *noLimitButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, 150, 60)];
     [noLimitButton setTitle:@"不限" forState:UIControlStateNormal];
     [noLimitButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [noLimitButton.titleLabel setFont:SYFont20];
     noLimitButton.tag = 10;
     [noLimitButton addTarget:self action:@selector(genderReponse:) forControlEvents:UIControlEventTouchUpInside];
     [genderView addSubview:noLimitButton];
     UIButton *boyOnlyButton = [[UIButton alloc] initWithFrame:CGRectMake((viewWidth-150)/2, 20, 150, 60)];
     [boyOnlyButton setTitle:@"男生" forState:UIControlStateNormal];
     [boyOnlyButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [boyOnlyButton.titleLabel setFont:SYFont20];
     boyOnlyButton.tag = 11;
     [boyOnlyButton addTarget:self action:@selector(genderReponse:) forControlEvents:UIControlEventTouchUpInside];
     [genderView addSubview:boyOnlyButton];
     UIButton *girlOnlyButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth-originX-150, 20, 150, 60)];
     [girlOnlyButton setTitle:@"女生" forState:UIControlStateNormal];
     [girlOnlyButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [girlOnlyButton.titleLabel setFont:SYFont20];
     girlOnlyButton.tag = 12;
     [girlOnlyButton addTarget:self action:@selector(genderReponse:) forControlEvents:UIControlEventTouchUpInside];
     [genderView addSubview:girlOnlyButton];
@@ -100,19 +117,22 @@
     houseView.hidden = YES;
     [mainScrollView addSubview:houseView];
     [viewsArray addObject:houseView];
-    UIButton *houseButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, 150, 60)];
+    UIButton *houseButton = [[UIButton alloc] initWithFrame:CGRectMake(originX+30, 20, 150, 60)];
     [houseButton setTitle:@"独栋" forState:UIControlStateNormal];
     [houseButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [houseButton.titleLabel setFont:SYFont20];
     houseButton.tag = 10;
     [houseButton addTarget:self action:@selector(houseResponse:) forControlEvents:UIControlEventTouchUpInside];
     [houseView addSubview:houseButton];
-    UIButton *apartmentButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth-originX-150, 20, 150, 60)];
+    UIButton *apartmentButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth-originX-30-150, 20, 150, 60)];
     [apartmentButton setTitle:@"公寓" forState:UIControlStateNormal];
     [apartmentButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [apartmentButton.titleLabel setFont:SYFont20];
     apartmentButton.tag = 11;
     [apartmentButton addTarget:self action:@selector(houseResponse:) forControlEvents:UIControlEventTouchUpInside];
     [houseView addSubview:apartmentButton];
     
+    originX = 50;
     /*room type*/
     typeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
     typeView.hidden = YES;
@@ -120,12 +140,14 @@
     [viewsArray addObject:typeView];
     UILabel *typeTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
     typeTitleLabel.text = @"户型";
+    [typeTitleLabel setFont:SYFont20];
     typeTitleLabel.textColor = SYColor1;
     [typeView addSubview:typeTitleLabel];
     UIButton *typeButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
     [typeButton setTitle:@"请选择户型" forState:UIControlStateNormal];
-    [typeButton setTitleColor:SYColor3 forState:UIControlStateNormal];
+    [typeButton setTitleColor:SYColor4 forState:UIControlStateNormal];
     [typeButton setTitleColor:SYColor1 forState:UIControlStateSelected];
+    [typeButton.titleLabel setFont:SYFont20];
     typeButton.tag = 11;
     typeButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     [typeButton addTarget:self action:@selector(typeResponse:) forControlEvents:UIControlEventTouchUpInside];
@@ -155,31 +177,156 @@
     layer.shadowOpacity = .25f;
     layer.shadowPath = [[UIBezierPath bezierPathWithRect:layer.bounds] CGPath];
     
-    /*furniture*/
-    furnitureView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 140)];
-    furnitureView.hidden = YES;
-    [mainScrollView addSubview:furnitureView];
-    [viewsArray addObject:furnitureView];
-    UIButton *needFurnitureButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, 150, 60)];
-    [needFurnitureButton setTitle:@"需要家具" forState:UIControlStateNormal];
-    [needFurnitureButton setTitleColor:SYColor1 forState:UIControlStateNormal];
-    needFurnitureButton.tag = 11;
-    [needFurnitureButton addTarget:self action:@selector(needFurniture:) forControlEvents:UIControlEventTouchUpInside];
-    [furnitureView addSubview:needFurnitureButton];
-    UIButton *noFurnitureButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth-originX-150, 20, 150, 60)];
-    [noFurnitureButton setTitle:@"无需家具" forState:UIControlStateNormal];
-    [noFurnitureButton setTitleColor:SYColor1 forState:UIControlStateNormal];
-    noFurnitureButton.tag = 10;
-    [noFurnitureButton addTarget:self action:@selector(needFurniture:) forControlEvents:UIControlEventTouchUpInside];
-    [furnitureView addSubview:noFurnitureButton];
+    /*date view*/
+    dateView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    dateView.hidden = YES;
+    [mainScrollView addSubview:dateView];
+    [viewsArray addObject:dateView];
+    UILabel *dateTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
+    dateTitleLabel.text = @"日期";
+    [dateTitleLabel setFont:SYFont20];
+    dateTitleLabel.textColor = SYColor1;
+    [dateView addSubview:dateTitleLabel];
+    UIButton *dateButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
+    [dateButton setTitle:@"请选择入住日期" forState:UIControlStateNormal];
+    [dateButton setTitleColor:SYColor3 forState:UIControlStateNormal];
+    [dateButton setTitleColor:SYColor1 forState:UIControlStateSelected];
+    [dateButton.titleLabel setFont:SYFont20];
+    dateButton.tag = 11;
+    dateButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    [dateButton addTarget:self action:@selector(dateResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [dateView addSubview:dateButton];
     
-    nextButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 44)];
-    [nextButton setTitle:@"下一步" forState:UIControlStateNormal];
+    datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-216, self.view.frame.size.width, 216)];
+    datePicker.backgroundColor = [UIColor whiteColor];
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    NSDate *currentDate = [NSDate date];
+    [datePicker setDate:currentDate];
+    [datePicker addTarget:self action:@selector(datePickerChanged) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:datePicker];
+    datePicker.hidden = YES;
+    
+    
+    if (_shortRent) {
+        /*short view*/
+        shortView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+        shortView.hidden = YES;
+        [mainScrollView addSubview:shortView];
+        [viewsArray addObject:shortView];
+        UILabel *shortTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
+        shortTitleLabel.text = @"租期";
+        [shortTitleLabel setFont:SYFont20];
+        shortTitleLabel.textColor = SYColor1;
+        [shortView addSubview:shortTitleLabel];
+        UIButton *shortButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
+        [shortButton setTitle:@"请选择租期" forState:UIControlStateNormal];
+        [shortButton setTitleColor:SYColor3 forState:UIControlStateNormal];
+        [shortButton setTitleColor:SYColor1 forState:UIControlStateSelected];
+        [shortButton.titleLabel setFont:SYFont20];
+        shortButton.tag = 11;
+        shortButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        [shortButton addTarget:self action:@selector(shortResponse:) forControlEvents:UIControlEventTouchUpInside];
+        [shortView addSubview:shortButton];
+        
+        shortPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-216, self.view.frame.size.width, 216)];
+        shortPickerView.delegate = self;
+        shortPickerView.dataSource = self;
+        shortPickerView.backgroundColor = [UIColor whiteColor];
+        shortPickerView.hidden = YES;
+        [self.view addSubview:shortPickerView];
+    }
+    
+    /*price*/
+    priceView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 80)];
+    priceView.hidden = YES;
+    [mainScrollView addSubview:priceView];
+    [viewsArray addObject:priceView];
+    UILabel *priceTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 60)];
+    priceTitleLabel.text = @"价格";
+    priceTitleLabel.textColor = SYColor1;
+    [priceTitleLabel setFont:SYFont20];
+    [priceView addSubview:priceTitleLabel];
+    UITextField *priceTextField = [[UITextField alloc] initWithFrame:CGRectMake(viewWidth-originX-140, 0, 100, 60)];
+    priceTextField.textColor = SYColor1;
+    [priceTextField setFont:SYFont20];
+    priceTextField.textAlignment = NSTextAlignmentRight;
+    priceTextField.tag = 11;
+    priceTextField.keyboardType = UIKeyboardTypeNumberPad;
+    [priceTextField addTarget:self action:@selector(priceEmptyCheck) forControlEvents:UIControlEventEditingChanged];
+    [priceView addSubview:priceTextField];
+    UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(viewWidth-originX-140, 40, 100, SYSeparatorHeight)];
+    separator.backgroundColor = SYSeparatorColor;
+    [priceView addSubview:separator];
+    UILabel *dollarLabel = [[UILabel alloc] initWithFrame:CGRectMake(viewWidth-originX-140-40, 0, 40, 60)];
+    dollarLabel.text = @"$";
+    dollarLabel.textAlignment = NSTextAlignmentRight;
+    dollarLabel.textColor = SYColor1;
+    [dollarLabel setFont:SYFont20];
+    [priceView addSubview:dollarLabel];
+    UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(viewWidth-originX-40, 0, 40, 60)];
+    monthLabel.text = @"/月";
+    monthLabel.textColor = SYColor1;
+    [monthLabel setFont:SYFont20];
+    monthLabel.tag = 12;
+    [priceView addSubview:monthLabel];
+
+    originX = 30;
+    /*title*/
+    titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 80)];
+    titleView.hidden = YES;
+    [mainScrollView addSubview:titleView];
+    [viewsArray addObject:titleView];
+    UITextField *textfield = [[UITextField alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 40)];
+    textfield.tag = 11;
+    [textfield setFont:SYFont15];
+    textfield.placeholder = @"提供房屋标题";
+    textfield.layer.cornerRadius = 5;
+    textfield.clipsToBounds = YES;
+    textfield.layer.borderColor = [SYColor4 CGColor];
+    textfield.layer.borderWidth = 1;
+    [textfield addTarget:self action:@selector(titleEmptyCheck) forControlEvents:UIControlEventEditingChanged];
+    [titleView addSubview:textfield];
+    
+    /*introduction*/
+    introductionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 150)];
+    introductionView.hidden = YES;
+    [mainScrollView addSubview:introductionView];
+    [viewsArray addObject:introductionView];
+    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 110)];
+    textView.tag = 11;
+    textView.delegate = self;
+    textView.layer.cornerRadius = 5;
+    textView.clipsToBounds = YES;
+    textView.layer.borderColor = [SYColor4 CGColor];
+    textView.layer.borderWidth = 1;
+    [introductionView addSubview:textView];
+    
+    /*location*/
+    locationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    locationView.hidden = YES;
+    [mainScrollView addSubview:locationView];
+    [viewsArray addObject:locationView];
+    UILabel *locationTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
+    locationTitleLabel.text = @"位置";
+    locationTitleLabel.textColor = SYColor1;
+    [locationView addSubview:locationTitleLabel];
+    UIButton *locationButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
+    locationButton.tag = 11;
+    [locationButton setTitleColor:SYColor3 forState:UIControlStateNormal];
+    [locationButton setTitleColor:SYColor1 forState:UIControlStateSelected];
+    [locationButton setTitle:@"请选择位置" forState:UIControlStateNormal];
+    [locationButton addTarget:self action:@selector(locationResponse) forControlEvents:UIControlEventTouchUpInside];
+    locationButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    [locationView addSubview:locationButton];
+    
+    
+    nextButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 32)];
+    [nextButton setTitle:@"提交" forState:UIControlStateNormal];
     [nextButton setBackgroundColor:SYColor4];
     [nextButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [nextButton.titleLabel setFont:SYFont20S];
     [nextButton addTarget:self action:@selector(nextResponse) forControlEvents:UIControlEventTouchUpInside];
-    nextButton.layer.cornerRadius = nextButton.frame.size.height/2;
+    nextButton.layer.cornerRadius = 8;
     nextButton.clipsToBounds = YES;
     [mainScrollView addSubview:nextButton];
     [viewsArray addObject:nextButton];
@@ -196,7 +343,7 @@
         [view setFrame:frame];
         height += frame.size.height;
     }
-    mainScrollView.contentSize = CGSizeMake(0, height+20);
+    mainScrollView.contentSize = CGSizeMake(0, height+20+44+20);
 }
 
 -(IBAction)shareRentResponse:(id)sender{
@@ -205,7 +352,7 @@
         shareRentString = @"10";
         [button setTitleColor:SYColor1 forState:UIControlStateNormal];
         UIButton *button2 = [shareRentView viewWithTag:10];
-        [button2 setTitleColor:SYColor3 forState:UIControlStateNormal];
+        [button2 setTitleColor:SYColor4 forState:UIControlStateNormal];
         [mainScrollView addSubview:genderView];
         [viewsArray insertObject:genderView atIndex:1];
     }
@@ -213,7 +360,7 @@
         shareRentString = @"00";
         [button setTitleColor:SYColor1 forState:UIControlStateNormal];
         UIButton *button2 = [shareRentView viewWithTag:11];
-        [button2 setTitleColor:SYColor3 forState:UIControlStateNormal];
+        [button2 setTitleColor:SYColor4 forState:UIControlStateNormal];
         [genderView removeFromSuperview];
         [viewsArray removeObject:genderView];
         houseView.hidden = NO;
@@ -226,23 +373,23 @@
     if (button.tag == 11) {
         [button setTitleColor:SYColor1 forState:UIControlStateNormal];
         UIButton *button2 = [genderView viewWithTag:10];
-        [button2 setTitleColor:SYColor3 forState:UIControlStateNormal];
+        [button2 setTitleColor:SYColor4 forState:UIControlStateNormal];
         UIButton *button3 = [genderView viewWithTag:12];
-        [button3 setTitleColor:SYColor3 forState:UIControlStateNormal];
+        [button3 setTitleColor:SYColor4 forState:UIControlStateNormal];
     }
     else if(button.tag == 12){
         [button setTitleColor:SYColor1 forState:UIControlStateNormal];
         UIButton *button2 = [genderView viewWithTag:10];
-        [button2 setTitleColor:SYColor3 forState:UIControlStateNormal];
+        [button2 setTitleColor:SYColor4 forState:UIControlStateNormal];
         UIButton *button3 = [genderView viewWithTag:11];
-        [button3 setTitleColor:SYColor3 forState:UIControlStateNormal];
+        [button3 setTitleColor:SYColor4 forState:UIControlStateNormal];
     }
     else{
         [button setTitleColor:SYColor1 forState:UIControlStateNormal];
         UIButton *button2 = [genderView viewWithTag:12];
-        [button2 setTitleColor:SYColor3 forState:UIControlStateNormal];
+        [button2 setTitleColor:SYColor4 forState:UIControlStateNormal];
         UIButton *button3 = [genderView viewWithTag:11];
-        [button3 setTitleColor:SYColor3 forState:UIControlStateNormal];
+        [button3 setTitleColor:SYColor4 forState:UIControlStateNormal];
     }
     houseView.hidden = NO;
 }
@@ -253,17 +400,48 @@
         houseString = @"1";
         [button setTitleColor:SYColor1 forState:UIControlStateNormal];
         UIButton *button2 = [houseView viewWithTag:10];
-        [button2 setTitleColor:SYColor3 forState:UIControlStateNormal];
+        [button2 setTitleColor:SYColor4 forState:UIControlStateNormal];
     }
     else{
         houseString = @"0";
         [button setTitleColor:SYColor1 forState:UIControlStateNormal];
         UIButton *button2 = [houseView viewWithTag:11];
-        [button2 setTitleColor:SYColor3 forState:UIControlStateNormal];
+        [button2 setTitleColor:SYColor4 forState:UIControlStateNormal];
     }
     typeView.hidden = NO;
 }
 
+-(IBAction)dateResponse:(id)sender{
+    if (!dateString) {
+        NSDate *currentDate = [NSDate date];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        NSString *dtrDate = [dateFormatter stringFromDate:currentDate];
+        UIButton *button = [dateView viewWithTag:11];
+        button.selected = YES;
+        [button setTitle:dtrDate forState:UIControlStateSelected];
+        
+        NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:dtrDate, @"available_date", nil];
+        [_shareDict addEntriesFromDictionary:dict];
+        dateString = dtrDate;
+    }
+    datePicker.hidden = NO;
+    confirmBackgroundView.hidden = NO;
+    priceView.hidden = NO;
+    distanceView.hidden = NO;
+    if (_shortRent) shortView.hidden = NO ;
+    else priceView.hidden = NO;
+}
+-(void)datePickerChanged{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *dtrDate = [dateFormatter stringFromDate:datePicker.date];
+    UIButton *button = [dateView viewWithTag:11];
+    [button setTitle:dtrDate forState:UIControlStateSelected];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:dtrDate, @"available_date", nil];
+    [_shareDict addEntriesFromDictionary:dict];
+    dateString = dtrDate;
+}
 -(IBAction)typeResponse:(id)sender{
     UIButton *button = sender;
     button.selected = YES;
@@ -273,64 +451,148 @@
     }
     typePickerView.hidden = NO;
     confirmBackgroundView.hidden = NO;
-    furnitureView.hidden = NO;
+    dateView.hidden = NO;
 }
--(IBAction)needFurniture:(id)sender{
+-(IBAction)shortResponse:(id)sender{
     UIButton *button = sender;
-    if (button.tag-10) {
-        furnitureString = @"10";
-        [button setTitleColor:SYColor1 forState:UIControlStateNormal];
-        UIButton *button2 = [furnitureView viewWithTag:10];
-        [button2 setTitleColor:SYColor3 forState:UIControlStateNormal];
+    button.selected = YES;
+    if (!shortString) {
+        shortString = @"1日";
+        [button setTitle:[NSString stringWithFormat:@"%@%@",shortArray[0][0],shortArray[1][0]] forState:UIControlStateSelected];
     }
-    else{
-        furnitureString = @"00";
-        [button setTitleColor:SYColor1 forState:UIControlStateNormal];
-        UIButton *button2 = [furnitureView viewWithTag:11];
-        [button2 setTitleColor:SYColor3 forState:UIControlStateNormal];
-    }
-    nextButton.hidden = NO;
+    shortPickerView.hidden = NO;
+    confirmBackgroundView.hidden = NO;
+    priceView.hidden = NO;
 }
 
 - (void)pickerConfirmResponse{
     confirmBackgroundView.hidden = YES;
-    
+    datePicker.hidden = YES;
+    shortPickerView.hidden = YES;
     typePickerView.hidden = YES;
 }
-
--(void)nextResponse{
-    NSString *subCate = [NSString stringWithFormat:@"01%@%@%@%@",shareRentString,houseString,typeString,furnitureString];
-    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:subCate, @"subcate", nil];
-    [_shareDict addEntriesFromDictionary:dict];
+-(void)locationResponse{
+    [self dismissKeyboard];
+    [self pickerConfirmResponse];
+    
     DiscoverLocationViewController *viewController = [DiscoverLocationViewController new];
-    viewController.subCate = subCate;
-    viewController.summaryDict = _shareDict;
-    viewController.needDistance = NO;
-    viewController.nextControllerType = SYDiscoverNextShareLease;
+    viewController.previousController = self;
+    viewController.nextControllerType = SYDiscoverNextShareLearn;
     [self.navigationController pushViewController:viewController animated:YES];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)locationCompleteResponse{
+    UIButton *locationButton = [locationView viewWithTag:11];
+    locationButton.selected = YES;
+    [locationButton setTitle:[[[_selectedItem placemark] addressDictionary] valueForKey:@"Street"] forState:UIControlStateSelected];
+    nextButton.hidden = NO;
+    
 }
- NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:orderPlaceDateString, @"Order Placed Date", nil];
- [_orderSummary addEntriesFromDictionary:dict];
-*/
+-(void)titleEmptyCheck{
+    UITextField *textField = [titleView viewWithTag:11];
+    if ([textField.text length]) {
+        introductionView.hidden = NO;
+    }
+}
+-(void)priceEmptyCheck{
+    UITextField *textField = [priceView viewWithTag:11];
+    if ([textField.text length]) {
+        titleView.hidden = NO;
+    }
+}
+-(void)textViewDidChange:(UITextView *)textView{
+    if ([textView.text length]) {
+        locationView.hidden = NO;
+    }
+}
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+    if ([textView.text length]) {
+        locationView.hidden = NO;
+    }
+}
+-(void)dismissKeyboard {
+    UITextView *textField = [introductionView viewWithTag:11];
+    [textField resignFirstResponder];
+    textField = [priceView viewWithTag:11];
+    [textField resignFirstResponder];
+
+    UITextField *title = [titleView viewWithTag:11];
+    [title resignFirstResponder];
+}
+-(void)nextResponse{
+    NSString *subCate;
+    if (_shortRent) {
+        subCate = [NSString stringWithFormat:@"02%@%@%@00",shareRentString,houseString,typeString];
+    }
+    else subCate = [NSString stringWithFormat:@"01%@%@%@00",shareRentString,houseString,typeString];
+    
+    UITextField *title = [titleView viewWithTag:11];
+    UITextView *introduction = [introductionView viewWithTag:11];
+    UITextField *price = [priceView viewWithTag:11];
+    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=2&subcate=%@&price=%@&available_date=%@&distance=1000&placemark=%@&title=%@&introduction=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,price.text,dateString,_selectedItem.name,title.text,introduction.text];
+    NSLog(@"%@/n",requestBody);
+    /*改上面的 query 和 URLstring 就好了*/
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@newshare",basicURL]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = @"POST";
+    request.HTTPBody = [requestBody dataUsingEncoding:NSUTF8StringEncoding];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
+                                                             options:kNilOptions
+                                                               error:&error];
+        NSLog(@"server said: %@",dict);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self submitHandle:dict];
+        });
+    }];
+    [task resume];
+}
+-(void)submitHandle:(NSDictionary*)dict{
+    if ([[dict valueForKey:@"success"] boolValue]){
+        [popOut showUpPop:SYPopDiscoverShareSuccess];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+    else [popOut showUpPop:SYPopDiscoverShareFail];
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    return 1;
+    float result;
+    if ([pickerView isEqual:typePickerView]) {
+        result = 1;
+    }
+    else if ([pickerView isEqual:shortPickerView]){
+        result = 2;
+    }
+    return result;
 }
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component
 {
     float result;
     if ([pickerView isEqual:typePickerView]) {
         result = roomTypeArray.count;
+    }
+    else if ([pickerView isEqual:shortPickerView]){
+        if (component==0) {
+            result=shortNumber;
+        }
+        else
+            result = 2;
     }
     return result;
 }
@@ -339,6 +601,9 @@
     if ([pickerView isEqual:typePickerView]) {
         resultString = [roomTypeArray objectAtIndex:row];
     }
+    else if ([pickerView isEqual:shortPickerView]){
+        resultString = shortArray[component][row];
+    }
     return resultString;
 }
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
@@ -346,6 +611,28 @@
         UIButton *typeButton = [typeView viewWithTag:11];
         [typeButton setTitle:[roomTypeArray objectAtIndex:row] forState:UIControlStateSelected];
         typeString = [NSString stringWithFormat:@"%ld",row];
+    }
+    else if ([pickerView isEqual:shortPickerView]){
+        if (row==1 && component==1) {
+            shortNumber = 3;
+            [shortPickerView reloadComponent:0];
+            short1 = MIN(2, short1);
+        }
+        if (component==0) {
+            short1 = row;
+        }
+        else short2 = row;
+        if (short2==1){
+            
+        }
+        else{
+            shortNumber = 30;
+            [shortPickerView reloadComponent:0];
+        }
+        
+        UIButton *button = [shortView viewWithTag:11];
+        shortString = [NSString stringWithFormat:@"%@%@",shortArray[0][short1],shortArray[1][short2]];
+        [button setTitle:shortString forState:UIControlStateSelected];
     }
     
 }

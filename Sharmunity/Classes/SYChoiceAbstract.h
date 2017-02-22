@@ -13,9 +13,14 @@
     UILabel *titleLabel;
     UILabel *priceLabel;
     UIImageView *avatarImageView;
+    BOOL helpChoice;
 }
 -(id)initWithFrame:(CGRect)frame choiceID:(NSString*)ID;
+
+-(id)initWithFrame:(CGRect)frame choiceDict:(NSDictionary*)choiceDic helpID:(NSString*)ID;
 @property NSString *choiceID;
+@property NSString *helpID;
+@property NSDictionary *helpDict;
 @property NSDictionary *choiceDict;
 @property NSDictionary *shareDict;
 @property NSDictionary *personDict;

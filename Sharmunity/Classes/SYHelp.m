@@ -206,12 +206,10 @@
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLSessionTask *task = [session dataTaskWithURL:url
                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                        NSLog(@"server said: %@",string);
                                                                                 NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
                                                                                                                                      options:kNilOptions
                                                                                                                                        error:&error];
-                                                                                NSLog(@"server said: %@",dict);
+//                                                                                NSLog(@"server said: %@",dict);
                                                  dispatch_async(dispatch_get_main_queue(), ^{
                                                      helpDict = dict;
                                                      (abstract)?[self abstractSetup]:[self viewsSetup];

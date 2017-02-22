@@ -71,10 +71,10 @@
     [barView addSubview:locationButton];
     
     hasJobSelected = NO;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+//                                   initWithTarget:self
+//                                   action:@selector(dismissKeyboard)];
+//    [self.view addGestureRecognizer:tap];
     
     [self requestNearbyShare];
     [self jobLocationSetup];

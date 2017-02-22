@@ -149,7 +149,7 @@
     
     NSString *result = [NSString new];
     NSString *mode = [subcate substringToIndex:2];
-    if ([mode isEqualToString:@"01"]) {
+    if ([mode isEqualToString:@"01"]||[mode isEqualToString:@"02"]) {
         NSInteger share = [[subcate substringWithRange:NSMakeRange(2, 1)] integerValue];
         NSInteger gender = [[subcate substringWithRange:NSMakeRange(2, 1)] integerValue];
         NSInteger house = [[subcate substringWithRange:NSMakeRange(4, 1)] integerValue];
@@ -178,7 +178,7 @@
         }
         
     }
-    else if ([mode isEqualToString:@"02"]){
+    else if ([mode isEqualToString:@"03"]){
         /*keyword*/
         NSString *placemark = [keyword valueForKey:@"placemark"];
         if (titleType == titleHelp) {

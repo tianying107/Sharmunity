@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FKL-4H-ZFz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FKL-4H-ZFz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -14,9 +15,6 @@
         </array>
         <array key="SF-UI-Display-Regular.otf">
             <string>SFUIDisplay-Regular</string>
-        </array>
-        <array key="SF-UI-Display-Semibold.otf">
-            <string>SFUIDisplay-Semibold</string>
         </array>
     </customFonts>
     <scenes>
@@ -35,12 +33,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nht-Pg-bqP">
                                 <rect key="frame" x="0.0" y="64" width="375" height="290"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="helpSolgen" translatesAutoresizingMaskIntoConstraints="NO" id="grF-DD-GIR">
-                                        <rect key="frame" x="74" y="55" width="229" height="18"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="helpShareButtonBackground" translatesAutoresizingMaskIntoConstraints="NO" id="MZe-4y-VNm">
-                                        <rect key="frame" x="0.0" y="13" width="375" height="20"/>
+                                        <rect key="frame" x="0.0" y="13" width="375" height="23"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAr-2B-HS8">
                                         <rect key="frame" x="164" y="112" width="47" height="26"/>
@@ -140,9 +134,13 @@
                                             <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="helpSolgen" translatesAutoresizingMaskIntoConstraints="NO" id="grF-DD-GIR">
+                                        <rect key="frame" x="46" y="61" width="285" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="MZe-4y-VNm" firstAttribute="top" secondItem="nht-Pg-bqP" secondAttribute="top" constant="20" id="HAI-MT-SBC"/>
+                                    <constraint firstItem="MZe-4y-VNm" firstAttribute="top" secondItem="nht-Pg-bqP" secondAttribute="top" id="HAI-MT-SBC"/>
                                     <constraint firstItem="MZe-4y-VNm" firstAttribute="leading" secondItem="nht-Pg-bqP" secondAttribute="leading" id="i69-dU-HB6"/>
                                     <constraint firstAttribute="height" constant="290" id="ira-Se-SVd"/>
                                     <constraint firstAttribute="trailing" secondItem="MZe-4y-VNm" secondAttribute="trailing" id="nQ4-DS-pQw"/>
@@ -991,35 +989,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6U-B9-elw">
-                                <rect key="frame" x="87" y="260" width="200" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.18823529410000001" green="0.2274509804" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="20"/>
-                                <state key="normal" title="出租房">
-                                    <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0m4-dd-fDd">
+                                <rect key="frame" x="120" y="228" width="135" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.95294117649999999" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="N1Z-uC-r9g"/>
+                                    <constraint firstAttribute="width" constant="135" id="a6C-MN-bPf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="30"/>
+                                <state key="normal" title="搬家服务">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.49803921569999998" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0m4-dd-fDd">
-                                <rect key="frame" x="87" y="378" width="200" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.25490196079999999" green="0.45882352939999999" blue="0.019607843140000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="20"/>
-                                <state key="normal" title="搬家">
-                                    <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHM-NX-BFg">
+                                <rect key="frame" x="147" y="155" width="80" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.95294117649999999" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="HyU-PW-mdE"/>
+                                    <constraint firstAttribute="width" constant="80" id="nSW-kD-560"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="30"/>
+                                <state key="normal" title="短租">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.49803921569999998" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我要提供" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAc-wB-0j7">
+                                <rect key="frame" x="30" y="50" width="105" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="IUW-3G-hv2"/>
+                                    <constraint firstAttribute="width" constant="105" id="PcD-l4-Vyd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="20"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.49803921569999998" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6U-B9-elw">
+                                <rect key="frame" x="147" y="93" width="80" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.95294117649999999" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="1Em-Bz-a1u"/>
+                                    <constraint firstAttribute="height" constant="40" id="YYd-bj-IRO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="30"/>
+                                <state key="normal" title="出租">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.49803921569999998" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0m4-dd-fDd" firstAttribute="centerX" secondItem="c6U-B9-elw" secondAttribute="centerX" id="8AD-TY-6Yc"/>
+                            <constraint firstItem="0m4-dd-fDd" firstAttribute="top" secondItem="mHM-NX-BFg" secondAttribute="bottom" constant="15" id="Dam-5H-z97"/>
+                            <constraint firstItem="mHM-NX-BFg" firstAttribute="centerX" secondItem="c6U-B9-elw" secondAttribute="centerX" id="Ef6-s3-FyI"/>
+                            <constraint firstItem="SAc-wB-0j7" firstAttribute="leading" secondItem="VUk-LR-72R" secondAttribute="leadingMargin" constant="14" id="TFO-vs-04L"/>
+                            <constraint firstItem="c6U-B9-elw" firstAttribute="top" secondItem="tqh-Hz-w4N" secondAttribute="bottom" constant="80" id="Wez-cN-JwH"/>
+                            <constraint firstItem="SAc-wB-0j7" firstAttribute="top" secondItem="tqh-Hz-w4N" secondAttribute="bottom" constant="30" id="aZa-po-Vf0"/>
+                            <constraint firstItem="mHM-NX-BFg" firstAttribute="top" secondItem="c6U-B9-elw" secondAttribute="bottom" constant="15" id="hj0-nc-H7p"/>
+                            <constraint firstItem="c6U-B9-elw" firstAttribute="centerX" secondItem="VUk-LR-72R" secondAttribute="centerX" id="k75-K8-S1v"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="moveButton" destination="0m4-dd-fDd" id="91M-7e-lcF"/>
                         <outlet property="rentButton" destination="c6U-B9-elw" id="eiE-Zp-dhB"/>
+                        <outlet property="shortButton" destination="mHM-NX-BFg" id="oQK-TB-FFa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yx5-B8-bcF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6639" y="-853"/>
+            <point key="canvasLocation" x="6637.6000000000004" y="-853.22338830584715"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="pNJ-Xr-Hbr">
@@ -1143,7 +1180,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CHq-7g-lnp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="首页" image="logoTabBar" id="acW-dT-cKf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="O6N-Fa-dCq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="O6N-Fa-dCq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1162,7 +1199,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MJD-fw-8J6" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="附近" image="nearbyTabBar" id="cPa-gy-q4n"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XCb-2G-byx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XCb-2G-byx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1200,7 +1237,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uBy-OG-v72" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我的" image="accountTabBar" id="ran-g5-ZaM"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9ll-gY-kvY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9ll-gY-kvY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1247,7 +1284,7 @@
         <image name="TravelShare" width="32" height="23"/>
         <image name="accountTabBar" width="18" height="19"/>
         <image name="helpShareButtonBackground" width="320" height="19"/>
-        <image name="helpSolgen" width="229" height="18"/>
+        <image name="helpSolgen" width="285" height="22"/>
         <image name="logoTabBar" width="20" height="17"/>
         <image name="messageTabBar" width="20" height="20"/>
         <image name="nearbyTabBar" width="20" height="20"/>

@@ -60,7 +60,7 @@
 }
 
 -(void)moveResponse{
-    NSString *subCate = @"02000000";
+    NSString *subCate = @"03000000";
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:subCate, @"subcate", nil];
     NSMutableDictionary *shareDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:MEID,@"email",@"2",@"category",@"2099-01-01",@"expire_date", nil];;
     [shareDict addEntriesFromDictionary:dict];

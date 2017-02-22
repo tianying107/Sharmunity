@@ -539,7 +539,7 @@
             subCate=@"07000000";
             latitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
             longitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
-            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&airport=%@&lower_price=%@&upper_price=%@&date=%@",MEID,latitude,longitude,subCate,city.text,lowerPriceString,upperPriceString,dateString];
+            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&city=%@&lower_price=%@&upper_price=%@&date=%@",MEID,latitude,longitude,subCate,city.text,lowerPriceString,upperPriceString,dateString];
             break;
         case DiscoverTravelOther:
             subCate=@"99000000";

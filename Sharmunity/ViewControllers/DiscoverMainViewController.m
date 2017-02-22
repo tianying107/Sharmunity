@@ -60,8 +60,8 @@
 
 - (void)viewsSetup{
     float width = self.view.frame.size.width;
-    _currentHelpButton.frame = CGRectMake(0, 15, 0.67*width, 30);
-    _currentShareButton.frame = CGRectMake(0.67*width, 15, 0.33*width, 30);
+    _currentHelpButton.frame = CGRectMake(0, -5, 0.67*width, 30);
+    _currentShareButton.frame = CGRectMake(0.67*width, -5, 0.33*width, 30);
 
     [_currentShareButton addTarget:self action:@selector(shareHelpSwitch:) forControlEvents:UIControlEventTouchUpInside];
     [_currentHelpButton addTarget:self action:@selector(shareHelpSwitch:) forControlEvents:UIControlEventTouchUpInside];
@@ -95,8 +95,8 @@
     isHelp = ([sender isEqual:_currentHelpButton])?YES:NO;
     float width = self.view.frame.size.width;
     if ([sender isEqual:_currentHelpButton]) {
-        _currentHelpButton.frame = CGRectMake(0, 15, 0.67*width, 30);
-        _currentShareButton.frame = CGRectMake(0.67*width, 15, 0.33*width, 30);
+        _currentHelpButton.frame = CGRectMake(0, -5, 0.67*width, 30);
+        _currentShareButton.frame = CGRectMake(0.67*width, -5, 0.33*width, 30);
         _eatButton.selected = NO;
         _liveButton.selected = NO;
         _learnButton.selected = NO;
@@ -107,8 +107,8 @@
         _slogenImageView.image = [UIImage imageNamed:@"helpSolgen"];
     }
     else{
-        _currentHelpButton.frame = CGRectMake(0, 15, 0.33*width, 30);
-        _currentShareButton.frame = CGRectMake(0.33*width, 15, 0.67*width, 30);
+        _currentHelpButton.frame = CGRectMake(0, -5, 0.33*width, 30);
+        _currentShareButton.frame = CGRectMake(0.33*width, -5, 0.67*width, 30);
         _eatButton.selected = YES;
         _liveButton.selected = YES;
         _learnButton.selected = YES;
@@ -175,7 +175,7 @@
     MEID = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"admin"] valueForKey:@"id"];
     NSString *requestQuery = [NSString stringWithFormat:@"email=%@",MEID];
     NSString *urlString = [NSString stringWithFormat:@"%@reqprofile?%@",basicURL,requestQuery];
-    NSLog(@"%@",requestQuery);
+//    NSLog(@"%@",requestQuery);
     NSURLSession *session = [NSURLSession sharedSession];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLSessionTask *task = [session dataTaskWithURL:url
@@ -202,7 +202,7 @@
     MEID = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"admin"] valueForKey:@"id"];
     NSString *requestQuery = [NSString stringWithFormat:@"latitude=%f&longitude=%f",self.locationManager.location.coordinate.latitude,self.locationManager.location.coordinate.longitude];
     NSString *urlString = [NSString stringWithFormat:@"%@recenthelp?%@",basicURL,requestQuery];
-    NSLog(@"%@",requestQuery);
+//    NSLog(@"%@",requestQuery);
     NSURLSession *session = [NSURLSession sharedSession];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLSessionTask *task = [session dataTaskWithURL:url
@@ -240,7 +240,7 @@
     MEID = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"admin"] valueForKey:@"id"];
     NSString *requestQuery = [NSString stringWithFormat:@"latitude=%f&longitude=%f",self.locationManager.location.coordinate.latitude,self.locationManager.location.coordinate.longitude];
     NSString *urlString = [NSString stringWithFormat:@"%@recentshare?%@",basicURL,requestQuery];
-    NSLog(@"%@",requestQuery);
+//    NSLog(@"%@",requestQuery);
     NSURLSession *session = [NSURLSession sharedSession];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLSessionTask *task = [session dataTaskWithURL:url
@@ -283,7 +283,7 @@
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
                                                              options:kNilOptions
                                                                error:&error];
-        NSLog(@"server said: %@",dict);
+//        NSLog(@"server said: %@",dict);
         dispatch_async(dispatch_get_main_queue(), ^{
          [self submitHandle:dict];
         });

@@ -7,28 +7,46 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface DiscoverLiveShareLeaseViewController : UIViewController<UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource>{
+#import <MapKit/MapKit.h>
+@interface DiscoverLiveShareLeaseViewController : UIViewController<UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource,UITextViewDelegate>{
     UIScrollView *mainScrollView;
     UIView *shareRentView;
     UIView *genderView;
     UIView *houseView;
     UIView *typeView;
-    UIView *furnitureView;
     UIPickerView *typePickerView;
     UIView *confirmBackgroundView;
+    UIView *locationView;
+    UIView *dateView;
+    UIView *shortView;
+    UIView *priceView;
+    UIView *distanceView;
+    UIDatePicker *datePicker;
+    UIPickerView *shortPickerView;
+    UIView *titleView;
+    UIView *introductionView;
     UIButton *nextButton;
     
     NSString *MEID;
     NSString *shareRentString;
     NSString *houseString;
     NSString *typeString;
-    NSString *furnitureString;
+    NSString *dateString;
+    NSString *shortString;
+    NSString *priceString;
+    NSString *distanceString;
+    NSInteger shortNumber;
+    NSInteger short1;
+    NSInteger short2;
     
     NSArray *roomTypeArray;
+    NSArray *shortArray;
     NSMutableArray *viewsArray;
 }
 
 @property NSMutableDictionary *shareDict;
+@property BOOL shortRent;
+@property BOOL distanceAvailable;
+@property MKMapItem *selectedItem;
 
 @end
