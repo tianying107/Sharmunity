@@ -7,26 +7,43 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <MapKit/MapKit.h>
 @interface DiscoverLiveHelpRentViewController : UIViewController<UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource>{
     UIScrollView *mainScrollView;
     UIView *shareRentView;
     UIView *genderView;
     UIView *houseView;
     UIView *typeView;
-    UIView *furnitureView;
     UIPickerView *typePickerView;
     UIView *confirmBackgroundView;
+    UIView *locationView;
+    UIView *dateView;
+    UIView *shortView;
+    UIView *priceView;
+    UIView *distanceView;
+    UIDatePicker *datePicker;
+    UIPickerView *shortPickerView;
     UIButton *nextButton;
     
     NSString *MEID;
     NSString *shareRentString;
     NSString *houseString;
     NSString *typeString;
-    NSString *furnitureString;
+    NSString *shortString;
+    NSString *dateString;
+    NSString *upperPriceString;
+    NSString *lowerPriceString;
+    
+    NSInteger shortNumber;
     
     NSArray *roomTypeArray;
+    NSArray *shortArray;
     NSMutableArray *viewsArray;
 }
+-(void)locationCompleteResponse;
 @property NSMutableDictionary *helpDict;
+@property BOOL shortRent;
+@property BOOL distanceAvailable;
+@property MKMapItem *selectedItem;
+@property NSString *distanceString;
 @end

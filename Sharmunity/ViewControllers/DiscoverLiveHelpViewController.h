@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *rentButton;
 @property (weak, nonatomic) IBOutlet UIButton *leaseButton;
 @property (weak, nonatomic) IBOutlet UIButton *moveButton;
+@property (weak, nonatomic) IBOutlet UIButton *shortButton;
 
 @end

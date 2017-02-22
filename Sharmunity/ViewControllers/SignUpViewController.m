@@ -42,8 +42,8 @@
 
 - (void)submit{
     /*insert password check and empty check here*/
-    NSString *passwordString;
-    NSString *emailString;
+    NSString *passwordString = passwordTextField.text;
+    NSString *emailString = emailTextField.text;
     NSString *nameString = nameTextField.text;
     NSString *requestBody = [NSString stringWithFormat:@"email=%@&password=%@&name=%@",emailString,passwordString,nameString];
     
@@ -59,11 +59,12 @@
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionTask *task = [session dataTaskWithRequest:request
                                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                            
+                                            NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                            NSLog(@"server said: %@",string);
                                             
                                             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
-                                                                                                 options:kNilOptions
-                                                                                                   error:&error];
+                                                       options:kNilOptions
+                                                       error:&error];
                                             NSLog(@"server said: %@",dict);
                                             dispatch_async(dispatch_get_main_queue(), ^{
                                                 [self handleSubmit:dict];
@@ -72,7 +73,7 @@
     [task resume];
 }
 - (void)handleSubmit:(NSDictionary*)dict{
-    if ([[dict valueForKey:@"msg"] isEqualToString:@"You have already signed up. Please check your email to verify your account."]) {
+    if ([[dict valueForKey:@"success"] boolValue]) {
         for (SYSuscard *baseView in cardArray){
             [baseView removeFromSuperview];
         }
@@ -83,7 +84,8 @@
         [NSTimer scheduledTimerWithTimeInterval:.06 target:self selector:@selector(jump) userInfo:NULL repeats:NO];
     }
     else if([[dict valueForKey:@"msg"] isEqualToString:@"You have already signed up. Please check your email to verify your account."]){
-        NSLog(@"duplicate, not verified yet.");
+        SYPopOut *namePopout = [SYPopOut new];
+        [namePopout showUpPop:SYPopSignUpDuplicate];
     }
 }
 - (void) jump{

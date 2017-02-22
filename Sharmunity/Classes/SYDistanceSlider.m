@@ -51,13 +51,14 @@
     if (distanceString) {
         _distanceString = distanceString;
         _distanceInteger = [_distanceString integerValue];
-        [distanceSlider setValue:_distanceInteger];
+        NSInteger distan = [distanceArray indexOfObject:_distanceString]+10;
+        [distanceSlider setValue:distan];
     }
 }
 - (void)setdistanceWithInteger:(NSInteger)distanceInteger{
     _distanceInteger = distanceInteger;
     _distanceString = [NSString stringWithFormat:@"%ld",(long)_distanceInteger];
-    [distanceSlider setValue:_distanceInteger];
+    [distanceSlider setValue:[distanceArray indexOfObject:_distanceString]+10];
 }
 - (IBAction)sliderValueChanged:(id)sender{
     //    UISlider *distanceSlider = sender;

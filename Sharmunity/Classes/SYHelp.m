@@ -148,53 +148,86 @@
         [headView addSubview:label1];
         [headView addSubview:label2];
         
+        self.backgroundColor = SYBackgroundColorGreen;
         
-    }
-    self.backgroundColor = SYBackgroundColorGreen;
-    
-    SYTitle *titleGenerator = [SYTitle new];
-    UILabel *helpInfoLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount+10, self.frame.size.width-40, 60)];;
-    helpInfoLabel.text = [titleGenerator titleFromHelpDict:helpDict];
-    NSLog(@"%@",[titleGenerator titleFromHelpDict:helpDict]);
-    helpInfoLabel.textColor = SYColor1;
-    helpInfoLabel.textAlignment = NSTextAlignmentCenter;
-    [helpInfoLabel setFont:SYFont15S];
-    helpInfoLabel.numberOfLines = 0;
-    [self addSubview:helpInfoLabel];
-    heightCount += 70;
-    
-    UILabel *postLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount, self.frame.size.width-40, 20)];
-    postLabel.text = [helpDict valueForKey:@"post_date"];
-    postLabel.textColor = SYColor1;
-    [postLabel setFont: SYFont13];
-    postLabel.textAlignment = NSTextAlignmentCenter;
-    heightCount += postLabel.frame.size.height;
-    [self addSubview:postLabel];
-    
-    NSArray *choiceArray = [helpDict valueForKey:@"choices"];
-    titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, heightCount, 200, 40)];
-    titleLabel.backgroundColor = SYBackgroundColorExtraLight;
-    titleLabel.text = [NSString stringWithFormat:@"系统已为您匹配到%ld条信息", choiceArray.count];
-    [titleLabel setFont:SYFont15M];
-    [self addSubview:titleLabel];
-    heightCount += titleLabel.frame.size.height;
-
-    for (int i=0; i<choiceArray.count; i++) {
-        SYChoiceAbstract *choiceAbstract = [[SYChoiceAbstract alloc] initWithFrame:CGRectMake(10, heightCount, self.frame.size.width-20, 0) choiceID:[choiceArray objectAtIndex:i]];
-        [self addSubview:choiceAbstract];
-        heightCount += choiceAbstract.frame.size.height;
+        SYTitle *titleGenerator = [SYTitle new];
+        UILabel *helpInfoLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount+10, self.frame.size.width-40, 60)];;
+        helpInfoLabel.text = [titleGenerator titleFromHelpDict:helpDict];
+        NSLog(@"%@",[titleGenerator titleFromHelpDict:helpDict]);
+        helpInfoLabel.textColor = SYColor1;
+        helpInfoLabel.textAlignment = NSTextAlignmentCenter;
+        [helpInfoLabel setFont:SYFont15S];
+        helpInfoLabel.numberOfLines = 0;
+        [self addSubview:helpInfoLabel];
+        heightCount += 70;
         
+        UILabel *postLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount, self.frame.size.width-40, 20)];
+        postLabel.text = [helpDict valueForKey:@"post_date"];
+        postLabel.textColor = SYColor1;
+        [postLabel setFont: SYFont13];
+        postLabel.textAlignment = NSTextAlignmentCenter;
+        heightCount += postLabel.frame.size.height;
+        [self addSubview:postLabel];
+        
+        NSArray *choiceArray = [helpDict valueForKey:@"choices"];
+        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, heightCount, 200, 40)];
+        titleLabel.backgroundColor = SYBackgroundColorExtraLight;
+        titleLabel.text = [NSString stringWithFormat:@"系统已为您匹配到%ld条信息", choiceArray.count];
+        [titleLabel setFont:SYFont15M];
+        [self addSubview:titleLabel];
+        heightCount += titleLabel.frame.size.height;
+        
+        for (int i=0; i<choiceArray.count; i++) {
+            SYChoiceAbstract *choiceAbstract = [[SYChoiceAbstract alloc] initWithFrame:CGRectMake(10, heightCount, self.frame.size.width-20, 0) choiceID:[choiceArray objectAtIndex:i]];
+            [self addSubview:choiceAbstract];
+            heightCount += choiceAbstract.frame.size.height;
+            
+        }
+        CGRect frame = self.frame;
+        frame.size.height = heightCount;//MIN(heightCount, 200);
+        self.frame = frame;
+        UIView *frontgroundView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, self.frame.size.width-20, self.frame.size.height-20)];
+        frontgroundView.backgroundColor = SYBackgroundColorExtraLight;
+        frontgroundView.layer.cornerRadius = 5;
+        frontgroundView.clipsToBounds = YES;
+        [self addSubview:frontgroundView];
+        [self sendSubviewToBack:frontgroundView];
     }
-    CGRect frame = self.frame;
-    frame.size.height = heightCount;//MIN(heightCount, 200);
-    self.frame = frame;
-    UIView *frontgroundView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, self.frame.size.width-20, self.frame.size.height-20)];
-    frontgroundView.backgroundColor = SYBackgroundColorExtraLight;
-    frontgroundView.layer.cornerRadius = 5;
-    frontgroundView.clipsToBounds = YES;
-    [self addSubview:frontgroundView];
-    [self sendSubviewToBack:frontgroundView];
-//    [self.delegate SYHelp:self didLayoutWithHeight:heightCount];
+    else{
+        self.backgroundColor = SYBackgroundColorExtraLight;
+        SYTitle *titleGenerator = [SYTitle new];
+        NSMutableAttributedString *attributeSting = [[NSMutableAttributedString alloc] initWithString:[titleGenerator titleFromShareDict:helpDict] attributes:@{NSFontAttributeName:SYFont15S,NSForegroundColorAttributeName:SYColor1}];
+        NSMutableParagraphStyle *paragraphstyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphstyle.lineSpacing = 2.f;
+        [attributeSting addAttribute:NSParagraphStyleAttributeName value:paragraphstyle range:NSMakeRange(0, attributeSting.length)];
+        CGRect rect = [attributeSting boundingRectWithSize:(CGSize){self.frame.size.width-40, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+        float height = rect.size.height;
+        UILabel *helpInfoLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount+10, self.frame.size.width-40, height)];;
+        helpInfoLabel.attributedText = attributeSting;
+        helpInfoLabel.numberOfLines = 0;
+        [self addSubview:helpInfoLabel];
+        heightCount += height +20;
+        
+        UILabel *postLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount, self.frame.size.width-40, 20)];
+        postLabel.text = [helpDict valueForKey:@"post_date"];
+        postLabel.textColor = SYColor1;
+        [postLabel setFont: SYFont13];
+        postLabel.textAlignment = NSTextAlignmentRight;
+        heightCount += postLabel.frame.size.height;
+        [self addSubview:postLabel];
+        
+        NSArray *choiceArray = [helpDict valueForKey:@"choices"];
+        
+        for (int i=0; i<choiceArray.count; i++) {
+            SYChoiceAbstract *choiceAbstract = [[SYChoiceAbstract alloc] initWithFrame:CGRectMake(10, heightCount, self.frame.size.width-20, 0) choiceID:[choiceArray objectAtIndex:i]];
+            [self addSubview:choiceAbstract];
+            heightCount += choiceAbstract.frame.size.height;
+            
+        }
+        CGRect frame = self.frame;
+        frame.size.height = heightCount;
+        self.frame = frame;
+    }
 }
 
 

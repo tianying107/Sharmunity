@@ -102,7 +102,7 @@
 
 
 -(id)initWithFrame:(CGRect)frame choiceID:(NSString*)ID{
-    self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 50)];
+    self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 60)];
     if (self) {
         choiceID = ID;
         helpChoice = YES;
@@ -113,7 +113,7 @@
 
 -(void)helpChoiceSetup{
     self.backgroundColor = SYBackgroundColorExtraLight;
-    float heightCount = 0;
+    float heightCount = 15;
     if (shareDict&&personDict) {
         
         
@@ -123,38 +123,29 @@
         avatarImageView.clipsToBounds = YES;
         [self addSubview:avatarImageView];
         
-        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, heightCount, self.frame.size.width-40, 50)];
-        titleLabel.textColor = SYColor1;
-        [titleLabel setFont:SYFont13];
+        
+        SYTitle *titleGenerator = [SYTitle new];
+        NSString *titleString = [NSString stringWithFormat:@"%@%@",[titleGenerator titleFromShareDict:shareDict],[personDict valueForKey:@"name"]];
+        NSMutableAttributedString *attributeSting = [[NSMutableAttributedString alloc] initWithString:titleString attributes:@{NSFontAttributeName:SYFont13,NSForegroundColorAttributeName:SYColor1}];
+        NSMutableParagraphStyle *paragraphstyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphstyle.lineSpacing = 2.f;
+        [attributeSting addAttribute:NSParagraphStyleAttributeName value:paragraphstyle range:NSMakeRange(0, attributeSting.length)];
+        CGRect rect = [attributeSting boundingRectWithSize:(CGSize){self.frame.size.width-80, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+        float height = rect.size.height;
+        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, heightCount, self.frame.size.width-80, height)];
+        titleLabel.numberOfLines = 0;
+        titleLabel.attributedText = attributeSting;
         [self addSubview:titleLabel];
-        
-        priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, heightCount, self.frame.size.width-40, 50)];
-        priceLabel.textColor = SYColor1;
-        priceLabel.textAlignment = NSTextAlignmentRight;
-        [self addSubview:priceLabel];
-        
-        NSString *abstractInformation = [NSString new];
-        NSInteger category = [[shareDict valueForKey:@"category"] integerValue];
-        NSInteger subcate = [[shareDict valueForKey:@"subcate"] integerValue];
-        if (category ==1) {
-            abstractInformation = @"美食信息";
-            
-            titleLabel.text = ([[personDict valueForKey:@"name"] isEqualToString:@""])?abstractInformation:[NSString stringWithFormat:@"%@发布的%@",[personDict valueForKey:@"name"],abstractInformation];
-        }
-        else if (category==2) {
-            NSInteger mode = subcate/1000000;
-            if (mode==1) {
-                abstractInformation = @"租房信息";
-            }
-            else if (mode==2){
-                abstractInformation = @"搬家信息";
-            }
-            titleLabel.text = ([[personDict valueForKey:@"name"] isEqualToString:@""])?abstractInformation:[NSString stringWithFormat:@"%@发布的%@",[personDict valueForKey:@"name"],abstractInformation];
-//            priceLabel.text = [NSString stringWithFormat:@"$%@",[[shareDict valueForKey:@"keyword"] valueForKey:@"price"]];
-        }else{
-            titleLabel.text = [NSString stringWithFormat:@"%@发布的信息",[personDict valueForKey:@"name"]];
-        }
+        heightCount += titleLabel.frame.size.height;
 
+        UILabel *postLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount, self.frame.size.width-40, 20)];
+        postLabel.text = [shareDict valueForKey:@"post_date"];
+        postLabel.textColor = SYColor3;
+        [postLabel setFont: SYFont13];
+        postLabel.textAlignment = NSTextAlignmentRight;
+        heightCount += postLabel.frame.size.height;
+        [self addSubview:postLabel];
+        
         _selectButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
         [_selectButton addTarget:self action:@selector(selectChoice:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_selectButton];

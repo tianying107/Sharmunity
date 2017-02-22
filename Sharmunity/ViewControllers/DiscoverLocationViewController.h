@@ -11,13 +11,15 @@
 #define SYDiscoverNextShareEat 1001
 #define SYDiscoverNextHelpEat 1101
 #define SYDiscoverNextShareLease 2001
-#define SYDiscoverNextHelpRent 2101
+#define SYDiscoverNextHelp 2101
 #define SYDiscoverNextShareMove 2002
 #define SYDiscoverNextHelpMove 2102
 #define SYDiscoverNextShareLearn 3001
 #define SYDiscoverNextHelpLearn 3101
 
-@interface DiscoverLocationViewController : UIViewController
+@interface DiscoverLocationViewController : UIViewController{
+    NSInteger previousDistance;
+}
 
 @property NSInteger nextControllerType;
 @property NSString *subCate;
@@ -31,4 +33,8 @@
 @property float preferLongitude;
 @property float preferDistance;
 @property id previousController;
+
+/*distance*/
+@property NSString *distanceString;
+@property NSInteger distanceInteger;
 @end

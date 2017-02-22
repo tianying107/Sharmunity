@@ -31,11 +31,44 @@
 }
 
 -(void)viewsSetup{
+    _rentButton.layer.cornerRadius = 5;
+    _rentButton.clipsToBounds = YES;
+    _rentButton.layer.borderColor = [SYColor5 CGColor];
+    _rentButton.layer.borderWidth = 1;
+    
+    _shortButton.layer.cornerRadius = 5;
+    _shortButton.clipsToBounds = YES;
+    _shortButton.layer.borderColor = [SYColor5 CGColor];
+    _shortButton.layer.borderWidth = 1;
+    
+    _moveButton.layer.cornerRadius = 5;
+    _moveButton.clipsToBounds = YES;
+    _moveButton.layer.borderColor = [SYColor5 CGColor];
+    _moveButton.layer.borderWidth = 1;
+    
+    _leaseButton.layer.cornerRadius = 5;
+    _leaseButton.clipsToBounds = YES;
+    _leaseButton.layer.borderColor = [SYColor5 CGColor];
+    _leaseButton.layer.borderWidth = 1;
+    
     [_rentButton addTarget:self action:@selector(rentHomeResponse) forControlEvents:UIControlEventTouchUpInside];
     [_leaseButton addTarget:self action:@selector(leaseResponse) forControlEvents:UIControlEventTouchUpInside];
+    [_shortButton addTarget:self action:@selector(shortResponse) forControlEvents:UIControlEventTouchUpInside];
     [_moveButton addTarget:self action:@selector(moveResponse) forControlEvents:UIControlEventTouchUpInside];
     
-    helpTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 250, self.view.frame.size.width, self.view.frame.size.height-250) style:UITableViewStylePlain];
+    float heightCount = 315;
+    float originX = 30;
+    UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(0, heightCount, self.view.frame.size.width, SYSeparatorHeight)];
+    separator.backgroundColor = SYSeparatorColor;
+    [self.view addSubview:separator];
+    UILabel *matchLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, heightCount, self.view.frame.size.width, 40)];
+    matchLabel.text = @"匹配结果";
+    matchLabel.textColor = SYColor5;
+    [matchLabel setFont:SYFont20];
+    [self.view addSubview:matchLabel];
+    heightCount += matchLabel.frame.size.height;
+    
+    helpTable = [[UITableView alloc] initWithFrame:CGRectMake(0, heightCount, self.view.frame.size.width, self.view.frame.size.height-heightCount) style:UITableViewStylePlain];
     helpTable.delegate = self;
     helpTable.dataSource = self;
     helpTable.alwaysBounceVertical = NO;
@@ -53,7 +86,11 @@
     DiscoverLiveHelpRentViewController *viewController = [DiscoverLiveHelpRentViewController new];
     [self.navigationController pushViewController:viewController animated:YES];
 }
-
+-(void)shortResponse{
+    DiscoverLiveShareLeaseViewController *viewController = [DiscoverLiveShareLeaseViewController new];
+    viewController.shortRent = YES;
+    [self.navigationController pushViewController:viewController animated:YES];
+}
 -(void)leaseResponse{
     DiscoverLiveShareLeaseViewController *viewController = [DiscoverLiveShareLeaseViewController new];
     [self.navigationController pushViewController:viewController animated:YES];

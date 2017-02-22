@@ -43,7 +43,7 @@
     NSArray *shortArray;
     NSMutableArray *viewsArray;
 }
-
+-(void)locationCompleteResponse;
 @property NSMutableDictionary *shareDict;
 @property BOOL shortRent;
 @property BOOL distanceAvailable;

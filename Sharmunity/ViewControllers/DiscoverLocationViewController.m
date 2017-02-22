@@ -12,6 +12,8 @@
 #import "DiscoverLiveHelpSubmitViewController.h"
 #import "DiscoverLearnShareSubmitViewController.h"
 #import "DiscoverLearnHelpSubmitViewController.h"
+#import "DiscoverLiveShareLeaseViewController.h"
+#import "DiscoverLiveHelpRentViewController.h"
 #import "SYHeader.h"
 #define cardUnselectOriginalY 0
 #define cardSelectOriginalY 80
@@ -25,6 +27,7 @@
     UIButton *locationButton;
     UIBarButtonItem *backButton;
     BOOL hasLocationSelected;
+    SYDistanceSlider *distanceSlider;
 }
 
 @end
@@ -57,6 +60,16 @@
     self.navigationItem.leftBarButtonItem = backButton;
     
     
+    if (_needDistance) {
+        UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-80, self.view.frame.size.width, 80)];
+        bottomView.backgroundColor = SYBackgroundColorExtraLight;
+        [self.view addSubview:bottomView];
+        distanceSlider = [[SYDistanceSlider alloc] initWithFrame:CGRectMake(20, 10, self.view.frame.size.width-40, 70)];
+        [distanceSlider.distanceSlider addTarget:self action:@selector(updateDistance) forControlEvents:UIControlEventValueChanged];
+        [bottomView addSubview:distanceSlider];
+        [self setDistance:3];
+        previousDistance = 3;
+    }
     
     
     cardView = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-cardUnselectOriginalY, self.view.frame.size.width, 80)];
@@ -65,7 +78,7 @@
     [self.view addSubview:cardView];
     
     
-    locationButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width-80, self.view.frame.size.height-locButtonUnselectOriginalY, 56, 56)];
+    locationButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width-80, self.view.frame.size.height-locButtonUnselectOriginalY-_needDistance*80, 56, 56)];
     [locationButton setImage:[UIImage imageNamed:@"currentLocation"] forState:UIControlStateNormal];
     [locationButton addTarget:mapView action:@selector(location:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:locationButton];
@@ -113,9 +126,9 @@
     hasLocationSelected = YES;
     [cardView addSubview:[self locationView:mapItem]];
     CGRect frame = cardView.frame;
-    frame.origin.y = self.view.frame.size.height-cardSelectOriginalY;
+    frame.origin.y = self.view.frame.size.height-cardSelectOriginalY -_needDistance*80;
     CGRect frame3 = locationButton.frame;
-    frame3.origin.y = self.view.frame.size.height-locButtonSelectOriginalY;
+    frame3.origin.y = self.view.frame.size.height-locButtonSelectOriginalY-_needDistance*80;
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.258];
     [cardView setFrame:frame];
@@ -128,7 +141,7 @@
     CGRect frame = cardView.frame;
     frame.origin.y = self.view.frame.size.height-cardUnselectOriginalY;
     CGRect frame3 = locationButton.frame;
-    frame3.origin.y = self.view.frame.size.height-locButtonUnselectOriginalY;
+    frame3.origin.y = self.view.frame.size.height-locButtonUnselectOriginalY-_needDistance*80;
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.258];
     [cardView setFrame:frame];
@@ -170,9 +183,9 @@
     hasLocationSelected = YES;
     [cardView addSubview:[self locationView:mapItem]];
     CGRect frame = cardView.frame;
-    frame.origin.y = self.view.frame.size.height-cardSelectOriginalY;
+    frame.origin.y = self.view.frame.size.height-cardSelectOriginalY-_needDistance*80;
     CGRect frame3 = locationButton.frame;
-    frame3.origin.y = self.view.frame.size.height-locButtonSelectOriginalY;
+    frame3.origin.y = self.view.frame.size.height-locButtonSelectOriginalY-_needDistance*80;
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.258];
     [cardView setFrame:frame];
@@ -194,18 +207,21 @@
             return;
             break;
         case SYDiscoverNextShareLease:
-            viewController = [DiscoverLiveShareSubmitViewController new];
-            ((DiscoverLiveShareSubmitViewController*)viewController).shareDict = _summaryDict;
-            ((DiscoverLiveShareSubmitViewController*)viewController).distanceAvailable = NO;
-            ((DiscoverLiveShareSubmitViewController*)viewController).dateAvailable = YES;
-            ((DiscoverLiveShareSubmitViewController*)viewController).selectedItem = selectedItem;
+            viewController = _previousController;
+            ((DiscoverLiveShareLeaseViewController*)viewController).selectedItem = selectedItem;
+            [(DiscoverLiveShareLeaseViewController*)viewController locationCompleteResponse];
+            [self.navigationController popViewControllerAnimated:YES];
+            return;
             break;
-        case SYDiscoverNextHelpRent:
-            viewController = [DiscoverLiveHelpSubmitViewController new];
-            ((DiscoverLiveHelpSubmitViewController*)viewController).helpDict = _summaryDict;
-            ((DiscoverLiveHelpSubmitViewController*)viewController).distanceAvailable = YES;
-            ((DiscoverLiveHelpSubmitViewController*)viewController).dateAvailable = YES;
-            ((DiscoverLiveHelpSubmitViewController*)viewController).selectedItem = selectedItem;
+        case SYDiscoverNextHelp:
+            viewController = _previousController;
+            if (_needDistance) {
+                ((DiscoverLiveHelpRentViewController*)viewController).distanceString = distanceSlider.distanceString;
+            }
+            ((DiscoverLiveHelpRentViewController*)viewController).selectedItem = selectedItem;
+            [(DiscoverLiveHelpRentViewController*)viewController locationCompleteResponse];
+            [self.navigationController popViewControllerAnimated:YES];
+            return;
             break;
         case SYDiscoverNextShareMove:
             viewController = [DiscoverLiveShareSubmitViewController new];
@@ -230,10 +246,7 @@
             break;
         case SYDiscoverNextHelpLearn:
             viewController = [DiscoverLearnHelpSubmitViewController new];
-//            ((DiscoverLearnHelpSubmitViewController*)viewController).helpDict = _summaryDict;
-//            ((DiscoverLearnHelpSubmitViewController*)viewController).distanceAvailable = NO;
-//            ((DiscoverLearnHelpSubmitViewController*)viewController).dateAvailable = YES;
-//            ((DiscoverLearnHelpSubmitViewController*)viewController).selectedItem = selectedItem;
+
             break;
             
             
@@ -275,4 +288,30 @@
     [searchTextField resignFirstResponder];
 }
 
+
+- (void)setDistance:(NSInteger)distance{
+    _distanceInteger = distance;
+    NSArray *existOverlays = mapView.overlays;
+    [mapView removeOverlays:existOverlays];
+    [distanceSlider setdistanceWithInteger:distance];
+    _distanceString = [NSString stringWithFormat:@"%ld",(long)_distanceInteger];
+    if (selectedItem) {
+        [mapView addCircleWithDistanse:_distanceInteger latitude:selectedItem.placemark.location.coordinate.latitude longitude:selectedItem.placemark.location.coordinate.longitude];
+    }
+    else{
+        [mapView addCircleWithDistanse:_distanceInteger latitude:mapView.locationManager.location.coordinate.latitude longitude:mapView.locationManager.location.coordinate.longitude];
+    }
+    
+}
+- (void)updateDistance{
+    if (previousDistance != distanceSlider.distanceInteger) {
+        NSArray *existOverlays = mapView.overlays;
+        [mapView removeOverlays:existOverlays];
+        [self setDistance:distanceSlider.distanceInteger];
+        previousDistance = distanceSlider.distanceInteger;
+        _distanceInteger=previousDistance;
+        _distanceString = [NSString stringWithFormat:@"%ld",_distanceInteger];
+    }
+    
+}
 @end

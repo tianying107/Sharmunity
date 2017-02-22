@@ -937,40 +937,84 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2L-dr-6aF">
-                                <rect key="frame" x="16" y="77" width="136" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.64843770771134324" blue="0.3194830852998769" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <state key="normal" title="租房子">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2L-dr-6aF">
+                                <rect key="frame" x="74" y="100" width="80" height="40"/>
+                                <color key="backgroundColor" red="0.89411764709999997" green="0.94901960780000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="SjQ-In-hel"/>
+                                    <constraint firstAttribute="width" constant="80" id="fPR-kE-Pre"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="30"/>
+                                <state key="normal" title="求租">
+                                    <color key="titleColor" red="0.25490196079999999" green="0.45882352939999999" blue="0.019607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5x-3y-gDq">
-                                <rect key="frame" x="151" y="77" width="95" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.25882352939999997" green="0.4039215686" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <state key="normal" title="出租房">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5x-3y-gDq">
+                                <rect key="frame" x="221" y="100" width="80" height="40"/>
+                                <color key="backgroundColor" red="0.89411764709999997" green="0.94901960780000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="1TE-cR-Mqx"/>
+                                    <constraint firstAttribute="height" constant="40" id="8oN-5m-oBT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="30"/>
+                                <state key="normal" title="出租">
+                                    <color key="titleColor" red="0.25490196079999999" green="0.45882352939999999" blue="0.019607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tz1-Nu-NLn">
-                                <rect key="frame" x="244" y="77" width="114" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.24667945711900252" green="0.51398558937823835" blue="0.22146448046860762" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tz1-Nu-NLn">
+                                <rect key="frame" x="74" y="188" width="80" height="40"/>
+                                <color key="backgroundColor" red="0.89411764709999997" green="0.94901960780000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ncu-Ay-zfp"/>
+                                    <constraint firstAttribute="width" constant="80" id="UPs-4H-6fN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="30"/>
                                 <state key="normal" title="搬家">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.25490196079999999" green="0.45882352939999999" blue="0.019607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHr-cd-D1B">
+                                <rect key="frame" x="221" y="188" width="80" height="40"/>
+                                <color key="backgroundColor" red="0.89411764709999997" green="0.94901960780000005" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Irg-r0-PFD"/>
+                                    <constraint firstAttribute="height" constant="40" id="xz6-uu-PX0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="30"/>
+                                <state key="normal" title="短租">
+                                    <color key="titleColor" red="0.25490196079999999" green="0.45882352939999999" blue="0.019607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我要" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHF-4D-ZNn">
+                                <rect key="frame" x="30" y="50" width="105" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="105" id="1M4-0S-nbm"/>
+                                    <constraint firstAttribute="height" constant="29" id="TgJ-3P-hKE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="20"/>
+                                <color key="textColor" red="0.25490196079999999" green="0.45882352939999999" blue="0.019607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BHF-4D-ZNn" firstAttribute="top" secondItem="Mp7-FF-Wf6" secondAttribute="bottom" constant="30" id="Dmb-9h-gI7"/>
+                            <constraint firstItem="Tz1-Nu-NLn" firstAttribute="centerX" secondItem="Y2L-dr-6aF" secondAttribute="centerX" id="IFa-EA-obb"/>
+                            <constraint firstItem="BHF-4D-ZNn" firstAttribute="leading" secondItem="U01-iB-E9O" secondAttribute="leadingMargin" constant="14" id="OFW-Bz-Jzg"/>
+                            <constraint firstItem="Y2L-dr-6aF" firstAttribute="top" secondItem="BHF-4D-ZNn" secondAttribute="bottom" constant="20" id="Ykj-UW-9RD"/>
+                            <constraint firstItem="hHr-cd-D1B" firstAttribute="top" secondItem="P5x-3y-gDq" secondAttribute="bottom" constant="48" id="cCP-AE-w05"/>
+                            <constraint firstItem="Y2L-dr-6aF" firstAttribute="centerX" secondItem="U01-iB-E9O" secondAttribute="centerX" constant="-60" id="dsv-Vd-XVe"/>
+                            <constraint firstItem="Tz1-Nu-NLn" firstAttribute="top" secondItem="Y2L-dr-6aF" secondAttribute="bottom" constant="48" id="iS4-kX-u3T"/>
+                            <constraint firstItem="hHr-cd-D1B" firstAttribute="centerX" secondItem="P5x-3y-gDq" secondAttribute="centerX" id="ixB-f6-zxD"/>
+                            <constraint firstItem="P5x-3y-gDq" firstAttribute="centerY" secondItem="Y2L-dr-6aF" secondAttribute="centerY" id="raZ-UD-Jz5"/>
+                            <constraint firstItem="P5x-3y-gDq" firstAttribute="centerX" secondItem="U01-iB-E9O" secondAttribute="centerX" constant="60" id="yq4-90-WcJ"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="leaseButton" destination="P5x-3y-gDq" id="BQq-hs-tT1"/>
                         <outlet property="moveButton" destination="Tz1-Nu-NLn" id="WVN-Qt-49C"/>
                         <outlet property="rentButton" destination="Y2L-dr-6aF" id="BZ6-d1-mBf"/>
+                        <outlet property="shortButton" destination="hHr-cd-D1B" id="zaG-Vl-OOT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l9L-Qs-ZyP" userLabel="First Responder" sceneMemberID="firstResponder"/>

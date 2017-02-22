@@ -42,7 +42,7 @@
     shortArray = @[ @[@"1", @"2", @"3", @"4",@"5", @"6", @"7", @"8",@"9", @"10", @"11", @"12",@"13", @"14", @"15", @"16",@"17", @"18", @"19", @"20",@"21", @"22", @"23", @"24",@"25", @"26", @"27", @"28",@"29", @"30"],
                      @[@"日", @"月"]];
     shortNumber = 30;
-    
+    shortString=@"";
     popOut = [SYPopOut new];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -477,6 +477,7 @@
     
     DiscoverLocationViewController *viewController = [DiscoverLocationViewController new];
     viewController.previousController = self;
+    viewController.needDistance = NO;
     viewController.nextControllerType = SYDiscoverNextShareLearn;
     [self.navigationController pushViewController:viewController animated:YES];
 }
@@ -529,7 +530,7 @@
     UITextField *title = [titleView viewWithTag:11];
     UITextView *introduction = [introductionView viewWithTag:11];
     UITextField *price = [priceView viewWithTag:11];
-    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=2&subcate=%@&price=%@&available_date=%@&distance=1000&placemark=%@&title=%@&introduction=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,price.text,dateString,_selectedItem.name,title.text,introduction.text];
+    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=2&subcate=%@&price=%@&available_date=%@&distance=1000&placemark=%@&title=%@&introduction=%@&shortterm=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,price.text,dateString,_selectedItem.name,title.text,introduction.text,shortString];
     NSLog(@"%@/n",requestBody);
     /*改上面的 query 和 URLstring 就好了*/
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@newshare",basicURL]];
