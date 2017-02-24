@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FKL-4H-ZFz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FKL-4H-ZFz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -996,7 +996,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="BHF-4D-ZNn" firstAttribute="top" secondItem="Mp7-FF-Wf6" secondAttribute="bottom" constant="30" id="Dmb-9h-gI7"/>
                             <constraint firstItem="Tz1-Nu-NLn" firstAttribute="centerX" secondItem="Y2L-dr-6aF" secondAttribute="centerX" id="IFa-EA-obb"/>
@@ -1080,7 +1080,7 @@
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="0m4-dd-fDd" firstAttribute="centerX" secondItem="c6U-B9-elw" secondAttribute="centerX" id="8AD-TY-6Yc"/>
                             <constraint firstItem="0m4-dd-fDd" firstAttribute="top" secondItem="mHM-NX-BFg" secondAttribute="bottom" constant="15" id="Dam-5H-z97"/>

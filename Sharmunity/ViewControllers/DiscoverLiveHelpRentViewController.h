@@ -38,6 +38,8 @@
     
     NSArray *roomTypeArray;
     NSArray *shortArray;
+    NSInteger short1;
+    NSInteger short2;
     NSMutableArray *viewsArray;
 }
 -(void)locationCompleteResponse;

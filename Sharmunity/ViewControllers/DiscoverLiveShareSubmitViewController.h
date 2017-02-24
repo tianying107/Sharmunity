@@ -24,12 +24,13 @@
     NSString *MEID;
     NSString *dateString;
     NSString *priceString;
-    NSString *distanceString;
     
     NSMutableArray *viewsArray;
 }
 @property BOOL dateAvailable;
 @property BOOL distanceAvailable;
 @property NSMutableDictionary *shareDict;
+@property NSString *subcate;
 @property MKMapItem *selectedItem;
+@property NSString *distanceString;
 @end

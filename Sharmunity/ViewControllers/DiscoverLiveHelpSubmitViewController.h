@@ -10,7 +10,8 @@
 #import <MapKit/MapKit.h>
 @interface DiscoverLiveHelpSubmitViewController : UIViewController<UIScrollViewDelegate>{
     UIScrollView *mainScrollView;
-    UIView *locationView;
+    UIView *locationInView;
+    UIView *locationOutView;
     UIView *dateView;
     UIView *priceView;
     UIView *distanceView;
@@ -27,9 +28,15 @@
     
     NSMutableArray *viewsArray;
 }
+
+-(void)locationInCompleteResponse;
+-(void)locationOutCompleteResponse;
+
 @property BOOL dateAvailable;
 @property BOOL distanceAvailable;
 @property NSMutableDictionary *helpDict;
-@property MKMapItem *selectedItem;
+@property NSString *subcate;
+@property MKMapItem *selectedInItem;
+@property MKMapItem *selectedOutItem;
 
 @end

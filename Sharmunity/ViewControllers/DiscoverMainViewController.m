@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: SYColor1,
-                                                                    NSFontAttributeName: SYFont20};
+                                                                    NSFontAttributeName: SYFont15M};
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;

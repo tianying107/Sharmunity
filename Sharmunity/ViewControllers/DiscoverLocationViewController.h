@@ -13,7 +13,8 @@
 #define SYDiscoverNextShareLease 2001
 #define SYDiscoverNextHelp 2101
 #define SYDiscoverNextShareMove 2002
-#define SYDiscoverNextHelpMove 2102
+#define SYDiscoverNextHelpMoveOut 2102
+#define SYDiscoverNextHelpMoveIn 2103
 #define SYDiscoverNextShareLearn 3001
 #define SYDiscoverNextHelpLearn 3101
 

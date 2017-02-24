@@ -9,7 +9,8 @@
 #import "DiscoverLiveShareSubmitViewController.h"
 #import "Header.h"
 #import "SYHeader.h"
-@interface DiscoverLiveShareSubmitViewController ()<SYPriceSliderDelegate>{
+#import "DiscoverLocationViewController.h"
+@interface DiscoverLiveShareSubmitViewController ()<SYTextViewDelegate>{
     SYDistanceSlider *distanceSlider;
     SYPopOut *popOut;
 }
@@ -20,9 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"详细信息";
+    self.navigationItem.title = @"搬家服务";
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: SYColor1,
-                                                                    NSFontAttributeName: SYFont20S};
+                                                                    NSFontAttributeName: SYFont15M};
     self.view.backgroundColor = SYBackgroundColorExtraLight;
 
     mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
@@ -34,10 +35,24 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
+    [mainScrollView addGestureRecognizer:tap];
     
     popOut = [SYPopOut new];
     [self viewsSetup];
+    
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setImage:[UIImage imageNamed:@"SYBackColor4"] forState:UIControlStateNormal];
+    [backBtn setTitle:@"住" forState:UIControlStateNormal];
+    [backBtn setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [backBtn.titleLabel setFont:SYFont13S];
+    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.bounds = CGRectMake(0, 0, 80, 40);
+    backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.leftBarButtonItem = backButton;
+}
+-(void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 -(void) viewWillAppear:(BOOL)animated{
     mainScrollView.delegate=self;
@@ -58,139 +73,55 @@
     viewsArray = [NSMutableArray new];
     float viewWidth = mainScrollView.frame.size.width;
     float originX = 30;
+    priceString = @"1";
+    
+    /*title*/
+    titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    [mainScrollView addSubview:titleView];
+    [viewsArray addObject:titleView];
+    SYTextField *textfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30) type:SYTextFieldShare];
+    textfield.tag = 11;
+    textfield.placeholder = @"提供服务标题";
+    [textfield addTarget:self action:@selector(titleEmptyCheck) forControlEvents:UIControlEventEditingChanged];
+    [titleView addSubview:textfield];
+    
+    /*introduction*/
+    introductionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 120)];
+    introductionView.hidden = YES;
+    [mainScrollView addSubview:introductionView];
+    [viewsArray addObject:introductionView];
+    SYTextView *textView = [[SYTextView alloc] initWithFrame:CGRectMake(originX, 10, viewWidth-2*originX, 100) type:SYTextViewShare];
+    textView.tag = 11;
+    textView.SYDelegate = self;
+    [textView setPlaceholder:@"提供服务介绍"];
+    [introductionView addSubview:textView];
     
     /*location*/
     locationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
     [mainScrollView addSubview:locationView];
     [viewsArray addObject:locationView];
+    locationView.hidden = YES;
     UILabel *locationTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
     locationTitleLabel.text = @"位置";
     locationTitleLabel.textColor = SYColor1;
+    [locationTitleLabel setFont:SYFont20];
     [locationView addSubview:locationTitleLabel];
     UIButton *locationButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
-    [locationButton setTitle:[[[_selectedItem placemark] addressDictionary] valueForKey:@"Street"] forState:UIControlStateNormal];
-    [locationButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    locationButton.tag = 11;
+    [locationButton setTitleColor:SYColor9 forState:UIControlStateNormal];
     [locationButton setTitleColor:SYColor1 forState:UIControlStateSelected];
+    [locationButton setTitle:@"请选择位置" forState:UIControlStateNormal];
+    [locationButton.titleLabel setFont:SYFont20];
+    [locationButton addTarget:self action:@selector(locationResponse) forControlEvents:UIControlEventTouchUpInside];
     locationButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     [locationView addSubview:locationButton];
     
-    /*date*/
-    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"1970-01-01", @"available_date", nil];
-    [_shareDict addEntriesFromDictionary:dict];
-    if (_dateAvailable) {
-        dateView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
-        [mainScrollView addSubview:dateView];
-        [viewsArray addObject:dateView];
-        UILabel *dateTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
-        dateTitleLabel.text = @"日期";
-        dateTitleLabel.textColor = SYColor1;
-        [dateView addSubview:dateTitleLabel];
-        UIButton *dateButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
-        [dateButton setTitle:@"请选择入住日期" forState:UIControlStateNormal];
-        [dateButton setTitleColor:SYColor3 forState:UIControlStateNormal];
-        [dateButton setTitleColor:SYColor1 forState:UIControlStateSelected];
-        dateButton.tag = 11;
-        dateButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-        [dateButton addTarget:self action:@selector(dateResponse:) forControlEvents:UIControlEventTouchUpInside];
-        [dateView addSubview:dateButton];
-        
-        datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-216, self.view.frame.size.width, 216)];
-        datePicker.backgroundColor = [UIColor whiteColor];
-        datePicker.datePickerMode = UIDatePickerModeDate;
-        NSDate *currentDate = [NSDate date];
-        [datePicker setDate:currentDate];
-        [datePicker addTarget:self action:@selector(datePickerChanged) forControlEvents:UIControlEventValueChanged];
-        [self.view addSubview:datePicker];
-        datePicker.hidden = YES;
-        confirmBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-216-30, self.view.frame.size.width, 30)];
-        confirmBackgroundView.hidden = YES;
-        confirmBackgroundView.backgroundColor = [UIColor whiteColor];
-        confirmBackgroundView.tag = 9013;
-        [self.view addSubview:confirmBackgroundView];
-        UIButton *confirmButton = [[UIButton alloc] initWithFrame:CGRectMake(confirmBackgroundView.frame.size.width-60, 0, 40, 30)];
-        [confirmButton setTitle:@"确定" forState:UIControlStateNormal];
-        [confirmButton setTitleColor:SYColor1 forState:UIControlStateNormal];
-        //    [confirmButton.titleLabel setFont:goFont15S];
-        [confirmButton addTarget:self action:@selector(pickerConfirmResponse) forControlEvents:UIControlEventTouchUpInside];
-        [confirmBackgroundView addSubview:confirmButton];
-        CALayer *layer = confirmBackgroundView.layer;
-        layer.masksToBounds = NO;
-        layer.shadowOffset = CGSizeMake(0, -2);
-        layer.shadowColor = [UIColorFromRGB(0xBBBBBB) CGColor];
-        layer.shadowRadius = 2;
-        layer.shadowOpacity = .25f;
-        layer.shadowPath = [[UIBezierPath bezierPathWithRect:layer.bounds] CGPath];
-        
-    }
-    
-    /*price*/
-    priceView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 140)];
-    priceView.hidden = YES;
-    [mainScrollView addSubview:priceView];
-    [viewsArray addObject:priceView];
-    UILabel *priceTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 60)];
-    priceTitleLabel.text = @"价格";
-    priceTitleLabel.textColor = SYColor1;
-    [priceView addSubview:priceTitleLabel];
-    SYPriceSlider *priceSlider = [[SYPriceSlider alloc] initWithFrame:CGRectMake(originX, 60, viewWidth-2*originX, 50) type:SYPriceSliderSingle];
-    priceSlider.delegate = self;
-    [priceView addSubview:priceSlider];
-    priceString = @"150";
-    
-    /*distance*/
-    distanceString = @"1000";
-    if (_distanceAvailable) {
-        distanceView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 140)];
-        distanceView.hidden = YES;
-        [mainScrollView addSubview:distanceView];
-        [viewsArray addObject:distanceView];
-        UILabel *distanceTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 200, 60)];
-        distanceTitleLabel.text = @"服务的范围";
-        distanceTitleLabel.textColor = SYColor1;
-        [distanceView addSubview:distanceTitleLabel];
-        distanceSlider = [[SYDistanceSlider alloc] initWithFrame:CGRectMake(originX, 50, viewWidth-2*originX, 70)];
-        [distanceSlider.distanceSlider addTarget:self action:@selector(updateDistance) forControlEvents:UIControlEventValueChanged];
-        [distanceView addSubview:distanceSlider];
-        distanceString = @"3";
-
-
-    }
-    /*title*/
-    titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
-    titleView.hidden = YES;
-    [mainScrollView addSubview:titleView];
-    [viewsArray addObject:titleView];
-    UILabel *titleTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 40)];
-    titleTitleLabel.text = @"标题";
-    titleTitleLabel.textColor = SYColor1;
-    [titleView addSubview:titleTitleLabel];
-    UITextField *textfield = [[UITextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30)];
-    textfield.tag = 11;
-    [textfield addTarget:self action:@selector(titleEmptyCheck) forControlEvents:UIControlEventEditingChanged];
-    textfield.backgroundColor = [UIColor whiteColor];
-    [titleView addSubview:textfield];
-    
-    /*introduction*/
-    introductionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 180)];
-    introductionView.hidden = YES;
-    [mainScrollView addSubview:introductionView];
-    [viewsArray addObject:introductionView];
-    UILabel *introductionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 40)];
-    introductionTitleLabel.text = @"简介";
-    introductionTitleLabel.textColor = SYColor1;
-    [introductionView addSubview:introductionTitleLabel];
-    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 100)];
-    textView.tag = 11;
-    textView.delegate = self;
-    textView.backgroundColor = [UIColor whiteColor];
-    [introductionView addSubview:textView];
-    
     /*next button*/
-    nextButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 44)];
-    [nextButton setTitle:@"发布" forState:UIControlStateNormal];
+    nextButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 32)];
+    [nextButton setTitle:@"提交" forState:UIControlStateNormal];
     [nextButton setBackgroundColor:SYColor4];
     [nextButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [nextButton.titleLabel setFont:SYFont20S];
+    [nextButton.titleLabel setFont:SYFont15M];
     [nextButton addTarget:self action:@selector(nextResponse) forControlEvents:UIControlEventTouchUpInside];
     nextButton.layer.cornerRadius = nextButton.frame.size.height/2;
     nextButton.clipsToBounds = YES;
@@ -247,39 +178,36 @@
     
     datePicker.hidden = YES;
 }
-
-
-- (void)priceSlider:(UISlider *)slider priceChangeToValue:(NSInteger)price{
-    priceString = [NSString stringWithFormat:@"%ld",price];
-    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:priceString, @"price", nil];
-    [_shareDict addEntriesFromDictionary:dict];
-}
--(void)lowerPriceChangeToValue:(NSInteger)lowerPrice upperToValue:(NSInteger)upperPrice{
-    
-}
-- (void)updateDistance{
-    distanceString = [NSString stringWithFormat:@"%ld",distanceSlider.distanceInteger];
-}
 -(void)titleEmptyCheck{
     UITextField *textField = [titleView viewWithTag:11];
     if ([textField.text length]) {
         introductionView.hidden = NO;
     }
 }
--(void)textViewDidChange:(UITextView *)textView{
-    if ([textView.text length]) {
-        nextButton.hidden = NO;
-    }
+-(void)locationResponse{
+    [self dismissKeyboard];
+    DiscoverLocationViewController *viewController = [DiscoverLocationViewController new];
+    viewController.previousController = self;
+    viewController.needDistance = YES;
+    viewController.nextControllerType = SYDiscoverNextHelp;
+    [self.navigationController pushViewController:viewController animated:YES];
+
 }
--(void)textViewDidBeginEditing:(UITextView *)textView{
-    if ([textView.text length]) {
-        nextButton.hidden = NO;
-    }
+-(void)locationCompleteResponse{
+    UIButton *locationButton = [locationView viewWithTag:11];
+    locationButton.selected = YES;
+    [locationButton setTitle:[NSString stringWithFormat:@"%@附近%@英里",[[[_selectedItem placemark] addressDictionary] valueForKey:@"Street"],_distanceString] forState:UIControlStateSelected];
+    nextButton.hidden = NO;
+    
 }
+-(void)SYTextView:(SYTextView *)textView isEmpty:(BOOL)empty{
+    locationView.hidden = !empty;
+}
+
 - (void)nextResponse{
     UITextField *title = [titleView viewWithTag:11];
     UITextView *introduction = [introductionView viewWithTag:11];
-    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=2&subcate=%@&price=%@&available_date=%@&distance=%@&placemark=%@&title=%@&introduction=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,[_shareDict valueForKey:@"subcate"],priceString,dateString,distanceString,_selectedItem.name,title.text,introduction.text];
+    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=2&subcate=%@&price=%@&available_date=%@&distance=%@&placemark=%@&title=%@&introduction=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,[_shareDict valueForKey:@"subcate"],priceString,dateString,_distanceString,_selectedItem.name,title.text,introduction.text];
     NSLog(@"%@/n",requestBody);
     /*改上面的 query 和 URLstring 就好了*/
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@newshare",basicURL]];

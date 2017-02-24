@@ -25,4 +25,7 @@
 #import "SYProfileHead.h"
 #import "SYProfileExtend.h"
 #import "SYTitle.h"
+
+#import "SYTextField.h"
+#import "SYTextView.h"
 #endif /* SYHeader_h */

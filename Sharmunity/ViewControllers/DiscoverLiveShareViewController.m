@@ -8,7 +8,7 @@
 
 #import "DiscoverLiveShareViewController.h"
 #import "DiscoverLiveShareLeaseViewController.h"
-#import "DiscoverLocationViewController.h"
+#import "DiscoverLiveShareSubmitViewController.h"
 #import "SYHeader.h"
 @interface DiscoverLiveShareViewController ()
 
@@ -18,10 +18,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: SYColor1,
+                                                                    NSFontAttributeName: SYFont15M};
+    
     MEID = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"admin"] valueForKey:@"id"];
     [self viewsSetup];
+    
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setImage:[UIImage imageNamed:@"SYBackColor4"] forState:UIControlStateNormal];
+    [backBtn setTitle:@"我要帮助" forState:UIControlStateNormal];
+    [backBtn setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [backBtn.titleLabel setFont:SYFont13S];
+    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.bounds = CGRectMake(0, 0, 80, 40);
+    backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.leftBarButtonItem = backButton;
 }
-
+-(void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -86,14 +102,8 @@
 
 -(void)moveResponse{
     NSString *subCate = @"03000000";
-    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:subCate, @"subcate", nil];
-    NSMutableDictionary *shareDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:MEID,@"email",@"2",@"category",@"2099-01-01",@"expire_date", nil];;
-    [shareDict addEntriesFromDictionary:dict];
-    DiscoverLocationViewController *viewController = [DiscoverLocationViewController new];
-    viewController.subCate = subCate;
-    viewController.summaryDict = shareDict;
-    viewController.needDistance = NO;
-    viewController.nextControllerType = SYDiscoverNextShareMove;
+    DiscoverLiveShareSubmitViewController *viewController = [DiscoverLiveShareSubmitViewController new];
+    viewController.subcate = subCate;
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

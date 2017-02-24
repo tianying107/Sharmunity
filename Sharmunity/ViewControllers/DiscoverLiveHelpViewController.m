@@ -9,7 +9,7 @@
 #import "DiscoverLiveHelpViewController.h"
 #import "DiscoverLiveHelpRentViewController.h"
 #import "DiscoverLiveShareLeaseViewController.h"
-#import "DiscoverLocationViewController.h"
+#import "DiscoverLiveHelpSubmitViewController.h"
 #import "Header.h"
 #import "SYHeader.h"
 @interface DiscoverLiveHelpViewController ()
@@ -22,9 +22,21 @@
     [super viewDidLoad];
     MEID = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"admin"] valueForKey:@"id"];
     [self viewsSetup];
-    // Do any additional setup after loading the view.
+    
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setImage:[UIImage imageNamed:@"SYBackColor5"] forState:UIControlStateNormal];
+    [backBtn setTitle:@"我要求助" forState:UIControlStateNormal];
+    [backBtn setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [backBtn.titleLabel setFont:SYFont13S];
+    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.bounds = CGRectMake(0, 0, 80, 40);
+    backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.leftBarButtonItem = backButton;
 }
-
+-(void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -87,7 +99,7 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 -(void)shortResponse{
-    DiscoverLiveShareLeaseViewController *viewController = [DiscoverLiveShareLeaseViewController new];
+    DiscoverLiveHelpRentViewController *viewController = [DiscoverLiveHelpRentViewController new];
     viewController.shortRent = YES;
     [self.navigationController pushViewController:viewController animated:YES];
 }
@@ -98,14 +110,8 @@
 
 -(void)moveResponse{
     NSString *subCate = @"03000000";
-    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:subCate, @"subcate", nil];
-    NSMutableDictionary *shareDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:MEID,@"email",@"2",@"category",@"2099-01-01",@"expire_date", nil];;
-    [shareDict addEntriesFromDictionary:dict];
-    DiscoverLocationViewController *viewController = [DiscoverLocationViewController new];
-    viewController.subCate = subCate;
-    viewController.summaryDict = shareDict;
-    viewController.needDistance = NO;
-    viewController.nextControllerType = SYDiscoverNextHelpMove;
+    DiscoverLiveHelpSubmitViewController *viewController = [DiscoverLiveHelpSubmitViewController new];
+    viewController.subcate = subCate;
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

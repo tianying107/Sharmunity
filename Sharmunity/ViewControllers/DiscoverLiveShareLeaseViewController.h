@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-@interface DiscoverLiveShareLeaseViewController : UIViewController<UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource,UITextViewDelegate>{
+@interface DiscoverLiveShareLeaseViewController : UIViewController<UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource>{
     UIScrollView *mainScrollView;
     UIView *shareRentView;
     UIView *genderView;

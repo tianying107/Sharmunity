@@ -230,12 +230,19 @@
             ((DiscoverLiveShareSubmitViewController*)viewController).dateAvailable = YES;
             ((DiscoverLiveShareSubmitViewController*)viewController).selectedItem = selectedItem;
             break;
-        case SYDiscoverNextHelpMove:
-            viewController = [DiscoverLiveHelpSubmitViewController new];
-            ((DiscoverLiveHelpSubmitViewController*)viewController).helpDict = _summaryDict;
-            ((DiscoverLiveHelpSubmitViewController*)viewController).distanceAvailable = NO;
-            ((DiscoverLiveHelpSubmitViewController*)viewController).dateAvailable = YES;
-            ((DiscoverLiveHelpSubmitViewController*)viewController).selectedItem = selectedItem;
+        case SYDiscoverNextHelpMoveOut:
+            viewController = _previousController;
+            ((DiscoverLiveHelpSubmitViewController*)viewController).selectedOutItem = selectedItem;
+            [(DiscoverLiveHelpSubmitViewController*)viewController locationOutCompleteResponse];
+            [self.navigationController popViewControllerAnimated:YES];
+            return;
+            break;
+        case SYDiscoverNextHelpMoveIn:
+            viewController = _previousController;
+            ((DiscoverLiveHelpSubmitViewController*)viewController).selectedInItem = selectedItem;
+            [(DiscoverLiveHelpSubmitViewController*)viewController locationInCompleteResponse];
+            [self.navigationController popViewControllerAnimated:YES];
+            return;
             break;
         case SYDiscoverNextShareLearn:
             viewController = _previousController;

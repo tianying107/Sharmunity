@@ -182,14 +182,11 @@
         /*keyword*/
         NSString *placemark = [keyword valueForKey:@"placemark"];
         if (titleType == titleHelp) {
-            NSString *lowerPrice = [keyword valueForKey:@"lower_price"];
-            NSString *upperPrice = [keyword valueForKey:@"upper_price"];
             NSString *dateString = [keyword valueForKey:@"date"];
-            result = [NSString stringWithFormat:@"我要搬家%@在%@\n价格$%@-$%@",dateString,placemark,lowerPrice,upperPrice];
+            result = [NSString stringWithFormat:@"我要搬家%@在%@",dateString,placemark];
         }
         else{
-            NSString *price = [keyword valueForKey:@"price"];
-            result = [NSString stringWithFormat:@"我提供搬家服务在%@附近\n价格$%@",placemark,price];
+            result = [NSString stringWithFormat:@"我提供搬家服务在%@附近",placemark];
         }
         
     }
