@@ -40,7 +40,7 @@
     [backBtn setImage:[UIImage imageNamed:@"SYBackColor5"] forState:UIControlStateNormal];
     [backBtn setTitle:@"住" forState:UIControlStateNormal];
     [backBtn setTitleColor:SYColor1 forState:UIControlStateNormal];
-    [backBtn.titleLabel setFont:SYFont13S];
+    [backBtn.titleLabel setFont:SYFont15];
     [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     backBtn.bounds = CGRectMake(0, 0, 80, 40);
     backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -71,10 +71,10 @@
     float originX = 30;
     
     /*location*/
-    locationOutView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    locationOutView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 50)];
     [mainScrollView addSubview:locationOutView];
     [viewsArray addObject:locationOutView];
-    UIButton *locationButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 40)];
+    UIButton *locationButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 5, viewWidth-2*originX, 40)];
     locationButton.tag = 11;
     [locationButton setTitleColor:SYColor3 forState:UIControlStateNormal];
     [locationButton setTitleColor:SYColor1 forState:UIControlStateSelected];
@@ -90,10 +90,10 @@
     [locationOutView addSubview:locationButton];
     
     /*location*/
-    locationInView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    locationInView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 50)];
     [mainScrollView addSubview:locationInView];
     [viewsArray addObject:locationInView];
-    UIButton *locationInButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 40)];
+    UIButton *locationInButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 5, viewWidth-2*originX, 40)];
     locationInButton.tag = 11;
     [locationInButton setTitleColor:SYColor3 forState:UIControlStateNormal];
     [locationInButton setTitleColor:SYColor1 forState:UIControlStateSelected];
@@ -109,22 +109,22 @@
     [locationInView addSubview:locationInButton];
     
     /*date view*/
-    dateView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    dateView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 110)];
     dateView.hidden = YES;
     [mainScrollView addSubview:dateView];
     [viewsArray addObject:dateView];
-    UILabel *dateTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
+    UILabel *dateTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 110)];
     dateTitleLabel.text = @"搬家日期";
     [dateTitleLabel setFont:SYFont20];
     dateTitleLabel.textColor = SYColor1;
     [dateView addSubview:dateTitleLabel];
-    UIButton *dateButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
+    UIButton *dateButton = [[UIButton alloc] initWithFrame:CGRectMake(155, 0, viewWidth-2*originX, 110)];
     [dateButton setTitle:@"请选择搬家时间" forState:UIControlStateNormal];
     [dateButton setTitleColor:SYColor9 forState:UIControlStateNormal];
     [dateButton setTitleColor:SYColor1 forState:UIControlStateSelected];
     [dateButton.titleLabel setFont:SYFont20];
     dateButton.tag = 11;
-    dateButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    dateButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [dateButton addTarget:self action:@selector(dateResponse:) forControlEvents:UIControlEventTouchUpInside];
     [dateView addSubview:dateButton];
         
@@ -164,11 +164,11 @@
     distanceString = @"0";
 
     /*introduction*/
-    introductionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 120)];
+    introductionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 160)];
     introductionView.hidden = YES;
     [mainScrollView addSubview:introductionView];
     [viewsArray addObject:introductionView];
-    SYTextView *textView = [[SYTextView alloc] initWithFrame:CGRectMake(originX, 10, viewWidth-2*originX, 100) type:SYTextViewHelp];
+    SYTextView *textView = [[SYTextView alloc] initWithFrame:CGRectMake(originX, 10, viewWidth-2*originX, 90) type:SYTextViewHelp];
     textView.tag = 11;
     textView.SYDelegate = self;
     [textView setPlaceholder:@"搬家物品"];
@@ -179,7 +179,7 @@
     [nextButton setTitle:@"提交" forState:UIControlStateNormal];
     [nextButton setBackgroundColor:SYColor7];
     [nextButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [nextButton.titleLabel setFont:SYFont20S];
+    [nextButton.titleLabel setFont:SYFont20M];
     [nextButton addTarget:self action:@selector(nextResponse) forControlEvents:UIControlEventTouchUpInside];
     nextButton.layer.cornerRadius = 8;
     nextButton.clipsToBounds = YES;

@@ -22,7 +22,7 @@
     [super viewDidLoad];
     self.navigationItem.title = (_shortRent)?@"短租":@"出租";
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: SYColor1,
-                                                                    NSFontAttributeName: SYFont15M};
+                                                                    NSFontAttributeName: SYFont20};
     self.view.backgroundColor = SYBackgroundColorExtraLight;
     
     mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
@@ -55,7 +55,7 @@
     [backBtn setImage:[UIImage imageNamed:@"SYBackColor4"] forState:UIControlStateNormal];
     [backBtn setTitle:@"住" forState:UIControlStateNormal];
     [backBtn setTitleColor:SYColor1 forState:UIControlStateNormal];
-    [backBtn.titleLabel setFont:SYFont13S];
+    [backBtn.titleLabel setFont:SYFont15];
     [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     backBtn.bounds = CGRectMake(0, 0, 80, 40);
     backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -86,62 +86,62 @@
     float originX = 30;
     
     /*share rent*/
-    shareRentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    shareRentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 45)];
     [mainScrollView addSubview:shareRentView];
     [viewsArray addObject:shareRentView];
-    UIButton *shareRentButton = [[UIButton alloc] initWithFrame:CGRectMake(originX+30, 20, 150, 60)];
+    UIButton *shareRentButton = [[UIButton alloc] initWithFrame:CGRectMake(originX+30, 0, 150, 40)];
     [shareRentButton setTitle:@"合租" forState:UIControlStateNormal];
-    [shareRentButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [shareRentButton setTitleColor:SYColor8 forState:UIControlStateNormal];
     [shareRentButton.titleLabel setFont:SYFont20];
     shareRentButton.tag = 11;
     [shareRentButton addTarget:self action:@selector(shareRentResponse:) forControlEvents:UIControlEventTouchUpInside];
     [shareRentView addSubview:shareRentButton];
-    UIButton *soloRentButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth-originX-30-150, 20, 150, 60)];
+    UIButton *soloRentButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth-originX-30-150, 0, 150, 40)];
     [soloRentButton setTitle:@"独租" forState:UIControlStateNormal];
-    [soloRentButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [soloRentButton setTitleColor:SYColor8 forState:UIControlStateNormal];
     [soloRentButton.titleLabel setFont:SYFont20];
     soloRentButton.tag = 10;
     [soloRentButton addTarget:self action:@selector(shareRentResponse:) forControlEvents:UIControlEventTouchUpInside];
     [shareRentView addSubview:soloRentButton];
     /*gender*/
-    genderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
-    UIButton *noLimitButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, 150, 60)];
+    genderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 45)];
+    UIButton *noLimitButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth-originX-150, 0, 150, 40)];
     [noLimitButton setTitle:@"不限" forState:UIControlStateNormal];
-    [noLimitButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [noLimitButton setTitleColor:SYColor8 forState:UIControlStateNormal];
     [noLimitButton.titleLabel setFont:SYFont20];
     noLimitButton.tag = 10;
     [noLimitButton addTarget:self action:@selector(genderReponse:) forControlEvents:UIControlEventTouchUpInside];
     [genderView addSubview:noLimitButton];
-    UIButton *boyOnlyButton = [[UIButton alloc] initWithFrame:CGRectMake((viewWidth-150)/2, 20, 150, 60)];
+    UIButton *boyOnlyButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, 150, 40)];
     [boyOnlyButton setTitle:@"男生" forState:UIControlStateNormal];
-    [boyOnlyButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [boyOnlyButton setTitleColor:SYColor8 forState:UIControlStateNormal];
     [boyOnlyButton.titleLabel setFont:SYFont20];
     boyOnlyButton.tag = 11;
     [boyOnlyButton addTarget:self action:@selector(genderReponse:) forControlEvents:UIControlEventTouchUpInside];
     [genderView addSubview:boyOnlyButton];
-    UIButton *girlOnlyButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth-originX-150, 20, 150, 60)];
+    UIButton *girlOnlyButton = [[UIButton alloc] initWithFrame:CGRectMake((viewWidth-150)/2, 0, 150, 40)];
     [girlOnlyButton setTitle:@"女生" forState:UIControlStateNormal];
-    [girlOnlyButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [girlOnlyButton setTitleColor:SYColor8 forState:UIControlStateNormal];
     [girlOnlyButton.titleLabel setFont:SYFont20];
     girlOnlyButton.tag = 12;
     [girlOnlyButton addTarget:self action:@selector(genderReponse:) forControlEvents:UIControlEventTouchUpInside];
     [genderView addSubview:girlOnlyButton];
     
     /*house or apartment*/
-    houseView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    houseView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 45)];
     houseView.hidden = YES;
     [mainScrollView addSubview:houseView];
     [viewsArray addObject:houseView];
-    UIButton *houseButton = [[UIButton alloc] initWithFrame:CGRectMake(originX+30, 20, 150, 60)];
+    UIButton *houseButton = [[UIButton alloc] initWithFrame:CGRectMake(originX+30, 0, 150, 40)];
     [houseButton setTitle:@"独栋" forState:UIControlStateNormal];
-    [houseButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [houseButton setTitleColor:SYColor8 forState:UIControlStateNormal];
     [houseButton.titleLabel setFont:SYFont20];
     houseButton.tag = 10;
     [houseButton addTarget:self action:@selector(houseResponse:) forControlEvents:UIControlEventTouchUpInside];
     [houseView addSubview:houseButton];
-    UIButton *apartmentButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth-originX-30-150, 20, 150, 60)];
+    UIButton *apartmentButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth-originX-30-150, 0, 150, 40)];
     [apartmentButton setTitle:@"公寓" forState:UIControlStateNormal];
-    [apartmentButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [apartmentButton setTitleColor:SYColor8 forState:UIControlStateNormal];
     [apartmentButton.titleLabel setFont:SYFont20];
     apartmentButton.tag = 11;
     [apartmentButton addTarget:self action:@selector(houseResponse:) forControlEvents:UIControlEventTouchUpInside];
@@ -149,22 +149,22 @@
     
     originX = 50;
     /*room type*/
-    typeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    typeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 60)];
     typeView.hidden = YES;
     [mainScrollView addSubview:typeView];
     [viewsArray addObject:typeView];
-    UILabel *typeTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
+    UILabel *typeTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 60)];
     typeTitleLabel.text = @"户型";
     [typeTitleLabel setFont:SYFont20];
-    typeTitleLabel.textColor = SYColor1;
+    typeTitleLabel.textColor = SYColor8;
     [typeView addSubview:typeTitleLabel];
-    UIButton *typeButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
+    UIButton *typeButton = [[UIButton alloc] initWithFrame:CGRectMake(155, 0, viewWidth-155, 60)];
     [typeButton setTitle:@"请选择户型" forState:UIControlStateNormal];
     [typeButton setTitleColor:SYColor9 forState:UIControlStateNormal];
-    [typeButton setTitleColor:SYColor1 forState:UIControlStateSelected];
+    [typeButton setTitleColor:SYColor8 forState:UIControlStateSelected];
     [typeButton.titleLabel setFont:SYFont20];
     typeButton.tag = 11;
-    typeButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    typeButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [typeButton addTarget:self action:@selector(typeResponse:) forControlEvents:UIControlEventTouchUpInside];
     [typeView addSubview:typeButton];
     typePickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-216, self.view.frame.size.width, 216)];
@@ -193,22 +193,22 @@
     layer.shadowPath = [[UIBezierPath bezierPathWithRect:layer.bounds] CGPath];
     
     /*date view*/
-    dateView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    dateView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 60)];
     dateView.hidden = YES;
     [mainScrollView addSubview:dateView];
     [viewsArray addObject:dateView];
-    UILabel *dateTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
+    UILabel *dateTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 60)];
     dateTitleLabel.text = @"日期";
     [dateTitleLabel setFont:SYFont20];
-    dateTitleLabel.textColor = SYColor1;
+    dateTitleLabel.textColor = SYColor8;
     [dateView addSubview:dateTitleLabel];
-    UIButton *dateButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
+    UIButton *dateButton = [[UIButton alloc] initWithFrame:CGRectMake(155, 0, viewWidth-155, 60)];
     [dateButton setTitle:@"请选择入住日期" forState:UIControlStateNormal];
     [dateButton setTitleColor:SYColor9 forState:UIControlStateNormal];
-    [dateButton setTitleColor:SYColor1 forState:UIControlStateSelected];
+    [dateButton setTitleColor:SYColor8 forState:UIControlStateSelected];
     [dateButton.titleLabel setFont:SYFont20];
     dateButton.tag = 11;
-    dateButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    dateButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [dateButton addTarget:self action:@selector(dateResponse:) forControlEvents:UIControlEventTouchUpInside];
     [dateView addSubview:dateButton];
     
@@ -224,22 +224,22 @@
     
     if (_shortRent) {
         /*short view*/
-        shortView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+        shortView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 60)];
         shortView.hidden = YES;
         [mainScrollView addSubview:shortView];
         [viewsArray addObject:shortView];
-        UILabel *shortTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
+        UILabel *shortTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 60)];
         shortTitleLabel.text = @"租期";
         [shortTitleLabel setFont:SYFont20];
-        shortTitleLabel.textColor = SYColor1;
+        shortTitleLabel.textColor = SYColor8;
         [shortView addSubview:shortTitleLabel];
-        UIButton *shortButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
+        UIButton *shortButton = [[UIButton alloc] initWithFrame:CGRectMake(155, 0, viewWidth-155, 60)];
         [shortButton setTitle:@"请选择租期" forState:UIControlStateNormal];
         [shortButton setTitleColor:SYColor9 forState:UIControlStateNormal];
-        [shortButton setTitleColor:SYColor1 forState:UIControlStateSelected];
+        [shortButton setTitleColor:SYColor8 forState:UIControlStateSelected];
         [shortButton.titleLabel setFont:SYFont20];
         shortButton.tag = 11;
-        shortButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        shortButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [shortButton addTarget:self action:@selector(shortResponse:) forControlEvents:UIControlEventTouchUpInside];
         [shortView addSubview:shortButton];
         
@@ -252,17 +252,17 @@
     }
     
     /*price*/
-    priceView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 80)];
+    priceView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 60)];
     priceView.hidden = YES;
     [mainScrollView addSubview:priceView];
     [viewsArray addObject:priceView];
     UILabel *priceTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 60)];
     priceTitleLabel.text = @"价格";
-    priceTitleLabel.textColor = SYColor1;
+    priceTitleLabel.textColor = SYColor8;
     [priceTitleLabel setFont:SYFont20];
     [priceView addSubview:priceTitleLabel];
     UITextField *priceTextField = [[UITextField alloc] initWithFrame:CGRectMake(viewWidth-originX-140, 0, 100, 60)];
-    priceTextField.textColor = SYColor1;
+    priceTextField.textColor = SYColor8;
     [priceTextField setFont:SYFont20];
     priceTextField.textAlignment = NSTextAlignmentRight;
     priceTextField.tag = 11;
@@ -275,57 +275,57 @@
     UILabel *dollarLabel = [[UILabel alloc] initWithFrame:CGRectMake(viewWidth-originX-140-40, 0, 40, 60)];
     dollarLabel.text = @"$";
     dollarLabel.textAlignment = NSTextAlignmentRight;
-    dollarLabel.textColor = SYColor1;
+    dollarLabel.textColor = SYColor8;
     [dollarLabel setFont:SYFont20];
     [priceView addSubview:dollarLabel];
     UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(viewWidth-originX-40, 0, 40, 60)];
     monthLabel.text = @"/月";
-    monthLabel.textColor = SYColor1;
+    monthLabel.textColor = SYColor8;
     [monthLabel setFont:SYFont20];
     monthLabel.tag = 12;
     [priceView addSubview:monthLabel];
 
     originX = 30;
     /*title*/
-    titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 80)];
+    titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 60)];
     titleView.hidden = YES;
     [mainScrollView addSubview:titleView];
     [viewsArray addObject:titleView];
-    SYTextField *textfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 40) type:SYTextFieldShare];
+    SYTextField *textfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 10, viewWidth-2*originX, 40) type:SYTextFieldShare];
     textfield.tag = 11;
     textfield.placeholder = @"提供房屋标题";
     [textfield addTarget:self action:@selector(titleEmptyCheck) forControlEvents:UIControlEventEditingChanged];
     [titleView addSubview:textfield];
     
     /*introduction*/
-    introductionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 150)];
+    introductionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 120)];
     introductionView.hidden = YES;
     [mainScrollView addSubview:introductionView];
     [viewsArray addObject:introductionView];
-    SYTextView *textView = [[SYTextView alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 110) type:SYTextViewShare];
+    SYTextView *textView = [[SYTextView alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 110) type:SYTextViewShare];
     textView.tag = 11;
     textView.SYDelegate = self;
     [textView setPlaceholder:@"提供房屋介绍"];
     [introductionView addSubview:textView];
     
     /*location*/
-    locationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    locationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 160)];
     locationView.hidden = YES;
     [mainScrollView addSubview:locationView];
     [viewsArray addObject:locationView];
-    UILabel *locationTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
+    UILabel *locationTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 60)];
     locationTitleLabel.text = @"位置";
-    locationTitleLabel.textColor = SYColor1;
+    locationTitleLabel.textColor = SYColor8;
     [locationTitleLabel setFont:SYFont20];
     [locationView addSubview:locationTitleLabel];
-    UIButton *locationButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
+    UIButton *locationButton = [[UIButton alloc] initWithFrame:CGRectMake(155, 0, viewWidth-155, 60)];
     locationButton.tag = 11;
     [locationButton setTitleColor:SYColor9 forState:UIControlStateNormal];
-    [locationButton setTitleColor:SYColor1 forState:UIControlStateSelected];
+    [locationButton setTitleColor:SYColor8 forState:UIControlStateSelected];
     [locationButton.titleLabel setFont:SYFont20];
     [locationButton setTitle:@"请选择位置" forState:UIControlStateNormal];
     [locationButton addTarget:self action:@selector(locationResponse) forControlEvents:UIControlEventTouchUpInside];
-    locationButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    locationButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [locationView addSubview:locationButton];
     
     
@@ -333,7 +333,7 @@
     [nextButton setTitle:@"提交" forState:UIControlStateNormal];
     [nextButton setBackgroundColor:SYColor4];
     [nextButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [nextButton.titleLabel setFont:SYFont20S];
+    [nextButton.titleLabel setFont:SYFont20M];
     [nextButton addTarget:self action:@selector(nextResponse) forControlEvents:UIControlEventTouchUpInside];
     nextButton.layer.cornerRadius = 8;
     nextButton.clipsToBounds = YES;
@@ -359,20 +359,24 @@
     UIButton *button = sender;
     if (button.tag-10) {
         shareRentString = @"10";
-        [button setTitleColor:SYColor1 forState:UIControlStateNormal];
+        [button setTitleColor:SYColor4 forState:UIControlStateNormal];
         UIButton *button2 = [shareRentView viewWithTag:10];
         [button2 setTitleColor:SYColor8 forState:UIControlStateNormal];
         [mainScrollView addSubview:genderView];
         [viewsArray insertObject:genderView atIndex:1];
+        [button.titleLabel setFont:SYFont25M];
+        [button2.titleLabel setFont:SYFont20];
     }
     else{
         shareRentString = @"00";
-        [button setTitleColor:SYColor1 forState:UIControlStateNormal];
+        [button setTitleColor:SYColor4 forState:UIControlStateNormal];
         UIButton *button2 = [shareRentView viewWithTag:11];
         [button2 setTitleColor:SYColor8 forState:UIControlStateNormal];
         [genderView removeFromSuperview];
         [viewsArray removeObject:genderView];
         houseView.hidden = NO;
+        [button.titleLabel setFont:SYFont25M];
+        [button2.titleLabel setFont:SYFont20];
     }
     [self viewsLayout];
 }
@@ -380,25 +384,34 @@
     UIButton *button = sender;
     shareRentString = [NSString stringWithFormat:@"%ld",button.tag];
     if (button.tag == 11) {
-        [button setTitleColor:SYColor1 forState:UIControlStateNormal];
+        [button setTitleColor:SYColor4 forState:UIControlStateNormal];
         UIButton *button2 = [genderView viewWithTag:10];
         [button2 setTitleColor:SYColor8 forState:UIControlStateNormal];
         UIButton *button3 = [genderView viewWithTag:12];
         [button3 setTitleColor:SYColor8 forState:UIControlStateNormal];
+        [button.titleLabel setFont:SYFont25M];
+        [button2.titleLabel setFont:SYFont20];
+        [button3.titleLabel setFont:SYFont20];
     }
     else if(button.tag == 12){
-        [button setTitleColor:SYColor1 forState:UIControlStateNormal];
+        [button setTitleColor:SYColor4 forState:UIControlStateNormal];
         UIButton *button2 = [genderView viewWithTag:10];
         [button2 setTitleColor:SYColor8 forState:UIControlStateNormal];
         UIButton *button3 = [genderView viewWithTag:11];
         [button3 setTitleColor:SYColor8 forState:UIControlStateNormal];
+        [button.titleLabel setFont:SYFont25M];
+        [button2.titleLabel setFont:SYFont20];
+        [button3.titleLabel setFont:SYFont20];
     }
     else{
-        [button setTitleColor:SYColor1 forState:UIControlStateNormal];
+        [button setTitleColor:SYColor4 forState:UIControlStateNormal];
         UIButton *button2 = [genderView viewWithTag:12];
         [button2 setTitleColor:SYColor8 forState:UIControlStateNormal];
         UIButton *button3 = [genderView viewWithTag:11];
         [button3 setTitleColor:SYColor8 forState:UIControlStateNormal];
+        [button.titleLabel setFont:SYFont25M];
+        [button2.titleLabel setFont:SYFont20];
+        [button3.titleLabel setFont:SYFont20];
     }
     houseView.hidden = NO;
 }
@@ -407,15 +420,19 @@
     UIButton *button = sender;
     if (button.tag-10) {
         houseString = @"1";
-        [button setTitleColor:SYColor1 forState:UIControlStateNormal];
+        [button setTitleColor:SYColor4 forState:UIControlStateNormal];
         UIButton *button2 = [houseView viewWithTag:10];
         [button2 setTitleColor:SYColor8 forState:UIControlStateNormal];
+        [button.titleLabel setFont:SYFont25M];
+        [button2.titleLabel setFont:SYFont20];
     }
     else{
         houseString = @"0";
-        [button setTitleColor:SYColor1 forState:UIControlStateNormal];
+        [button setTitleColor:SYColor4 forState:UIControlStateNormal];
         UIButton *button2 = [houseView viewWithTag:11];
         [button2 setTitleColor:SYColor8 forState:UIControlStateNormal];
+        [button.titleLabel setFont:SYFont25M];
+        [button2.titleLabel setFont:SYFont20];
     }
     typeView.hidden = NO;
 }

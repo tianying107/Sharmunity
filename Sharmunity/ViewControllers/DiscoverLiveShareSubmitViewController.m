@@ -23,7 +23,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"搬家服务";
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: SYColor1,
-                                                                    NSFontAttributeName: SYFont15M};
+                                                                    NSFontAttributeName: SYFont20};
     self.view.backgroundColor = SYBackgroundColorExtraLight;
 
     mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
@@ -44,7 +44,7 @@
     [backBtn setImage:[UIImage imageNamed:@"SYBackColor4"] forState:UIControlStateNormal];
     [backBtn setTitle:@"住" forState:UIControlStateNormal];
     [backBtn setTitleColor:SYColor1 forState:UIControlStateNormal];
-    [backBtn.titleLabel setFont:SYFont13S];
+    [backBtn.titleLabel setFont:SYFont15];
     [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     backBtn.bounds = CGRectMake(0, 0, 80, 40);
     backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -76,10 +76,10 @@
     priceString = @"1";
     
     /*title*/
-    titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 50)];
     [mainScrollView addSubview:titleView];
     [viewsArray addObject:titleView];
-    SYTextField *textfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30) type:SYTextFieldShare];
+    SYTextField *textfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 40) type:SYTextFieldShare];
     textfield.tag = 11;
     textfield.placeholder = @"提供服务标题";
     [textfield addTarget:self action:@selector(titleEmptyCheck) forControlEvents:UIControlEventEditingChanged];
@@ -90,30 +90,30 @@
     introductionView.hidden = YES;
     [mainScrollView addSubview:introductionView];
     [viewsArray addObject:introductionView];
-    SYTextView *textView = [[SYTextView alloc] initWithFrame:CGRectMake(originX, 10, viewWidth-2*originX, 100) type:SYTextViewShare];
+    SYTextView *textView = [[SYTextView alloc] initWithFrame:CGRectMake(originX, 10, viewWidth-2*originX, 110) type:SYTextViewShare];
     textView.tag = 11;
     textView.SYDelegate = self;
     [textView setPlaceholder:@"提供服务介绍"];
     [introductionView addSubview:textView];
     
     /*location*/
-    locationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    locationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 160)];
     [mainScrollView addSubview:locationView];
     [viewsArray addObject:locationView];
     locationView.hidden = YES;
-    UILabel *locationTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
+    UILabel *locationTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 60)];
     locationTitleLabel.text = @"位置";
     locationTitleLabel.textColor = SYColor1;
     [locationTitleLabel setFont:SYFont20];
     [locationView addSubview:locationTitleLabel];
-    UIButton *locationButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
+    UIButton *locationButton = [[UIButton alloc] initWithFrame:CGRectMake(155, 0, viewWidth-155, 60)];
     locationButton.tag = 11;
     [locationButton setTitleColor:SYColor9 forState:UIControlStateNormal];
     [locationButton setTitleColor:SYColor1 forState:UIControlStateSelected];
     [locationButton setTitle:@"请选择位置" forState:UIControlStateNormal];
     [locationButton.titleLabel setFont:SYFont20];
     [locationButton addTarget:self action:@selector(locationResponse) forControlEvents:UIControlEventTouchUpInside];
-    locationButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    locationButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [locationView addSubview:locationButton];
     
     /*next button*/
@@ -121,9 +121,9 @@
     [nextButton setTitle:@"提交" forState:UIControlStateNormal];
     [nextButton setBackgroundColor:SYColor4];
     [nextButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [nextButton.titleLabel setFont:SYFont15M];
+    [nextButton.titleLabel setFont:SYFont20M];
     [nextButton addTarget:self action:@selector(nextResponse) forControlEvents:UIControlEventTouchUpInside];
-    nextButton.layer.cornerRadius = nextButton.frame.size.height/2;
+    nextButton.layer.cornerRadius = 8;
     nextButton.clipsToBounds = YES;
     [mainScrollView addSubview:nextButton];
     [viewsArray addObject:nextButton];

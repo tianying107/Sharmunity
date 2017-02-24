@@ -12,12 +12,13 @@
 @implementation SYChoiceAbstract
 @synthesize choiceID, choiceDict,shareDict, personDict, helpID, helpDict;
 -(id)initWithFrame:(CGRect)frame choiceDict:(NSDictionary*)choiceDic helpID:(NSString*)ID{
-    self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 60)];
+    self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 80)];
     if (self) {
         choiceDict = choiceDic;
         choiceID = [choiceDict valueForKey:@"choice_id"];
         helpID = ID;
         helpChoice = NO;
+        self.clipsToBounds = YES;
         [self requestHelpFromServer];
     }
     return self;
@@ -28,7 +29,7 @@
     if (helpDict&&personDict) {
         
         
-        avatarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 15, 20, 20)];
+        avatarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, heightCount, 20, 20)];
         avatarImageView.image = [UIImage imageNamed:@"defaultAvatar"];
         avatarImageView.layer.cornerRadius = avatarImageView.frame.size.height/2;
         avatarImageView.clipsToBounds = YES;
@@ -36,27 +37,50 @@
         
         
         SYTitle *titleGenerator = [SYTitle new];
-        NSString *titleString = [[titleGenerator titleFromHelpDict:helpDict] stringByReplacingOccurrencesOfString:@"我" withString:[personDict valueForKey:@"name"]];
-        NSMutableAttributedString *attributeSting = [[NSMutableAttributedString alloc] initWithString:titleString attributes:@{NSFontAttributeName:SYFont15,NSForegroundColorAttributeName:SYColor1}];
+        NSString *titleString = [[titleGenerator titleFromHelpDict:helpDict] stringByReplacingOccurrencesOfString:@"我" withString:@""];
+        NSMutableAttributedString *attributeSting = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",[personDict valueForKey:@"name"],titleString] attributes:@{NSFontAttributeName:SYFont13,NSForegroundColorAttributeName:SYColor1}];
         NSMutableParagraphStyle *paragraphstyle = [[NSMutableParagraphStyle alloc] init];
         paragraphstyle.lineSpacing = 2.f;
         [attributeSting addAttribute:NSParagraphStyleAttributeName value:paragraphstyle range:NSMakeRange(0, attributeSting.length)];
-        CGRect rect = [attributeSting boundingRectWithSize:(CGSize){self.frame.size.width-80, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+        CGRect rect = [attributeSting boundingRectWithSize:(CGSize){self.frame.size.width-35, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
         float height = rect.size.height;
-        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, heightCount, self.frame.size.width-80, height)];
-        titleLabel.textColor = SYColor1;
-        [titleLabel setFont:SYFont13];
+        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, heightCount, self.frame.size.width-35, height)];
         [self addSubview:titleLabel];
-        titleLabel.text = titleString;
+        titleLabel.numberOfLines = 0;
+        titleLabel.attributedText = attributeSting;
         heightCount += titleLabel.frame.size.height;
         
-        UILabel *postLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount, self.frame.size.width-40, 20)];
+        UILabel *postLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, heightCount, self.frame.size.width, 20)];
         postLabel.text = [helpDict valueForKey:@"post_date"];
         postLabel.textColor = SYColor3;
-        [postLabel setFont: SYFont13];
+        [postLabel setFont: SYFont11];
         postLabel.textAlignment = NSTextAlignmentRight;
         heightCount += postLabel.frame.size.height;
         [self addSubview:postLabel];
+        
+        UIView *functionView = [[UIView alloc] initWithFrame:CGRectMake(35, heightCount, self.frame.size.width-35, 24)];
+        heightCount += functionView.frame.size.height;
+        [self addSubview:functionView];
+        UIButton *shareFriendButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 85, 24)];
+        [shareFriendButton setTitle:@"分享给朋友" forState:UIControlStateNormal];
+        [shareFriendButton setTitleColor:SYColor2 forState:UIControlStateNormal];
+        [shareFriendButton.titleLabel setFont:SYFont11];
+        shareFriendButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        [functionView addSubview:shareFriendButton];
+        /*3 buttons*/
+        UIButton *messageButton = [[UIButton alloc] initWithFrame:CGRectMake(functionView.frame.size.width-60-16, 0, 16, 24)];
+        [messageButton setImage:[UIImage imageNamed:@"choiceMsgButton"] forState:UIControlStateNormal];
+        //        [messageButton addTarget:self action:@selector(writeCommentResponse) forControlEvents:UIControlEventTouchUpInside];
+        [functionView addSubview: messageButton];
+        
+        UIButton *shareButton = [[UIButton alloc] initWithFrame:CGRectMake(functionView.frame.size.width-18-10-20, 0, 20, 24)];
+        [shareButton setImage:[UIImage imageNamed:@"choiceShareButton"] forState:UIControlStateNormal];
+        [functionView addSubview: shareButton];
+        
+        UIButton *contactButton = [[UIButton alloc] initWithFrame:CGRectMake(functionView.frame.size.width-18, 0, 18, 24)];
+        //        [contactButton addTarget:self action:@selector(contactReponse) forControlEvents:UIControlEventTouchUpInside];
+        [contactButton setImage:[UIImage imageNamed:@"choiceContactButton"] forState:UIControlStateNormal];
+        [functionView addSubview: contactButton];
         
         CGRect frame = self.frame;
         frame.size.height = heightCount;
@@ -106,6 +130,7 @@
     if (self) {
         choiceID = ID;
         helpChoice = YES;
+        self.clipsToBounds = YES;
         [self requestChoiceFromServer];
     }
     return self;
@@ -113,11 +138,11 @@
 
 -(void)helpChoiceSetup{
     self.backgroundColor = SYBackgroundColorExtraLight;
-    float heightCount = 15;
+    float heightCount = 0;
     if (shareDict&&personDict) {
         
         
-        avatarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 15, 20, 20)];
+        avatarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, heightCount, 20, 20)];
         avatarImageView.image = [UIImage imageNamed:@"defaultAvatar"];
         avatarImageView.layer.cornerRadius = avatarImageView.frame.size.height/2;
         avatarImageView.clipsToBounds = YES;
@@ -125,26 +150,50 @@
         
         
         SYTitle *titleGenerator = [SYTitle new];
-        NSString *titleString = [NSString stringWithFormat:@"%@%@",[titleGenerator titleFromShareDict:shareDict],[personDict valueForKey:@"name"]];
+        NSString *titleString = [NSString stringWithFormat:@"%@%@",[personDict valueForKey:@"name"],[titleGenerator titleFromShareDict:shareDict]];
         NSMutableAttributedString *attributeSting = [[NSMutableAttributedString alloc] initWithString:titleString attributes:@{NSFontAttributeName:SYFont13,NSForegroundColorAttributeName:SYColor1}];
         NSMutableParagraphStyle *paragraphstyle = [[NSMutableParagraphStyle alloc] init];
-        paragraphstyle.lineSpacing = 2.f;
+//        paragraphstyle.lineSpacing = 2.f;
         [attributeSting addAttribute:NSParagraphStyleAttributeName value:paragraphstyle range:NSMakeRange(0, attributeSting.length)];
-        CGRect rect = [attributeSting boundingRectWithSize:(CGSize){self.frame.size.width-80, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+        CGRect rect = [attributeSting boundingRectWithSize:(CGSize){self.frame.size.width-35, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
         float height = rect.size.height;
-        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, heightCount, self.frame.size.width-80, height)];
+        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, heightCount, self.frame.size.width-35, height)];
         titleLabel.numberOfLines = 0;
         titleLabel.attributedText = attributeSting;
         [self addSubview:titleLabel];
         heightCount += titleLabel.frame.size.height;
 
-        UILabel *postLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount, self.frame.size.width-40, 20)];
+        UILabel *postLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, heightCount, self.frame.size.width, 20)];
         postLabel.text = [shareDict valueForKey:@"post_date"];
         postLabel.textColor = SYColor3;
-        [postLabel setFont: SYFont13];
+        [postLabel setFont: SYFont11];
         postLabel.textAlignment = NSTextAlignmentRight;
         heightCount += postLabel.frame.size.height;
         [self addSubview:postLabel];
+        
+        UIView *functionView = [[UIView alloc] initWithFrame:CGRectMake(35, heightCount, self.frame.size.width-35, 24)];
+        heightCount += functionView.frame.size.height;
+        [self addSubview:functionView];
+        UIButton *shareFriendButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 85, 24)];
+        [shareFriendButton setTitle:@"分享给朋友" forState:UIControlStateNormal];
+        [shareFriendButton setTitleColor:SYColor2 forState:UIControlStateNormal];
+        [shareFriendButton.titleLabel setFont:SYFont11];
+        shareFriendButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        [functionView addSubview:shareFriendButton];
+        /*3 buttons*/
+        UIButton *messageButton = [[UIButton alloc] initWithFrame:CGRectMake(functionView.frame.size.width-60-16, 0, 16, 24)];
+        [messageButton setImage:[UIImage imageNamed:@"choiceMsgButton"] forState:UIControlStateNormal];
+        //        [messageButton addTarget:self action:@selector(writeCommentResponse) forControlEvents:UIControlEventTouchUpInside];
+        [functionView addSubview: messageButton];
+        
+        UIButton *shareButton = [[UIButton alloc] initWithFrame:CGRectMake(functionView.frame.size.width-18-10-20, 0, 20, 24)];
+        [shareButton setImage:[UIImage imageNamed:@"choiceShareButton"] forState:UIControlStateNormal];
+        [functionView addSubview: shareButton];
+        
+        UIButton *contactButton = [[UIButton alloc] initWithFrame:CGRectMake(functionView.frame.size.width-18, 0, 18, 24)];
+        //        [contactButton addTarget:self action:@selector(contactReponse) forControlEvents:UIControlEventTouchUpInside];
+        [contactButton setImage:[UIImage imageNamed:@"choiceContactButton"] forState:UIControlStateNormal];
+        [functionView addSubview: contactButton];
         
         _selectButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
         [_selectButton addTarget:self action:@selector(selectChoice:) forControlEvents:UIControlEventTouchUpInside];

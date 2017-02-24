@@ -163,7 +163,7 @@
         NSString *placemark = [keyword valueForKey:@"placemark"];
         
         if (titleType == titleHelp) {
-            result = [NSString stringWithFormat:@"我要租%@%@离%@%@公里之内\n价格$%@-$%@",typeString,houseString,placemark,distance,lowerPrice,upperPrice];
+            result = [NSString stringWithFormat:@"我要求租%@%@离%@%@公里之内价格$%@-$%@",typeString,houseString,placemark,distance,lowerPrice,upperPrice];
         }
         else{
             NSString *genderString;

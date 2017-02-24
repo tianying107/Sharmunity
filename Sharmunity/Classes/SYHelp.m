@@ -118,6 +118,7 @@
     if (self) {
         helpID = ID;
         withHead = head;
+        self.clipsToBounds = YES;
         [self requestHelpFromServer:NO];
     }
     return self;
@@ -156,7 +157,7 @@
         NSLog(@"%@",[titleGenerator titleFromHelpDict:helpDict]);
         helpInfoLabel.textColor = SYColor1;
         helpInfoLabel.textAlignment = NSTextAlignmentCenter;
-        [helpInfoLabel setFont:SYFont15S];
+        [helpInfoLabel setFont:SYFont13M];
         helpInfoLabel.numberOfLines = 0;
         [self addSubview:helpInfoLabel];
         heightCount += 70;
@@ -164,7 +165,7 @@
         UILabel *postLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount, self.frame.size.width-40, 20)];
         postLabel.text = [helpDict valueForKey:@"post_date"];
         postLabel.textColor = SYColor1;
-        [postLabel setFont: SYFont13];
+        [postLabel setFont: SYFont11];
         postLabel.textAlignment = NSTextAlignmentCenter;
         heightCount += postLabel.frame.size.height;
         [self addSubview:postLabel];
@@ -195,35 +196,43 @@
     }
     else{
         self.backgroundColor = SYBackgroundColorExtraLight;
+        
+        UIImageView *cateIcon = [[UIImageView alloc] initWithFrame:CGRectMake(15, 10, 25, 25)];
+        cateIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"cate%@Help",[helpDict valueForKey:@"category"]]];
+        cateIcon.contentMode = UIViewContentModeScaleAspectFit;
+        [self addSubview:cateIcon];
+        
         SYTitle *titleGenerator = [SYTitle new];
-        NSMutableAttributedString *attributeSting = [[NSMutableAttributedString alloc] initWithString:[titleGenerator titleFromShareDict:helpDict] attributes:@{NSFontAttributeName:SYFont15S,NSForegroundColorAttributeName:SYColor1}];
+        NSMutableAttributedString *attributeSting = [[NSMutableAttributedString alloc] initWithString:[titleGenerator titleFromShareDict:helpDict] attributes:@{NSFontAttributeName:SYFont13M,NSForegroundColorAttributeName:SYColor1}];
         NSMutableParagraphStyle *paragraphstyle = [[NSMutableParagraphStyle alloc] init];
         paragraphstyle.lineSpacing = 2.f;
         [attributeSting addAttribute:NSParagraphStyleAttributeName value:paragraphstyle range:NSMakeRange(0, attributeSting.length)];
-        CGRect rect = [attributeSting boundingRectWithSize:(CGSize){self.frame.size.width-40, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+        CGRect rect = [attributeSting boundingRectWithSize:(CGSize){self.frame.size.width-45-55, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
         float height = rect.size.height;
-        UILabel *helpInfoLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount+10, self.frame.size.width-40, height)];;
+        UILabel *helpInfoLabel = [[UILabel alloc] initWithFrame:CGRectMake(55, heightCount+10, self.frame.size.width-55-45, height)];;
         helpInfoLabel.attributedText = attributeSting;
         helpInfoLabel.numberOfLines = 0;
         [self addSubview:helpInfoLabel];
-        heightCount += height +20;
+        heightCount += height;
         
-        UILabel *postLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount, self.frame.size.width-40, 20)];
+        UILabel *postLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, heightCount, self.frame.size.width-45, 20)];
         postLabel.text = [helpDict valueForKey:@"post_date"];
-        postLabel.textColor = SYColor1;
-        [postLabel setFont: SYFont13];
+        postLabel.textColor = SYColor3;
+        [postLabel setFont: SYFont11];
         postLabel.textAlignment = NSTextAlignmentRight;
-        heightCount += postLabel.frame.size.height;
+//        heightCount += postLabel.frame.size.height;
         [self addSubview:postLabel];
         
         NSArray *choiceArray = [helpDict valueForKey:@"choices"];
-        
+        heightCount += 30;
         for (int i=0; i<choiceArray.count; i++) {
-            SYChoiceAbstract *choiceAbstract = [[SYChoiceAbstract alloc] initWithFrame:CGRectMake(10, heightCount, self.frame.size.width-20, 0) choiceID:[choiceArray objectAtIndex:i]];
+            SYChoiceAbstract *choiceAbstract = [[SYChoiceAbstract alloc] initWithFrame:CGRectMake(35, heightCount, self.frame.size.width-75, 60) choiceID:[choiceArray objectAtIndex:i]];
             [self addSubview:choiceAbstract];
             heightCount += choiceAbstract.frame.size.height;
             
         }
+        
+        
         CGRect frame = self.frame;
         frame.size.height = heightCount;
         self.frame = frame;

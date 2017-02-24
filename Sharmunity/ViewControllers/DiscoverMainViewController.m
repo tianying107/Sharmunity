@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: SYColor1,
-                                                                    NSFontAttributeName: SYFont15M};
+                                                                    NSFontAttributeName: SYFont20};
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -33,12 +33,22 @@
         [self.locationManager startUpdatingLocation];
     }
 
+    
+    cityButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [cityButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [cityButton.titleLabel setFont:SYFont15];
+//    [cityButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    cityButton.bounds = CGRectMake(0, 0, 120, 40);
+    cityButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    UIBarButtonItem *cityItem = [[UIBarButtonItem alloc] initWithCustomView:cityButton] ;
+    self.navigationItem.leftBarButtonItem = cityItem;
+    
     CLGeocoder *ceo = [[CLGeocoder alloc]init];
     CLLocation *loc = [[CLLocation alloc]initWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude];
     [ceo reverseGeocodeLocation:loc
               completionHandler:^(NSArray *placemarks, NSError *error) {
                   CLPlacemark *placemark = [placemarks objectAtIndex:0];
-                  _cityItem.title =placemark.locality;
+                  [cityButton setTitle:placemark.locality forState:UIControlStateNormal];
               }
      ];
     
@@ -60,8 +70,8 @@
 
 - (void)viewsSetup{
     float width = self.view.frame.size.width;
-    _currentHelpButton.frame = CGRectMake(0, -5, 0.67*width, 30);
-    _currentShareButton.frame = CGRectMake(0.67*width, -5, 0.33*width, 30);
+    _currentHelpButton.frame = CGRectMake(0, -2.5, 0.67*width, 30);
+    _currentShareButton.frame = CGRectMake(0.67*width, -2.5, 0.33*width, 30);
 
     [_currentShareButton addTarget:self action:@selector(shareHelpSwitch:) forControlEvents:UIControlEventTouchUpInside];
     [_currentHelpButton addTarget:self action:@selector(shareHelpSwitch:) forControlEvents:UIControlEventTouchUpInside];
@@ -95,8 +105,10 @@
     isHelp = ([sender isEqual:_currentHelpButton])?YES:NO;
     float width = self.view.frame.size.width;
     if ([sender isEqual:_currentHelpButton]) {
-        _currentHelpButton.frame = CGRectMake(0, -5, 0.67*width, 30);
-        _currentShareButton.frame = CGRectMake(0.67*width, -5, 0.33*width, 30);
+        _currentHelpButton.frame = CGRectMake(0, -2.5, 0.67*width, 30);
+        [_currentHelpButton.titleLabel setFont:SYFont20];
+        _currentShareButton.frame = CGRectMake(0.67*width, -2.5, 0.33*width, 30);
+        [_currentShareButton.titleLabel setFont:SYFont15];
         _eatButton.selected = NO;
         _liveButton.selected = NO;
         _learnButton.selected = NO;
@@ -107,8 +119,10 @@
         _slogenImageView.image = [UIImage imageNamed:@"helpSolgen"];
     }
     else{
-        _currentHelpButton.frame = CGRectMake(0, -5, 0.33*width, 30);
-        _currentShareButton.frame = CGRectMake(0.33*width, -5, 0.67*width, 30);
+        _currentHelpButton.frame = CGRectMake(0, -2.5, 0.33*width, 30);
+        [_currentHelpButton.titleLabel setFont:SYFont15];
+        _currentShareButton.frame = CGRectMake(0.33*width, -2.5, 0.67*width, 30);
+        [_currentShareButton.titleLabel setFont:SYFont20];
         _eatButton.selected = YES;
         _liveButton.selected = YES;
         _learnButton.selected = YES;

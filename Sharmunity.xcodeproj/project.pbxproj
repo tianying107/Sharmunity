@@ -28,6 +28,7 @@
 		442F48801E31E03D00FB0561 /* SYSignUpEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = 442F487F1E31E03D00FB0561 /* SYSignUpEmail.m */; };
 		4449115E1E5F849A000F3218 /* SYTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4449115D1E5F849A000F3218 /* SYTextField.m */; };
 		444911621E5F8689000F3218 /* SYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 444911611E5F8689000F3218 /* SYTextView.m */; };
+		444911641E60ADA8000F3218 /* WawaSC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 444911631E60ADA8000F3218 /* WawaSC-Regular.otf */; };
 		4470840D1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4470840C1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m */; };
 		4470840F1E54BC9800DEAB75 /* PlayType_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4470840E1E54BC9800DEAB75 /* PlayType_cn.txt */; };
 		447084121E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447084111E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.m */; };
@@ -162,6 +163,7 @@
 		4449115D1E5F849A000F3218 /* SYTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYTextField.m; path = Classes/SYTextField.m; sourceTree = "<group>"; };
 		444911601E5F8689000F3218 /* SYTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYTextView.h; path = Classes/SYTextView.h; sourceTree = "<group>"; };
 		444911611E5F8689000F3218 /* SYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYTextView.m; path = Classes/SYTextView.m; sourceTree = "<group>"; };
+		444911631E60ADA8000F3218 /* WawaSC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WawaSC-Regular.otf"; path = "Resource/Font/SF/WawaSC-Regular.otf"; sourceTree = "<group>"; };
 		4470840B1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverPlayShareActiveViewController.h; path = ViewControllers/DiscoverPlayShareActiveViewController.h; sourceTree = "<group>"; };
 		4470840C1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverPlayShareActiveViewController.m; path = ViewControllers/DiscoverPlayShareActiveViewController.m; sourceTree = "<group>"; };
 		4470840E1E54BC9800DEAB75 /* PlayType_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PlayType_cn.txt; path = Resource/Category/PlayType_cn.txt; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 		447E40E21E327CF10010CAA4 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				444911631E60ADA8000F3218 /* WawaSC-Regular.otf */,
 				447E40E31E327D0C0010CAA4 /* License Agreement for SF UI Font.pdf */,
 				447E40E41E327D0C0010CAA4 /* SF-UI-Display-Black.otf */,
 				447E40E51E327D0C0010CAA4 /* SF-UI-Display-Bold.otf */,
@@ -928,6 +931,7 @@
 				447E40FE1E327D0D0010CAA4 /* SF-UI-Display-Medium.otf in Resources */,
 				4470840F1E54BC9800DEAB75 /* PlayType_cn.txt in Resources */,
 				442F48481E31CC0F00FB0561 /* LaunchScreen.storyboard in Resources */,
+				444911641E60ADA8000F3218 /* WawaSC-Regular.otf in Resources */,
 				447E41091E327D0D0010CAA4 /* SF-UI-Text-Medium.otf in Resources */,
 				447E41031E327D0D0010CAA4 /* SF-UI-Text-Bold.otf in Resources */,
 				442F48451E31CC0F00FB0561 /* Assets.xcassets in Resources */,

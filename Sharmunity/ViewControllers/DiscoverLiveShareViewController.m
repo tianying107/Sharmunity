@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: SYColor1,
-                                                                    NSFontAttributeName: SYFont15M};
+                                                                    NSFontAttributeName: SYFont20};
     
     MEID = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"admin"] valueForKey:@"id"];
     [self viewsSetup];
@@ -28,7 +28,7 @@
     [backBtn setImage:[UIImage imageNamed:@"SYBackColor4"] forState:UIControlStateNormal];
     [backBtn setTitle:@"我要帮助" forState:UIControlStateNormal];
     [backBtn setTitleColor:SYColor1 forState:UIControlStateNormal];
-    [backBtn.titleLabel setFont:SYFont13S];
+    [backBtn.titleLabel setFont:SYFont15];
     [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     backBtn.bounds = CGRectMake(0, 0, 80, 40);
     backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -71,7 +71,7 @@
     UILabel *matchLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, heightCount, self.view.frame.size.width, 40)];
     matchLabel.text = @"匹配结果";
     matchLabel.textColor = SYColor4;
-    [matchLabel setFont:SYFont20];
+    [matchLabel setFont:SYFontW25];
     [self.view addSubview:matchLabel];
     heightCount += matchLabel.frame.size.height;
     

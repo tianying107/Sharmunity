@@ -15,6 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         shareID = ID;
+        self.clipsToBounds = YES;
         choiceArray = [NSArray new];
         [self requestShareFromServer];
         [self requestChoiceFromServer];
@@ -26,28 +27,28 @@
     self.backgroundColor = SYBackgroundColorExtraLight;
     
     UIImageView *cateIcon = [[UIImageView alloc] initWithFrame:CGRectMake(15, 10, 25, 25)];
-    cateIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"cate%@Help",[shareDict valueForKey:@"category"]]];
+    cateIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"cate%@Share",[shareDict valueForKey:@"category"]]];
+    cateIcon.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:cateIcon];
     
     SYTitle *titleGenerator = [SYTitle new];
-    NSMutableAttributedString *attributeSting = [[NSMutableAttributedString alloc] initWithString:[titleGenerator titleFromShareDict:shareDict] attributes:@{NSFontAttributeName:SYFont15S,NSForegroundColorAttributeName:SYColor1}];
+    NSMutableAttributedString *attributeSting = [[NSMutableAttributedString alloc] initWithString:[titleGenerator titleFromShareDict:shareDict] attributes:@{NSFontAttributeName:SYFont13M,NSForegroundColorAttributeName:SYColor1}];
     NSMutableParagraphStyle *paragraphstyle = [[NSMutableParagraphStyle alloc] init];
     paragraphstyle.lineSpacing = 2.f;
     [attributeSting addAttribute:NSParagraphStyleAttributeName value:paragraphstyle range:NSMakeRange(0, attributeSting.length)];
-    CGRect rect = [attributeSting boundingRectWithSize:(CGSize){self.frame.size.width-40, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
-    float height = MIN(150, rect.size.height);
-    UILabel *shareInfoLabel = [[UILabel alloc] initWithFrame:CGRectMake(45, heightCount, self.frame.size.width-40, height)];
+    CGRect rect = [attributeSting boundingRectWithSize:(CGSize){self.frame.size.width-100, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+    float height = rect.size.height;
+    UILabel *shareInfoLabel = [[UILabel alloc] initWithFrame:CGRectMake(55, heightCount, self.frame.size.width-45-55, height)];
     shareInfoLabel.attributedText = attributeSting;
     shareInfoLabel.numberOfLines = 0;
     [self addSubview:shareInfoLabel];
-    heightCount += MAX(shareInfoLabel.frame.size.height, cateIcon.frame.size.height) ;
+    heightCount += height ;
     
-    UILabel *postLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount, self.frame.size.width-40, 20)];
+    UILabel *postLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, heightCount, self.frame.size.width-45, 20)];
     postLabel.text = [shareDict valueForKey:@"post_date"];
     postLabel.textColor = SYColor3;
-    [postLabel setFont: SYFont13];
+    [postLabel setFont: SYFont11];
     postLabel.textAlignment = NSTextAlignmentRight;
-    
     [self addSubview:postLabel];
     
     UIButton *editButton = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width-170, heightCount+2, 18, 16)];
@@ -55,9 +56,9 @@
     [self addSubview:editButton];
     
     
-    heightCount += postLabel.frame.size.height+10;
+    heightCount += 30;
     for (int i=0; i<choiceArray.count; i++) {
-        SYChoiceAbstract *choiceAbstract = [[SYChoiceAbstract alloc] initWithFrame:CGRectMake(10, heightCount, self.frame.size.width-20, 0) choiceDict:[choiceArray objectAtIndex:i] helpID:[[choiceArray objectAtIndex:i] valueForKey:@"help_id"]];
+        SYChoiceAbstract *choiceAbstract = [[SYChoiceAbstract alloc] initWithFrame:CGRectMake(35, heightCount, self.frame.size.width-75, 60) choiceDict:[choiceArray objectAtIndex:i] helpID:[[choiceArray objectAtIndex:i] valueForKey:@"help_id"]];
         [self addSubview:choiceAbstract];
         heightCount += choiceAbstract.frame.size.height;
         

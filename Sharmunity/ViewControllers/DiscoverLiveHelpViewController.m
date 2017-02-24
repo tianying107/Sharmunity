@@ -27,7 +27,7 @@
     [backBtn setImage:[UIImage imageNamed:@"SYBackColor5"] forState:UIControlStateNormal];
     [backBtn setTitle:@"我要求助" forState:UIControlStateNormal];
     [backBtn setTitleColor:SYColor1 forState:UIControlStateNormal];
-    [backBtn.titleLabel setFont:SYFont13S];
+    [backBtn.titleLabel setFont:SYFont15];
     [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     backBtn.bounds = CGRectMake(0, 0, 80, 40);
     backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -45,38 +45,44 @@
 -(void)viewsSetup{
     _rentButton.layer.cornerRadius = 5;
     _rentButton.clipsToBounds = YES;
-    _rentButton.layer.borderColor = [SYColor5 CGColor];
+    _rentButton.layer.borderColor = [SYColor6 CGColor];
     _rentButton.layer.borderWidth = 1;
     
     _shortButton.layer.cornerRadius = 5;
     _shortButton.clipsToBounds = YES;
-    _shortButton.layer.borderColor = [SYColor5 CGColor];
+    _shortButton.layer.borderColor = [SYColor6 CGColor];
     _shortButton.layer.borderWidth = 1;
     
     _moveButton.layer.cornerRadius = 5;
     _moveButton.clipsToBounds = YES;
-    _moveButton.layer.borderColor = [SYColor5 CGColor];
+    _moveButton.layer.borderColor = [SYColor6 CGColor];
     _moveButton.layer.borderWidth = 1;
     
     _leaseButton.layer.cornerRadius = 5;
     _leaseButton.clipsToBounds = YES;
-    _leaseButton.layer.borderColor = [SYColor5 CGColor];
+    _leaseButton.layer.borderColor = [SYColor6 CGColor];
     _leaseButton.layer.borderWidth = 1;
+    
+    
+    _questionButton.layer.cornerRadius = 5;
+    _questionButton.clipsToBounds = YES;
+    _questionButton.layer.borderColor = [UIColorFromRGB(0x70C1B3) CGColor];
+    _questionButton.layer.borderWidth = 1;
     
     [_rentButton addTarget:self action:@selector(rentHomeResponse) forControlEvents:UIControlEventTouchUpInside];
     [_leaseButton addTarget:self action:@selector(leaseResponse) forControlEvents:UIControlEventTouchUpInside];
     [_shortButton addTarget:self action:@selector(shortResponse) forControlEvents:UIControlEventTouchUpInside];
     [_moveButton addTarget:self action:@selector(moveResponse) forControlEvents:UIControlEventTouchUpInside];
     
-    float heightCount = 315;
-    float originX = 30;
+    float heightCount = 320;
+    float originX = 20;
     UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(0, heightCount, self.view.frame.size.width, SYSeparatorHeight)];
     separator.backgroundColor = SYSeparatorColor;
     [self.view addSubview:separator];
     UILabel *matchLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, heightCount, self.view.frame.size.width, 40)];
     matchLabel.text = @"匹配结果";
     matchLabel.textColor = SYColor5;
-    [matchLabel setFont:SYFont20];
+    [matchLabel setFont:SYFontW25];
     [self.view addSubview:matchLabel];
     heightCount += matchLabel.frame.size.height;
     
@@ -86,9 +92,9 @@
     helpTable.alwaysBounceVertical = NO;
     [self.view addSubview:helpTable];
     [self requestHelpFromServer];
-    [NSTimer scheduledTimerWithTimeInterval:1 repeats:NO block:^(NSTimer *timer){
+    [NSTimer scheduledTimerWithTimeInterval:2 repeats:NO block:^(NSTimer *timer){
         [helpTable reloadData];
-        [NSTimer scheduledTimerWithTimeInterval:1 repeats:NO block:^(NSTimer *timer){
+        [NSTimer scheduledTimerWithTimeInterval:.1 repeats:NO block:^(NSTimer *timer){
             helpTable.hidden = NO;
         }];
     }];

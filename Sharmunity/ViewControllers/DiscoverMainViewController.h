@@ -25,9 +25,10 @@
     
     NSArray *recentHelpArray;
     NSArray *recentShareArray;
+    
+    UIButton *cityButton;
 
 }
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *cityItem;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet UIImageView *slogenImageView;
 @property (weak, nonatomic) IBOutlet UIView *recentHelpView;
