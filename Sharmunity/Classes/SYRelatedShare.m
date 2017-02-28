@@ -65,7 +65,7 @@
     }
     
     CGRect frame = self.frame;
-    frame.size.height = heightCount;//MIN(heightCount, 200);
+    frame.size.height = MAX(heightCount, 55);
     self.frame = frame;
 
 }

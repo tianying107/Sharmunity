@@ -59,11 +59,16 @@
     _moveButton.layer.borderColor = [SYColor4 CGColor];
     _moveButton.layer.borderWidth = 1;
     
+    _otherButton.layer.cornerRadius = 5;
+    _otherButton.clipsToBounds = YES;
+    _otherButton.layer.borderColor = [SYColor9 CGColor];
+    _otherButton.layer.borderWidth = 1;
+    
     [_rentButton addTarget:self action:@selector(leaseResponse) forControlEvents:UIControlEventTouchUpInside];
     [_shortButton addTarget:self action:@selector(shortResponse) forControlEvents:UIControlEventTouchUpInside];
     [_moveButton addTarget:self action:@selector(moveResponse) forControlEvents:UIControlEventTouchUpInside];
     
-    float heightCount = 320;
+    float heightCount = 400;
     float originX = 30;
     UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(0, heightCount, self.view.frame.size.width, SYSeparatorHeight)];
     separator.backgroundColor = SYSeparatorColor;
@@ -154,7 +159,7 @@
     if (indexPath.row<basicViewArray.count)
         height = [(SYRelatedShare*)[basicViewArray objectAtIndex:indexPath.row] frame].size.height;
     else
-        height = 200;
+        height = 60;
     return height;
     return height;
 }
