@@ -7,7 +7,8 @@
 //
 
 #import "DiscoverMainViewController.h"
-
+#import "DiscoverLiveShareLeaseViewController.h"
+#import "DiscoverLiveShareSubmitViewController.h"
 @interface DiscoverMainViewController (){
     SYPopOut *popOut;
 }
@@ -237,17 +238,42 @@
     for (UIView *view in [_recentHelpView subviews]){
         [view removeFromSuperview];
     }
+    recentHelpViewArray = [NSMutableArray new];
     for (int i=0; i<MIN(3, recentHelpArray.count); i++) {
         SYHelp *helpView = [[SYHelp alloc] initAbstractWithFrame:CGRectMake(0, i*20,_recentHelpView.frame.size.width, 20) helpID:[recentHelpArray objectAtIndex:i]];
-        helpView.helpButton.tag = i;
         [helpView.helpButton addTarget:self action:@selector(solveHelp:) forControlEvents:UIControlEventTouchUpInside];
+        helpView.helpButton.tag = i;
         [_recentHelpView addSubview:helpView];
+        [recentHelpViewArray addObject:helpView];
     }
 }
 -(IBAction)solveHelp:(id)sender{
     UIButton *interestButton = sender;
-    NSString *helpID = [recentHelpArray objectAtIndex:interestButton.tag];
+    SYHelp *helpView = [recentHelpViewArray objectAtIndex:interestButton.tag];
     
+    UIViewController *viewController;
+    switch ([[helpView.helpDict valueForKey:@"category"] integerValue]) {
+        case 2:
+            if ([[[helpView.helpDict valueForKey:@"subcate"] substringToIndex:2] isEqualToString:@"03"]) {
+                viewController = [DiscoverLiveShareSubmitViewController new];
+            }
+            else{
+            viewController = [DiscoverLiveShareLeaseViewController new];
+            if ([[[helpView.helpDict valueForKey:@"subcate"] substringToIndex:2] isEqualToString:@"02"]) {
+                ((DiscoverLiveShareLeaseViewController*)viewController).shortRent = YES;
+            }
+                ((DiscoverLiveShareLeaseViewController*)viewController).helpDict = helpView.helpDict;
+                ((DiscoverLiveShareLeaseViewController*)viewController).setupWithHelp = YES;
+            }
+            break;
+            
+        default:
+            break;
+    }
+    
+    viewController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:viewController animated:YES];
+    [(SYSuscard*)helpView.abstractSuscard cancelResponse];
 }
 -(void)requestRecentShareFromServer{
     recentShareArray = [NSArray new];

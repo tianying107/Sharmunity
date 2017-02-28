@@ -342,6 +342,11 @@
     nextButton.hidden = YES;
     
     [self viewsLayout];
+    
+    if (_setupWithHelp) {
+        [self setupWithHelpDict];
+    }
+    
 }
 
 -(void)viewsLayout{
@@ -656,5 +661,16 @@
         [button setTitle:shortString forState:UIControlStateSelected];
     }
     
+}
+
+
+
+
+
+
+-(void)setupWithHelpDict{
+    NSString *subcate = [_helpDict valueForKey:@"subcate"];
+    UIButton *shareButton = [shareRentView viewWithTag:10+[[subcate substringToIndex:1] integerValue]];
+    [self shareRentResponse:shareButton];
 }
 @end

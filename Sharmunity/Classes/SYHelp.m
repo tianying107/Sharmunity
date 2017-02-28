@@ -49,6 +49,7 @@
 -(void)abstractExpendResponse{
     SYSuscard *baseView = [[SYSuscard alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height) withCardSize:CGSizeMake( [[UIScreen mainScreen] bounds].size.width-20, 250) keyboard:NO];
     baseView.cardBackgroundView.backgroundColor = SYBackgroundColorExtraLight;
+    _abstractSuscard = baseView;
     
     UIWindow* currentWindow = [UIApplication sharedApplication].keyWindow;
     [currentWindow addSubview:baseView];
@@ -110,7 +111,6 @@
         [baseView addGoSubview:helpButton];
     }
 }
-
 
 
 -(id)initWithFrame:(CGRect)frame helpID:(NSString*)ID withHeadView:(BOOL)head{
@@ -203,7 +203,7 @@
         [self addSubview:cateIcon];
         
         SYTitle *titleGenerator = [SYTitle new];
-        NSMutableAttributedString *attributeSting = [[NSMutableAttributedString alloc] initWithString:[titleGenerator titleFromShareDict:helpDict] attributes:@{NSFontAttributeName:SYFont13M,NSForegroundColorAttributeName:SYColor1}];
+        NSMutableAttributedString *attributeSting = [[NSMutableAttributedString alloc] initWithString:[titleGenerator titleFromHelpDict:helpDict] attributes:@{NSFontAttributeName:SYFont13M,NSForegroundColorAttributeName:SYColor1}];
         NSMutableParagraphStyle *paragraphstyle = [[NSMutableParagraphStyle alloc] init];
         paragraphstyle.lineSpacing = 2.f;
         [attributeSting addAttribute:NSParagraphStyleAttributeName value:paragraphstyle range:NSMakeRange(0, attributeSting.length)];
@@ -226,7 +226,7 @@
         NSArray *choiceArray = [helpDict valueForKey:@"choices"];
         heightCount += 30;
         for (int i=0; i<choiceArray.count; i++) {
-            SYChoiceAbstract *choiceAbstract = [[SYChoiceAbstract alloc] initWithFrame:CGRectMake(35, heightCount, self.frame.size.width-75, 60) choiceID:[choiceArray objectAtIndex:i]];
+            SYChoiceAbstract *choiceAbstract = [[SYChoiceAbstract alloc] initWithFrame:CGRectMake(35, heightCount, self.frame.size.width-75, 80) choiceID:[choiceArray objectAtIndex:i]];
             [self addSubview:choiceAbstract];
             heightCount += choiceAbstract.frame.size.height;
             

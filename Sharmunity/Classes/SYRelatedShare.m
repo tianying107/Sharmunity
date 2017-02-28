@@ -58,7 +58,7 @@
     
     heightCount += 30;
     for (int i=0; i<choiceArray.count; i++) {
-        SYChoiceAbstract *choiceAbstract = [[SYChoiceAbstract alloc] initWithFrame:CGRectMake(35, heightCount, self.frame.size.width-75, 60) choiceDict:[choiceArray objectAtIndex:i] helpID:[[choiceArray objectAtIndex:i] valueForKey:@"help_id"]];
+        SYChoiceAbstract *choiceAbstract = [[SYChoiceAbstract alloc] initWithFrame:CGRectMake(35, heightCount, self.frame.size.width-75, 80) choiceDict:[choiceArray objectAtIndex:i] helpID:[[choiceArray objectAtIndex:i] valueForKey:@"help_id"]];
         [self addSubview:choiceAbstract];
         heightCount += choiceAbstract.frame.size.height;
         

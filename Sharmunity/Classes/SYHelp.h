@@ -24,6 +24,7 @@
 /*abstract help*/
 -(id)initAbstractWithFrame:(CGRect)frame helpID:(NSString*)ID;
 @property UIButton *helpButton;
+@property id abstractSuscard;
 
 
 @property NSString *helpID;

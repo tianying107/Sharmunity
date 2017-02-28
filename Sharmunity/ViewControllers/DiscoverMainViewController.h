@@ -25,8 +25,9 @@
     
     NSArray *recentHelpArray;
     NSArray *recentShareArray;
-    
+    NSMutableArray *recentHelpViewArray;
     UIButton *cityButton;
+    
 
 }
 @property (strong, nonatomic) CLLocationManager *locationManager;

@@ -63,7 +63,7 @@
     [_shortButton addTarget:self action:@selector(shortResponse) forControlEvents:UIControlEventTouchUpInside];
     [_moveButton addTarget:self action:@selector(moveResponse) forControlEvents:UIControlEventTouchUpInside];
     
-    float heightCount = 315;
+    float heightCount = 320;
     float originX = 30;
     UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(0, heightCount, self.view.frame.size.width, SYSeparatorHeight)];
     separator.backgroundColor = SYSeparatorColor;
@@ -81,9 +81,9 @@
     shareTable.alwaysBounceVertical = NO;
     [self.view addSubview:shareTable];
     [self requestShareFromServer];
-    [NSTimer scheduledTimerWithTimeInterval:1 repeats:NO block:^(NSTimer *timer){
+    [NSTimer scheduledTimerWithTimeInterval:2 repeats:NO block:^(NSTimer *timer){
         [shareTable reloadData];
-        [NSTimer scheduledTimerWithTimeInterval:1 repeats:NO block:^(NSTimer *timer){
+        [NSTimer scheduledTimerWithTimeInterval:.1 repeats:NO block:^(NSTimer *timer){
             shareTable.hidden = NO;
         }];
     }];

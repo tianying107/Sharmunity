@@ -68,14 +68,11 @@
         shareFriendButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [functionView addSubview:shareFriendButton];
         /*3 buttons*/
-        UIButton *messageButton = [[UIButton alloc] initWithFrame:CGRectMake(functionView.frame.size.width-60-16, 0, 16, 24)];
+        UIButton *messageButton = [[UIButton alloc] initWithFrame:CGRectMake(functionView.frame.size.width-18-10-16, 0, 16, 24)];
         [messageButton setImage:[UIImage imageNamed:@"choiceMsgButton"] forState:UIControlStateNormal];
         //        [messageButton addTarget:self action:@selector(writeCommentResponse) forControlEvents:UIControlEventTouchUpInside];
         [functionView addSubview: messageButton];
         
-        UIButton *shareButton = [[UIButton alloc] initWithFrame:CGRectMake(functionView.frame.size.width-18-10-20, 0, 20, 24)];
-        [shareButton setImage:[UIImage imageNamed:@"choiceShareButton"] forState:UIControlStateNormal];
-        [functionView addSubview: shareButton];
         
         UIButton *contactButton = [[UIButton alloc] initWithFrame:CGRectMake(functionView.frame.size.width-18, 0, 18, 24)];
         //        [contactButton addTarget:self action:@selector(contactReponse) forControlEvents:UIControlEventTouchUpInside];
@@ -111,7 +108,6 @@
                                         NSLog(@"server said: %@",dict);
                                         dispatch_async(dispatch_get_main_queue(), ^{
                                             helpDict = dict;
-                                            [self shareChoiceSetup];
                                             if ([choiceDict valueForKey:@"helpee_id"]) {
                                                 [self requestPersonFromServer];
                                             }
@@ -126,7 +122,7 @@
 
 
 -(id)initWithFrame:(CGRect)frame choiceID:(NSString*)ID{
-    self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 60)];
+    self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 80)];
     if (self) {
         choiceID = ID;
         helpChoice = YES;

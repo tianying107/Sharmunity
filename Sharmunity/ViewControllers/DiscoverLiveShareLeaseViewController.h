@@ -44,9 +44,13 @@
     NSMutableArray *viewsArray;
 }
 -(void)locationCompleteResponse;
+
 @property NSMutableDictionary *shareDict;
 @property BOOL shortRent;
 @property BOOL distanceAvailable;
 @property MKMapItem *selectedItem;
 
+
+@property BOOL setupWithHelp;
+@property NSDictionary *helpDict;
 @end
