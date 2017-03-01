@@ -15,7 +15,10 @@
     UIScrollView *mainScrollView;
     UIView *majorView;
     UIView *numberView;
+    UIView *typeView;
+    UIView *schoolContentView;
     UIView *priceView;
+    UIView *price2View;
     UIView *locationView;
     UIView *titleView;
     UIView *introductionView;
@@ -24,6 +27,8 @@
     
     NSString *MEID;
     NSString *priceString;
+    NSString *typeString;
+    BOOL priceAgg;
     
     NSMutableArray *viewsArray;
 }

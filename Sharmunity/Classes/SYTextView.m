@@ -37,11 +37,18 @@
     [attributeSting addAttribute:NSParagraphStyleAttributeName value:paragraphstyle range:NSMakeRange(0, attributeSting.length)];
     CGRect rect = [attributeSting boundingRectWithSize:(CGSize){self.frame.size.width, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
     float height = rect.size.height;
-    placeholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(4, 8, self.frame.size.width, height)];
-    placeholderLabel.numberOfLines = 0;
-    placeholderLabel.attributedText = attributeSting;
-    [self addSubview:placeholderLabel];
-    [self sendSubviewToBack:placeholderLabel];
+    if (placeholderLabel) {
+        placeholderLabel.frame = CGRectMake(4, 8, self.frame.size.width, height);
+        placeholderLabel.attributedText = attributeSting;
+    }
+    else{
+        placeholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(4, 8, self.frame.size.width, height)];
+        placeholderLabel.numberOfLines = 0;
+        placeholderLabel.attributedText = attributeSting;
+        [self addSubview:placeholderLabel];
+        [self sendSubviewToBack:placeholderLabel];
+    }
+    
     
 }
 -(void)textViewDidChange:(UITextView *)textView{
