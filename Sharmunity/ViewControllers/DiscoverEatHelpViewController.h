@@ -10,10 +10,18 @@
 #import <MapKit/MapKit.h>
 #import "Header.h"
 
-@interface DiscoverEatHelpViewController : UIViewController<CLLocationManagerDelegate>{
+@interface DiscoverEatHelpViewController : UIViewController<CLLocationManagerDelegate,UITableViewDelegate, UITableViewDataSource>{
+    UITableView *helpTable;
     NSString *MEID;
+    NSArray *helpIDArray;
+    NSMutableArray *basicViewArray;
 }
 @property (weak, nonatomic) IBOutlet UIButton *testButton;
 @property (weak, nonatomic) IBOutlet UIButton *helpTestButton;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
+
+@property (weak, nonatomic) IBOutlet UIButton *articalButton;
+@property (weak, nonatomic) IBOutlet UIButton *questionButton;
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @end

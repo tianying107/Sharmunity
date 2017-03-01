@@ -21,6 +21,7 @@
 #define SYColor7 UIColorFromRGB(0x6CBF3B) //green
 #define SYColor8 UIColorFromRGB(0xF0B94A) //yellow
 #define SYColor9 UIColorFromRGB(0xEB6D6D) //red
+#define SYColor10 UIColorFromRGB(0x70C1B3) //green blue
 
 
 #define SYBackgroundColorExtraLight UIColorFromRGB(0xFAFAFA)
@@ -47,6 +48,7 @@
 #define SYFont20S [UIFont fontWithName:@"SFUIDisplay-Semibold" size:20]
 #define SYFont20M [UIFont fontWithName:@"SFUIDisplay-Medium" size:20]
 #define SYFont20 [UIFont fontWithName:@"SFUIDisplay-Regular" size:20]
+#define SYFont25 [UIFont fontWithName:@"SFUIDisplay-Regular" size:25]
 #define SYFont25M [UIFont fontWithName:@"SFUIDisplay-Medium" size:25]
 #define SYFont30T [UIFont fontWithName:@"SFUIDisplay-Thin" size:30]
 #define SYFont30 [UIFont fontWithName:@"SFUIDisplay-Regular" size:30]

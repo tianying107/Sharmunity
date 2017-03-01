@@ -9,6 +9,7 @@
 #import "DiscoverLiveShareViewController.h"
 #import "DiscoverLiveShareLeaseViewController.h"
 #import "DiscoverLiveShareSubmitViewController.h"
+#import "DiscoverOtherShareViewController.h"
 #import "SYHeader.h"
 @interface DiscoverLiveShareViewController ()
 
@@ -67,6 +68,7 @@
     [_rentButton addTarget:self action:@selector(leaseResponse) forControlEvents:UIControlEventTouchUpInside];
     [_shortButton addTarget:self action:@selector(shortResponse) forControlEvents:UIControlEventTouchUpInside];
     [_moveButton addTarget:self action:@selector(moveResponse) forControlEvents:UIControlEventTouchUpInside];
+    [_otherButton addTarget:self action:@selector(otherResponse) forControlEvents:UIControlEventTouchUpInside];
     
     float heightCount = 400;
     float originX = 30;
@@ -112,7 +114,11 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
-
+-(void)otherResponse{
+    DiscoverOtherShareViewController *viewController = [DiscoverOtherShareViewController new];
+    viewController.shareType = discoverLive;
+    [self.navigationController pushViewController:viewController animated:YES];
+}
 
 
 

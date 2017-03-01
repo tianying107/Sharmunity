@@ -12,11 +12,12 @@
 #define discoverEatFood 102
 @interface DiscoverEatShareSecondViewController : UIViewController<UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource,UITextViewDelegate>{
     UIScrollView *mainScrollView;
+    UIView *typeView;
     UIView *regionView;
     UIView *subRegionView;
     UIView *foodView;
     UIView *locationView;
-    UIView *titleView;
+    UIView *priceView;
     UIView *introductionView;
     UIPickerView *regionPickerView;
     UIPickerView *subRegionPickerView;
@@ -41,6 +42,6 @@
 @property NSInteger controllerType;
 @property NSMutableDictionary *shareDict;
 @property MKMapItem *selectedItem;
-
+@property NSString *titleString;
 
 @end

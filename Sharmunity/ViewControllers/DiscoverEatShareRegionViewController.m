@@ -11,7 +11,7 @@
 #import "Header.h"
 #import "SYHeader.h"
 
-@interface DiscoverEatShareSecondViewController (){
+@interface DiscoverEatShareSecondViewController ()<SYTextViewDelegate>{
     SYPopOut *popOut;
 }
 
@@ -21,9 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"按地域分类";
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: SYColor1,
-                                                                    NSFontAttributeName: SYFont20S};
+    self.navigationItem.title = @"餐品描述";
     self.view.backgroundColor = SYBackgroundColorExtraLight;
     
     mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
@@ -38,9 +36,24 @@
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
     
+    
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setImage:[UIImage imageNamed:@"SYBackColor4"] forState:UIControlStateNormal];
+    [backBtn setTitle:@"吃" forState:UIControlStateNormal];
+    [backBtn setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [backBtn.titleLabel setFont:SYFont15];
+    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.bounds = CGRectMake(0, 0, 80, 40);
+    backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.leftBarButtonItem = backButton;
+    
     popOut = [SYPopOut new];
     [self dataSetup];
     [self viewsSetup];
+}
+-(void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 -(void) viewWillAppear:(BOOL)animated{
     mainScrollView.delegate=self;
@@ -81,21 +94,43 @@
 -(void)viewsSetup{
     viewsArray = [NSMutableArray new];
     float viewWidth = mainScrollView.frame.size.width;
-    float originX = 30;
+    float originX = 60;
+    
+    
+    /*share rent*/
+    typeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 45)];
+    [mainScrollView addSubview:typeView];
+    [viewsArray addObject:typeView];
+    UIButton *regionTypeButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth/2-150, 0, 150, 40)];
+    [regionTypeButton setTitle:@"国家地区" forState:UIControlStateNormal];
+    [regionTypeButton setTitleColor:SYColor8 forState:UIControlStateNormal];
+    [regionTypeButton.titleLabel setFont:SYFont20];
+    regionTypeButton.tag = 11;
+    [regionTypeButton addTarget:self action:@selector(typeResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [typeView addSubview:regionTypeButton];
+    UIButton *foodTypeButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth/2, 0, 150, 40)];
+    [foodTypeButton setTitle:@"餐品种类" forState:UIControlStateNormal];
+    [foodTypeButton setTitleColor:SYColor8 forState:UIControlStateNormal];
+    [foodTypeButton.titleLabel setFont:SYFont20];
+    foodTypeButton.tag = 10;
+    [foodTypeButton addTarget:self action:@selector(typeResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [typeView addSubview:foodTypeButton];
+    
     
     /*region type*/
-    regionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
-    
-    UILabel *regionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
+    regionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 50)];
+    UILabel *regionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 50)];
     regionTitleLabel.text = @"地域";
-    regionTitleLabel.textColor = SYColor1;
+    [regionTitleLabel setFont:SYFont25];
+    regionTitleLabel.textColor = SYColor4;
     [regionView addSubview:regionTitleLabel];
-    UIButton *regionButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
-    [regionButton setTitle:@"请选择地域" forState:UIControlStateNormal];
-    [regionButton setTitleColor:SYColor3 forState:UIControlStateNormal];
-    [regionButton setTitleColor:SYColor1 forState:UIControlStateSelected];
+    UIButton *regionButton = [[UIButton alloc] initWithFrame:CGRectMake(190, 0, viewWidth-2*originX, 50)];
+    [regionButton setTitle:@"请选择国家" forState:UIControlStateNormal];
+    [regionButton setTitleColor:SYColor10 forState:UIControlStateNormal];
+    [regionButton setTitleColor:SYColor4 forState:UIControlStateSelected];
+    [regionButton.titleLabel setFont:SYFont20];
     regionButton.tag = 11;
-    regionButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    regionButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [regionButton addTarget:self action:@selector(regionResponse:) forControlEvents:UIControlEventTouchUpInside];
     [regionView addSubview:regionButton];
     regionPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-216, self.view.frame.size.width, 216)];
@@ -124,19 +159,21 @@
     layer.shadowPath = [[UIBezierPath bezierPathWithRect:layer.bounds] CGPath];
     
     /*subregion type*/
-    subRegionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    subRegionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 50)];
     subRegionView.hidden = YES;
     
-    UILabel *subregionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
+    UILabel *subregionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 50)];
     subregionTitleLabel.text = @"菜系";
-    subregionTitleLabel.textColor = SYColor1;
+    subregionTitleLabel.textColor = SYColor4;
+    [subregionTitleLabel setFont:SYFont25];
     [subRegionView addSubview:subregionTitleLabel];
-    UIButton *subregionButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
+    UIButton *subregionButton = [[UIButton alloc] initWithFrame:CGRectMake(190, 0, viewWidth-2*originX, 50)];
     [subregionButton setTitle:@"请选择菜系" forState:UIControlStateNormal];
-    [subregionButton setTitleColor:SYColor3 forState:UIControlStateNormal];
-    [subregionButton setTitleColor:SYColor1 forState:UIControlStateSelected];
+    [subregionButton setTitleColor:SYColor10 forState:UIControlStateNormal];
+    [subregionButton setTitleColor:SYColor4 forState:UIControlStateSelected];
+    [subregionButton.titleLabel setFont:SYFont20];
     subregionButton.tag = 11;
-    subregionButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    subregionButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [subregionButton addTarget:self action:@selector(subRegionResponse:) forControlEvents:UIControlEventTouchUpInside];
     [subRegionView addSubview:subregionButton];
     subRegionPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-216, self.view.frame.size.width, 216)];
@@ -147,18 +184,20 @@
     [self.view addSubview:subRegionPickerView];
     
     /*food type*/
-    foodView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    foodView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 50)];
     
-    UILabel *foodTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
+    UILabel *foodTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 50)];
     foodTitleLabel.text = @"食材";
-    foodTitleLabel.textColor = SYColor1;
+    foodTitleLabel.textColor = SYColor4;
+    [foodTitleLabel setFont:SYFont25];
     [foodView addSubview:foodTitleLabel];
-    UIButton *foodButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
+    UIButton *foodButton = [[UIButton alloc] initWithFrame:CGRectMake(190, 0, viewWidth-2*originX, 50)];
     [foodButton setTitle:@"请选择食材" forState:UIControlStateNormal];
-    [foodButton setTitleColor:SYColor3 forState:UIControlStateNormal];
-    [foodButton setTitleColor:SYColor1 forState:UIControlStateSelected];
+    [foodButton setTitleColor:SYColor10 forState:UIControlStateNormal];
+    [foodButton setTitleColor:SYColor4 forState:UIControlStateSelected];
+    [foodButton.titleLabel setFont:SYFont20];
     foodButton.tag = 11;
-    foodButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    foodButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [foodButton addTarget:self action:@selector(foodResponse:) forControlEvents:UIControlEventTouchUpInside];
     [foodView addSubview:foodButton];
     foodPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-216, self.view.frame.size.width, 216)];
@@ -169,79 +208,82 @@
     [self.view addSubview:foodPickerView];
     
     /*location*/
-    locationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    locationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 50)];
     locationView.hidden = YES;
     
-    UILabel *locationTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
+    UILabel *locationTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 50)];
     locationTitleLabel.text = @"位置";
-    locationTitleLabel.textColor = SYColor1;
+    locationTitleLabel.textColor = SYColor4;
+    [locationTitleLabel setFont:SYFont25];
     [locationView addSubview:locationTitleLabel];
-    UIButton *locationButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
+    UIButton *locationButton = [[UIButton alloc] initWithFrame:CGRectMake(190, 0, viewWidth-190, 50)];
     locationButton.tag = 11;
-    [locationButton setTitleColor:SYColor3 forState:UIControlStateNormal];
-    [locationButton setTitleColor:SYColor1 forState:UIControlStateSelected];
-    [locationButton setTitle:@"请选择食材位置" forState:UIControlStateNormal];
+    [locationButton setTitleColor:SYColor10 forState:UIControlStateNormal];
+    [locationButton setTitleColor:SYColor4 forState:UIControlStateSelected];
+    [locationButton.titleLabel setFont:SYFont20];
+    [locationButton setTitle:@"请选择位置" forState:UIControlStateNormal];
     [locationButton addTarget:self action:@selector(locationResponse) forControlEvents:UIControlEventTouchUpInside];
-    locationButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    locationButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [locationView addSubview:locationButton];
     
-    /*title*/
-    titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
-    titleView.hidden = YES;
-    UILabel *titleTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 40)];
-    titleTitleLabel.text = @"标题";
-    titleTitleLabel.textColor = SYColor1;
-    [titleView addSubview:titleTitleLabel];
-    UITextField *textfield = [[UITextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30)];
-    textfield.tag = 11;
-    [textfield addTarget:self action:@selector(titleEmptyCheck) forControlEvents:UIControlEventEditingChanged];
-    textfield.backgroundColor = [UIColor whiteColor];
-    [titleView addSubview:textfield];
+    /*price*/
+    priceView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 70)];
+    priceView.hidden = YES;
+    UILabel *priceTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 50)];
+    priceTitleLabel.text = @"价格";
+    priceTitleLabel.textColor = SYColor4;
+    [priceTitleLabel setFont:SYFont25];
+    [priceView addSubview:priceTitleLabel];
+    UITextField *priceTextField = [[UITextField alloc] initWithFrame:CGRectMake(210, 0, 90, 50)];
+    priceTextField.textColor = SYColor4;
+    [priceTextField setFont:SYFont20];
+    priceTextField.textAlignment = NSTextAlignmentRight;
+    priceTextField.tag = 11;
+    priceTextField.keyboardType = UIKeyboardTypeNumberPad;
+    [priceTextField addTarget:self action:@selector(priceEmptyCheck) forControlEvents:UIControlEventEditingChanged];
+    [priceView addSubview:priceTextField];
+    UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(210, 37, 90, SYSeparatorHeight)];
+    separator.backgroundColor = SYColor4;
+    [priceView addSubview:separator];
+    UILabel *dollarLabel = [[UILabel alloc] initWithFrame:CGRectMake(190, 0, 20, 50)];
+    dollarLabel.text = @"$";
+    dollarLabel.textColor = SYColor4;
+    [dollarLabel setFont:SYFont20];
+    [priceView addSubview:dollarLabel];
+    UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(310, 0, 40, 50)];
+    monthLabel.text = @"/份";
+    monthLabel.textColor = SYColor4;
+    [monthLabel setFont:SYFont20];
+    monthLabel.tag = 12;
+    [priceView addSubview:monthLabel];
     
+    originX = 30;
     /*introduction*/
-    introductionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 180)];
+    introductionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 130)];
     introductionView.hidden = YES;
-    UILabel *introductionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 40)];
-    introductionTitleLabel.text = @"简介";
-    introductionTitleLabel.textColor = SYColor1;
-    [introductionView addSubview:introductionTitleLabel];
-    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 100)];
+    SYTextView *textView = [[SYTextView alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 90) type:SYTextViewShare];
     textView.tag = 11;
-    textView.delegate = self;
-    textView.backgroundColor = [UIColor whiteColor];
+    textView.SYDelegate = self;
+    [textView setPlaceholder:@"菜品详细介绍（选填）"];
     [introductionView addSubview:textView];
     
-    nextButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 44)];
-    [nextButton setTitle:@"下一步" forState:UIControlStateNormal];
+    nextButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 32)];
+    [nextButton setTitle:@"提交" forState:UIControlStateNormal];
     [nextButton setBackgroundColor:SYColor4];
     [nextButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [nextButton.titleLabel setFont:SYFont20S];
+    [nextButton.titleLabel setFont:SYFont20M];
     [nextButton addTarget:self action:@selector(nextResponse) forControlEvents:UIControlEventTouchUpInside];
-    nextButton.layer.cornerRadius = nextButton.frame.size.height/2;
+    nextButton.layer.cornerRadius = 8;
     nextButton.clipsToBounds = YES;
     nextButton.hidden = YES;
     
     
     
     
-    switch (_controllerType) {
-        case discoverEatRegion:
-            [mainScrollView addSubview:regionView];
-            [viewsArray addObject:regionView];
-            [mainScrollView addSubview:subRegionView];
-            [viewsArray addObject:subRegionView];
-            break;
-        case discoverEatFood:
-            [mainScrollView addSubview:foodView];
-            [viewsArray addObject:foodView];
-            break;
-        default:
-            break;
-    }
     [mainScrollView addSubview:locationView];
     [viewsArray addObject:locationView];
-    [mainScrollView addSubview:titleView];
-    [viewsArray addObject:titleView];
+    [mainScrollView addSubview:priceView];
+    [viewsArray addObject:priceView];
     [mainScrollView addSubview:introductionView];
     [viewsArray addObject:introductionView];
     [mainScrollView addSubview:nextButton];
@@ -263,6 +305,41 @@
     mainScrollView.contentSize = CGSizeMake(0, height+20+44+10);
 }
 
+-(IBAction)typeResponse:(id)sender{
+    UIButton *button = sender;
+    if (button.tag-10) {
+        _controllerType = discoverEatRegion;
+        [button setTitleColor:SYColor4 forState:UIControlStateNormal];
+        UIButton *button2 = [typeView viewWithTag:10];
+        [button2 setTitleColor:SYColor8 forState:UIControlStateNormal];
+        [button.titleLabel setFont:SYFont25M];
+        [button2.titleLabel setFont:SYFont20];
+        [foodView removeFromSuperview];
+        [viewsArray removeObject:foodView];
+        [mainScrollView addSubview:regionView];
+        [viewsArray insertObject:regionView atIndex:1];
+        [mainScrollView addSubview:subRegionView];
+        [viewsArray insertObject:subRegionView atIndex:2];
+        regionView.hidden = NO;
+    }
+    else{
+        _controllerType = discoverEatFood;
+        [button setTitleColor:SYColor4 forState:UIControlStateNormal];
+        UIButton *button2 = [typeView viewWithTag:11];
+        [button2 setTitleColor:SYColor8 forState:UIControlStateNormal];
+        [button.titleLabel setFont:SYFont25M];
+        [button2.titleLabel setFont:SYFont20];
+        [regionView removeFromSuperview];
+        [viewsArray removeObject:regionView];
+        [subRegionView removeFromSuperview];
+        [viewsArray removeObject:subRegionView];
+        [mainScrollView addSubview:foodView];
+        [viewsArray insertObject:foodView atIndex:1];
+        foodView.hidden = NO;
+    }
+    
+    [self viewsLayout];
+}
 -(IBAction)regionResponse:(id)sender{
     [self pickerConfirmResponse];
     UIButton *button = sender;
@@ -324,9 +401,15 @@
     UIButton *locationButton = [locationView viewWithTag:11];
     locationButton.selected = YES;
     [locationButton setTitle:[[[_selectedItem placemark] addressDictionary] valueForKey:@"Street"] forState:UIControlStateSelected];
-    titleView.hidden = NO;
+    priceView.hidden = NO;
 }
-
+-(void)priceEmptyCheck{
+    UITextField *textField = [priceView viewWithTag:11];
+    if ([textField.text length]) {
+        introductionView.hidden = NO;
+        nextButton.hidden = NO;
+    }
+}
 -(void)nextResponse{
     NSString *subCate;
     if (_controllerType==discoverEatRegion) {
@@ -335,15 +418,14 @@
     else if (_controllerType == discoverEatFood){
         subCate= [NSString stringWithFormat:@"02%02ld0000",[foodString integerValue]];
     }
-    UITextField *title = [titleView viewWithTag:11];
     UITextView *introduction = [introductionView viewWithTag:11];
     
     NSString *requestBody;
     if (is_other) {
-        requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=1&subcate=%@&title=%@&description=%@&is_other=1",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,title.text, introduction.text];
+        requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=1&subcate=%@&title=%@&description=%@&is_other=1&price=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,_titleString, introduction.text,priceView];
     }
     else
-        requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=1&subcate=%@&title=%@&introduction=%@&is_other=0",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,title.text, introduction.text];
+        requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=1&subcate=%@&title=%@&introduction=%@&is_other=0&price=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,_titleString, introduction.text,priceView];
     NSLog(@"%@/n",requestBody);
     /*改上面的 query 和 URLstring 就好了*/
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@newshare",basicURL]];
@@ -373,30 +455,11 @@
     
 }
 
--(void)titleEmptyCheck{
-    UITextField *textField = [titleView viewWithTag:11];
-    if ([textField.text length]) {
-        introductionView.hidden = NO;
-    }
-}
--(void)introductionEmptyCheck{
-    UITextView *textView = [introductionView viewWithTag:11];
-    if ([textView.text length]) {
-        nextButton.hidden = NO;
-    }
-}
--(void)textViewDidChange:(UITextView *)textView{
-    if ([textView.text length]) {
-        nextButton.hidden = NO;
-    }
-}
--(void)textViewDidBeginEditing:(UITextView *)textView{
-    if ([textView.text length]) {
-        nextButton.hidden = NO;
-    }
+-(void)SYTextView:(SYTextView *)textView isEmpty:(BOOL)empty{
+    nextButton.hidden = !empty;
 }
 -(void)dismissKeyboard {
-    UITextField *textField = [titleView viewWithTag:11];
+    UITextField *textField = [priceView viewWithTag:11];
     [textField resignFirstResponder];
     UITextView *textView = [introductionView viewWithTag:11];
     [textView resignFirstResponder];

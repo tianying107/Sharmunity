@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DiscoverEatShareViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIButton *regionButton;
-@property (weak, nonatomic) IBOutlet UIButton *foodButton;
+@interface DiscoverEatShareViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+    UITableView *shareTable;
+    NSString *MEID;
+    NSArray *shareIDArray;
+    NSMutableArray *basicViewArray;
+}
+@property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
+@property (weak, nonatomic) IBOutlet UIButton *articalButton;
+@property (weak, nonatomic) IBOutlet UIButton *otherButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *describeButton;
+@property (weak, nonatomic) IBOutlet UITextField *titleTextFeild;
 
 @end

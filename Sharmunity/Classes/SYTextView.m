@@ -31,12 +31,15 @@
     return self;
 }
 -(void)setPlaceholder:(NSString *)placeholder{
-    
-    placeholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(4, 10, 0, 0)];
-    placeholderLabel.text = placeholder;
-    placeholderLabel.textColor = SYColor3;
-    [placeholderLabel setFont:SYFont15];
-    [placeholderLabel sizeToFit];
+    NSMutableAttributedString *attributeSting = [[NSMutableAttributedString alloc] initWithString:placeholder attributes:@{NSFontAttributeName:SYFont15,NSForegroundColorAttributeName:SYColor3}];
+    NSMutableParagraphStyle *paragraphstyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphstyle.lineSpacing = 2.f;
+    [attributeSting addAttribute:NSParagraphStyleAttributeName value:paragraphstyle range:NSMakeRange(0, attributeSting.length)];
+    CGRect rect = [attributeSting boundingRectWithSize:(CGSize){self.frame.size.width, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+    float height = rect.size.height;
+    placeholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(4, 8, self.frame.size.width, height)];
+    placeholderLabel.numberOfLines = 0;
+    placeholderLabel.attributedText = attributeSting;
     [self addSubview:placeholderLabel];
     [self sendSubviewToBack:placeholderLabel];
     

@@ -15,7 +15,8 @@
     UIView *regionView;
     UIView *subRegionView;
     UIView *foodView;
-    UIView *keywordView;
+//    UIView *keywordView;
+    UIView *locationView;
     UIPickerView *regionPickerView;
     UIPickerView *subRegionPickerView;
     UIPickerView *foodPickerView;
@@ -38,6 +39,7 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property NSInteger controllerType;
 @property NSMutableDictionary *helpDict;
-
-
+@property NSString *keywordString;
+@property NSString *distanceString;
+@property MKMapItem *selectedItem;
 @end
