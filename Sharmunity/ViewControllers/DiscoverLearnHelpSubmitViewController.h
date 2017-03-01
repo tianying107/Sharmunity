@@ -13,6 +13,8 @@
 #define discoverLearnInterest 303
 @interface DiscoverLearnHelpSubmitViewController : UIViewController<UIScrollViewDelegate,UITextViewDelegate, CLLocationManagerDelegate>{
     UIScrollView *mainScrollView;
+    UIView *schoolContentView;
+    UIView *interestView;
     UIView *majorView;
     UIView *numberView;
     UIView *priceView;
@@ -32,5 +34,6 @@
 @property NSMutableDictionary *shareDict;
 @property MKMapItem *selectedItem;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property NSString *typeString;
 
 @end

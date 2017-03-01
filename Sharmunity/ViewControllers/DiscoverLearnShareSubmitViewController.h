@@ -17,6 +17,7 @@
     UIView *numberView;
     UIView *typeView;
     UIView *schoolContentView;
+    UIView *interestView;
     UIView *priceView;
     UIView *price2View;
     UIView *locationView;

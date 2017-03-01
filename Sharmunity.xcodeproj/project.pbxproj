@@ -102,6 +102,7 @@
 		44C89E841E5D0F0600ADC9CF /* SYHelpContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C89E831E5D0F0600ADC9CF /* SYHelpContentView.m */; };
 		44DADD191E66213000B5C085 /* DiscoverOtherShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DADD181E66213000B5C085 /* DiscoverOtherShareViewController.m */; };
 		44DADD1C1E66693300B5C085 /* DiscoverEatArticalShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DADD1B1E66693300B5C085 /* DiscoverEatArticalShareViewController.m */; };
+		44DADD1F1E67498900B5C085 /* DiscoverLearnHelpExpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DADD1E1E67498900B5C085 /* DiscoverLearnHelpExpViewController.m */; };
 		44FBAAA11E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FBAAA01E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -285,6 +286,8 @@
 		44DADD181E66213000B5C085 /* DiscoverOtherShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverOtherShareViewController.m; path = ViewControllers/DiscoverOtherShareViewController.m; sourceTree = "<group>"; };
 		44DADD1A1E66693300B5C085 /* DiscoverEatArticalShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverEatArticalShareViewController.h; path = ViewControllers/DiscoverEatArticalShareViewController.h; sourceTree = "<group>"; };
 		44DADD1B1E66693300B5C085 /* DiscoverEatArticalShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverEatArticalShareViewController.m; path = ViewControllers/DiscoverEatArticalShareViewController.m; sourceTree = "<group>"; };
+		44DADD1D1E67498900B5C085 /* DiscoverLearnHelpExpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLearnHelpExpViewController.h; path = ViewControllers/DiscoverLearnHelpExpViewController.h; sourceTree = "<group>"; };
+		44DADD1E1E67498900B5C085 /* DiscoverLearnHelpExpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLearnHelpExpViewController.m; path = ViewControllers/DiscoverLearnHelpExpViewController.m; sourceTree = "<group>"; };
 		44FBAA9F1E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverEatHelpSecondViewController.h; path = ViewControllers/DiscoverEatHelpSecondViewController.h; sourceTree = "<group>"; };
 		44FBAAA01E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverEatHelpSecondViewController.m; path = ViewControllers/DiscoverEatHelpSecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -610,6 +613,8 @@
 				44A173E61E52387800FABC4F /* DiscoverLearnShareSubmitViewController.m */,
 				44A173E21E52355A00FABC4F /* DiscoverLearnHelpViewController.h */,
 				44A173E31E52355A00FABC4F /* DiscoverLearnHelpViewController.m */,
+				44DADD1D1E67498900B5C085 /* DiscoverLearnHelpExpViewController.h */,
+				44DADD1E1E67498900B5C085 /* DiscoverLearnHelpExpViewController.m */,
 				44A173E81E52388D00FABC4F /* DiscoverLearnHelpSubmitViewController.h */,
 				44A173E91E52388D00FABC4F /* DiscoverLearnHelpSubmitViewController.m */,
 			);
@@ -1011,6 +1016,7 @@
 				44A494111E4CB3DD006CD069 /* SYMap.m in Sources */,
 				447E41111E327FD90010CAA4 /* VerificationWarningViewController.m in Sources */,
 				44A4941B1E4CBA7D006CD069 /* DiscoverLiveShareSubmitViewController.m in Sources */,
+				44DADD1F1E67498900B5C085 /* DiscoverLearnHelpExpViewController.m in Sources */,
 				4470841E1E54FEFC00DEAB75 /* SYProfileHead.m in Sources */,
 				44DADD1C1E66693300B5C085 /* DiscoverEatArticalShareViewController.m in Sources */,
 				44AD3C3D1E561C9C008774CD /* SYTitle.m in Sources */,

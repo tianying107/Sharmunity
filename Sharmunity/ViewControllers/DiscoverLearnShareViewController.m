@@ -113,7 +113,7 @@
 
 -(void)otherResponse{
     DiscoverOtherShareViewController *viewController = [DiscoverOtherShareViewController new];
-    viewController.shareType = discoverLive;
+    viewController.shareType = discoverLearn;
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

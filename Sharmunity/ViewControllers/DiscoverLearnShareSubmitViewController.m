@@ -10,7 +10,7 @@
 #import "DiscoverLocationViewController.h"
 #import "Header.h"
 #import "SYHeader.h"
-@interface DiscoverLearnShareSubmitViewController ()<SYPriceSliderDelegate>{
+@interface DiscoverLearnShareSubmitViewController (){
     SYPopOut *popOut;
     SYTextView *contentTextView;
 }
@@ -27,7 +27,7 @@
             self.navigationItem.title = @"学长咨询";
             break;
         case discoverLearnTutor:
-            self.navigationItem.title = @"课程辅导";
+            self.navigationItem.title = @"专业辅导";
             break;
         case discoverLearnInterest:
             self.navigationItem.title = @"开兴趣班";
@@ -67,7 +67,7 @@
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn setImage:[UIImage imageNamed:@"SYBackColor4"] forState:UIControlStateNormal];
-    [backBtn setTitle:@"住" forState:UIControlStateNormal];
+    [backBtn setTitle:@"学" forState:UIControlStateNormal];
     [backBtn setTitleColor:SYColor1 forState:UIControlStateNormal];
     [backBtn.titleLabel setFont:SYFont15];
     [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
@@ -117,7 +117,7 @@
     [typeView addSubview:appTypeButton];
     
     /*major type*/
-    schoolContentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 290)];
+    schoolContentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, (_controllerType==discoverLearnExper)?290:320)];
     schoolContentView.hidden = YES;
     SYTextField *schoolTextfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 40) type:SYTextFieldShare];
     schoolTextfield.tag = 11;
@@ -138,37 +138,66 @@
     contentTextView = [[SYTextView alloc] initWithFrame:CGRectMake(originX, 205, viewWidth-2*originX, 70) type:SYTextViewShare];
     [schoolContentView addSubview:contentTextView];
     
-
-
+    /*interest*/
+    interestView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 250)];
+    schoolContentView.hidden = YES;
+    SYTextField *titleTextfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 40) type:SYTextFieldShare];
+    titleTextfield.tag = 11;
+    [interestView addSubview:titleTextfield];
+    SYTextField *nameTextfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 65, viewWidth-2*originX, 40) type:SYTextFieldShare];
+    nameTextfield.tag = 12;
+    nameTextfield.backgroundColor = [UIColor whiteColor];
+    [interestView addSubview:nameTextfield];
+    SYTextView *interestTextView = [[SYTextView alloc] initWithFrame:CGRectMake(originX, 130, viewWidth-2*originX, 80) type:SYTextViewShare];
+    interestTextView.tag = 13;
+    [interestView addSubview:interestTextView];
+    
+    /*location*/
+    locationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 50)];
+    UILabel *locationTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(45, 0, 100, 45)];
+    locationTitleLabel.text = @"我的位置";
+    locationTitleLabel.textColor = SYColor4;
+    [locationTitleLabel setFont:SYFont20];
+    [locationView addSubview:locationTitleLabel];
+    UIButton *locationButton = [[UIButton alloc] initWithFrame:CGRectMake(145, 0, viewWidth-145-45, 45)];
+    locationButton.tag = 11;
+    [locationButton setTitleColor:SYColor8 forState:UIControlStateNormal];
+    [locationButton setTitleColor:SYColor4 forState:UIControlStateSelected];
+    [locationButton.titleLabel setFont:SYFont20];
+    [locationButton setTitle:@"请选择位置" forState:UIControlStateNormal];
+    [locationButton addTarget:self action:@selector(locationResponse) forControlEvents:UIControlEventTouchUpInside];
+    locationButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    [locationView addSubview:locationButton];
     
     /*price*/
-    priceView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 45)];
+    priceView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 90)];
     priceView.hidden = YES;
-    UILabel *priceTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 45)];
+    UILabel *priceTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(45, 0, 100, 45)];
     priceTitleLabel.text = @"价格";
     priceTitleLabel.textColor = SYColor4;
-    [priceTitleLabel setFont:SYFont25];
+    [priceTitleLabel setFont:SYFont20];
     [priceView addSubview:priceTitleLabel];
-    UITextField *priceTextField = [[UITextField alloc] initWithFrame:CGRectMake(175, 0, 90, 45)];
+    UITextField *priceTextField = [[UITextField alloc] initWithFrame:CGRectMake(viewWidth-45-100-40, 0, 90, 45)];
     priceTextField.textColor = SYColor4;
     [priceTextField setFont:SYFont20];
     priceTextField.textAlignment = NSTextAlignmentRight;
     priceTextField.tag = 11;
     priceTextField.keyboardType = UIKeyboardTypeNumberPad;
-//    [priceTextField addTarget:self action:@selector(priceEmptyCheck) forControlEvents:UIControlEventEditingChanged];
+    [priceTextField addTarget:self action:@selector(priceEmptyCheck) forControlEvents:UIControlEventEditingChanged];
     [priceView addSubview:priceTextField];
-    UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(175, 32, 90, SYSeparatorHeight)];
+    UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(viewWidth-45-100-40, 32, 90, SYSeparatorHeight)];
     separator.backgroundColor = SYColor4;
     [priceView addSubview:separator];
-    UILabel *dollarLabel = [[UILabel alloc] initWithFrame:CGRectMake(155, 0, 20, 45)];
+    UILabel *dollarLabel = [[UILabel alloc] initWithFrame:CGRectMake(viewWidth-45-100-60, 0, 20, 45)];
     dollarLabel.text = @"$";
     dollarLabel.textColor = SYColor4;
     [dollarLabel setFont:SYFont20];
     [priceView addSubview:dollarLabel];
-    UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(275, 0, 40, 45)];
-    monthLabel.text = @"/月";
+    UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(viewWidth-45-60, 0, 60, 45)];
+    monthLabel.text = @"/课时";
     monthLabel.textColor = SYColor4;
     [monthLabel setFont:SYFont20];
+    monthLabel.textAlignment = NSTextAlignmentRight;
     monthLabel.tag = 12;
     [priceView addSubview:monthLabel];
     
@@ -214,7 +243,9 @@
     [priceAggButton addTarget:self action:@selector(priceAggResponse) forControlEvents:UIControlEventTouchUpInside];
     [price2View addSubview:priceAggButton];
     
-    nextButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 32)];
+    
+    originX = 15;
+    nextButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 35)];
     [nextButton setTitle:@"提交" forState:UIControlStateNormal];
     [nextButton setBackgroundColor:SYColor4];
     [nextButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -242,31 +273,27 @@
             majorTextfield.placeholder = @"专业编号";
             break;
         case discoverLearnTutor:
-            [mainScrollView addSubview:majorView];
-            [viewsArray addObject:majorView];
-            [mainScrollView addSubview:numberView];
-            [viewsArray addObject:numberView];
-            [mainScrollView addSubview:titleView];
-            [viewsArray addObject:titleView];
-            [mainScrollView addSubview:introductionView];
-            [viewsArray addObject:introductionView];
-            [mainScrollView addSubview:priceView];
-            [viewsArray addObject:priceView];
+            schoolContentView.hidden = NO;
+            nextButton.hidden = NO;
+            [mainScrollView addSubview:schoolContentView];
+            [viewsArray addObject:schoolContentView];
             schoolTextfield.placeholder = @"学校（请输入英文全称）";
             collegeTextfield.placeholder = @"学院（请输入英文全称）";
             departmentTextfield.placeholder = @"专业（请输入英文全称）";
             majorTextfield.placeholder = @"课程编号";
+            [contentTextView setPlaceholder:@"自我描述（选填）"];
             break;
         case discoverLearnInterest:
-            titleView.hidden = NO;
-            [mainScrollView addSubview:titleView];
-            [viewsArray addObject:titleView];
+            interestView.hidden = NO;
+            [mainScrollView addSubview:interestView];
+            [viewsArray addObject:interestView];
             [mainScrollView addSubview:locationView];
             [viewsArray addObject:locationView];
-            [mainScrollView addSubview:introductionView];
-            [viewsArray addObject:introductionView];
             [mainScrollView addSubview:priceView];
             [viewsArray addObject:priceView];
+            titleTextfield.placeholder = @"关键字（如美术， 钢琴，瑜伽，跆拳道等）";
+            nameTextfield.placeholder = @"兴趣班名称（选填）";
+            [interestTextView setPlaceholder:@"课程描述（如课程内容，招生年龄段，开班时间等）"];
             break;
         default:
             break;
@@ -279,7 +306,7 @@
 }
 
 -(void)viewsLayout{
-    float height = 10;
+    float height = (_controllerType==discoverLearnExper)?10:20;
     for (UIView *view in viewsArray){
         CGRect frame = view.frame;
         frame.origin.y = height;
@@ -328,12 +355,18 @@
     UIButton *locationButton = [locationView viewWithTag:11];
     locationButton.selected = YES;
     [locationButton setTitle:[[[_selectedItem placemark] addressDictionary] valueForKey:@"Street"] forState:UIControlStateSelected];
-    introductionView.hidden = NO;
+    priceView.hidden = NO;
 }
 -(void)priceAggResponse{
     UIView *checkView = [price2View viewWithTag:12];
     priceAgg = !priceAgg;
     checkView.backgroundColor = (priceAgg)?SYColor4:[UIColor clearColor];
+}
+-(void)priceEmptyCheck{
+    UITextField *textField = [priceView viewWithTag:11];
+    if ([textField.text length]) {
+        nextButton.hidden = NO;
+    }
 }
 -(void)nextResponse{
     NSString *subCate;
@@ -346,10 +379,12 @@
     UITextField *college = [schoolContentView viewWithTag:12];
     UITextField *department = [schoolContentView viewWithTag:13];
     UITextField *major = [schoolContentView viewWithTag:14];
-    UITextView *introduction = [introductionView viewWithTag:11];
+    UITextField *title = [interestView viewWithTag:11];
+    UITextField *name = [interestView viewWithTag:12];
+    UITextView *interest = [interestView viewWithTag:13];
     switch (_controllerType) {
         case discoverLearnExper:
-            subCate= @"01000000";
+            subCate= [NSString stringWithFormat:@"01%@0000",typeString];
             priceString = ((UITextField*)[price2View viewWithTag:11]).text;
             latitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
             longitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
@@ -363,10 +398,10 @@
             break;
         case discoverLearnInterest:
             subCate= @"03000000";
-            majorString = @"";
-            numberString = @"";
+            priceString = ((UITextField*)[priceView viewWithTag:11]).text;
             latitude = [NSString stringWithFormat:@"%f",[[_selectedItem placemark] coordinate].latitude];
             longitude = [NSString stringWithFormat:@"%f",[[_selectedItem placemark] coordinate].longitude];
+            requestBody = [NSString stringWithFormat:@"email=%@&latitude=%@&longitude=%@&category=3&subcate=%@&title=%@&introduction=%@&name=%@&price=%@",MEID,latitude,longitude,subCate,title.text, interest.text,name.text,priceString];
             break;
             
         default:
@@ -440,16 +475,28 @@
     [textField resignFirstResponder];
     UITextView *textView = [introductionView viewWithTag:11];
     [textView resignFirstResponder];
-}
-
-
-
-- (void)priceSlider:(UISlider *)slider priceChangeToValue:(NSInteger)price{
-    priceString = [NSString stringWithFormat:@"%ld",price];
-    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:priceString, @"price", nil];
-    [_shareDict addEntriesFromDictionary:dict];
-}
--(void)lowerPriceChangeToValue:(NSInteger)lowerPrice upperToValue:(NSInteger)upperPrice{
     
+    UITextField *school = [schoolContentView viewWithTag:11];
+    UITextField *college = [schoolContentView viewWithTag:12];
+    UITextField *department = [schoolContentView viewWithTag:13];
+    UITextField *major = [schoolContentView viewWithTag:14];
+    UITextField *price2 = [price2View viewWithTag:11];
+    [school resignFirstResponder];
+    [college resignFirstResponder];
+    [department resignFirstResponder];
+    [major resignFirstResponder];
+    [price2 resignFirstResponder];
+    [contentTextView resignFirstResponder];
+    
+    UITextField *title = [interestView viewWithTag:11];
+    UITextField *name = [interestView viewWithTag:12];
+    UITextView *interest = [interestView viewWithTag:13];
+    [title resignFirstResponder];
+    [name resignFirstResponder];
+    [interest resignFirstResponder];
+    UITextField *price = [priceView viewWithTag:11];
+    [price resignFirstResponder];
+
 }
+
 @end

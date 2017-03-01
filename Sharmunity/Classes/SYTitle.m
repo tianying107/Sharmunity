@@ -200,19 +200,19 @@
     NSString *keywordString = [keyword valueForKey:@"keyword"];
     if (type==1) {
         NSString *majorString = [keyword valueForKey:@"major"];
-        result = [NSString stringWithFormat:@"我要%@专业的相关经验\n%@",majorString,keywordString];
+        result = [NSString stringWithFormat:@"我要%@专业的相关经验\n%@",majorString,(keywordString)?keywordString:@""];
         }
     else if(type==2){
         NSString *majorString = [keyword valueForKey:@"major"];
         NSString *numberString = [keyword valueForKey:@"number"];
         if (titleType == titleHelp) {
-            result = [NSString stringWithFormat:@"我要%@%@的相关辅导\n%@",majorString,numberString,keywordString];
+            result = [NSString stringWithFormat:@"我要%@%@的相关辅导\n%@",majorString,numberString,(keywordString)?keywordString:@""];
             
         }
     }
     else if(type==3){
         if (titleType == titleHelp) {
-            result = [NSString stringWithFormat:@"找兴趣班\n%@",keywordString];
+            result = [NSString stringWithFormat:@"找兴趣班\n%@",(keywordString)?keywordString:@""];
         }
     }
     return result;
@@ -225,19 +225,19 @@
     NSString *keywordString = [keyword valueForKey:@"keyword"];
     if (type==1) {
         NSString *majorString = [keyword valueForKey:@"major"];
-        result = [NSString stringWithFormat:@"我要%@专业的相关经验\n%@",majorString,keywordString];
+        result = [NSString stringWithFormat:@"我要%@专业的相关经验\n%@",majorString,(keywordString)?keywordString:@""];
     }
     else if(type==2){
         NSString *majorString = [keyword valueForKey:@"major"];
         NSString *numberString = [keyword valueForKey:@"number"];
         if (titleType == titleHelp) {
-            result = [NSString stringWithFormat:@"我要%@%@的相关辅导\n%@",majorString,numberString,keywordString];
+            result = [NSString stringWithFormat:@"我要%@%@的相关辅导\n%@",majorString,numberString,(keywordString)?keywordString:@""];
             
         }
     }
     else if(type==3){
         if (titleType == titleHelp) {
-            result = [NSString stringWithFormat:@"找兴趣班\n%@",keywordString];
+            result = [NSString stringWithFormat:@"找兴趣班\n%@",(keywordString)?keywordString:@""];
         }
     }
     return result;
