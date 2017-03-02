@@ -28,6 +28,18 @@
         case DiscoverTravelPickup:
             self.navigationItem.title = @"找接机";
             break;
+        case DiscoverTravelDeliver:
+            self.navigationItem.title = @"求捎带";
+            break;
+        case DiscoverTravelCarpool:
+            self.navigationItem.title = @"求搭车";
+            break;
+        case DiscoverTravelDrive:
+            self.navigationItem.title = @"学车考证";
+            break;
+        case DiscoverTravelBuyCar:
+            self.navigationItem.title = @"买车卖车";
+            break;
             
         default:
             break;
@@ -141,43 +153,105 @@
     
     
     /*depart city*/
-    departCityView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    departCityView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 60)];
     departCityView.hidden = YES;
-    UILabel *departCityTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 200, 40)];
-    departCityTitleLabel.text = @"出发城市";
-    departCityTitleLabel.textColor = SYColor1;
-    [departCityView addSubview:departCityTitleLabel];
-    SYTextField *departCityTextfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30) type:SYTextFieldHelp];
+    SYTextField *departCityTextfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 40) type:SYTextFieldHelp];
     departCityTextfield.tag = 11;
-    [departCityTextfield addTarget:self action:@selector(deparrCityEmptyCheck) forControlEvents:UIControlEventEditingChanged];
-    departCityTextfield.backgroundColor = [UIColor whiteColor];
+    departCityTextfield.placeholder = @"出发地点";
     [departCityView addSubview:departCityTextfield];
     
     /*arrive city*/
-    arriveCityView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    arriveCityView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 60)];
     arriveCityView.hidden = YES;
-    UILabel *arriveCityTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 200, 40)];
-    arriveCityTitleLabel.text = @"到达城市";
-    arriveCityTitleLabel.textColor = SYColor1;
-    [arriveCityView addSubview:arriveCityTitleLabel];
-    SYTextField *arriveCityTextfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30) type:SYTextFieldHelp];
+    SYTextField *arriveCityTextfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 40) type:SYTextFieldHelp];
+    arriveCityTextfield.placeholder = @"到达地点";
     arriveCityTextfield.tag = 11;
-    [arriveCityTextfield addTarget:self action:@selector(deparrCityEmptyCheck) forControlEvents:UIControlEventEditingChanged];
-    arriveCityTextfield.backgroundColor = [UIColor whiteColor];
     [arriveCityView addSubview:arriveCityTextfield];
     
-    /*arrive city*/
-    cityView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    /*round trip*/
+    roundTripView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 40)];
+    roundTrip = NO;
+    UIView *checkSingleView = [[UIView alloc] initWithFrame:CGRectMake(viewWidth/2-100, 2.5, 15, 15)];
+    checkSingleView.tag = 11;
+    checkSingleView.layer.borderWidth = 1;
+    checkSingleView.layer.borderColor = [SYColor1 CGColor];
+    [roundTripView addSubview:checkSingleView];
+    UILabel *singleLabel = [[UILabel alloc] initWithFrame:CGRectMake(checkSingleView.frame.origin.x+checkSingleView.frame.size.width+4, 0, 60, 20)];
+    singleLabel.text = @"单程";
+    singleLabel.textColor = SYColor1;
+    [singleLabel setFont:SYFont20];
+    [roundTripView addSubview:singleLabel];
+    UIButton *singleButton = [[UIButton alloc] initWithFrame:CGRectMake(checkSingleView.frame.origin.x, 0, 60, 20)];
+    singleButton.tag = 21;
+    [singleButton addTarget:self action:@selector(roundTripResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [roundTripView addSubview:singleButton];
+    UIView *checkRoundView = [[UIView alloc] initWithFrame:CGRectMake(viewWidth/2+15, 2.5, 15, 15)];
+    checkRoundView.tag = 12;
+    checkRoundView.layer.borderWidth = 1;
+    checkRoundView.layer.borderColor = [SYColor1 CGColor];
+    [roundTripView addSubview:checkRoundView];
+    UILabel *roundLabel = [[UILabel alloc] initWithFrame:CGRectMake(checkRoundView.frame.origin.x+checkRoundView.frame.size.width+4, 0, 60, 20)];
+    roundLabel.text = @"往返";
+    roundLabel.textColor = SYColor1;
+    [roundLabel setFont:SYFont20];
+    [roundTripView addSubview:roundLabel];
+    UIButton *roundButton = [[UIButton alloc] initWithFrame:CGRectMake(checkRoundView.frame.origin.x, 0, 60, 20)];
+    roundButton.tag = 22;
+    [roundButton addTarget:self action:@selector(roundTripResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [roundTripView addSubview:roundButton];
+    
+    /*city*/
+    cityView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 220)];
     cityView.hidden = YES;
-    UILabel *cityTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 200, 40)];
-    cityTitleLabel.text = @"在美国的城市";
+    SYTextView *goodTextView = [[SYTextView alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 50) type:SYTextViewHelp];
+    goodTextView.tag = 10;
+    [goodTextView setPlaceholder:@"捎带内容"];
+    [cityView addSubview:goodTextView];
+    UILabel *cityTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 65, viewWidth-2*originX, 20)];
+    cityTitleLabel.text = @"捎带方向";
+    cityTitleLabel.textAlignment = NSTextAlignmentCenter;
+    [cityTitleLabel setFont:SYFont20];
     cityTitleLabel.textColor = SYColor1;
     [cityView addSubview:cityTitleLabel];
-    SYTextField *cityTextfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30) type:SYTextFieldHelp];
-    cityTextfield.tag = 11;
-    [cityTextfield addTarget:self action:@selector(cityEmptyCheck) forControlEvents:UIControlEventEditingChanged];
-    cityTextfield.backgroundColor = [UIColor whiteColor];
+    UIImageView *directImageView = [[UIImageView alloc] initWithFrame:CGRectMake(viewWidth/2-77, 30+2+65, 154, 36)];
+    directImageView.image = [UIImage imageNamed:@"tavelDeliverHelp"];
+    [cityView addSubview:directImageView];
+    UIView *checkUSView = [[UIView alloc] initWithFrame:CGRectMake(directImageView.frame.origin.x-40-15-20, 30+12.5+65, 15, 15)];
+    checkUSView.tag = 11;
+    checkUSView.layer.borderWidth = 1;
+    checkUSView.layer.borderColor = [SYColor1 CGColor];
+    [cityView addSubview:checkUSView];
+    UILabel *USLabel = [[UILabel alloc] initWithFrame:CGRectMake(checkUSView.frame.origin.x+checkUSView.frame.size.width+4, 30+65, 40, 40)];
+    USLabel.text = @"美国";
+    USLabel.textColor = SYColor1;
+    [USLabel setFont:SYFont20];
+    [cityView addSubview:USLabel];
+    UIButton *usDirectButton = [[UIButton alloc] initWithFrame:CGRectMake(checkUSView.frame.origin.x, 30+65, 60, 40)];
+    usDirectButton.tag = 21;
+    [usDirectButton addTarget:self action:@selector(delieverDirectResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [cityView addSubview:usDirectButton];
+    UIView *checkCNView = [[UIView alloc] initWithFrame:CGRectMake(directImageView.frame.origin.x+directImageView.frame.size.width+16, 12.5+30+65, 15, 15)];
+    checkCNView.tag = 12;
+    checkCNView.layer.borderWidth = 1;
+    checkCNView.layer.borderColor = [SYColor1 CGColor];
+    [cityView addSubview:checkCNView];
+    UILabel *cnLabel = [[UILabel alloc] initWithFrame:CGRectMake(checkCNView.frame.origin.x+checkCNView.frame.size.width+4, 30+65, 40, 40)];
+    cnLabel.text = @"中国";
+    cnLabel.textColor = SYColor1;
+    [cnLabel setFont:SYFont20];
+    [cityView addSubview:cnLabel];
+    UIButton *cnDirectButton = [[UIButton alloc] initWithFrame:CGRectMake(checkCNView.frame.origin.x, 30+65, 60, 40)];
+    cnDirectButton.tag = 22;
+    [cnDirectButton addTarget:self action:@selector(delieverDirectResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [cityView addSubview:cnDirectButton];
+    SYTextField *cityTextfield = [[SYTextField alloc] initWithFrame:CGRectMake(viewWidth/2-110-35, 80+65, 110, 40) type:SYTextFieldHelp];
+    cityTextfield.tag = 13;
+    cityTextfield.placeholder = @"美国城市";
     [cityView addSubview:cityTextfield];
+    SYTextField *cnCityTextfield = [[SYTextField alloc] initWithFrame:CGRectMake(viewWidth/2+35, 80+65, 110, 40) type:SYTextFieldHelp];
+    cnCityTextfield.tag = 14;
+    cnCityTextfield.placeholder = @"中国城市";
+    [cityView addSubview:cnCityTextfield];
     
     /*airport*/
     airportsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 60)];
@@ -272,18 +346,232 @@
     textView.tag = 11;
     [introductionView addSubview:textView];
     
+    /*buy car*/
+    buyCarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 130)];
+    buyCarView.hidden = YES;
+    UIImageView *buyCarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(viewWidth/2-21, 0, 42, 33)];
+    buyCarImageView.image = [UIImage imageNamed:@"travelBuyCarHelp"];
+    [buyCarView addSubview:buyCarImageView];
+    UIButton *buyButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, 52, 33)];
+    [buyButton setTitle:@"买车" forState:UIControlStateNormal];
+    [buyButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [buyButton.titleLabel setFont:SYFont20];
+    buyButton.backgroundColor = UIColorFromRGB(0xC4E980);
+    buyButton.layer.cornerRadius = 8;
+    buyButton.clipsToBounds = YES;
+    buyButton.layer.borderColor = [SYColor6 CGColor];
+    buyButton.layer.borderWidth = 1;
+    [buyCarView addSubview:buyButton];
+    UIButton *sellButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth-originX-52, 0, 52, 33)];
+    [sellButton setTitle:@"卖车" forState:UIControlStateNormal];
+    [sellButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [sellButton.titleLabel setFont:SYFont20];
+    sellButton.backgroundColor = UIColorFromRGB(0xC4E980);
+    sellButton.layer.cornerRadius = 8;
+    sellButton.clipsToBounds = YES;
+    sellButton.layer.borderColor = [SYColor6 CGColor];
+    sellButton.layer.borderWidth = 1;
+    [buyCarView addSubview:sellButton];
+    UIView *separatorL = [[UIView alloc] initWithFrame:CGRectMake(buyButton.frame.origin.x+buyButton.frame.size.width+2, 16, buyCarImageView.frame.origin.x-(buyButton.frame.origin.x+buyButton.frame.size.width+6), 1)];
+    separatorL.backgroundColor = SYColor6;
+    [buyCarView addSubview:separatorL];
+    UIView *separatorR = [[UIView alloc] initWithFrame:CGRectMake(buyCarImageView.frame.origin.x+buyCarImageView.frame.size.width+4, 16, sellButton.frame.origin.x-(buyCarImageView.frame.origin.x+buyCarImageView.frame.size.width+6), 1)];
+    separatorR.backgroundColor = SYColor6;
+    [buyCarView addSubview:separatorR];
+    UIView *separatorB = [[UIView alloc] initWithFrame:CGRectMake(0, 70, viewWidth, SYSeparatorHeight)];
+    separatorB.backgroundColor = SYSeparatorColor;
+    [buyCarView addSubview:separatorB];
+    buyCar = NO;
+    UILabel *buySellLabel = [[UILabel alloc] initWithFrame:CGRectMake(viewWidth/2-20-130, 90, 130, 20)];
+    buySellLabel.text = @"找人帮忙";
+    buySellLabel.textColor = SYColor1;
+    [buySellLabel setFont:SYFont20];
+    buySellLabel.textAlignment = NSTextAlignmentRight;
+    [buyCarView addSubview:buySellLabel];
+    UIView *checkBuyView = [[UIView alloc] initWithFrame:CGRectMake(viewWidth/2-10, 90+2.5, 15, 15)];
+    checkBuyView.tag = 11;
+    checkBuyView.layer.borderWidth = 1;
+    checkBuyView.layer.borderColor = [SYColor1 CGColor];
+    [buyCarView addSubview:checkBuyView];
+    UILabel *buyLabel = [[UILabel alloc] initWithFrame:CGRectMake(checkBuyView.frame.origin.x+checkBuyView.frame.size.width+4, 90, 40, 20)];
+    buyLabel.text = @"买车";
+    buyLabel.textColor = SYColor1;
+    [buyLabel setFont:SYFont20];
+    [buyCarView addSubview:buyLabel];
+    UIButton *checkBuyButton = [[UIButton alloc] initWithFrame:CGRectMake(checkBuyView.frame.origin.x, 90, 60, 20)];
+    checkBuyButton.tag = 21;
+    [checkBuyButton addTarget:self action:@selector(buyCarResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [buyCarView addSubview:checkBuyButton];
+    UIView *checkSellView = [[UIView alloc] initWithFrame:CGRectMake(buyLabel.frame.origin.x+buyLabel.frame.size.width+10, 90+2.5, 15, 15)];
+    checkSellView.tag = 12;
+    checkSellView.layer.borderWidth = 1;
+    checkSellView.layer.borderColor = [SYColor1 CGColor];
+    [buyCarView addSubview:checkSellView];
+    UILabel *sellLabel = [[UILabel alloc] initWithFrame:CGRectMake(checkSellView.frame.origin.x+checkSellView.frame.size.width+4, 90, 40, 20)];
+    sellLabel.text = @"卖车";
+    sellLabel.textColor = SYColor1;
+    [sellLabel setFont:SYFont20];
+    [buyCarView addSubview:sellLabel];
+    UIButton *checkSellButton = [[UIButton alloc] initWithFrame:CGRectMake(checkSellView.frame.origin.x, 90, 60, 20)];
+    checkSellButton.tag = 22;
+    [checkSellButton addTarget:self action:@selector(buyCarResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [buyCarView addSubview:checkSellButton];
+    
     /*price*/
-    priceView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 140)];
+    /*price1*/
+    priceView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 60)];
     priceView.hidden = YES;
-    UILabel *priceTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 60)];
-    priceTitleLabel.text = @"价格";
+    UITextField *priceTextField = [[UITextField alloc] initWithFrame:CGRectMake(viewWidth/2-30, 7.5, 60, 25)];
+    priceTextField.textColor = SYColor1;
+    [priceTextField setFont:SYFont20];
+    priceTextField.tag = 11;
+    priceTextField.keyboardType = UIKeyboardTypeNumberPad;
+    priceTextField.backgroundColor = UIColorFromRGB(0xC4E980);
+    priceTextField.textAlignment = NSTextAlignmentCenter;
+    priceTextField.layer.cornerRadius = 6;
+    priceTextField.clipsToBounds = YES;
+    [priceView addSubview:priceTextField];
+    UILabel *priceTitleLabel = [[UILabel alloc] init];
+    priceTitleLabel.text = @"出价";
+    [priceTitleLabel setFont:SYFont20];
     priceTitleLabel.textColor = SYColor1;
+    [priceTitleLabel sizeToFit];
+    priceTitleLabel.frame = CGRectMake(priceTextField.frame.origin.x-priceTitleLabel.frame.size.width-4, 0, priceTitleLabel.frame.size.width, 40);
     [priceView addSubview:priceTitleLabel];
-    SYPriceSlider *priceSlider = [[SYPriceSlider alloc] initWithFrame:CGRectMake(originX, 60, viewWidth-2*originX, 50) type:SYPriceSliderDouble];
-    priceSlider.delegate = self;
-    [priceView addSubview:priceSlider];
-    lowerPriceString = @"100";
-    upperPriceString = @"1000";
+    UILabel *teachUnitLabel = [[UILabel alloc] initWithFrame:CGRectMake(priceTextField.frame.size.width+priceTextField.frame.origin.x+4, 0, 130, 40)];
+    teachUnitLabel.text = @"美元";
+    teachUnitLabel.textColor = SYColor1;
+    [teachUnitLabel setFont:SYFont20];
+    [priceView addSubview:teachUnitLabel];
+    //    priceString = @"150";
+    /*price2*/
+    price2View = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 40)];
+    price2View.hidden = YES;
+    UITextField *price2TextField = [[UITextField alloc] initWithFrame:CGRectMake(viewWidth/2, 0, 85, 25)];
+    price2TextField.textColor = SYColor1;
+    [price2TextField setFont:SYFont20];
+    price2TextField.tag = 11;
+    price2TextField.keyboardType = UIKeyboardTypeNumberPad;
+    price2TextField.backgroundColor = UIColorFromRGB(0xC4E980);
+    price2TextField.textAlignment = NSTextAlignmentCenter;
+    price2TextField.layer.cornerRadius = 6;
+    price2TextField.clipsToBounds = YES;
+    [price2View addSubview:price2TextField];
+    UILabel *price2TitleLabel = [[UILabel alloc] init];
+    price2TitleLabel.text = @"可接受的价格";
+    [price2TitleLabel setFont:SYFont20];
+    price2TitleLabel.textColor = SYColor1;
+    [price2TitleLabel sizeToFit];
+    price2TitleLabel.frame = CGRectMake(price2TextField.frame.origin.x-price2TitleLabel.frame.size.width-10, 0, price2TitleLabel.frame.size.width, 25);
+    [price2View addSubview:price2TitleLabel];
+    UILabel *nitLabel = [[UILabel alloc] initWithFrame:CGRectMake(price2TextField.frame.size.width+price2TextField.frame.origin.x+10, 0, 130, 25)];
+    nitLabel.text = @"美元";
+    nitLabel.textColor = SYColor1;
+    [nitLabel setFont:SYFont20];
+    [price2View addSubview:nitLabel];
+    /*price3*/
+    price3View = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 40)];
+    price3View.hidden = YES;
+    UITextField *price3TextField = [[UITextField alloc] initWithFrame:CGRectMake(viewWidth/2-30, 0, 70, 25)];
+    price3TextField.textColor = SYColor1;
+    [price3TextField setFont:SYFont20];
+    price3TextField.tag = 11;
+    price3TextField.keyboardType = UIKeyboardTypeNumberPad;
+    price3TextField.backgroundColor = UIColorFromRGB(0xC4E980);
+    price3TextField.textAlignment = NSTextAlignmentCenter;
+    price3TextField.layer.cornerRadius = 6;
+    price3TextField.clipsToBounds = YES;
+    [price3View addSubview:price3TextField];
+    UILabel *price3TitleLabel = [[UILabel alloc] init];
+    price3TitleLabel.text = @"可接受的价格";
+    [price3TitleLabel setFont:SYFont20];
+    price3TitleLabel.textColor = SYColor1;
+    [price3TitleLabel sizeToFit];
+    price3TitleLabel.frame = CGRectMake(price3TextField.frame.origin.x-price3TitleLabel.frame.size.width-5, 0, price3TitleLabel.frame.size.width, 25);
+    [price3View addSubview:price3TitleLabel];
+    UILabel *nit3Label = [[UILabel alloc] initWithFrame:CGRectMake(price3TextField.frame.size.width+price3TextField.frame.origin.x+5, 0, 130, 25)];
+    nit3Label.text = @"美元/1小时";
+    nit3Label.textColor = SYColor1;
+    [nit3Label setFont:SYFont20];
+    [price3View addSubview:nit3Label];
+    /*price4*/
+    price4View = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    price4View.hidden = YES;
+    UILabel *price4TitleLabel = [[UILabel alloc] init];
+    price4TitleLabel.text = @"辛苦费";
+    [price4TitleLabel setFont:SYFont20];
+    price4TitleLabel.textColor = SYColor1;
+    [price4TitleLabel sizeToFit];
+    price4TitleLabel.frame = CGRectMake(originX, 0, price4TitleLabel.frame.size.width, 40);
+    [price4View addSubview:price4TitleLabel];
+    UITextField *price4TextField = [[UITextField alloc] initWithFrame:CGRectMake(price4TitleLabel.frame.size.width+price4TitleLabel.frame.origin.x+4, 7.5, 57, 25)];
+    price4TextField.textColor = SYColor1;
+    [price4TextField setFont:SYFont20];
+    price4TextField.textAlignment = NSTextAlignmentCenter;
+    price4TextField.tag = 11;
+    price4TextField.keyboardType = UIKeyboardTypeNumberPad;
+    price4TextField.backgroundColor = UIColorFromRGB(0xC4E980);
+    price4TextField.layer.cornerRadius = 6;
+    price4TextField.clipsToBounds = YES;
+    [price4View addSubview:price4TextField];
+    UILabel *unitLabel = [[UILabel alloc] initWithFrame:CGRectMake(price4TextField.frame.size.width+price4TextField.frame.origin.x+4, 0, 85, 40)];
+    unitLabel.text = @"美元";
+    unitLabel.textColor = SYColor1;
+    [unitLabel setFont:SYFont20];
+    [price4View addSubview:unitLabel];
+    priceAgg = NO;
+    UIView *checkView = [[UIView alloc] initWithFrame:CGRectMake(unitLabel.frame.origin.x+unitLabel.frame.size.width, 12.5, 15, 15)];
+    checkView.tag = 12;
+    checkView.layer.borderWidth = 1;
+    checkView.layer.borderColor = [SYColor1 CGColor];
+    [price4View addSubview:checkView];
+    UILabel *meetLabel = [[UILabel alloc] initWithFrame:CGRectMake(checkView.frame.origin.x+checkView.frame.size.width+4, 0, 60, 40)];
+    meetLabel.text = @"面议";
+    meetLabel.textColor = SYColor1;
+    [meetLabel setFont:SYFont20];
+    [price4View addSubview:meetLabel];
+    UIButton *priceAggButton = [[UIButton alloc] initWithFrame:CGRectMake(checkView.frame.origin.x, 0, 60, 40)];
+    [priceAggButton addTarget:self action:@selector(priceAggResponse) forControlEvents:UIControlEventTouchUpInside];
+    [price4View addSubview:priceAggButton];
+    
+    /*changable*/
+    changableView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 80)];
+    changableView.hidden = YES;
+    priceAgg = NO;
+    UILabel *changeLabel = [[UILabel alloc] initWithFrame:CGRectMake(viewWidth/2-130, 0, 130, 40)];
+    changeLabel.text = @"价格是否可以";
+    changeLabel.textColor = SYColor1;
+    [changeLabel setFont:SYFont20];
+    changeLabel.textAlignment = NSTextAlignmentRight;
+    [changableView addSubview:changeLabel];
+    UIView *checkChangeView = [[UIView alloc] initWithFrame:CGRectMake(viewWidth/2+10, 12.5, 15, 15)];
+    checkChangeView.tag = 11;
+    checkChangeView.layer.borderWidth = 1;
+    checkChangeView.layer.borderColor = [SYColor1 CGColor];
+    [changableView addSubview:checkChangeView];
+    UILabel *changableLabel = [[UILabel alloc] initWithFrame:CGRectMake(checkChangeView.frame.origin.x+checkChangeView.frame.size.width+4, 0, 40, 40)];
+    changableLabel.text = @"是";
+    changableLabel.textColor = SYColor1;
+    [changableLabel setFont:SYFont20];
+    [changableView addSubview:changableLabel];
+    UIButton *changeButton = [[UIButton alloc] initWithFrame:CGRectMake(checkChangeView.frame.origin.x, 0, 60, 40)];
+    changeButton.tag = 21;
+    [changeButton addTarget:self action:@selector(priceChangableResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [changableView addSubview:changeButton];
+    UIView *checkUnchangeView = [[UIView alloc] initWithFrame:CGRectMake(changableLabel.frame.origin.x+changableLabel.frame.size.width, 12.5, 15, 15)];
+    checkUnchangeView.tag = 12;
+    checkUnchangeView.layer.borderWidth = 1;
+    checkUnchangeView.layer.borderColor = [SYColor1 CGColor];
+    [changableView addSubview:checkUnchangeView];
+    UILabel *unchangeLabel = [[UILabel alloc] initWithFrame:CGRectMake(checkUnchangeView.frame.origin.x+checkUnchangeView.frame.size.width+4, 0, 40, 40)];
+    unchangeLabel.text = @"否";
+    unchangeLabel.textColor = SYColor1;
+    [unchangeLabel setFont:SYFont20];
+    [changableView addSubview:unchangeLabel];
+    UIButton *unchangeButton = [[UIButton alloc] initWithFrame:CGRectMake(checkUnchangeView.frame.origin.x, 0, 60, 40)];
+    unchangeButton.tag = 22;
+    [unchangeButton addTarget:self action:@selector(priceChangableResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [changableView addSubview:unchangeButton];
     
     originX = 90;
     nextButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 35)];
@@ -310,22 +598,42 @@
             [textView setPlaceholder:@"选填（如第一次出国，或老人需要同行照顾一下）"];
             break;
         case DiscoverTravelDrive:
-            locationView.hidden = NO;
-            [mainScrollView addSubview:locationView];
-            [viewsArray addObject:locationView];
-            [mainScrollView addSubview:priceView];
-            [viewsArray addObject:priceView];
-            [mainScrollView addSubview:keywordView];
-            [viewsArray addObject:keywordView];
+//            locationView.hidden = NO;
+            introductionView.hidden = NO; price3View.hidden = NO;
+            changableView.hidden = NO;
+//            [mainScrollView addSubview:locationView];
+//            [viewsArray addObject:locationView];
+            [mainScrollView addSubview:introductionView];
+            [viewsArray addObject:introductionView];
+            [mainScrollView addSubview:price3View];
+            [viewsArray addObject:price3View];
+            [mainScrollView addSubview:changableView];
+            [viewsArray addObject:changableView];
+            textView.frame = CGRectMake(textView.frame.origin.x, textView.frame.origin.y, textView.frame.size.width, 90);
+            [textView setPlaceholder:@"简单说明（如本人零基础，需要找人教我开车，带我去考驾照）"];
+            nextButton.hidden = NO;
             break;
         case DiscoverTravelCarpool:
             departCityView.hidden = NO; arriveCityView.hidden = NO;
+            roundTripView.hidden = NO; price2View.hidden = NO;
+            changableView.hidden = NO; introductionView.hidden = NO;
             [mainScrollView addSubview:departCityView];
             [viewsArray addObject:departCityView];
             [mainScrollView addSubview:arriveCityView];
             [viewsArray addObject:arriveCityView];
-            [mainScrollView addSubview:dateView];
-            [viewsArray addObject:dateView];
+            [mainScrollView addSubview:roundTripView];
+            [viewsArray addObject:roundTripView];
+            [mainScrollView addSubview:introductionView];
+            [viewsArray addObject:introductionView];
+            [mainScrollView addSubview:price2View];
+            [viewsArray addObject:price2View];
+            [mainScrollView addSubview:changableView];
+            [viewsArray addObject:changableView];
+//            [mainScrollView addSubview:dateView];
+//            [viewsArray addObject:dateView];
+            textView.frame = CGRectMake(textView.frame.origin.x, textView.frame.origin.y, textView.frame.size.width, 85);
+            [textView setPlaceholder:@"简单说明（如 去华人超市，去学校，或地铁站公交站等）"];
+            nextButton.hidden = NO;
             break;
         case DiscoverTravelPickup:
             airportsView.hidden = NO;
@@ -345,9 +653,12 @@
             nextButton.hidden = NO;
             break;
         case DiscoverTravelBuyCar:
-            keywordView.hidden = NO;
-            [mainScrollView addSubview:keywordView];
-            [viewsArray addObject:keywordView];
+            buyCarView.hidden = NO; price4View.hidden = NO;
+            [mainScrollView addSubview:buyCarView];
+            [viewsArray addObject:buyCarView];
+            [mainScrollView addSubview:price4View];
+            [viewsArray addObject:price4View];
+            nextButton.hidden = NO;
             break;
         case DiscoverTravelRepair:
             keywordView.hidden = NO;
@@ -355,13 +666,17 @@
             [viewsArray addObject:keywordView];
             break;
         case DiscoverTravelDeliver:
-            cityView.hidden = NO;
+            cityView.hidden = NO; priceView.hidden = NO;
+            changableView.hidden = NO;
             [mainScrollView addSubview:cityView];
             [viewsArray addObject:cityView];
-            [mainScrollView addSubview:dateView];
-            [viewsArray addObject:dateView];
+//            [mainScrollView addSubview:dateView];
+//            [viewsArray addObject:dateView];
             [mainScrollView addSubview:priceView];
             [viewsArray addObject:priceView];
+            [mainScrollView addSubview:changableView];
+            [viewsArray addObject:changableView];
+            nextButton.hidden = NO;
             break;
         case DiscoverTravelOther:
             locationView.hidden = NO;
@@ -508,6 +823,43 @@
     confirmBackgroundView.hidden = YES;
     datePicker.hidden = YES;
 }
+-(IBAction)delieverDirectResponse:(id)sender{
+    UIButton *button = (UIButton*)sender;
+    UIView *check1View = [cityView viewWithTag:11];
+    UIView *check2View = [cityView viewWithTag:12];
+    toCN = (button.tag==21)?NO:YES;
+    check1View.backgroundColor = (!toCN)?SYColor4:[UIColor clearColor];
+    check2View.backgroundColor = (toCN)?SYColor4:[UIColor clearColor];
+}
+-(IBAction)priceChangableResponse:(id)sender{
+    UIButton *button = (UIButton*)sender;
+    UIView *check1View = [changableView viewWithTag:11];
+    UIView *check2View = [changableView viewWithTag:12];
+    priceAgg = (button.tag==21)?YES:NO;
+    check1View.backgroundColor = (priceAgg)?SYColor6:[UIColor clearColor];
+    check2View.backgroundColor = (!priceAgg)?SYColor6:[UIColor clearColor];
+}
+-(IBAction)roundTripResponse:(id)sender{
+    UIButton *button = (UIButton*)sender;
+    UIView *check1View = [roundTripView viewWithTag:11];
+    UIView *check2View = [roundTripView viewWithTag:12];
+    roundTrip = (button.tag==21)?NO:YES;
+    check1View.backgroundColor = (!roundTrip)?SYColor6:[UIColor clearColor];
+    check2View.backgroundColor = (roundTrip)?SYColor6:[UIColor clearColor];
+}
+-(IBAction)buyCarResponse:(id)sender{
+    UIButton *button = (UIButton*)sender;
+    UIView *check1View = [buyCarView viewWithTag:11];
+    UIView *check2View = [buyCarView viewWithTag:12];
+    buyCar = (button.tag==22)?NO:YES;
+    check1View.backgroundColor = (buyCar)?SYColor6:[UIColor clearColor];
+    check2View.backgroundColor = (!buyCar)?SYColor6:[UIColor clearColor];
+}
+-(void)priceAggResponse{
+    UIView *checkView = [price4View viewWithTag:12];
+    priceAgg = !priceAgg;
+    checkView.backgroundColor = (priceAgg)?SYColor6:[UIColor clearColor];
+}
 -(void)nextResponse{
     NSString *subCate;
     NSString *latitude;
@@ -519,10 +871,16 @@
     UITextField *departCity = [departCityView viewWithTag:11];
     UITextField *arriveCity = [arriveCityView viewWithTag:11];
     UITextField *airport = [airportsView viewWithTag:11];
-    UITextField *city = [cityView viewWithTag:11];
+    UITextField *city = [cityView viewWithTag:13];
+    UITextField *cnCity = [cityView viewWithTag:14];
     UITextField *keyword = [keywordView viewWithTag:11];
     UITextField *time = [timeView viewWithTag:11];
     UITextView *introduction = [introductionView viewWithTag:11];
+    UITextView *goods = [introductionView viewWithTag:10];
+    UITextField *price1 = [priceView viewWithTag:11];
+    UITextField *price2 = [price2View viewWithTag:11];
+    UITextField *price3 = [price3View viewWithTag:11];
+    UITextField *price4 = [price4View viewWithTag:11];
     
     NSString *requestBody;
     
@@ -541,13 +899,15 @@
             break;
         case DiscoverTravelDrive:
             subCate=@"02000000";
-            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%f&longitude=%f&category=5&subcate=%@&keyword=%@&lower_price=%@&upper_price=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,keyword.text,lowerPriceString,upperPriceString];
+            latitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
+            longitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
+            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&introduction=%@&price=%@&changable=%d",MEID,latitude,longitude,subCate,introduction.text,price3.text,priceAgg];
             break;
         case DiscoverTravelCarpool:
             subCate=@"03000000";
             latitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
             longitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
-            requestBody = [NSString stringWithFormat:@"expire_date=%@&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&date=%@&depart=%@&arrive=%@",dateString,MEID,latitude,longitude,subCate,dateString, departCity.text,arriveCity.text];
+            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&depart=%@&arrive=%@&round_trip=%d&introduction=%@&price=%@&changable=%d",MEID,latitude,longitude,subCate, departCity.text,arriveCity.text,roundTrip,introduction.text,price2.text,priceAgg];
             break;
         case DiscoverTravelPickup:
             subCate=@"04000000";
@@ -559,7 +919,7 @@
             subCate=@"05030000";
             latitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
             longitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
-            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&keyword=%@",MEID,latitude,longitude,subCate,keyword.text];
+            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&buy_car=%d&price=%@&changable=%d",MEID,latitude,longitude,subCate,buyCar,price4.text,priceAgg];
             break;
         case DiscoverTravelRepair:
             subCate=@"06000000";
@@ -569,7 +929,7 @@
             subCate=@"07000000";
             latitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
             longitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
-            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&city=%@&lower_price=%@&upper_price=%@&date=%@",MEID,latitude,longitude,subCate,city.text,lowerPriceString,upperPriceString,dateString];
+            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&city=%@&price=%@&changable=%d&cn_city=%@&to_cn=%d&goods=%@",MEID,latitude,longitude,subCate,city.text,price1.text,priceAgg,cnCity.text,toCN,goods.text];
             break;
         case DiscoverTravelOther:
             subCate=@"99000000";

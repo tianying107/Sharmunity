@@ -416,6 +416,7 @@
     priceTextField.tag = 11;
     priceTextField.keyboardType = UIKeyboardTypeNumberPad;
     priceTextField.backgroundColor = UIColorFromRGB(0xF6EDBE);
+    priceTextField.textAlignment = NSTextAlignmentCenter;
     priceTextField.layer.cornerRadius = 6;
     priceTextField.clipsToBounds = YES;
     [priceView addSubview:priceTextField];

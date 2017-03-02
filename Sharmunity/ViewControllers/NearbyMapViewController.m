@@ -86,7 +86,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)SYMap:(SYMap *)SYMap didSelectedSharePin:(MKAnnotationView *)placemarkPin mapItem:(MKMapItem *)mapItem{
+    
+}
 
 - (void)jobLocationSetup{
     if (shareIDArray.count) {

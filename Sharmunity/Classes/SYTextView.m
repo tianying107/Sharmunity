@@ -35,14 +35,14 @@
     NSMutableParagraphStyle *paragraphstyle = [[NSMutableParagraphStyle alloc] init];
     paragraphstyle.lineSpacing = 2.f;
     [attributeSting addAttribute:NSParagraphStyleAttributeName value:paragraphstyle range:NSMakeRange(0, attributeSting.length)];
-    CGRect rect = [attributeSting boundingRectWithSize:(CGSize){self.frame.size.width, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+    CGRect rect = [attributeSting boundingRectWithSize:(CGSize){self.frame.size.width-10, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
     float height = rect.size.height;
     if (placeholderLabel) {
-        placeholderLabel.frame = CGRectMake(4, 8, self.frame.size.width, height);
+        placeholderLabel.frame = CGRectMake(4, 8, self.frame.size.width-10, height);
         placeholderLabel.attributedText = attributeSting;
     }
     else{
-        placeholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(4, 8, self.frame.size.width, height)];
+        placeholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(4, 8, self.frame.size.width-10, height)];
         placeholderLabel.numberOfLines = 0;
         placeholderLabel.attributedText = attributeSting;
         [self addSubview:placeholderLabel];
