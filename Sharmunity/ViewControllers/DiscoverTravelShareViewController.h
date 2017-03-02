@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DiscoverTravelShareViewController : UIViewController
+@interface DiscoverTravelShareViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+    UITableView *shareTable;
+    NSString *MEID;
+    NSArray *shareIDArray;
+    NSMutableArray *basicViewArray;
+}
 @property (weak, nonatomic) IBOutlet UIButton *partnerButton;
 @property (weak, nonatomic) IBOutlet UIButton *driveButton;
 @property (weak, nonatomic) IBOutlet UIButton *carpoolButton;
@@ -17,5 +22,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *repairButton;
 @property (weak, nonatomic) IBOutlet UIButton *deliverButton;
 @property (weak, nonatomic) IBOutlet UIButton *otherButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *airplaneButton;
+@property (weak, nonatomic) IBOutlet UIButton *catButton;
+@property (weak, nonatomic) IBOutlet UILabel *airplaneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *carLabel;
 
 @end

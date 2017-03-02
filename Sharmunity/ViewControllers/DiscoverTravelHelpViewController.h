@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DiscoverTravelHelpViewController : UIViewController
+@interface DiscoverTravelHelpViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+    UITableView *helpTable;
+    NSString *MEID;
+    NSArray *helpIDArray;
+    NSMutableArray *basicViewArray;
+}
+
 @property (weak, nonatomic) IBOutlet UIButton *partnerButton;
 @property (weak, nonatomic) IBOutlet UIButton *driveButton;
 @property (weak, nonatomic) IBOutlet UIButton *carpoolButton;
@@ -18,5 +24,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *deliverButton;
 @property (weak, nonatomic) IBOutlet UIButton *otherButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *airplaneButton;
+@property (weak, nonatomic) IBOutlet UIButton *catButton;
+@property (weak, nonatomic) IBOutlet UILabel *airplaneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *carLabel;
+@property (weak, nonatomic) IBOutlet UIButton *questionButton;
 
 @end

@@ -24,7 +24,7 @@
 #define SYColor10 UIColorFromRGB(0x70C1B3) //green blue
 
 
-#define SYBackgroundColorExtraLight UIColorFromRGB(0xFAFAFA)
+#define SYBackgroundColorExtraLight UIColorFromRGB(0xFFFFFF)
 #define SYBackgroundColorGreen UIColorFromRGB(0xD7F4D8)
 
 #define SYSeparatorColor UIColorFromRGB(0xDBDBDB)

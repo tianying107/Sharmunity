@@ -17,6 +17,7 @@
         shareID = ID;
         self.clipsToBounds = YES;
         choiceArray = [NSArray new];
+        editButton = [[UIButton alloc] init];
         [self requestShareFromServer];
         [self requestChoiceFromServer];
     }
@@ -30,6 +31,10 @@
     cateIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"cate%@Share",[shareDict valueForKey:@"category"]]];
     cateIcon.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:cateIcon];
+    
+    
+    [editButton setImage:[UIImage imageNamed:@"editButton"] forState:UIControlStateNormal];
+    [self addSubview:editButton];
     
     SYTitle *titleGenerator = [SYTitle new];
     NSMutableAttributedString *attributeSting = [[NSMutableAttributedString alloc] initWithString:[titleGenerator titleFromShareDict:shareDict] attributes:@{NSFontAttributeName:SYFont13M,NSForegroundColorAttributeName:SYColor1}];
@@ -51,10 +56,7 @@
     postLabel.textAlignment = NSTextAlignmentRight;
     [self addSubview:postLabel];
     
-    UIButton *editButton = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width-170, heightCount+2, 18, 16)];
-    [editButton setImage:[UIImage imageNamed:@"editButton"] forState:UIControlStateNormal];
-    [self addSubview:editButton];
-    
+    editButton.frame = CGRectMake(self.frame.size.width-170, heightCount+2, 18, 16);
     
     heightCount += 30;
     for (int i=0; i<choiceArray.count; i++) {

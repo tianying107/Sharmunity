@@ -25,12 +25,13 @@
         case DiscoverTravelPartner:
             self.navigationItem.title = @"找飞伴";
             break;
+        case DiscoverTravelPickup:
+            self.navigationItem.title = @"找接机";
+            break;
             
         default:
             break;
     }
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: SYColor1,
-                                                                    NSFontAttributeName: SYFont20S};
     self.view.backgroundColor = SYBackgroundColorExtraLight;
     
     mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
@@ -61,6 +62,19 @@
     [self dataSetup];
     [self viewsSetup];
     
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setImage:[UIImage imageNamed:@"SYBackColor5"] forState:UIControlStateNormal];
+    [backBtn setTitle:@"行" forState:UIControlStateNormal];
+    [backBtn setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [backBtn.titleLabel setFont:SYFont15];
+    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.bounds = CGRectMake(0, 0, 80, 40);
+    backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.leftBarButtonItem = backButton;
+}
+-(void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 -(void) viewWillAppear:(BOOL)animated{
     mainScrollView.delegate=self;
@@ -82,59 +96,49 @@
 -(void)viewsSetup{
     viewsArray = [NSMutableArray new];
     float viewWidth = mainScrollView.frame.size.width;
-    float originX = 30;
+    float originX = 40;
     
     
     /*has ticket*/
-    hasTicketView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
-    UIButton *shareRentButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, 150, 60)];
+    /*type*/
+    hasTicketView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 80)];
+    UIButton *shareRentButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth/2-150, 0, 150, 40)];
     [shareRentButton setTitle:@"已买机票" forState:UIControlStateNormal];
-    [shareRentButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [shareRentButton setTitleColor:SYColor6 forState:UIControlStateNormal];
+    [shareRentButton.titleLabel setFont:SYFont20];
     shareRentButton.tag = 11;
     [shareRentButton addTarget:self action:@selector(hasTicketResponse:) forControlEvents:UIControlEventTouchUpInside];
     [hasTicketView addSubview:shareRentButton];
-    UIButton *soloRentButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth-originX-150, 20, 150, 60)];
+    UIButton *soloRentButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth/2, 0, 150, 40)];
     [soloRentButton setTitle:@"未买机票" forState:UIControlStateNormal];
-    [soloRentButton setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [soloRentButton setTitleColor:SYColor6 forState:UIControlStateNormal];
+    [soloRentButton.titleLabel setFont:SYFont20];
     soloRentButton.tag = 10;
     [soloRentButton addTarget:self action:@selector(hasTicketResponse:) forControlEvents:UIControlEventTouchUpInside];
     [hasTicketView addSubview:soloRentButton];
     
     /*flight view*/
-    flightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
-    UILabel *flightTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 40)];
-    flightTitleLabel.text = @"航班号";
-    flightTitleLabel.textColor = SYColor1;
-    [flightView addSubview:flightTitleLabel];
-    UITextField *flightTextfield = [[UITextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30)];
+    flightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 40)];
+    SYTextField *flightTextfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 40) type:SYTextFieldHelp];
+    flightTextfield.placeholder = @"航班号";
     flightTextfield.tag = 11;
-    [flightTextfield addTarget:self action:@selector(flightEmptyCheck) forControlEvents:UIControlEventEditingChanged];
-    flightTextfield.backgroundColor = [UIColor whiteColor];
     [flightView addSubview:flightTextfield];
     
     /*depart airport*/
-    departAirportView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
-    UILabel *departAirportTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 200, 40)];
-    departAirportTitleLabel.text = @"出发机场编码";
-    departAirportTitleLabel.textColor = SYColor1;
-    [departAirportView addSubview:departAirportTitleLabel];
-    UITextField *departAirportTextfield = [[UITextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30)];
+    departAirportView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 60)];
+    SYTextField *departAirportTextfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 40) type:SYTextFieldHelp];
+    departAirportTextfield.placeholder = @"出发机场编码";
     departAirportTextfield.tag = 11;
-    [departAirportTextfield addTarget:self action:@selector(deparrAirportEmptyCheck) forControlEvents:UIControlEventEditingChanged];
-    departAirportTextfield.backgroundColor = [UIColor whiteColor];
     [departAirportView addSubview:departAirportTextfield];
     
     /*arrive airport*/
-    arriveAirportView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
-    UILabel *arriveAirportTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 200, 40)];
-    arriveAirportTitleLabel.text = @"到达机场编码";
-    arriveAirportTitleLabel.textColor = SYColor1;
-    [arriveAirportView addSubview:arriveAirportTitleLabel];
-    UITextField *arriveAirportTextfield = [[UITextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30)];
+    arriveAirportView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 60)];
+    SYTextField *arriveAirportTextfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 40) type:SYTextFieldHelp];
+    arriveAirportTextfield.placeholder = @"到达机场编码";
     arriveAirportTextfield.tag = 11;
-    [arriveAirportTextfield addTarget:self action:@selector(deparrAirportEmptyCheck) forControlEvents:UIControlEventEditingChanged];
-    arriveAirportTextfield.backgroundColor = [UIColor whiteColor];
     [arriveAirportView addSubview:arriveAirportTextfield];
+    
+    
     
     /*depart city*/
     departCityView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
@@ -143,7 +147,7 @@
     departCityTitleLabel.text = @"出发城市";
     departCityTitleLabel.textColor = SYColor1;
     [departCityView addSubview:departCityTitleLabel];
-    UITextField *departCityTextfield = [[UITextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30)];
+    SYTextField *departCityTextfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30) type:SYTextFieldHelp];
     departCityTextfield.tag = 11;
     [departCityTextfield addTarget:self action:@selector(deparrCityEmptyCheck) forControlEvents:UIControlEventEditingChanged];
     departCityTextfield.backgroundColor = [UIColor whiteColor];
@@ -156,7 +160,7 @@
     arriveCityTitleLabel.text = @"到达城市";
     arriveCityTitleLabel.textColor = SYColor1;
     [arriveCityView addSubview:arriveCityTitleLabel];
-    UITextField *arriveCityTextfield = [[UITextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30)];
+    SYTextField *arriveCityTextfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30) type:SYTextFieldHelp];
     arriveCityTextfield.tag = 11;
     [arriveCityTextfield addTarget:self action:@selector(deparrCityEmptyCheck) forControlEvents:UIControlEventEditingChanged];
     arriveCityTextfield.backgroundColor = [UIColor whiteColor];
@@ -169,24 +173,27 @@
     cityTitleLabel.text = @"在美国的城市";
     cityTitleLabel.textColor = SYColor1;
     [cityView addSubview:cityTitleLabel];
-    UITextField *cityTextfield = [[UITextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30)];
+    SYTextField *cityTextfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30) type:SYTextFieldHelp];
     cityTextfield.tag = 11;
     [cityTextfield addTarget:self action:@selector(cityEmptyCheck) forControlEvents:UIControlEventEditingChanged];
     cityTextfield.backgroundColor = [UIColor whiteColor];
     [cityView addSubview:cityTextfield];
     
     /*airport*/
-    airportsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    airportsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 60)];
     airportsView.hidden = YES;
-    UILabel *airportTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 40)];
-    airportTitleLabel.text = @"接机机场";
-    airportTitleLabel.textColor = SYColor1;
-    [airportsView addSubview:airportTitleLabel];
-    UITextField *airportTextfield = [[UITextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30)];
+    SYTextField *airportTextfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 40) type:SYTextFieldHelp];
     airportTextfield.tag = 11;
-    [airportTextfield addTarget:self action:@selector(airportEmptyCheck) forControlEvents:UIControlEventEditingChanged];
-    airportTextfield.backgroundColor = [UIColor whiteColor];
+    airportTextfield.placeholder = @"接机机场";
     [airportsView addSubview:airportTextfield];
+    
+    /*time*/
+    timeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 60)];
+    timeView.hidden = YES;
+    SYTextField *timeTextfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 40) type:SYTextFieldHelp];
+    timeTextfield.tag = 11;
+    timeTextfield.placeholder = @"到达时间";
+    [timeView addSubview:timeTextfield];
     
     /*location*/
     locationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
@@ -207,16 +214,18 @@
     
     
     /*date*/
-    dateView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    dateView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 80)];
     dateView.hidden = YES;
-    UILabel *dateTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
-    dateTitleLabel.text = @"日期";
+    UILabel *dateTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 40)];
+    dateTitleLabel.text = @"出发日期";
     dateTitleLabel.textColor = SYColor1;
+    [dateTitleLabel setFont:SYFont20];
     [dateView addSubview:dateTitleLabel];
-    UIButton *dateButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
-    [dateButton setTitle:@"请选择日期" forState:UIControlStateNormal];
-    [dateButton setTitleColor:SYColor3 forState:UIControlStateNormal];
+    UIButton *dateButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 40)];
+    [dateButton setTitle:@"请选择出发日期" forState:UIControlStateNormal];
+    [dateButton setTitleColor:SYColor9 forState:UIControlStateNormal];
     [dateButton setTitleColor:SYColor1 forState:UIControlStateSelected];
+    [dateButton.titleLabel setFont:SYFont20];
     dateButton.tag = 11;
     dateButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     [dateButton addTarget:self action:@selector(dateResponse:) forControlEvents:UIControlEventTouchUpInside];
@@ -250,17 +259,18 @@
     layer.shadowPath = [[UIBezierPath bezierPathWithRect:layer.bounds] CGPath];
     
     /*keyword*/
-    keywordView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    keywordView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 60)];
     keywordView.hidden = YES;
-    UILabel *keywordTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 40)];
-    keywordTitleLabel.text = @"关键词";
-    keywordTitleLabel.textColor = SYColor1;
-    [keywordView addSubview:keywordTitleLabel];
-    UITextField *keywordTextfield = [[UITextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30)];
+    SYTextField *keywordTextfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 40) type:SYTextFieldHelp];
     keywordTextfield.tag = 11;
-    [keywordTextfield addTarget:self action:@selector(titleEmptyCheck) forControlEvents:UIControlEventEditingChanged];
-    keywordTextfield.backgroundColor = [UIColor whiteColor];
     [keywordView addSubview:keywordTextfield];
+    
+    /*introduction*/
+    introductionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 110)];
+    introductionView.hidden = YES;
+    SYTextView *textView = [[SYTextView alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 75) type:SYTextViewHelp];
+    textView.tag = 11;
+    [introductionView addSubview:textView];
     
     /*price*/
     priceView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 140)];
@@ -275,13 +285,14 @@
     lowerPriceString = @"100";
     upperPriceString = @"1000";
     
-    nextButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 44)];
-    [nextButton setTitle:@"下一步" forState:UIControlStateNormal];
-    [nextButton setBackgroundColor:SYColor4];
+    originX = 90;
+    nextButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 35)];
+    [nextButton setTitle:@"提交" forState:UIControlStateNormal];
+    [nextButton setBackgroundColor:SYColor7];
     [nextButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [nextButton.titleLabel setFont:SYFont20S];
+    [nextButton.titleLabel setFont:SYFont20M];
     [nextButton addTarget:self action:@selector(nextResponse) forControlEvents:UIControlEventTouchUpInside];
-    nextButton.layer.cornerRadius = nextButton.frame.size.height/2;
+    nextButton.layer.cornerRadius = 8;
     nextButton.clipsToBounds = YES;
     nextButton.hidden = YES;
     
@@ -294,8 +305,9 @@
             hasTicketView.hidden = NO;
             [mainScrollView addSubview:hasTicketView];
             [viewsArray addObject:hasTicketView];
-            [mainScrollView addSubview:dateView];
-            [viewsArray addObject:dateView];
+            [mainScrollView addSubview:introductionView];
+            [viewsArray addObject:introductionView];
+            [textView setPlaceholder:@"选填（如第一次出国，或老人需要同行照顾一下）"];
             break;
         case DiscoverTravelDrive:
             locationView.hidden = NO;
@@ -317,10 +329,20 @@
             break;
         case DiscoverTravelPickup:
             airportsView.hidden = NO;
+            timeView.hidden = NO;
+            keywordView.hidden = NO;
+            introductionView.hidden = NO;
             [mainScrollView addSubview:airportsView];
             [viewsArray addObject:airportsView];
-            [mainScrollView addSubview:priceView];
-            [viewsArray addObject:priceView];
+            [mainScrollView addSubview:timeView];
+            [viewsArray addObject:timeView];
+            [mainScrollView addSubview:keywordView];
+            [viewsArray addObject:keywordView];
+            [mainScrollView addSubview:introductionView];
+            [viewsArray addObject:introductionView];
+            keywordTextfield.placeholder = @"目的地地址";
+            [textView setPlaceholder:@"选填（如几人，几个行李箱）"];
+            nextButton.hidden = NO;
             break;
         case DiscoverTravelBuyCar:
             keywordView.hidden = NO;
@@ -360,7 +382,7 @@
 }
 
 -(void)viewsLayout{
-    float height = 20;
+    float height = 35;
     for (UIView *view in viewsArray){
         CGRect frame = view.frame;
         frame.origin.y = height;
@@ -375,9 +397,9 @@
     UIButton *button = sender;
     if (button.tag-10) {
         ticketString = @"01";
-        [button setTitleColor:SYColor1 forState:UIControlStateNormal];
+        [button setTitleColor:SYColor5 forState:UIControlStateNormal];
         UIButton *button2 = [hasTicketView viewWithTag:10];
-        [button2 setTitleColor:SYColor3 forState:UIControlStateNormal];
+        [button2 setTitleColor:SYColor6 forState:UIControlStateNormal];
         [departAirportView removeFromSuperview];
         [arriveAirportView removeFromSuperview];
         [viewsArray removeObject:departAirportView];
@@ -385,21 +407,27 @@
         [viewsArray removeObject:flightView];
         [mainScrollView addSubview:flightView];
         [viewsArray insertObject:flightView atIndex:1];
-        
+        [mainScrollView addSubview:dateView];
+        [viewsArray insertObject:dateView atIndex:2];
     }
     else{
         ticketString = @"02";
-        [button setTitleColor:SYColor1 forState:UIControlStateNormal];
+        [button setTitleColor:SYColor5 forState:UIControlStateNormal];
         UIButton *button2 = [hasTicketView viewWithTag:11];
-        [button2 setTitleColor:SYColor3 forState:UIControlStateNormal];
+        [button2 setTitleColor:SYColor6 forState:UIControlStateNormal];
         [viewsArray removeObject:flightView];
         [flightView removeFromSuperview];
+        [viewsArray removeObject:dateView];
+        [dateView removeFromSuperview];
         [mainScrollView addSubview:departAirportView];
         [viewsArray insertObject:departAirportView atIndex:1];
         [mainScrollView addSubview:arriveAirportView];
         [viewsArray insertObject:arriveAirportView atIndex:2];
         
     }
+    dateView.hidden = NO;
+    introductionView.hidden = NO;
+    nextButton.hidden = NO;
     [self viewsLayout];
     
 }
@@ -493,6 +521,8 @@
     UITextField *airport = [airportsView viewWithTag:11];
     UITextField *city = [cityView viewWithTag:11];
     UITextField *keyword = [keywordView viewWithTag:11];
+    UITextField *time = [timeView viewWithTag:11];
+    UITextView *introduction = [introductionView viewWithTag:11];
     
     NSString *requestBody;
     
@@ -503,10 +533,10 @@
             longitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
             expireDate = ([ticketString isEqualToString:@"01"])?dateString:@"2099-01-01";
             if ([ticketString isEqualToString:@"01"]) {
-                requestBody = [NSString stringWithFormat:@"expire_date=%@&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&date=%@&flight=%@",expireDate,MEID,latitude,longitude,subCate,dateString,flight.text];
+                requestBody = [NSString stringWithFormat:@"expire_date=%@&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&date=%@&flight=%@&introduction=%@",expireDate,MEID,latitude,longitude,subCate,dateString,flight.text,introduction.text];
             }
             else
-                requestBody = [NSString stringWithFormat:@"expire_date=%@&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&date=%@&depart=%@&arrive=%@",expireDate,MEID,latitude,longitude,subCate,expireDate,departAirport.text,arriveAirport.text];
+                requestBody = [NSString stringWithFormat:@"expire_date=%@&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&date=%@&depart=%@&arrive=%@&introduction=%@",expireDate,MEID,latitude,longitude,subCate,expireDate,departAirport.text,arriveAirport.text,introduction.text];
             
             break;
         case DiscoverTravelDrive:
@@ -523,7 +553,7 @@
             subCate=@"04000000";
             latitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
             longitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
-            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&airport=%@&lower_price=%@&upper_price=%@",MEID,latitude,longitude,subCate,airport.text,lowerPriceString,upperPriceString];
+            requestBody = [NSString stringWithFormat:@"expire_date=2099-01-01&email=%@&latitude=%@&longitude=%@&category=5&subcate=%@&airport=%@&time=%@&address=%@&introduction=%@",MEID,latitude,longitude,subCate,airport.text,time.text,keyword.text,introduction.text];
             break;
         case DiscoverTravelBuyCar:
             subCate=@"05030000";

@@ -29,7 +29,9 @@
     UIView *priceView;
     UIView *locationView;
     UIView *dateView;
+    UIView *timeView;
     UIView *keywordView;
+    UIView *introductionView;
     UIDatePicker *datePicker;
     UIView *confirmBackgroundView;
     UIButton *nextButton;

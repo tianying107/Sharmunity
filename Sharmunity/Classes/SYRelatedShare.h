@@ -19,6 +19,8 @@
     UILabel *priceLabel;
     UILabel *postDateLabel;
     UILabel *introductionLabel;
+    
+    UIButton *editButton;
 }
 -(id)initRelatedWithFrame:(CGRect)frame shareID:(NSString*)ID;
 @property NSDictionary *shareDict;
