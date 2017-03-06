@@ -134,7 +134,7 @@
 - (void)nextResponse{
     UITextField *title = [titleView viewWithTag:11];
     UITextView *introduction = [introductionView viewWithTag:11];
-    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=1&subcate=03000000&title=%@&introduction=%@",MEID,self.locationManager.location.coordinate.latitude,self.locationManager.location.coordinate.longitude,title.text,introduction.text];
+    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=1&subcate=03000000&title=%@&introduction=%@&price=0",MEID,self.locationManager.location.coordinate.latitude,self.locationManager.location.coordinate.longitude,title.text,introduction.text];
     NSLog(@"%@/n",requestBody);
     /*改上面的 query 和 URLstring 就好了*/
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@newshare",basicURL]];

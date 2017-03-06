@@ -280,7 +280,7 @@
             latitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
             longitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
             
-            requestBody = [NSString stringWithFormat:@"email=%@&latitude=%@&longitude=%@&category=3&subcate=%@&school=%@&major=%@&college=%@&department=%@",MEID,latitude,longitude,subCate,school.text,major.text,college.text,department.text];
+            requestBody = [NSString stringWithFormat:@"email=%@&latitude=%@&longitude=%@&category=3&subcate=%@&school=%@&major=%@&college=%@&department=%@&introduction=",MEID,latitude,longitude,subCate,school.text,major.text,college.text,department.text];
             break;
         case discoverLearnTutor:
             subCate= @"02000000";

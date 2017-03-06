@@ -111,6 +111,22 @@
     float viewWidth = mainScrollView.frame.size.width;
     float originX = 40;
     
+    /*type*/
+    typeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 80)];
+    UIButton *majorTypeButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth/2-150, 20, 150, 40)];
+    [majorTypeButton setTitle:@"同城" forState:UIControlStateNormal];
+    [majorTypeButton setTitleColor:SYColor8 forState:UIControlStateNormal];
+    [majorTypeButton.titleLabel setFont:SYFont20];
+    majorTypeButton.tag = 11;
+    [majorTypeButton addTarget:self action:@selector(typeResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [typeView addSubview:majorTypeButton];
+    UIButton *appTypeButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth/2, 20, 150, 40)];
+    [appTypeButton setTitle:@"异地" forState:UIControlStateNormal];
+    [appTypeButton setTitleColor:SYColor8 forState:UIControlStateNormal];
+    [appTypeButton.titleLabel setFont:SYFont20];
+    appTypeButton.tag = 10;
+    [appTypeButton addTarget:self action:@selector(typeResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [typeView addSubview:appTypeButton];
     
     /*has ticket*/
     hasTicketView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
@@ -543,16 +559,20 @@
         case DiscoverTravelCarpool:
             departCityView.hidden = NO; arriveCityView.hidden = NO;
             price3View.hidden = NO;  titleView.hidden = NO;
-            [mainScrollView addSubview:departCityView];
-            [viewsArray addObject:departCityView];
-            [mainScrollView addSubview:arriveCityView];
-            [viewsArray addObject:arriveCityView];
-            [mainScrollView addSubview:price3View];
-            [viewsArray addObject:price3View];
-            [mainScrollView addSubview:titleView];
-            [viewsArray addObject:titleView];
+            introductionView.hidden = NO;
+            [mainScrollView addSubview:typeView];
+            [viewsArray addObject:typeView];
+//            [mainScrollView addSubview:departCityView];
+//            [viewsArray addObject:departCityView];
+//            [mainScrollView addSubview:arriveCityView];
+//            [viewsArray addObject:arriveCityView];
+//            [mainScrollView addSubview:price3View];
+//            [viewsArray addObject:price3View];
+//            [mainScrollView addSubview:titleView];
+//            [viewsArray addObject:titleView];
             textfield.placeholder = @"车辆信息（选填）";
-            nextButton.hidden = NO;
+            [textView setPlaceholder:@"说明（如 常去华人超市，去学校，或地铁站公交站等）"];
+//            nextButton.hidden = NO;
 //            [mainScrollView addSubview:dateView];
 //            [viewsArray addObject:dateView];
             break;
@@ -637,7 +657,45 @@
     }
     mainScrollView.contentSize = CGSizeMake(0, height+20+44+10);
 }
-
+-(IBAction)typeResponse:(id)sender{
+    UIButton *button = sender;
+    if (button.tag-10) {
+        typeString = @"01";
+        [button setTitleColor:SYColor4 forState:UIControlStateNormal];
+        UIButton *button2 = [typeView viewWithTag:10];
+        [button2 setTitleColor:SYColor8 forState:UIControlStateNormal];
+        [button.titleLabel setFont:SYFont25M];
+        [button2.titleLabel setFont:SYFont20];
+        
+        [mainScrollView addSubview:departCityView];
+        [viewsArray insertObject:departCityView atIndex:1];
+//        [mainScrollView addSubview:arriveCityView];
+//        [viewsArray addObject:arriveCityView];
+        [mainScrollView addSubview:introductionView];
+//        [viewsArray addObject:introductionView];
+        [viewsArray insertObject:introductionView atIndex:2];
+        [mainScrollView addSubview:price3View];
+//        [viewsArray addObject:price3View];
+        [viewsArray insertObject:price3View atIndex:3];
+        [mainScrollView addSubview:titleView];
+//        [viewsArray addObject:titleView];
+        [viewsArray insertObject:titleView atIndex:4];
+        
+    }
+    else{
+        typeString = @"02";
+        [button setTitleColor:SYColor4 forState:UIControlStateNormal];
+        UIButton *button2 = [typeView viewWithTag:11];
+        [button2 setTitleColor:SYColor8 forState:UIControlStateNormal];
+        [button.titleLabel setFont:SYFont25M];
+        [button2.titleLabel setFont:SYFont20];
+        
+    }
+//    schoolContentView.hidden = NO;
+//    price2View.hidden = NO;
+    nextButton.hidden = NO;
+    [self viewsLayout];
+}
 -(IBAction)hasTicketResponse:(id)sender{
     /*0 has ticket; 1 no ticket*/
     UIButton *button = sender;

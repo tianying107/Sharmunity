@@ -1003,34 +1003,105 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wG-0N-qLz">
-                                <rect key="frame" x="43" y="60" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="找玩伴"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wG-0N-qLz">
+                                <rect key="frame" x="135" y="117" width="105" height="54"/>
+                                <color key="backgroundColor" red="0.89411764705882346" green="0.94901960784313721" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Z29-gM-Sxe"/>
+                                    <constraint firstAttribute="width" constant="105" id="qdk-c9-R2S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="30"/>
+                                <state key="normal" title="找伴儿">
+                                    <color key="titleColor" red="0.2466794571" green="0.51398558940000005" blue="0.2214644805" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFe-Yr-8PW">
-                                <rect key="frame" x="128" y="60" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="找活动"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFe-Yr-8PW">
+                                <rect key="frame" x="135" y="63" width="105" height="40"/>
+                                <color key="backgroundColor" red="0.89411764705882346" green="0.94901960784313721" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="105" id="EYn-Rf-rs9"/>
+                                    <constraint firstAttribute="height" constant="40" id="GUm-kM-1ek"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="30"/>
+                                <state key="normal" title="找活动">
+                                    <color key="titleColor" red="0.2466794571" green="0.51398558940000005" blue="0.2214644805" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQJ-m5-q8a">
-                                <rect key="frame" x="216" y="60" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="找攻略"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQJ-m5-q8a">
+                                <rect key="frame" x="135" y="185" width="105" height="40"/>
+                                <color key="backgroundColor" red="0.89411764705882346" green="0.94901960784313721" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="105" id="1WL-Kj-8OC"/>
+                                    <constraint firstAttribute="height" constant="40" id="Bfy-cf-3wd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="30"/>
+                                <state key="normal" title="找攻略">
+                                    <color key="titleColor" red="0.2466794571" green="0.51398558940000005" blue="0.2214644805" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lda-6B-KJu">
-                                <rect key="frame" x="303" y="60" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="其他"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="我要" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CM5-7c-WBk">
+                                <rect key="frame" x="16" y="28" width="105" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="92T-gX-ZEd"/>
+                                    <constraint firstAttribute="width" constant="105" id="T7H-hb-xPc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="25"/>
+                                <color key="textColor" red="0.25490196079999999" green="0.45882352939999999" blue="0.019607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="没找到求助的类别？还可以来这里" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7M-K8-VIn">
+                                <rect key="frame" x="34" y="243" width="307" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="OF6-9Z-VmK"/>
+                                    <constraint firstAttribute="width" constant="307" id="atF-kL-vYd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="15"/>
+                                <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87V-o6-Odm">
+                                <rect key="frame" x="111" y="271" width="120" height="40"/>
+                                <color key="backgroundColor" red="0.74901960779999999" green="0.93333333330000001" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Uhl-vS-QbE"/>
+                                    <constraint firstAttribute="width" constant="120" id="Wsa-q5-4pa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="25"/>
+                                <state key="normal" title="悬赏提问">
+                                    <color key="titleColor" red="0.1058823529" green="0.45098039220000002" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="wantedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="YiP-b2-aZe">
+                                <rect key="frame" x="236" y="279" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="7js-9n-kri"/>
+                                    <constraint firstAttribute="height" constant="32" id="J43-Xx-GLV"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7wG-0N-qLz" firstAttribute="centerX" secondItem="yOa-Ew-ttO" secondAttribute="centerX" id="0CZ-dc-abi"/>
+                            <constraint firstItem="87V-o6-Odm" firstAttribute="top" secondItem="q7M-K8-VIn" secondAttribute="bottom" constant="8" id="1CQ-1m-ukb"/>
+                            <constraint firstItem="sQJ-m5-q8a" firstAttribute="top" secondItem="7wG-0N-qLz" secondAttribute="bottom" constant="15" id="4Ce-wf-VBk"/>
+                            <constraint firstItem="LFe-Yr-8PW" firstAttribute="centerX" secondItem="yOa-Ew-ttO" secondAttribute="centerX" id="6PA-1G-Ufh"/>
+                            <constraint firstItem="LFe-Yr-8PW" firstAttribute="top" secondItem="CM5-7c-WBk" secondAttribute="bottom" constant="15" id="PYU-cI-GhN"/>
+                            <constraint firstItem="YiP-b2-aZe" firstAttribute="leading" secondItem="87V-o6-Odm" secondAttribute="trailing" constant="5" id="QoB-Ne-zdi"/>
+                            <constraint firstItem="7wG-0N-qLz" firstAttribute="top" secondItem="LFe-Yr-8PW" secondAttribute="bottom" constant="15" id="RJ4-gV-Td6"/>
+                            <constraint firstItem="YiP-b2-aZe" firstAttribute="bottom" secondItem="87V-o6-Odm" secondAttribute="bottom" id="Rr4-Vz-csj"/>
+                            <constraint firstItem="87V-o6-Odm" firstAttribute="centerX" secondItem="yOa-Ew-ttO" secondAttribute="centerX" constant="-16" id="V7t-mE-kXk"/>
+                            <constraint firstItem="CM5-7c-WBk" firstAttribute="top" secondItem="NlB-zI-n4k" secondAttribute="bottom" constant="15" id="XS7-J2-drd"/>
+                            <constraint firstItem="q7M-K8-VIn" firstAttribute="centerX" secondItem="yOa-Ew-ttO" secondAttribute="centerX" id="ZjM-fd-HaA"/>
+                            <constraint firstItem="sQJ-m5-q8a" firstAttribute="centerX" secondItem="yOa-Ew-ttO" secondAttribute="centerX" id="hhQ-3B-wkM"/>
+                            <constraint firstItem="q7M-K8-VIn" firstAttribute="top" secondItem="sQJ-m5-q8a" secondAttribute="bottom" constant="20" id="pe8-MQ-eya"/>
+                            <constraint firstItem="CM5-7c-WBk" firstAttribute="leading" secondItem="yOa-Ew-ttO" secondAttribute="leadingMargin" id="sl4-UD-MWR"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="activityButton" destination="LFe-Yr-8PW" id="w7u-UO-rak"/>
                         <outlet property="articalButton" destination="sQJ-m5-q8a" id="aKp-Pa-n5H"/>
-                        <outlet property="otherButton" destination="Lda-6B-KJu" id="DHv-6O-wt8"/>
                         <outlet property="partnerButton" destination="7wG-0N-qLz" id="fCx-xD-7hB"/>
+                        <outlet property="questionButton" destination="87V-o6-Odm" id="m0R-j1-Y8P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7rS-UC-Rw6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1049,27 +1120,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bak-OB-ger">
-                                <rect key="frame" x="142" y="458" width="90" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bak-OB-ger">
+                                <rect key="frame" x="152" y="208" width="90" height="40"/>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.59215686270000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="A6n-9x-33S"/>
+                                    <constraint firstAttribute="height" constant="40" id="TJT-gB-fSX"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="25"/>
                                 <state key="normal" title="新帮助">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="我要提供" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UlJ-Cm-nLu">
-                                <rect key="frame" x="16" y="97" width="120" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="5Sb-c3-JDk"/>
-                                    <constraint firstAttribute="height" constant="30" id="BPf-Xj-fCO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="25"/>
-                                <color key="textColor" red="0.93725490199999995" green="0.49803921569999998" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="没找到求助的类别？还可以来这里" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7S-Gl-4q0">
-                                <rect key="frame" x="25" y="430" width="307" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="没找到求助的类别？还可以来这里" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7S-Gl-4q0">
+                                <rect key="frame" x="35" y="180" width="307" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="e3c-d7-ixY"/>
                                     <constraint firstAttribute="width" constant="307" id="jv5-0W-gWp"/>
@@ -1078,47 +1142,59 @@
                                 <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8m-rU-GjN">
-                                <rect key="frame" x="191" y="0.0" width="100" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="car"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDc-cL-qSk">
-                                <rect key="frame" x="79" y="1" width="100" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="airplane"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="飞机" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMC-KE-lk9">
-                                <rect key="frame" x="108" y="50" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="汽车" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Z6-Mn-jIL">
-                                <rect key="frame" x="220" y="50" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIi-OE-Swk">
-                                <rect key="frame" x="53" y="153" width="46" height="30"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIi-OE-Swk">
+                                <rect key="frame" x="25" y="483" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="找玩伴"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9f-ck-vp3">
-                                <rect key="frame" x="45" y="257" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="组织活动"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WwB-KN-Rsa">
+                                <rect key="frame" x="118" y="119" width="140" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.95294117647058818" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="3w6-pI-Kvg"/>
+                                    <constraint firstAttribute="height" constant="40" id="RTK-gB-50S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="30"/>
+                                <state key="normal" title="上传攻略">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.49803921569999998" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WwB-KN-Rsa">
-                                <rect key="frame" x="53" y="357" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="写攻略"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="我要" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uO-fI-TE1">
+                                <rect key="frame" x="16" y="28" width="120" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Vd5-BU-Xn5"/>
+                                    <constraint firstAttribute="width" constant="120" id="fYx-4I-8Vo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DFWaWaSC-W5" family="Wawati SC" pointSize="25"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.49803921569999998" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9f-ck-vp3">
+                                <rect key="frame" x="117" y="71" width="140" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.95294117647058818" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="d2M-Da-BZJ"/>
+                                    <constraint firstAttribute="width" constant="140" id="vqB-Eg-GG4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="30"/>
+                                <state key="normal" title="发起活动">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.49803921569999998" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="L9f-ck-vp3" firstAttribute="top" secondItem="6uO-fI-TE1" secondAttribute="bottom" constant="15" id="7BH-YG-FC0"/>
+                            <constraint firstItem="Bak-OB-ger" firstAttribute="top" secondItem="C7S-Gl-4q0" secondAttribute="bottom" constant="10" id="Ggw-Tf-TZn"/>
+                            <constraint firstItem="6uO-fI-TE1" firstAttribute="leading" secondItem="wkP-Ll-Vbq" secondAttribute="leadingMargin" id="KK6-Zz-oPx"/>
+                            <constraint firstItem="Bak-OB-ger" firstAttribute="centerX" secondItem="wkP-Ll-Vbq" secondAttribute="centerX" id="Uq1-jb-y1k"/>
+                            <constraint firstItem="C7S-Gl-4q0" firstAttribute="centerX" secondItem="wkP-Ll-Vbq" secondAttribute="centerX" id="Zsm-A7-Uid"/>
+                            <constraint firstItem="C7S-Gl-4q0" firstAttribute="top" secondItem="WwB-KN-Rsa" secondAttribute="bottom" constant="20" id="bfz-Lt-5xy"/>
+                            <constraint firstItem="L9f-ck-vp3" firstAttribute="centerX" secondItem="wkP-Ll-Vbq" secondAttribute="centerX" id="oae-vz-Fld"/>
+                            <constraint firstItem="WwB-KN-Rsa" firstAttribute="centerX" secondItem="wkP-Ll-Vbq" secondAttribute="centerX" id="paf-CG-9JQ"/>
+                            <constraint firstItem="6uO-fI-TE1" firstAttribute="top" secondItem="wxc-mv-Wt2" secondAttribute="bottom" constant="15" id="r8f-wd-21U"/>
+                            <constraint firstItem="WwB-KN-Rsa" firstAttribute="top" secondItem="L9f-ck-vp3" secondAttribute="bottom" constant="15" id="rYu-KF-dBF"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="activityButton" destination="L9f-ck-vp3" id="haG-46-Y9M"/>
@@ -1129,7 +1205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ueg-KQ-MiU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6638" y="518"/>
+            <point key="canvasLocation" x="6637.6000000000004" y="517.6911544227886"/>
         </scene>
         <!--Discover Travel Help View Controller-->
         <scene sceneID="h80-BV-imm">

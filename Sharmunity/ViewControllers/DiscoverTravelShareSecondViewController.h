@@ -26,6 +26,7 @@
     UIView *arriveCityView;
     UIView *airportsView;
     UIView *cityView;
+    UIView *typeView;
     UIView *personView;
     UIView *timeView;
     UIView *priceView;
@@ -44,6 +45,7 @@
     NSString *priceString;
     NSString *dateString;
     NSString *ticketString;
+    NSString *typeString;
     BOOL is_other;
     BOOL priceAgg;
     BOOL priceFree;

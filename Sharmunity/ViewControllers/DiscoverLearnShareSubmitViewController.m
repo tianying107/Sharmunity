@@ -388,20 +388,21 @@
             priceString = ((UITextField*)[price2View viewWithTag:11]).text;
             latitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
             longitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
-            requestBody = [NSString stringWithFormat:@"email=%@&latitude=%@&longitude=%@&category=3&subcate=%@&school=%@&introduction=%@&major=%@&college=%@&price=%@&department=%@&changable=%d",MEID,latitude,longitude,subCate,school.text, contentTextView.text,major.text,college.text,priceString,department.text,priceAgg];
+            requestBody = [NSString stringWithFormat:@"email=%@&latitude=%@&longitude=%@&category=3&subcate=%@&school=%@&introduction=%@&major=%@&college=%@&price=%@&department=%@&changeable=%d",MEID,latitude,longitude,subCate,school.text, contentTextView.text,major.text,college.text,priceString,department.text,priceAgg];
             break;
         case discoverLearnTutor:
             subCate= @"02000000";
             latitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
             longitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
-            requestBody = [NSString stringWithFormat:@"email=%@&latitude=%@&longitude=%@&category=3&subcate=%@&school=%@&introduction=%@&major=%@&college=%@&price=%@&department=%@&changable=%d",MEID,latitude,longitude,subCate,school.text, contentTextView.text,major.text,college.text,priceString,department.text,priceAgg];
+            requestBody = [NSString stringWithFormat:@"email=%@&latitude=%@&longitude=%@&category=3&subcate=%@&school=%@&introduction=%@&major=%@&college=%@&price=%@&department=%@&changeable=%d",MEID,latitude,longitude,subCate,school.text, contentTextView.text,major.text,college.text,priceString,department.text,priceAgg];
             break;
         case discoverLearnInterest:
             subCate= @"03000000";
             priceString = ((UITextField*)[priceView viewWithTag:11]).text;
             latitude = [NSString stringWithFormat:@"%f",[[_selectedItem placemark] coordinate].latitude];
             longitude = [NSString stringWithFormat:@"%f",[[_selectedItem placemark] coordinate].longitude];
-            requestBody = [NSString stringWithFormat:@"email=%@&latitude=%@&longitude=%@&category=3&subcate=%@&title=%@&introduction=%@&name=%@&price=%@",MEID,latitude,longitude,subCate,title.text, interest.text,name.text,priceString];
+            requestBody = [NSString stringWithFormat:@"email=%@&latitude=%@&longitude=%@&category=3&subcate=%@&major=%@&introduction=%@&department=%@&price=%@&school=&college=&changeable",MEID,latitude,longitude,subCate,title.text, interest.text,name.text,priceString];
+            //title-->major     name-->department
             break;
             
         default:

@@ -17,6 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *partnerButton;
 @property (weak, nonatomic) IBOutlet UIButton *activityButton;
 @property (weak, nonatomic) IBOutlet UIButton *articalButton;
-@property (weak, nonatomic) IBOutlet UIButton *otherButton;
+@property (weak, nonatomic) IBOutlet UIButton *questionButton;
 
 @end

@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DiscoverPlayShareViewController : UIViewController
+@interface DiscoverPlayShareViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+    UITableView *shareTable;
+    NSString *MEID;
+    NSArray *shareIDArray;
+    NSMutableArray *basicViewArray;
+}
+
 @property (weak, nonatomic) IBOutlet UIButton *partnerButton;
 @property (weak, nonatomic) IBOutlet UIButton *activityButton;
 @property (weak, nonatomic) IBOutlet UIButton *articalButton;

@@ -19,33 +19,81 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    helpIDArray = [NSArray new];
+    MEID = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"admin"] valueForKey:@"id"];
+    
     [self viewsSetup];
+    
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setImage:[UIImage imageNamed:@"SYBackColor5"] forState:UIControlStateNormal];
+    [backBtn setTitle:@"我要求助" forState:UIControlStateNormal];
+    [backBtn setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [backBtn.titleLabel setFont:SYFont15];
+    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.bounds = CGRectMake(0, 0, 80, 40);
+    backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.leftBarButtonItem = backButton;
 }
 
+-(void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 -(void)viewsSetup{
+    _partnerButton.layer.cornerRadius = 5;
+    _partnerButton.clipsToBounds = YES;
+    _partnerButton.layer.borderColor = [SYColor6 CGColor];
+    _partnerButton.layer.borderWidth = 1;
+    
+    _activityButton.layer.cornerRadius = 5;
+    _activityButton.clipsToBounds = YES;
+    _activityButton.layer.borderColor = [SYColor6 CGColor];
+    _activityButton.layer.borderWidth = 1;
+    
+    _articalButton.layer.cornerRadius = 5;
+    _articalButton.clipsToBounds = YES;
+    _articalButton.layer.borderColor = [SYColor6 CGColor];
+    _articalButton.layer.borderWidth = 1;
+    
+    _questionButton.layer.cornerRadius = 5;
+    _questionButton.clipsToBounds = YES;
+    _questionButton.layer.borderColor = [UIColorFromRGB(0x70C1B3) CGColor];
+    _questionButton.layer.borderWidth = 1;
+    
     [_partnerButton addTarget:self action:@selector(partnerResponse) forControlEvents:UIControlEventTouchUpInside];
     [_activityButton addTarget:self action:@selector(activityResponse) forControlEvents:UIControlEventTouchUpInside];
     [_articalButton addTarget:self action:@selector(articalResponse) forControlEvents:UIControlEventTouchUpInside];
-    [_otherButton addTarget:self action:@selector(otherResponse) forControlEvents:UIControlEventTouchUpInside];
     
-    helpTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 160, self.view.frame.size.width, self.view.frame.size.height-160) style:UITableViewStylePlain];
+    
+    float heightCount = 400;
+    float originX = 20;
+    UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(0, heightCount, self.view.frame.size.width, SYSeparatorHeight)];
+    separator.backgroundColor = SYSeparatorColor;
+    [self.view addSubview:separator];
+    UILabel *matchLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, heightCount, self.view.frame.size.width, 40)];
+    matchLabel.text = @"匹配结果";
+    matchLabel.textColor = SYColor5;
+    [matchLabel setFont:SYFontW25];
+    [self.view addSubview:matchLabel];
+    heightCount += matchLabel.frame.size.height;
+    
+    helpTable = [[UITableView alloc] initWithFrame:CGRectMake(0, heightCount, self.view.frame.size.width, self.view.frame.size.height-heightCount) style:UITableViewStylePlain];
     helpTable.delegate = self;
     helpTable.dataSource = self;
     helpTable.alwaysBounceVertical = NO;
     [self.view addSubview:helpTable];
     [self requestHelpFromServer];
-    [NSTimer scheduledTimerWithTimeInterval:1 repeats:NO block:^(NSTimer *timer){
+    [NSTimer scheduledTimerWithTimeInterval:2 repeats:NO block:^(NSTimer *timer){
         [helpTable reloadData];
-        [NSTimer scheduledTimerWithTimeInterval:1 repeats:NO block:^(NSTimer *timer){
+        [NSTimer scheduledTimerWithTimeInterval:.1 repeats:NO block:^(NSTimer *timer){
             helpTable.hidden = NO;
         }];
     }];
+
 }
 
 -(void)partnerResponse{
@@ -62,11 +110,10 @@
 -(void)articalResponse{
     
 }
--(void)otherResponse{
-    DiscoverPlayHelpActiveViewController *viewController = [DiscoverPlayHelpActiveViewController new];
-    viewController.controllerType = DiscoverPlayOther;
-    [self.navigationController pushViewController:viewController animated:YES];
-}
+
+
+
+
 
 
 
@@ -81,13 +128,13 @@
     NSURLSessionTask *task = [session dataTaskWithURL:url
                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                         NSArray *array = [NSJSONSerialization JSONObjectWithData:data
-                                                                                             options:kNilOptions
-                                                                                               error:&error];
+                                                                                         options:kNilOptions
+                                                                                           error:&error];
                                         NSLog(@"server said: %@",array);
                                         dispatch_async(dispatch_get_main_queue(), ^{
                                             helpIDArray = array;
                                             [helpTable reloadData];
-
+                                            
                                         });
                                         
                                     }];
@@ -98,7 +145,7 @@
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     return helpIDArray.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -132,5 +179,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
+
 
 @end
