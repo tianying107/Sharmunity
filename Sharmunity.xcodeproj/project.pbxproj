@@ -197,7 +197,6 @@
 		4458AB1A1E734C73009B1FF8 /* DiscoverPlayPartnerHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverPlayPartnerHelpViewController.m; path = ViewControllers/DiscoverPlayPartnerHelpViewController.m; sourceTree = "<group>"; };
 		4458AB1F1E75C936009B1FF8 /* DiscoverTradeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTradeListViewController.h; path = ViewControllers/DiscoverTradeListViewController.h; sourceTree = "<group>"; };
 		4458AB201E75C936009B1FF8 /* DiscoverTradeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTradeListViewController.m; path = ViewControllers/DiscoverTradeListViewController.m; sourceTree = "<group>"; };
-		4458AB221E75D63A009B1FF8 /* SYDiscoverTradeBasicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYDiscoverTradeBasicView.h; path = Classes/SYDiscoverTradeBasicView.h; sourceTree = "<group>"; };
 		4458AB231E75D63A009B1FF8 /* SYDiscoverTradeBasicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYDiscoverTradeBasicView.m; path = Classes/SYDiscoverTradeBasicView.m; sourceTree = "<group>"; };
 		4458AB251E75E260009B1FF8 /* DiscoverTradeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTradeDetailViewController.h; path = ViewControllers/DiscoverTradeDetailViewController.h; sourceTree = "<group>"; };
 		4458AB261E75E260009B1FF8 /* DiscoverTradeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTradeDetailViewController.m; path = ViewControllers/DiscoverTradeDetailViewController.m; sourceTree = "<group>"; };
@@ -210,6 +209,7 @@
 		4458AB311E76471C009B1FF8 /* DiscoverTradeSellSubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTradeSellSubmitViewController.m; path = ViewControllers/DiscoverTradeSellSubmitViewController.m; sourceTree = "<group>"; };
 		4458AB331E7680D6009B1FF8 /* SYArticalAbstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYArticalAbstract.h; path = Classes/SYArticalAbstract.h; sourceTree = "<group>"; };
 		4458AB341E7680D6009B1FF8 /* SYArticalAbstract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYArticalAbstract.m; path = Classes/SYArticalAbstract.m; sourceTree = "<group>"; };
+		4458AB361E774D52009B1FF8 /* SYDiscoverTradeBasicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYDiscoverTradeBasicView.h; path = Classes/SYDiscoverTradeBasicView.h; sourceTree = "<group>"; };
 		4470840B1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverPlayShareActiveViewController.h; path = ViewControllers/DiscoverPlayShareActiveViewController.h; sourceTree = "<group>"; };
 		4470840C1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverPlayShareActiveViewController.m; path = ViewControllers/DiscoverPlayShareActiveViewController.m; sourceTree = "<group>"; };
 		447084101E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverPlayHelpActiveViewController.h; path = ViewControllers/DiscoverPlayHelpActiveViewController.h; sourceTree = "<group>"; };
@@ -872,7 +872,7 @@
 			children = (
 				44AD3C411E56557B008774CD /* SYChoiceCommentBasic.h */,
 				44AD3C421E56557B008774CD /* SYChoiceCommentBasic.m */,
-				4458AB221E75D63A009B1FF8 /* SYDiscoverTradeBasicView.h */,
+				4458AB361E774D52009B1FF8 /* SYDiscoverTradeBasicView.h */,
 				4458AB231E75D63A009B1FF8 /* SYDiscoverTradeBasicView.m */,
 				4458AB331E7680D6009B1FF8 /* SYArticalAbstract.h */,
 				4458AB341E7680D6009B1FF8 /* SYArticalAbstract.m */,
