@@ -17,6 +17,8 @@
 #define SYDiscoverNextHelpMoveIn 2103
 #define SYDiscoverNextShareLearn 3001
 #define SYDiscoverNextHelpLearn 3101
+#define SYDiscoverNextCarpoolDepart 5301
+#define SYDiscoverNextCarpoolArrive 5302
 
 @interface DiscoverLocationViewController : UIViewController{
     NSInteger previousDistance;

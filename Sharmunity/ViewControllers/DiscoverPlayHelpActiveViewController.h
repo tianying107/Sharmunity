@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#define DiscoverPlayPartner 101
-#define DiscoverPlayActivity 102
-#define DiscoverPlayOther 199
 @interface DiscoverPlayHelpActiveViewController : UIViewController<UIScrollViewDelegate,UITextViewDelegate, CLLocationManagerDelegate,UIPickerViewDelegate, UIPickerViewDataSource>{
     UIScrollView *mainScrollView;
     UIView *typeView;
@@ -27,14 +24,24 @@
     NSString *typeString;
     BOOL is_other;
     NSArray *typeArray;
+    NSInteger subcate1;
     
     NSMutableArray *viewsArray;
+    
+    UIView *subcate1View;
+    UIView *subcate2View;
+    UIView *subcate3View;
+    UIView *subcate4View;
+    UIView *subcate5View;
 }
 -(void)locationCompleteResponse;
-@property NSInteger controllerType;
-@property NSMutableDictionary *shareDict;
 @property MKMapItem *selectedItem;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property NSString *distanceString;
 
+
+
+@property (weak, nonatomic) IBOutlet UIButton *otherButton;
+@property (weak, nonatomic) IBOutlet UIStackView *otherGroup;
 
 @end

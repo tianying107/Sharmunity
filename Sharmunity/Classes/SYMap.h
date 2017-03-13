@@ -52,6 +52,7 @@
 // */
 //- (id)initWithFrame:(CGRect)frame withLatitude:(float)latitude longitude:(float)longitude;
 - (void)addMapItemAnnotation:(MKMapItem*)mapItem;
+- (void)addMapPinAnnotation:(float)latitude longitude:(float)longitude;
 - (IBAction)location:(id)sender;
 - (void)setLocationWithLatitude:(float)latitude longitude:(float)longitude;
 - (void)removeAnnotations;

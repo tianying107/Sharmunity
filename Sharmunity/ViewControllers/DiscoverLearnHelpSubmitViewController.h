@@ -28,6 +28,7 @@
     NSString *lowerPriceString;
     
     NSMutableArray *viewsArray;
+    
 }
 -(void)locationCompleteResponse;
 @property NSInteger controllerType;

@@ -105,7 +105,11 @@
     }
     
 }
-
+- (void)addMapPinAnnotation:(float)latitude longitude:(float)longitude{
+    MapPin *localPin=[[MapPin alloc] init];
+    localPin.coordinate = CLLocationCoordinate2DMake(latitude, longitude);
+    [self addAnnotation:localPin];
+}
 - (void)addMapItemAnnotation:(MKMapItem*)mapItem{
     float latitude = [[mapItem placemark] location].coordinate.latitude;
     float longitude = [[mapItem placemark] location].coordinate.longitude;
@@ -150,8 +154,8 @@
     region.center.latitude = latitude;
     region.center.longitude= longitude;
     double scalingFactor = ABS( (cos(2 * M_PI * region.center.latitude / 360.0) ));
-    region.span.latitudeDelta = 5/69.0;
-    region.span.longitudeDelta = 5/(scalingFactor * 69.0);
+    region.span.latitudeDelta = 3/69.0;
+    region.span.longitudeDelta = 3/(scalingFactor * 69.0);
     [self setRegion:region animated:YES];
     
 }

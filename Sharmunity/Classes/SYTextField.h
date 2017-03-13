@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #define SYTextFieldHelp 1
 #define SYTextFieldShare 2
-@interface SYTextField : UITextField
+#define SYTextFieldSeparator 3
+@interface SYTextField : UITextField{
+    NSInteger UIType;
+}
 - (id)initWithFrame:(CGRect)frame type:(NSInteger)type;
 @end

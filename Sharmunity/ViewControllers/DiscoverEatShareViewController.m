@@ -9,7 +9,7 @@
 #import "DiscoverEatShareViewController.h"
 #import "DiscoverEatShareSecondViewController.h"
 #import "DiscoverOtherShareViewController.h"
-#import "DiscoverEatArticalShareViewController.h"
+#import "DiscoverArticalShareViewController.h"
 #import "SYHeader.h"
 #import "Header.h"
 @interface DiscoverEatShareViewController ()
@@ -107,7 +107,8 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 -(void)articalResponse{
-    DiscoverEatArticalShareViewController *viewController = [DiscoverEatArticalShareViewController new];
+    DiscoverArticalShareViewController *viewController = [DiscoverArticalShareViewController new];
+    viewController.shareType = discoverEat;
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

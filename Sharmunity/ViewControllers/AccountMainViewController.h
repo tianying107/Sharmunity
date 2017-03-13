@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AccountMainViewController : UIViewController
+@interface AccountMainViewController : UIViewController<UIScrollViewDelegate>{
+    NSString *MEID;
+}
+@property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
+@property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @end

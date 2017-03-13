@@ -18,6 +18,7 @@
 #define DiscoverTravelOther 199
 @interface DiscoverTravelHelpSecondViewController : UIViewController<UIScrollViewDelegate,UITextViewDelegate, CLLocationManagerDelegate>{
     UIScrollView *mainScrollView;
+    UIView *typeView;
     UIView *hasTicketView;
     UIView *flightView;
     UIView *departAirportView;
@@ -35,6 +36,7 @@
     UIView *locationView;
     UIView *buyCarView;
     UIView *dateView;
+    UIView *titleView;
     UIView *timeView;
     UIView *keywordView;
     UIView *introductionView;
@@ -47,6 +49,7 @@
     NSString *lowerPriceString;
     NSString *dateString;
     NSString *ticketString;
+    NSString *typeString;
     BOOL is_other;
     BOOL priceAgg;
     BOOL priceFree;
@@ -58,11 +61,15 @@
     NSMutableArray *viewsArray;
 }
 -(void)locationCompleteResponse;
+-(void)arriveCompleteResponse;
+-(void)departCompleteResponse;
 @property NSInteger controllerType;
 @property NSMutableDictionary *shareDict;
 @property MKMapItem *selectedItem;
+@property MKMapItem *departItem;
+@property MKMapItem *arriveItem;
 @property (strong, nonatomic) CLLocationManager *locationManager;
-
+@property NSString *distanceString;
 
 
 @end

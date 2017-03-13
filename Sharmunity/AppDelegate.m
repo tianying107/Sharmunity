@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-
+#import <AWSCore/AWSCore.h>
+#import <AWSS3/AWSS3.h>
+#import <UserNotifications/UserNotifications.h>
 @interface AppDelegate ()
 
 @end
@@ -17,6 +19,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1 identityPoolId:@"us-east-1:e17b84aa-cec4-482d-b321-16ae913c946a" ];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc]
+                                              initWithRegion:AWSRegionUSEast1 credentialsProvider:credentialsProvider];
+    AWSServiceManager.defaultServiceManager.defaultServiceConfiguration = configuration;
+    [AWSLogger defaultLogger].logLevel = AWSLogLevelError;
+    [[credentialsProvider getIdentityId] continueWithBlock:^id(AWSTask *task) {
+        if (task.error) {
+            NSLog(@"Error: %@", task.error);
+        }
+        else {
+            // the task result will contain the identity id
+            NSString *cognitoId = task.result;
+            NSLog(@"%@",cognitoId);
+        }
+        return nil;
+    }];
     return YES;
 }
 

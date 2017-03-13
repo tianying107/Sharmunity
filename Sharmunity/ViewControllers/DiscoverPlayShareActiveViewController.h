@@ -28,7 +28,10 @@
     NSString *priceString;
     NSString *typeString;
     NSString *dateString;
+    NSString *numberString;
     BOOL is_other;
+    BOOL timeAgg;
+    BOOL numberAgg;
     NSArray *typeArray;
     
     NSMutableArray *viewsArray;
@@ -36,6 +39,7 @@
 -(void)locationCompleteResponse;
 @property NSInteger controllerType;
 @property NSMutableDictionary *shareDict;
+@property NSInteger subcate1;
 @property MKMapItem *selectedItem;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @end

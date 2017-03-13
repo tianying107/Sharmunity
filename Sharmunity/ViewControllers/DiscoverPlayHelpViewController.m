@@ -8,6 +8,8 @@
 
 #import "DiscoverPlayHelpViewController.h"
 #import "DiscoverPlayHelpActiveViewController.h"
+#import "DiscoverArticalHelpViewController.h"
+#import "DiscoverPlayPartnerHelpViewController.h"
 #import "Header.h"
 #import "SYHeader.h"
 @interface DiscoverPlayHelpViewController ()
@@ -97,18 +99,20 @@
 }
 
 -(void)partnerResponse{
-    DiscoverPlayHelpActiveViewController *viewController = [DiscoverPlayHelpActiveViewController new];
-    viewController.controllerType = DiscoverPlayPartner;
+    DiscoverPlayPartnerHelpViewController *viewController = [DiscoverPlayPartnerHelpViewController new];
+//    viewController.controllerType = DiscoverPlayPartner;
     [self.navigationController pushViewController:viewController animated:YES];
 }
 -(void)activityResponse{
     DiscoverPlayHelpActiveViewController *viewController = [DiscoverPlayHelpActiveViewController new];
-    viewController.controllerType = DiscoverPlayActivity;
+
     [self.navigationController pushViewController:viewController animated:YES];
     
 }
 -(void)articalResponse{
-    
+    DiscoverArticalHelpViewController *viewController = [DiscoverArticalHelpViewController new];
+    viewController.helpType = discoverPlay;
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 

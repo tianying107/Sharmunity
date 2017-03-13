@@ -14,6 +14,7 @@
 #import "DiscoverLearnHelpSubmitViewController.h"
 #import "DiscoverLiveShareLeaseViewController.h"
 #import "DiscoverLiveHelpRentViewController.h"
+#import "DiscoverTravelShareSecondViewController.h"
 #import "SYHeader.h"
 #define cardUnselectOriginalY 0
 #define cardSelectOriginalY 80
@@ -244,10 +245,18 @@
             [self.navigationController popViewControllerAnimated:YES];
             return;
             break;
-        case SYDiscoverNextShareLearn:
+        
+        case SYDiscoverNextCarpoolDepart:
             viewController = _previousController;
-            ((DiscoverLearnShareSubmitViewController*)viewController).selectedItem = selectedItem;
-            [(DiscoverLearnShareSubmitViewController*)viewController locationCompleteResponse];
+            ((DiscoverTravelShareSecondViewController*)viewController).departItem = selectedItem;
+            [(DiscoverTravelShareSecondViewController*)viewController departCompleteResponse];
+            [self.navigationController popViewControllerAnimated:YES];
+            return;
+            break;
+        case SYDiscoverNextCarpoolArrive:
+            viewController = _previousController;
+            ((DiscoverTravelShareSecondViewController*)viewController).arriveItem = selectedItem;
+            [(DiscoverTravelShareSecondViewController*)viewController arriveCompleteResponse];
             [self.navigationController popViewControllerAnimated:YES];
             return;
             break;

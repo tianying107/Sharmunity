@@ -11,7 +11,7 @@
 @implementation SYProfileExtend
 @synthesize userDict;
 -(id)initWithUserID:(NSString*)ID frame:(CGRect)frame{
-    self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 100)];
+    self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 140)];
     if (self) {
         userID = ID;
         [self requestionUserInformation];

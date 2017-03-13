@@ -10,7 +10,7 @@
 #import "DiscoverLocationViewController.h"
 #import "Header.h"
 #import "SYHeader.h"
-@interface DiscoverPlayHelpActiveViewController ()<SYPriceSliderDelegate>{
+@interface DiscoverPlayHelpActiveViewController (){
     SYPopOut *popOut;
 }
 
@@ -21,20 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    switch (_controllerType) {
-        case DiscoverPlayPartner:
-            self.navigationItem.title = @"找玩伴";
-            break;
-        case DiscoverPlayActivity:
-            self.navigationItem.title = @"组织活动";
-            break;
-            
-        default:
-            break;
-    }
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: SYColor1,
-                                                                    NSFontAttributeName: SYFont20S};
+    self.navigationItem.title = @"找活动";
     self.view.backgroundColor = SYBackgroundColorExtraLight;
     
     mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
@@ -42,12 +29,11 @@
     [self.view addSubview:mainScrollView];
     
     MEID = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"admin"] valueForKey:@"id"];
-    _shareDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:MEID,@"email",@"4",@"category",@"2099-01-01",@"expire_date", nil];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+//                                   initWithTarget:self
+//                                   action:@selector(dismissKeyboard)];
+//    [self.view addGestureRecognizer:tap];
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -62,16 +48,31 @@
     }
     
     popOut = [SYPopOut new];
-    [self dataSetup];
+//    [self dataSetup];
     [self viewsSetup];
     
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setImage:[UIImage imageNamed:@"SYBackColor5"] forState:UIControlStateNormal];
+    [backBtn setTitle:@"玩" forState:UIControlStateNormal];
+    [backBtn setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [backBtn.titleLabel setFont:SYFont15];
+    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.bounds = CGRectMake(0, 0, 80, 40);
+    backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.leftBarButtonItem = backButton;
+}
+-(void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 -(void) viewWillAppear:(BOOL)animated{
     mainScrollView.delegate=self;
     [self scrollViewDidScroll:mainScrollView];
+    
 }
 -(void) viewDidAppear:(BOOL)animated{
     [mainScrollView setScrollEnabled:YES];
+//    [self viewsSetup];
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
@@ -83,27 +84,81 @@
 -(void)dataSetup{
     is_other = NO;
     /*type data*/
-    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"PlayType_cn"
+    NSString* filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"PlayType%ld_cn",subcate1]
                                                          ofType:@"txt"];
     NSString *categoryString = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     typeArray = [NSArray new];
     typeArray = [categoryString componentsSeparatedByString:@","];
+    [typePickerView reloadAllComponents];
+    [typePickerView selectRow:0 inComponent:0 animated:NO];
 }
 -(void)viewsSetup{
     viewsArray = [NSMutableArray new];
     float viewWidth = mainScrollView.frame.size.width;
     float originX = 30;
     
+    /*subcate 1 view*/
+    subcate1View = [[UIView alloc] initWithFrame:CGRectMake(10, 0, viewWidth-20, 50)];
+    UIButton *button1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, viewWidth-20, 40)];
+    [button1 setTitle:@"体育运动" forState:UIControlStateNormal];
+    [button1 setTitleColor:SYColor7 forState:UIControlStateNormal];
+    [button1.titleLabel setFont:SYFont20];
+    button1.tag = 11;
+    [button1 addTarget:self action:@selector(subcateResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [subcate1View addSubview:button1];
+    
+    /*subcate 2 view*/
+    subcate2View = [[UIView alloc] initWithFrame:CGRectMake(10, 0, viewWidth-20, 50)];
+    UIButton *button2 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, viewWidth-20, 40)];
+    [button2 setTitle:@"社交活动" forState:UIControlStateNormal];
+    [button2 setTitleColor:SYColor7 forState:UIControlStateNormal];
+    [button2.titleLabel setFont:SYFont20];
+    button2.tag = 11;
+    [button2 addTarget:self action:@selector(subcateResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [subcate2View addSubview:button2];
+    
+    /*subcate 3 view*/
+    subcate3View = [[UIView alloc] initWithFrame:CGRectMake(10, 0, viewWidth-20, 50)];
+    UIButton *button3 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, viewWidth-20, 40)];
+    [button3 setTitle:@"户外冒险" forState:UIControlStateNormal];
+    [button3 setTitleColor:SYColor7 forState:UIControlStateNormal];
+    [button3.titleLabel setFont:SYFont20];
+    button3.tag = 11;
+    [button3 addTarget:self action:@selector(subcateResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [subcate3View addSubview:button3];
+    
+    /*subcate 4 view*/
+    subcate4View = [[UIView alloc] initWithFrame:CGRectMake(10, 0, viewWidth-20, 50)];
+    UIButton *button4 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, viewWidth-20, 40)];
+    [button4 setTitle:@"旅游度假" forState:UIControlStateNormal];
+    [button4 setTitleColor:SYColor7 forState:UIControlStateNormal];
+    [button4.titleLabel setFont:SYFont20];
+    button4.tag = 11;
+    [button4 addTarget:self action:@selector(subcateResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [subcate4View addSubview:button4];
+    
+    /*subcate 5 view*/
+    subcate5View = [[UIView alloc] initWithFrame:CGRectMake(10, 0, viewWidth-20, 50)];
+    UIButton *button5 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, viewWidth-20, 40)];
+    [button5 setTitle:@"棋牌游戏" forState:UIControlStateNormal];
+    [button5 setTitleColor:SYColor7 forState:UIControlStateNormal];
+    [button5.titleLabel setFont:SYFont20];
+    button5.tag = 11;
+    [button5 addTarget:self action:@selector(subcateResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [subcate5View addSubview:button5];
+    
     /*activity type*/
-    typeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
-    UILabel *typeTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
-    typeTitleLabel.text = @"活动";
-    typeTitleLabel.textColor = SYColor1;
+    typeView = [[UIView alloc] initWithFrame:CGRectMake(0, 50, viewWidth, 50)];
+    UILabel *typeTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 110, 40)];
+    typeTitleLabel.text = @"种类";
+    typeTitleLabel.textColor = SYColor5;
+    [typeTitleLabel setFont:SYFont20];
+//    typeTitleLabel.textAlignment = NSTextAlignmentRight;
     [typeView addSubview:typeTitleLabel];
-    UIButton *typeButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
-    [typeButton setTitle:@"请选择活动类型" forState:UIControlStateNormal];
-    [typeButton setTitleColor:SYColor3 forState:UIControlStateNormal];
-    [typeButton setTitleColor:SYColor1 forState:UIControlStateSelected];
+    UIButton *typeButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-20-2*originX, 40)];
+    [typeButton setTitleColor:SYColor6 forState:UIControlStateNormal];
+    [typeButton setTitleColor:SYColor5 forState:UIControlStateSelected];
+    [typeButton.titleLabel setFont:SYFont20];
     typeButton.tag = 11;
     typeButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     [typeButton addTarget:self action:@selector(typeResponse:) forControlEvents:UIControlEventTouchUpInside];
@@ -135,93 +190,79 @@
     
     
     /*location*/
-    locationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
-    locationView.hidden = YES;
-    UILabel *locationTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
-    locationTitleLabel.text = @"位置";
-    locationTitleLabel.textColor = SYColor1;
+    locationView = [[UIView alloc] initWithFrame:CGRectMake(0, 100, viewWidth, 50)];
+    UILabel *locationTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 110, 40)];
+    locationTitleLabel.text = @"位置范围";
+    locationTitleLabel.textColor = SYColor5;
+    locationTitleLabel.textAlignment = NSTextAlignmentLeft;
+    [locationTitleLabel setFont:SYFont20];
     [locationView addSubview:locationTitleLabel];
-    UIButton *locationButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
+    UIButton *locationButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-20-2*originX, 40)];
     locationButton.tag = 11;
-    [locationButton setTitleColor:SYColor3 forState:UIControlStateNormal];
-    [locationButton setTitleColor:SYColor1 forState:UIControlStateSelected];
+    [locationButton setTitleColor:SYColor6 forState:UIControlStateNormal];
+    [locationButton setTitleColor:SYColor5 forState:UIControlStateSelected];
     [locationButton setTitle:@"请选择活动位置" forState:UIControlStateNormal];
+    [locationButton.titleLabel setFont:SYFont20];
     [locationButton addTarget:self action:@selector(locationResponse) forControlEvents:UIControlEventTouchUpInside];
     locationButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     [locationView addSubview:locationButton];
     
-    /*title*/
-    keywordView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
-    keywordView.hidden = YES;
-    UILabel *titleTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 40)];
-    titleTitleLabel.text = @"关键词";
-    titleTitleLabel.textColor = SYColor1;
-    [keywordView addSubview:titleTitleLabel];
-    UITextField *textfield = [[UITextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30)];
-    textfield.tag = 11;
-    [textfield addTarget:self action:@selector(titleEmptyCheck) forControlEvents:UIControlEventEditingChanged];
-    textfield.backgroundColor = [UIColor whiteColor];
-    [keywordView addSubview:textfield];
+//    /*title*/
+//    keywordView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+//    keywordView.hidden = YES;
+//    UILabel *titleTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 40)];
+//    titleTitleLabel.text = @"关键词";
+//    titleTitleLabel.textColor = SYColor1;
+//    [keywordView addSubview:titleTitleLabel];
+//    UITextField *textfield = [[UITextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30)];
+//    textfield.tag = 11;
+//    [textfield addTarget:self action:@selector(titleEmptyCheck) forControlEvents:UIControlEventEditingChanged];
+//    textfield.backgroundColor = [UIColor whiteColor];
+//    [keywordView addSubview:textfield];
     
-    /*price*/
-    priceView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 140)];
-    priceView.hidden = YES;
-    UILabel *priceTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 200, 60)];
-    priceTitleLabel.text = @"接受的价格区间";
-    priceTitleLabel.textColor = SYColor1;
-    [priceView addSubview:priceTitleLabel];
-    SYPriceSlider *priceSlider = [[SYPriceSlider alloc] initWithFrame:CGRectMake(originX, 60, viewWidth-2*originX, 50) type:SYPriceSliderDouble];
-    priceSlider.delegate = self;
-    [priceView addSubview:priceSlider];
-    lowerPriceString = @"100";
-    upperPriceString = @"1000";
     
-    nextButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 44)];
-    [nextButton setTitle:@"下一步" forState:UIControlStateNormal];
-    [nextButton setBackgroundColor:SYColor4];
+    originX = 60;
+    nextButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 150, viewWidth-2*originX, 35)];
+    [nextButton setTitle:@"提交" forState:UIControlStateNormal];
+    [nextButton setBackgroundColor:SYColor7];
     [nextButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [nextButton.titleLabel setFont:SYFont20S];
+    [nextButton.titleLabel setFont:SYFont20M];
     [nextButton addTarget:self action:@selector(nextResponse) forControlEvents:UIControlEventTouchUpInside];
-    nextButton.layer.cornerRadius = nextButton.frame.size.height/2;
+    nextButton.layer.cornerRadius = 8;
     nextButton.clipsToBounds = YES;
-    nextButton.hidden = YES;
+//    nextButton.hidden = YES;
     
     
     
     
     
-    switch (_controllerType) {
-        case DiscoverPlayPartner:
-            [mainScrollView addSubview:typeView];
-            [viewsArray addObject:typeView];
-            [mainScrollView addSubview:locationView];
-            [viewsArray addObject:locationView];
-            [mainScrollView addSubview:keywordView];
-            [viewsArray addObject:keywordView];
-            break;
-        case DiscoverPlayActivity:
-            [mainScrollView addSubview:typeView];
-            [viewsArray addObject:typeView];
-            [mainScrollView addSubview:locationView];
-            [viewsArray addObject:locationView];
-            [mainScrollView addSubview:keywordView];
-            [viewsArray addObject:keywordView];
-            [mainScrollView addSubview:priceView];
-            [viewsArray addObject:priceView];
-            break;
-        case DiscoverPlayOther:
-            locationView.hidden = NO;
-            [mainScrollView addSubview:locationView];
-            [viewsArray addObject:locationView];
-            [mainScrollView addSubview:keywordView];
-            [viewsArray addObject:keywordView];
-        default:
-            break;
-    }
+    
+//            [mainScrollView addSubview:typeView];
+//            [viewsArray addObject:typeView];
+//            [mainScrollView addSubview:locationView];
+//            [viewsArray addObject:locationView];
+//            [mainScrollView addSubview:keywordView];
+//            [viewsArray addObject:keywordView];
+    [mainScrollView addSubview:subcate1View];
+    [viewsArray addObject:subcate1View];
+    [mainScrollView addSubview:subcate2View];
+    [viewsArray addObject:subcate2View];
+    [mainScrollView addSubview:subcate3View];
+    [viewsArray addObject:subcate3View];
+    [mainScrollView addSubview:subcate4View];
+    [viewsArray addObject:subcate4View];
+    [mainScrollView addSubview:subcate5View];
+    [viewsArray addObject:subcate5View];
     
     
-    [mainScrollView addSubview:nextButton];
-    [viewsArray addObject:nextButton];
+//    [viewsArray addObject:_otherGroup];
+//    [viewsArray addObject:_subcate2Button];
+//    [viewsArray addObject:_subcate3Button];
+//    [viewsArray addObject:_subcate4Button];
+//    [viewsArray addObject:_subcate5Button];
+    
+//    [mainScrollView addSubview:nextButton];
+//    [viewsArray addObject:nextButton];
     [self viewsLayout];
 }
 
@@ -236,6 +277,46 @@
     mainScrollView.contentSize = CGSizeMake(0, height+20+44+10);
 }
 
+-(IBAction)subcateResponse:(id)sender{
+    typeString = nil;
+    [self pickerConfirmResponse];
+    [typeView removeFromSuperview];
+    [locationView removeFromSuperview];
+    UIButton *selectButton = sender;
+    UIView *view = [sender superview];
+    
+    UIButton *typeButton = [typeView viewWithTag:11];
+    typeButton.selected = NO;
+    [typeButton setTitle:[NSString stringWithFormat:@"请选择%@名称",selectButton.titleLabel.text] forState:UIControlStateNormal];
+    
+    
+    UIButton *locationButton = [locationView viewWithTag:11];
+    locationButton.selected = NO;
+
+    for (int i=0; i<5; i++) {
+        UIView *view = [viewsArray objectAtIndex:i];
+        UIButton *button = [view viewWithTag:11];
+        CGRect frame = view.frame;
+        frame.size.height = 50;
+        [view setFrame:frame];
+        [button setTitleColor:SYColor7 forState:UIControlStateNormal];
+        [button.titleLabel setFont:SYFont20];
+        view.layer.borderWidth = 0;
+    }
+    
+    view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, 210);
+    [view addSubview:typeView];
+    [view addSubview:locationView];
+    [view addSubview:nextButton];
+    view.layer.borderWidth = 1;
+    view.layer.borderColor = [SYSeparatorColor CGColor];
+    [selectButton setTitleColor:SYColor5 forState:UIControlStateNormal];
+    [selectButton.titleLabel setFont:SYFont25M];
+    subcate1 = [viewsArray indexOfObject:view]+1;
+    [self dataSetup];
+    [self viewsLayout];
+}
+
 -(IBAction)typeResponse:(id)sender{
     UIButton *button = sender;
     button.selected = YES;
@@ -248,24 +329,24 @@
     locationView.hidden = NO;
 }
 -(void)locationResponse{
-    [self dismissKeyboard];
+//    [self dismissKeyboard];
     [self pickerConfirmResponse];
     
     DiscoverLocationViewController *viewController = [DiscoverLocationViewController new];
     viewController.previousController = self;
-    viewController.nextControllerType = SYDiscoverNextShareLearn;
+    viewController.needDistance = YES;
+    viewController.nextControllerType = SYDiscoverNextHelp;
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
 -(void)locationCompleteResponse{
     UIButton *locationButton = [locationView viewWithTag:11];
     locationButton.selected = YES;
-    [locationButton setTitle:[[[_selectedItem placemark] addressDictionary] valueForKey:@"Street"] forState:UIControlStateSelected];
-    keywordView.hidden = NO;
+    [locationButton.titleLabel setNumberOfLines:2];
+    [locationButton setTitle:[NSString stringWithFormat:@"%@\n附近%@英里",[[[_selectedItem placemark] addressDictionary] valueForKey:@"Street"],_distanceString] forState:UIControlStateSelected];
 }
 - (void)pickerConfirmResponse{
     confirmBackgroundView.hidden = YES;
-    
     typePickerView.hidden = YES;
 }
 -(void)nextResponse{
@@ -273,32 +354,32 @@
     NSString *startLatitude;
     NSString *startLongitude;
     
-    switch (_controllerType) {
-        case DiscoverPlayPartner:
-            subCate= [NSString stringWithFormat:@"01%02ld0000",[typeString integerValue]];
+//    switch (_controllerType) {
+//        case DiscoverPlayPartner:
+//            subCate= [NSString stringWithFormat:@"01%02ld0000",[typeString integerValue]];
+//            startLatitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
+//            startLongitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
+//            lowerPriceString = @"0";
+//            upperPriceString = @"2";
+//            break;
+//        case DiscoverPlayActivity:
+            subCate= [NSString stringWithFormat:@"01%02ld%02ld00",subcate1,[typeString integerValue]];
             startLatitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
             startLongitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
-            lowerPriceString = @"0";
-            upperPriceString = @"2";
-            break;
-        case DiscoverPlayActivity:
-            subCate= [NSString stringWithFormat:@"02%02ld0000",[typeString integerValue]];
-            startLatitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
-            startLongitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
-            break;
-        case DiscoverPlayOther:
-            subCate= [NSString stringWithFormat:@"99%02ld0000",[typeString integerValue]];
-            startLatitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
-            startLongitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
-            break;
-            
-        default:
-            break;
-    }
+//            break;
+//        case DiscoverPlayOther:
+//            subCate= [NSString stringWithFormat:@"99%02ld0000",[typeString integerValue]];
+//            startLatitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
+//            startLongitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
+//            break;
+//            
+//        default:
+//            break;
+//    }
     
-    UITextField *keyword = [keywordView viewWithTag:11];
+//    UITextField *keyword = [keywordView viewWithTag:11];
     
-    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=4&subcate=%@&keyword=%@&upper_price=%@&lower_price=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,keyword.text,upperPriceString,lowerPriceString];
+    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=4&subcate=%@&distance=%@&placemark=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,_distanceString,_selectedItem.placemark.name];
     NSLog(@"%@/n",requestBody);
     /*改上面的 query 和 URLstring 就好了*/
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@newhelp",basicURL]];
@@ -348,32 +429,32 @@
     [baseView addGoSubview:helpView];
 }
 
--(void)titleEmptyCheck{
-    UITextField *textField = [keywordView viewWithTag:11];
-    if ([textField.text length]) {
-        if (_controllerType==DiscoverPlayActivity)
-            priceView.hidden = NO;
-        
-        nextButton.hidden = NO;
-        
-    }
-}
--(void)dismissKeyboard {
-    UITextField *textField = [keywordView viewWithTag:11];
-    [textField resignFirstResponder];
-}
+//-(void)titleEmptyCheck{
+//    UITextField *textField = [keywordView viewWithTag:11];
+//    if ([textField.text length]) {
+//        if (_controllerType==DiscoverPlayActivity)
+//            priceView.hidden = NO;
+//        
+//        nextButton.hidden = NO;
+//        
+//    }
+//}
+//-(void)dismissKeyboard {
+//    UITextField *textField = [keywordView viewWithTag:11];
+//    [textField resignFirstResponder];
+//}
 
 
 
-- (void)priceSlider:(UISlider *)slider priceChangeToValue:(NSInteger)price{
-    
-}
--(void)lowerPriceChangeToValue:(NSInteger)lowerPrice upperToValue:(NSInteger)upperPrice{
-    lowerPriceString = [NSString stringWithFormat:@"%ld",lowerPrice];
-    upperPriceString = [NSString stringWithFormat:@"%ld",upperPrice];
-    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:lowerPriceString, @"lower_price",upperPriceString,@"upper_price", nil];
-    [_shareDict addEntriesFromDictionary:dict];
-}
+//- (void)priceSlider:(UISlider *)slider priceChangeToValue:(NSInteger)price{
+//    
+//}
+//-(void)lowerPriceChangeToValue:(NSInteger)lowerPrice upperToValue:(NSInteger)upperPrice{
+//    lowerPriceString = [NSString stringWithFormat:@"%ld",lowerPrice];
+//    upperPriceString = [NSString stringWithFormat:@"%ld",upperPrice];
+//    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:lowerPriceString, @"lower_price",upperPriceString,@"upper_price", nil];
+//    [_shareDict addEntriesFromDictionary:dict];
+//}
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;

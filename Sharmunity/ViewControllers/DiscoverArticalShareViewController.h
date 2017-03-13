@@ -8,16 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-
-@interface DiscoverEatArticalShareViewController : UIViewController<UIScrollViewDelegate,UITextViewDelegate,CLLocationManagerDelegate>{
+#define discoverEat 1
+#define discoverLive 2
+#define discoverLearn 3
+#define discoverPlay 4
+#define discoverTravel 5
+@interface DiscoverArticalShareViewController : UIViewController<UIScrollViewDelegate,UITextViewDelegate,CLLocationManagerDelegate>{
     UIScrollView *mainScrollView;
     UIView *titleView;
     UIView *introductionView;
     UIButton *nextButton;
     
     NSString *MEID;
-    
+    NSString *subCate;
     NSMutableArray *viewsArray;
 }
+@property NSInteger shareType;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @end

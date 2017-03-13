@@ -6,20 +6,31 @@
 //  Copyright © 2017年 Sharmunity. All rights reserved.
 //
 
-#import "DiscoverEatArticalShareViewController.h"
+#import "DiscoverArticalShareViewController.h"
 #import "Header.h"
 #import "SYHeader.h"
-@interface DiscoverEatArticalShareViewController (){
+@interface DiscoverArticalShareViewController (){
     SYPopOut *popOut;
 }
 
 @end
 
-@implementation DiscoverEatArticalShareViewController
+@implementation DiscoverArticalShareViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"吃货攻略";
+    switch (_shareType) {
+        case discoverEat:
+            self.navigationItem.title = @"吃货攻略";
+            break;
+        case discoverPlay:
+            self.navigationItem.title = @"上传攻略";
+            break;
+            
+        default:
+            break;
+    }
+    
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: SYColor1,
                                                                     NSFontAttributeName: SYFont20};
     self.view.backgroundColor = SYBackgroundColorExtraLight;
@@ -53,7 +64,6 @@
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn setImage:[UIImage imageNamed:@"SYBackColor4"] forState:UIControlStateNormal];
-    [backBtn setTitle:@"吃" forState:UIControlStateNormal];
     [backBtn setTitleColor:SYColor1 forState:UIControlStateNormal];
     [backBtn.titleLabel setFont:SYFont15];
     [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
@@ -61,6 +71,29 @@
     backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
     self.navigationItem.leftBarButtonItem = backButton;
+    subCate = [NSString new];
+    switch (_shareType) {
+        case discoverEat:
+            [backBtn setTitle:@"吃" forState:UIControlStateNormal];
+            subCate = @"03000000";
+            break;
+        case discoverLive:
+            [backBtn setTitle:@"住" forState:UIControlStateNormal];
+            break;
+        case discoverLearn:
+            [backBtn setTitle:@"学" forState:UIControlStateNormal];
+            break;
+        case discoverPlay:
+            [backBtn setTitle:@"玩" forState:UIControlStateNormal];
+            subCate = @"02000000";
+            break;
+        case discoverTravel:
+            [backBtn setTitle:@"行" forState:UIControlStateNormal];
+            break;
+            
+        default:
+            break;
+    }
 
 }
 -(void)goBack{
@@ -134,7 +167,7 @@
 - (void)nextResponse{
     UITextField *title = [titleView viewWithTag:11];
     UITextView *introduction = [introductionView viewWithTag:11];
-    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=1&subcate=03000000&title=%@&introduction=%@&price=0",MEID,self.locationManager.location.coordinate.latitude,self.locationManager.location.coordinate.longitude,title.text,introduction.text];
+    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=%ld&subcate=03000000&title=%@&introduction=%@&price=0",MEID,self.locationManager.location.coordinate.latitude,self.locationManager.location.coordinate.longitude,_shareType,title.text,introduction.text];
     NSLog(@"%@/n",requestBody);
     /*改上面的 query 和 URLstring 就好了*/
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@newshare",basicURL]];

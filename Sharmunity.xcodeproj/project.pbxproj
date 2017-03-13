@@ -29,8 +29,23 @@
 		4449115E1E5F849A000F3218 /* SYTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4449115D1E5F849A000F3218 /* SYTextField.m */; };
 		444911621E5F8689000F3218 /* SYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 444911611E5F8689000F3218 /* SYTextView.m */; };
 		444911641E60ADA8000F3218 /* WawaSC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 444911631E60ADA8000F3218 /* WawaSC-Regular.otf */; };
+		4458AB0B1E71CDB4009B1FF8 /* DiscoverPlayShareCateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4458AB0A1E71CDB4009B1FF8 /* DiscoverPlayShareCateViewController.m */; };
+		4458AB111E71D540009B1FF8 /* PlayType1_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4458AB0C1E71D540009B1FF8 /* PlayType1_cn.txt */; };
+		4458AB121E71D540009B1FF8 /* PlayType2_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4458AB0D1E71D540009B1FF8 /* PlayType2_cn.txt */; };
+		4458AB131E71D540009B1FF8 /* PlayType3_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4458AB0E1E71D540009B1FF8 /* PlayType3_cn.txt */; };
+		4458AB141E71D540009B1FF8 /* PlayType4_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4458AB0F1E71D540009B1FF8 /* PlayType4_cn.txt */; };
+		4458AB151E71D540009B1FF8 /* PlayType5_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4458AB101E71D540009B1FF8 /* PlayType5_cn.txt */; };
+		4458AB181E7343B3009B1FF8 /* DiscoverArticalHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4458AB171E7343B3009B1FF8 /* DiscoverArticalHelpViewController.m */; };
+		4458AB1B1E734C73009B1FF8 /* DiscoverPlayPartnerHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4458AB1A1E734C73009B1FF8 /* DiscoverPlayPartnerHelpViewController.m */; };
+		4458AB211E75C936009B1FF8 /* DiscoverTradeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4458AB201E75C936009B1FF8 /* DiscoverTradeListViewController.m */; };
+		4458AB241E75D63A009B1FF8 /* SYDiscoverTradeBasicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4458AB231E75D63A009B1FF8 /* SYDiscoverTradeBasicView.m */; };
+		4458AB271E75E260009B1FF8 /* DiscoverTradeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4458AB261E75E260009B1FF8 /* DiscoverTradeDetailViewController.m */; };
+		4458AB2A1E7600F3009B1FF8 /* DiscoverTradeTakePictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4458AB291E7600F3009B1FF8 /* DiscoverTradeTakePictureViewController.m */; };
+		4458AB2D1E762FCD009B1FF8 /* DiscoverTradeSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4458AB2C1E762FCD009B1FF8 /* DiscoverTradeSortViewController.m */; };
+		4458AB2F1E763D99009B1FF8 /* TradeType_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4458AB2E1E763D99009B1FF8 /* TradeType_cn.txt */; };
+		4458AB321E76471C009B1FF8 /* DiscoverTradeSellSubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4458AB311E76471C009B1FF8 /* DiscoverTradeSellSubmitViewController.m */; };
+		4458AB351E7680D6009B1FF8 /* SYArticalAbstract.m in Sources */ = {isa = PBXBuildFile; fileRef = 4458AB341E7680D6009B1FF8 /* SYArticalAbstract.m */; };
 		4470840D1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4470840C1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m */; };
-		4470840F1E54BC9800DEAB75 /* PlayType_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4470840E1E54BC9800DEAB75 /* PlayType_cn.txt */; };
 		447084121E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447084111E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.m */; };
 		447084191E54FEB800DEAB75 /* ChoiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447084181E54FEB800DEAB75 /* ChoiceDetailViewController.m */; };
 		4470841E1E54FEFC00DEAB75 /* SYProfileHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 4470841D1E54FEFC00DEAB75 /* SYProfileHead.m */; };
@@ -101,9 +116,10 @@
 		44C89E811E5CE6C500ADC9CF /* SYRelatedShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C89E801E5CE6C500ADC9CF /* SYRelatedShare.m */; };
 		44C89E841E5D0F0600ADC9CF /* SYHelpContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C89E831E5D0F0600ADC9CF /* SYHelpContentView.m */; };
 		44DADD191E66213000B5C085 /* DiscoverOtherShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DADD181E66213000B5C085 /* DiscoverOtherShareViewController.m */; };
-		44DADD1C1E66693300B5C085 /* DiscoverEatArticalShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DADD1B1E66693300B5C085 /* DiscoverEatArticalShareViewController.m */; };
+		44DADD1C1E66693300B5C085 /* DiscoverArticalShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DADD1B1E66693300B5C085 /* DiscoverArticalShareViewController.m */; };
 		44DADD1F1E67498900B5C085 /* DiscoverLearnHelpExpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DADD1E1E67498900B5C085 /* DiscoverLearnHelpExpViewController.m */; };
 		44FBAAA11E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FBAAA01E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m */; };
+		F0A70242F02EE35148BF3EB0 /* Pods_Sharmunity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48EE3CF9B88B0CF3BA0E91F6 /* Pods_Sharmunity.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +140,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13A2D063EBFD0BA79EFCD466 /* Pods-Sharmunity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharmunity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sharmunity/Pods-Sharmunity.debug.xcconfig"; sourceTree = "<group>"; };
 		44101A831E3E64F200BB96B1 /* DiscoverEatHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverEatHelpViewController.h; path = ViewControllers/DiscoverEatHelpViewController.h; sourceTree = "<group>"; };
 		44101A841E3E64F200BB96B1 /* DiscoverEatHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverEatHelpViewController.m; path = ViewControllers/DiscoverEatHelpViewController.m; sourceTree = "<group>"; };
 		44101A861E46AEE100BB96B1 /* SYPopOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYPopOut.h; path = Classes/SYPopOut.h; sourceTree = "<group>"; };
@@ -167,9 +184,34 @@
 		444911601E5F8689000F3218 /* SYTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYTextView.h; path = Classes/SYTextView.h; sourceTree = "<group>"; };
 		444911611E5F8689000F3218 /* SYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYTextView.m; path = Classes/SYTextView.m; sourceTree = "<group>"; };
 		444911631E60ADA8000F3218 /* WawaSC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WawaSC-Regular.otf"; path = "Resource/Font/SF/WawaSC-Regular.otf"; sourceTree = "<group>"; };
+		4458AB091E71CDB4009B1FF8 /* DiscoverPlayShareCateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverPlayShareCateViewController.h; path = ViewControllers/DiscoverPlayShareCateViewController.h; sourceTree = "<group>"; };
+		4458AB0A1E71CDB4009B1FF8 /* DiscoverPlayShareCateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverPlayShareCateViewController.m; path = ViewControllers/DiscoverPlayShareCateViewController.m; sourceTree = "<group>"; };
+		4458AB0C1E71D540009B1FF8 /* PlayType1_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PlayType1_cn.txt; path = Resource/Category/PlayType1_cn.txt; sourceTree = "<group>"; };
+		4458AB0D1E71D540009B1FF8 /* PlayType2_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PlayType2_cn.txt; path = Resource/Category/PlayType2_cn.txt; sourceTree = "<group>"; };
+		4458AB0E1E71D540009B1FF8 /* PlayType3_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PlayType3_cn.txt; path = Resource/Category/PlayType3_cn.txt; sourceTree = "<group>"; };
+		4458AB0F1E71D540009B1FF8 /* PlayType4_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PlayType4_cn.txt; path = Resource/Category/PlayType4_cn.txt; sourceTree = "<group>"; };
+		4458AB101E71D540009B1FF8 /* PlayType5_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PlayType5_cn.txt; path = Resource/Category/PlayType5_cn.txt; sourceTree = "<group>"; };
+		4458AB161E7343B3009B1FF8 /* DiscoverArticalHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverArticalHelpViewController.h; path = ViewControllers/DiscoverArticalHelpViewController.h; sourceTree = "<group>"; };
+		4458AB171E7343B3009B1FF8 /* DiscoverArticalHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverArticalHelpViewController.m; path = ViewControllers/DiscoverArticalHelpViewController.m; sourceTree = "<group>"; };
+		4458AB191E734C73009B1FF8 /* DiscoverPlayPartnerHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverPlayPartnerHelpViewController.h; path = ViewControllers/DiscoverPlayPartnerHelpViewController.h; sourceTree = "<group>"; };
+		4458AB1A1E734C73009B1FF8 /* DiscoverPlayPartnerHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverPlayPartnerHelpViewController.m; path = ViewControllers/DiscoverPlayPartnerHelpViewController.m; sourceTree = "<group>"; };
+		4458AB1F1E75C936009B1FF8 /* DiscoverTradeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTradeListViewController.h; path = ViewControllers/DiscoverTradeListViewController.h; sourceTree = "<group>"; };
+		4458AB201E75C936009B1FF8 /* DiscoverTradeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTradeListViewController.m; path = ViewControllers/DiscoverTradeListViewController.m; sourceTree = "<group>"; };
+		4458AB221E75D63A009B1FF8 /* SYDiscoverTradeBasicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYDiscoverTradeBasicView.h; path = Classes/SYDiscoverTradeBasicView.h; sourceTree = "<group>"; };
+		4458AB231E75D63A009B1FF8 /* SYDiscoverTradeBasicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYDiscoverTradeBasicView.m; path = Classes/SYDiscoverTradeBasicView.m; sourceTree = "<group>"; };
+		4458AB251E75E260009B1FF8 /* DiscoverTradeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTradeDetailViewController.h; path = ViewControllers/DiscoverTradeDetailViewController.h; sourceTree = "<group>"; };
+		4458AB261E75E260009B1FF8 /* DiscoverTradeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTradeDetailViewController.m; path = ViewControllers/DiscoverTradeDetailViewController.m; sourceTree = "<group>"; };
+		4458AB281E7600F3009B1FF8 /* DiscoverTradeTakePictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTradeTakePictureViewController.h; path = ViewControllers/DiscoverTradeTakePictureViewController.h; sourceTree = "<group>"; };
+		4458AB291E7600F3009B1FF8 /* DiscoverTradeTakePictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTradeTakePictureViewController.m; path = ViewControllers/DiscoverTradeTakePictureViewController.m; sourceTree = "<group>"; };
+		4458AB2B1E762FCD009B1FF8 /* DiscoverTradeSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTradeSortViewController.h; path = ViewControllers/DiscoverTradeSortViewController.h; sourceTree = "<group>"; };
+		4458AB2C1E762FCD009B1FF8 /* DiscoverTradeSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTradeSortViewController.m; path = ViewControllers/DiscoverTradeSortViewController.m; sourceTree = "<group>"; };
+		4458AB2E1E763D99009B1FF8 /* TradeType_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TradeType_cn.txt; path = Resource/Category/TradeType_cn.txt; sourceTree = "<group>"; };
+		4458AB301E76471C009B1FF8 /* DiscoverTradeSellSubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverTradeSellSubmitViewController.h; path = ViewControllers/DiscoverTradeSellSubmitViewController.h; sourceTree = "<group>"; };
+		4458AB311E76471C009B1FF8 /* DiscoverTradeSellSubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverTradeSellSubmitViewController.m; path = ViewControllers/DiscoverTradeSellSubmitViewController.m; sourceTree = "<group>"; };
+		4458AB331E7680D6009B1FF8 /* SYArticalAbstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYArticalAbstract.h; path = Classes/SYArticalAbstract.h; sourceTree = "<group>"; };
+		4458AB341E7680D6009B1FF8 /* SYArticalAbstract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYArticalAbstract.m; path = Classes/SYArticalAbstract.m; sourceTree = "<group>"; };
 		4470840B1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverPlayShareActiveViewController.h; path = ViewControllers/DiscoverPlayShareActiveViewController.h; sourceTree = "<group>"; };
 		4470840C1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverPlayShareActiveViewController.m; path = ViewControllers/DiscoverPlayShareActiveViewController.m; sourceTree = "<group>"; };
-		4470840E1E54BC9800DEAB75 /* PlayType_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PlayType_cn.txt; path = Resource/Category/PlayType_cn.txt; sourceTree = "<group>"; };
 		447084101E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverPlayHelpActiveViewController.h; path = ViewControllers/DiscoverPlayHelpActiveViewController.h; sourceTree = "<group>"; };
 		447084111E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverPlayHelpActiveViewController.m; path = ViewControllers/DiscoverPlayHelpActiveViewController.m; sourceTree = "<group>"; };
 		447084171E54FEB800DEAB75 /* ChoiceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoiceDetailViewController.h; path = ViewControllers/ChoiceDetailViewController.h; sourceTree = "<group>"; };
@@ -284,12 +326,14 @@
 		44C89E831E5D0F0600ADC9CF /* SYHelpContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYHelpContentView.m; path = Classes/SYHelpContentView.m; sourceTree = "<group>"; };
 		44DADD171E66213000B5C085 /* DiscoverOtherShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverOtherShareViewController.h; path = ViewControllers/DiscoverOtherShareViewController.h; sourceTree = "<group>"; };
 		44DADD181E66213000B5C085 /* DiscoverOtherShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverOtherShareViewController.m; path = ViewControllers/DiscoverOtherShareViewController.m; sourceTree = "<group>"; };
-		44DADD1A1E66693300B5C085 /* DiscoverEatArticalShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverEatArticalShareViewController.h; path = ViewControllers/DiscoverEatArticalShareViewController.h; sourceTree = "<group>"; };
-		44DADD1B1E66693300B5C085 /* DiscoverEatArticalShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverEatArticalShareViewController.m; path = ViewControllers/DiscoverEatArticalShareViewController.m; sourceTree = "<group>"; };
+		44DADD1A1E66693300B5C085 /* DiscoverArticalShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverArticalShareViewController.h; path = ViewControllers/DiscoverArticalShareViewController.h; sourceTree = "<group>"; };
+		44DADD1B1E66693300B5C085 /* DiscoverArticalShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverArticalShareViewController.m; path = ViewControllers/DiscoverArticalShareViewController.m; sourceTree = "<group>"; };
 		44DADD1D1E67498900B5C085 /* DiscoverLearnHelpExpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverLearnHelpExpViewController.h; path = ViewControllers/DiscoverLearnHelpExpViewController.h; sourceTree = "<group>"; };
 		44DADD1E1E67498900B5C085 /* DiscoverLearnHelpExpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverLearnHelpExpViewController.m; path = ViewControllers/DiscoverLearnHelpExpViewController.m; sourceTree = "<group>"; };
 		44FBAA9F1E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverEatHelpSecondViewController.h; path = ViewControllers/DiscoverEatHelpSecondViewController.h; sourceTree = "<group>"; };
 		44FBAAA01E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverEatHelpSecondViewController.m; path = ViewControllers/DiscoverEatHelpSecondViewController.m; sourceTree = "<group>"; };
+		48EE3CF9B88B0CF3BA0E91F6 /* Pods_Sharmunity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sharmunity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D65CFD9D930D1B368BBF7AA1 /* Pods-Sharmunity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharmunity.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sharmunity/Pods-Sharmunity.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				447E41221E32BE3C0010CAA4 /* MapKit.framework in Frameworks */,
+				F0A70242F02EE35148BF3EB0 /* Pods_Sharmunity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +371,7 @@
 				442F485C1E31CC1000FB0561 /* SharmunityUITests */,
 				442F48331E31CC0F00FB0561 /* Products */,
 				447E41201E32BE3C0010CAA4 /* Frameworks */,
+				AC4595F7FC3D15BA4FDDB7A4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -458,6 +504,38 @@
 			name = SYTextView;
 			sourceTree = "<group>";
 		};
+		4458AB1D1E75C8E6009B1FF8 /* DiscoverGeneral */ = {
+			isa = PBXGroup;
+			children = (
+				44A4940C1E4CB169006CD069 /* DiscoverLocationViewController.h */,
+				44A4940D1E4CB169006CD069 /* DiscoverLocationViewController.m */,
+				44DADD171E66213000B5C085 /* DiscoverOtherShareViewController.h */,
+				44DADD181E66213000B5C085 /* DiscoverOtherShareViewController.m */,
+				44DADD1A1E66693300B5C085 /* DiscoverArticalShareViewController.h */,
+				44DADD1B1E66693300B5C085 /* DiscoverArticalShareViewController.m */,
+				4458AB161E7343B3009B1FF8 /* DiscoverArticalHelpViewController.h */,
+				4458AB171E7343B3009B1FF8 /* DiscoverArticalHelpViewController.m */,
+			);
+			name = DiscoverGeneral;
+			sourceTree = "<group>";
+		};
+		4458AB1E1E75C8F7009B1FF8 /* Trade */ = {
+			isa = PBXGroup;
+			children = (
+				4458AB1F1E75C936009B1FF8 /* DiscoverTradeListViewController.h */,
+				4458AB201E75C936009B1FF8 /* DiscoverTradeListViewController.m */,
+				4458AB251E75E260009B1FF8 /* DiscoverTradeDetailViewController.h */,
+				4458AB261E75E260009B1FF8 /* DiscoverTradeDetailViewController.m */,
+				4458AB281E7600F3009B1FF8 /* DiscoverTradeTakePictureViewController.h */,
+				4458AB291E7600F3009B1FF8 /* DiscoverTradeTakePictureViewController.m */,
+				4458AB2B1E762FCD009B1FF8 /* DiscoverTradeSortViewController.h */,
+				4458AB2C1E762FCD009B1FF8 /* DiscoverTradeSortViewController.m */,
+				4458AB301E76471C009B1FF8 /* DiscoverTradeSellSubmitViewController.h */,
+				4458AB311E76471C009B1FF8 /* DiscoverTradeSellSubmitViewController.m */,
+			);
+			name = Trade;
+			sourceTree = "<group>";
+		};
 		4470841A1E54FED200DEAB75 /* SYProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -552,10 +630,8 @@
 				44A173DE1E52351B00FABC4F /* Learn */,
 				44A173EB1E540F2C00FABC4F /* Play */,
 				44B815001E552E74008B98F3 /* Travel */,
-				44A4940C1E4CB169006CD069 /* DiscoverLocationViewController.h */,
-				44A4940D1E4CB169006CD069 /* DiscoverLocationViewController.m */,
-				44DADD171E66213000B5C085 /* DiscoverOtherShareViewController.h */,
-				44DADD181E66213000B5C085 /* DiscoverOtherShareViewController.m */,
+				4458AB1E1E75C8F7009B1FF8 /* Trade */,
+				4458AB1D1E75C8E6009B1FF8 /* DiscoverGeneral */,
 			);
 			name = Discover;
 			sourceTree = "<group>";
@@ -600,6 +676,7 @@
 			isa = PBXGroup;
 			children = (
 				447E41211E32BE3C0010CAA4 /* MapKit.framework */,
+				48EE3CF9B88B0CF3BA0E91F6 /* Pods_Sharmunity.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -626,12 +703,16 @@
 			children = (
 				44A173EC1E540F8300FABC4F /* DiscoverPlayShareViewController.h */,
 				44A173ED1E540F8300FABC4F /* DiscoverPlayShareViewController.m */,
+				4458AB091E71CDB4009B1FF8 /* DiscoverPlayShareCateViewController.h */,
+				4458AB0A1E71CDB4009B1FF8 /* DiscoverPlayShareCateViewController.m */,
 				4470840B1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.h */,
 				4470840C1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m */,
 				44A173EF1E54105C00FABC4F /* DiscoverPlayHelpViewController.h */,
 				44A173F01E54105C00FABC4F /* DiscoverPlayHelpViewController.m */,
 				447084101E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.h */,
 				447084111E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.m */,
+				4458AB191E734C73009B1FF8 /* DiscoverPlayPartnerHelpViewController.h */,
+				4458AB1A1E734C73009B1FF8 /* DiscoverPlayPartnerHelpViewController.m */,
 			);
 			name = Play;
 			sourceTree = "<group>";
@@ -639,8 +720,13 @@
 		44A494091E4CA649006CD069 /* category */ = {
 			isa = PBXGroup;
 			children = (
+				4458AB2E1E763D99009B1FF8 /* TradeType_cn.txt */,
+				4458AB0C1E71D540009B1FF8 /* PlayType1_cn.txt */,
+				4458AB0D1E71D540009B1FF8 /* PlayType2_cn.txt */,
+				4458AB0E1E71D540009B1FF8 /* PlayType3_cn.txt */,
+				4458AB0F1E71D540009B1FF8 /* PlayType4_cn.txt */,
+				4458AB101E71D540009B1FF8 /* PlayType5_cn.txt */,
 				44AD3C3E1E56333B008774CD /* TravelType_cn.txt */,
-				4470840E1E54BC9800DEAB75 /* PlayType_cn.txt */,
 				4426A0DC1E4FF22B00D91D6F /* EatFood_cn.txt */,
 				4426A0DD1E4FF22B00D91D6F /* EatSubRegion_cn.txt */,
 				4426A0D41E4FD44600D91D6F /* EatRegion_cn.txt */,
@@ -764,8 +850,6 @@
 				4426A0D71E4FD7B300D91D6F /* DiscoverEatShareViewController.m */,
 				4426A0D91E4FD97800D91D6F /* DiscoverEatShareSecondViewController.h */,
 				4426A0DA1E4FD97800D91D6F /* DiscoverEatShareRegionViewController.m */,
-				44DADD1A1E66693300B5C085 /* DiscoverEatArticalShareViewController.h */,
-				44DADD1B1E66693300B5C085 /* DiscoverEatArticalShareViewController.m */,
 				44101A831E3E64F200BB96B1 /* DiscoverEatHelpViewController.h */,
 				44101A841E3E64F200BB96B1 /* DiscoverEatHelpViewController.m */,
 				44FBAA9F1E50DEB300A5F985 /* DiscoverEatHelpSecondViewController.h */,
@@ -788,6 +872,10 @@
 			children = (
 				44AD3C411E56557B008774CD /* SYChoiceCommentBasic.h */,
 				44AD3C421E56557B008774CD /* SYChoiceCommentBasic.m */,
+				4458AB221E75D63A009B1FF8 /* SYDiscoverTradeBasicView.h */,
+				4458AB231E75D63A009B1FF8 /* SYDiscoverTradeBasicView.m */,
+				4458AB331E7680D6009B1FF8 /* SYArticalAbstract.h */,
+				4458AB341E7680D6009B1FF8 /* SYArticalAbstract.m */,
 			);
 			name = SYBasic;
 			sourceTree = "<group>";
@@ -818,6 +906,15 @@
 			name = Travel;
 			sourceTree = "<group>";
 		};
+		AC4595F7FC3D15BA4FDDB7A4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				13A2D063EBFD0BA79EFCD466 /* Pods-Sharmunity.debug.xcconfig */,
+				D65CFD9D930D1B368BBF7AA1 /* Pods-Sharmunity.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -825,9 +922,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 442F48621E31CC1000FB0561 /* Build configuration list for PBXNativeTarget "Sharmunity" */;
 			buildPhases = (
+				AB24C1846014840CE8452B92 /* [CP] Check Pods Manifest.lock */,
 				442F482E1E31CC0F00FB0561 /* Sources */,
 				442F482F1E31CC0F00FB0561 /* Frameworks */,
 				442F48301E31CC0F00FB0561 /* Resources */,
+				534EC359AB1556270A452A95 /* [CP] Embed Pods Frameworks */,
+				648C4BBDEB3B7348264ED3A4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -935,16 +1035,18 @@
 				447E410D1E327D0D0010CAA4 /* SF-UI-Text-Semibold.otf in Resources */,
 				447E40FA1E327D0D0010CAA4 /* SF-UI-Display-Black.otf in Resources */,
 				447E410A1E327D0D0010CAA4 /* SF-UI-Text-MediumItalic.otf in Resources */,
+				4458AB151E71D540009B1FF8 /* PlayType5_cn.txt in Resources */,
 				447E40F91E327D0D0010CAA4 /* License Agreement for SF UI Font.pdf in Resources */,
 				447E40FF1E327D0D0010CAA4 /* SF-UI-Display-Regular.otf in Resources */,
+				4458AB131E71D540009B1FF8 /* PlayType3_cn.txt in Resources */,
 				4426A0DF1E4FF22B00D91D6F /* EatSubRegion_cn.txt in Resources */,
 				447E40FD1E327D0D0010CAA4 /* SF-UI-Display-Light.otf in Resources */,
+				4458AB141E71D540009B1FF8 /* PlayType4_cn.txt in Resources */,
 				4426A0D51E4FD44600D91D6F /* EatRegion_cn.txt in Resources */,
 				447E41021E327D0D0010CAA4 /* SF-UI-Display-Ultralight.otf in Resources */,
 				44AD3C3F1E56333B008774CD /* TravelType_cn.txt in Resources */,
 				447E41011E327D0D0010CAA4 /* SF-UI-Display-Thin.otf in Resources */,
 				447E40FE1E327D0D0010CAA4 /* SF-UI-Display-Medium.otf in Resources */,
-				4470840F1E54BC9800DEAB75 /* PlayType_cn.txt in Resources */,
 				442F48481E31CC0F00FB0561 /* LaunchScreen.storyboard in Resources */,
 				444911641E60ADA8000F3218 /* WawaSC-Regular.otf in Resources */,
 				447E41091E327D0D0010CAA4 /* SF-UI-Text-Medium.otf in Resources */,
@@ -956,6 +1058,8 @@
 				447E410B1E327D0D0010CAA4 /* SF-UI-Text-Regular.otf in Resources */,
 				447E410E1E327D0D0010CAA4 /* SF-UI-Text-SemiboldItalic.otf in Resources */,
 				447E40FC1E327D0D0010CAA4 /* SF-UI-Display-Heavy.otf in Resources */,
+				4458AB111E71D540009B1FF8 /* PlayType1_cn.txt in Resources */,
+				4458AB121E71D540009B1FF8 /* PlayType2_cn.txt in Resources */,
 				442F48431E31CC0F00FB0561 /* Main.storyboard in Resources */,
 				447E41061E327D0D0010CAA4 /* SF-UI-Text-HeavyItalic.otf in Resources */,
 				44A4940B1E4CA659006CD069 /* roomType.txt in Resources */,
@@ -963,6 +1067,7 @@
 				447E41081E327D0D0010CAA4 /* SF-UI-Text-LightItalic.otf in Resources */,
 				447E41071E327D0D0010CAA4 /* SF-UI-Text-Light.otf in Resources */,
 				4426A0DE1E4FF22B00D91D6F /* EatFood_cn.txt in Resources */,
+				4458AB2F1E763D99009B1FF8 /* TradeType_cn.txt in Resources */,
 				447E41001E327D0D0010CAA4 /* SF-UI-Display-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -983,6 +1088,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		534EC359AB1556270A452A95 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sharmunity/Pods-Sharmunity-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		648C4BBDEB3B7348264ED3A4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sharmunity/Pods-Sharmunity-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB24C1846014840CE8452B92 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		442F482E1E31CC0F00FB0561 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -995,6 +1148,8 @@
 				442F483A1E31CC0F00FB0561 /* AppDelegate.m in Sources */,
 				44A494181E4CB74B006CD069 /* SYAnnotationView.m in Sources */,
 				447E41191E32B0030010CAA4 /* DiscoverMainViewController.m in Sources */,
+				4458AB241E75D63A009B1FF8 /* SYDiscoverTradeBasicView.m in Sources */,
+				4458AB271E75E260009B1FF8 /* DiscoverTradeDetailViewController.m in Sources */,
 				447E40E01E32789F0010CAA4 /* SYSignUpPassword.m in Sources */,
 				44A173E41E52355A00FABC4F /* DiscoverLearnHelpViewController.m in Sources */,
 				44A502C51E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m in Sources */,
@@ -1018,7 +1173,7 @@
 				44A4941B1E4CBA7D006CD069 /* DiscoverLiveShareSubmitViewController.m in Sources */,
 				44DADD1F1E67498900B5C085 /* DiscoverLearnHelpExpViewController.m in Sources */,
 				4470841E1E54FEFC00DEAB75 /* SYProfileHead.m in Sources */,
-				44DADD1C1E66693300B5C085 /* DiscoverEatArticalShareViewController.m in Sources */,
+				44DADD1C1E66693300B5C085 /* DiscoverArticalShareViewController.m in Sources */,
 				44AD3C3D1E561C9C008774CD /* SYTitle.m in Sources */,
 				4426A0D81E4FD7B300D91D6F /* DiscoverEatShareViewController.m in Sources */,
 				44A494151E4CB515006CD069 /* MapPin.m in Sources */,
@@ -1036,15 +1191,23 @@
 				44A494381E4CF5E1006CD069 /* SYChoiceAbstract.m in Sources */,
 				44A494021E4C7F7A006CD069 /* DiscoverLiveHelpRentViewController.m in Sources */,
 				44A494311E4CE79F006CD069 /* DiscoverLiveHelpSubmitViewController.m in Sources */,
+				4458AB2A1E7600F3009B1FF8 /* DiscoverTradeTakePictureViewController.m in Sources */,
+				4458AB181E7343B3009B1FF8 /* DiscoverArticalHelpViewController.m in Sources */,
 				4449115E1E5F849A000F3218 /* SYTextField.m in Sources */,
 				44A494221E4CCEBA006CD069 /* SYPriceSlider.m in Sources */,
+				4458AB0B1E71CDB4009B1FF8 /* DiscoverPlayShareCateViewController.m in Sources */,
 				442F48371E31CC0F00FB0561 /* main.m in Sources */,
+				4458AB2D1E762FCD009B1FF8 /* DiscoverTradeSortViewController.m in Sources */,
 				4470840D1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m in Sources */,
+				4458AB321E76471C009B1FF8 /* DiscoverTradeSellSubmitViewController.m in Sources */,
 				442F48731E31D2F600FB0561 /* WelcomeViewController.m in Sources */,
+				4458AB351E7680D6009B1FF8 /* SYArticalAbstract.m in Sources */,
+				4458AB211E75C936009B1FF8 /* DiscoverTradeListViewController.m in Sources */,
 				44A173E11E52354000FABC4F /* DiscoverLearnShareViewController.m in Sources */,
 				44B815031E552F18008B98F3 /* DiscoverTravelShareViewController.m in Sources */,
 				447084261E55715800DEAB75 /* SYProfileExtend.m in Sources */,
 				447E40DC1E3271E40010CAA4 /* SYSuscard.m in Sources */,
+				4458AB1B1E734C73009B1FF8 /* DiscoverPlayPartnerHelpViewController.m in Sources */,
 				447084291E5578CB00DEAB75 /* DiscoverTravelHelpSecondViewController.m in Sources */,
 				44A173EA1E52388D00FABC4F /* DiscoverLearnHelpSubmitViewController.m in Sources */,
 				44A4942E1E4CE4A7006CD069 /* NearbyMapViewController.m in Sources */,
@@ -1196,6 +1359,7 @@
 		};
 		442F48631E31CC1000FB0561 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13A2D063EBFD0BA79EFCD466 /* Pods-Sharmunity.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Sharmunity/Sharmunity.entitlements;
@@ -1211,6 +1375,7 @@
 		};
 		442F48641E31CC1000FB0561 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D65CFD9D930D1B368BBF7AA1 /* Pods-Sharmunity.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Sharmunity/Sharmunity.entitlements;

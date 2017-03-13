@@ -10,7 +10,7 @@
 #import "DiscoverLocationViewController.h"
 #import "Header.h"
 #import "SYHeader.h"
-@interface DiscoverPlayShareActiveViewController ()<SYPriceSliderDelegate>{
+@interface DiscoverPlayShareActiveViewController (){
     SYPopOut *popOut;
 }
 
@@ -21,20 +21,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSArray *titleArray = [[NSArray alloc] initWithObjects:@"体育运动",@"社交活动",@"户外冒险",@"旅游度假",@"棋牌游戏",@"其他活动", nil];
     
     switch (_controllerType) {
-        case DiscoverPlayPartner:
-            self.navigationItem.title = @"找玩伴";
-            break;
+//        case DiscoverPlayPartner:
+//            self.navigationItem.title = @"找玩伴";
+//            break;
         case DiscoverPlayActivity:
-            self.navigationItem.title = @"组织活动";
+            self.navigationItem.title = (_subcate1==99)?[titleArray lastObject]:[titleArray objectAtIndex:_subcate1-1];
             break;
             
         default:
             break;
     }
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: SYColor1,
-                                                                    NSFontAttributeName: SYFont20S};
     self.view.backgroundColor = SYBackgroundColorExtraLight;
     
     mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
@@ -65,6 +64,19 @@
     [self dataSetup];
     [self viewsSetup];
 
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setImage:[UIImage imageNamed:@"SYBackColor4"] forState:UIControlStateNormal];
+    [backBtn setTitle:@"玩" forState:UIControlStateNormal];
+    [backBtn setTitleColor:SYColor1 forState:UIControlStateNormal];
+    [backBtn.titleLabel setFont:SYFont15];
+    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.bounds = CGRectMake(0, 0, 80, 40);
+    backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.leftBarButtonItem = backButton;
+}
+-(void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 -(void) viewWillAppear:(BOOL)animated{
     mainScrollView.delegate=self;
@@ -81,9 +93,9 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)dataSetup{
-    is_other = NO;
+    is_other = (_subcate1==99)?YES:NO;
     /*type data*/
-    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"PlayType_cn"
+    NSString* filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"PlayType%ld_cn",_subcate1]
                                                          ofType:@"txt"];
     NSString *categoryString = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     typeArray = [NSArray new];
@@ -95,15 +107,17 @@
     float originX = 30;
     
     /*activity type*/
-    typeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
-    UILabel *typeTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
-    typeTitleLabel.text = @"活动";
+    typeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 50)];
+    UILabel *typeTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 40)];
+    typeTitleLabel.text = @"种类";
     typeTitleLabel.textColor = SYColor1;
+    [typeTitleLabel setFont:SYFont25];
     [typeView addSubview:typeTitleLabel];
-    UIButton *typeButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
-    [typeButton setTitle:@"请选择活动类型" forState:UIControlStateNormal];
-    [typeButton setTitleColor:SYColor3 forState:UIControlStateNormal];
+    UIButton *typeButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 40)];
+    [typeButton setTitle:[NSString stringWithFormat:@"请选择%@名称",self.navigationItem.title] forState:UIControlStateNormal];
+    [typeButton setTitleColor:SYColor8 forState:UIControlStateNormal];
     [typeButton setTitleColor:SYColor1 forState:UIControlStateSelected];
+    [typeButton.titleLabel setFont:SYFont20];
     typeButton.tag = 11;
     typeButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     [typeButton addTarget:self action:@selector(typeResponse:) forControlEvents:UIControlEventTouchUpInside];
@@ -135,91 +149,262 @@
     
     
     /*location*/
-    locationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    locationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 50)];
     locationView.hidden = YES;
-    UILabel *locationTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
-    locationTitleLabel.text = @"位置";
+    UILabel *locationTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 40)];
+    locationTitleLabel.text = @"发起地点";
     locationTitleLabel.textColor = SYColor1;
+    [locationTitleLabel setFont:SYFont20];
     [locationView addSubview:locationTitleLabel];
-    UIButton *locationButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
+    UIButton *locationButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 40)];
     locationButton.tag = 11;
-    [locationButton setTitleColor:SYColor3 forState:UIControlStateNormal];
+    [locationButton setTitleColor:SYColor8 forState:UIControlStateNormal];
     [locationButton setTitleColor:SYColor1 forState:UIControlStateSelected];
-    [locationButton setTitle:@"请选择活动位置" forState:UIControlStateNormal];
+    [locationButton.titleLabel setFont:SYFont20];
+    [locationButton setTitle:@"请选择发起地点" forState:UIControlStateNormal];
     [locationButton addTarget:self action:@selector(locationResponse) forControlEvents:UIControlEventTouchUpInside];
     locationButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     [locationView addSubview:locationButton];
     
     /*date*/
-    dateView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    dateView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 140)];
     dateView.hidden = YES;
-    UILabel *dateTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 20, 100, 60)];
-    dateTitleLabel.text = @"日期";
-    dateTitleLabel.textColor = SYColor1;
-    [dateView addSubview:dateTitleLabel];
-    UIButton *dateButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
-    [dateButton setTitle:@"请选择活动日期" forState:UIControlStateNormal];
-    [dateButton setTitleColor:SYColor3 forState:UIControlStateNormal];
-    [dateButton setTitleColor:SYColor1 forState:UIControlStateSelected];
-    dateButton.tag = 11;
-    dateButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    [dateButton addTarget:self action:@selector(dateResponse:) forControlEvents:UIControlEventTouchUpInside];
-    [dateView addSubview:dateButton];
+    UILabel *startTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 40)];
+    startTitleLabel.text = @"开始时间";
+    startTitleLabel.textColor = SYColor1;
+    [startTitleLabel setFont:SYFont20];
+    [dateView addSubview:startTitleLabel];
+    UILabel *startMinLabel = [[UILabel alloc] initWithFrame:CGRectMake(viewWidth-originX-20, 0, 20, 40)];
+    startMinLabel.text = @"分";
+    [startMinLabel setFont:SYFont15];
+    startMinLabel.textColor = SYColor4;
+    [dateView addSubview:startMinLabel];
+    SYTextField *startMinTextField = [[SYTextField alloc] initWithFrame:CGRectMake(startMinLabel.frame.origin.x-20, 0, 20, 40) type:SYTextFieldSeparator];
+    startMinTextField.textColor = SYColor1;
+    startMinTextField.textAlignment = NSTextAlignmentRight;
+    startMinTextField.keyboardType = UIKeyboardTypeNumberPad;
+    startMinTextField.tag = 15;
+    [dateView addSubview:startMinTextField];
+    UILabel *startHourLabel = [[UILabel alloc] initWithFrame:CGRectMake(startMinTextField.frame.origin.x-20, 0, 20, 40)];
+    startHourLabel.text = @"时";
+    [startHourLabel setFont:SYFont15];
+    startHourLabel.textColor = SYColor4;
+    [dateView addSubview:startHourLabel];
+    SYTextField *startHourTextField = [[SYTextField alloc] initWithFrame:CGRectMake(startHourLabel.frame.origin.x-20, 0, 20, 40) type:SYTextFieldSeparator];
+    startHourTextField.textColor = SYColor1;
+    startHourTextField.textAlignment = NSTextAlignmentRight;
+    startHourTextField.keyboardType = UIKeyboardTypeNumberPad;
+    startHourTextField.tag = 14;
+    [dateView addSubview:startHourTextField];
+    UILabel *startDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(startHourTextField.frame.origin.x-20, 0, 20, 40)];
+    startDayLabel.text = @"日";
+    [startDayLabel setFont:SYFont15];
+    startDayLabel.textColor = SYColor4;
+    [dateView addSubview:startDayLabel];
+    SYTextField *startDayTextField = [[SYTextField alloc] initWithFrame:CGRectMake(startDayLabel.frame.origin.x-20, 0, 20, 40) type:SYTextFieldSeparator];
+    startDayTextField.textColor = SYColor1;
+    startDayTextField.textAlignment = NSTextAlignmentRight;
+    startDayTextField.keyboardType = UIKeyboardTypeNumberPad;
+    startDayTextField.tag = 13;
+    [dateView addSubview:startDayTextField];
+    UILabel *startMonthLabel = [[UILabel alloc] initWithFrame:CGRectMake(startDayTextField.frame.origin.x-20, 0, 20, 40)];
+    startMonthLabel.text = @"月";
+    [startMonthLabel setFont:SYFont15];
+    startMonthLabel.textColor = SYColor4;
+    [dateView addSubview:startMonthLabel];
+    SYTextField *startMonthTextField = [[SYTextField alloc] initWithFrame:CGRectMake(startMonthLabel.frame.origin.x-20, 0, 20, 40) type:SYTextFieldSeparator];
+    startMonthTextField.textColor = SYColor1;
+    startMonthTextField.textAlignment = NSTextAlignmentRight;
+    startMonthTextField.keyboardType = UIKeyboardTypeNumberPad;
+    startMonthTextField.tag = 12;
+    [dateView addSubview:startMonthTextField];
+    UILabel *startYearLabel = [[UILabel alloc] initWithFrame:CGRectMake(startMonthTextField.frame.origin.x-20, 0, 20, 40)];
+    startYearLabel.text = @"年";
+    [startYearLabel setFont:SYFont15];
+    startYearLabel.textColor = SYColor4;
+    [dateView addSubview:startYearLabel];
+    SYTextField *startYearTextField = [[SYTextField alloc] initWithFrame:CGRectMake(startYearLabel.frame.origin.x-40, 0, 40, 40) type:SYTextFieldSeparator];
+    startYearTextField.textColor = SYColor1;
+    startYearTextField.textAlignment = NSTextAlignmentRight;
+    startYearTextField.keyboardType = UIKeyboardTypeNumberPad;
+    startYearTextField.tag = 11;
+    [dateView addSubview:startYearTextField];
+    UILabel *endTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 40, 100, 40)];
+    endTitleLabel.text = @"结束时间";
+    endTitleLabel.textColor = SYColor1;
+    [endTitleLabel setFont:SYFont20];
+    [dateView addSubview:endTitleLabel];
+    UILabel *endMinLabel = [[UILabel alloc] initWithFrame:CGRectMake(viewWidth-originX-20, 40, 20, 40)];
+    endMinLabel.text = @"分";
+    [endMinLabel setFont:SYFont15];
+    endMinLabel.textColor = SYColor4;
+    [dateView addSubview:endMinLabel];
+    SYTextField *endMinTextField = [[SYTextField alloc] initWithFrame:CGRectMake(endMinLabel.frame.origin.x-20, 40, 20, 40) type:SYTextFieldSeparator];
+    endMinTextField.textColor = SYColor1;
+    endMinTextField.textAlignment = NSTextAlignmentRight;
+    endMinTextField.keyboardType = UIKeyboardTypeNumberPad;
+    endMinTextField.tag = 25;
+    [dateView addSubview:endMinTextField];
+    UILabel *endHourLabel = [[UILabel alloc] initWithFrame:CGRectMake(endMinTextField.frame.origin.x-20, 40, 20, 40)];
+    endHourLabel.text = @"时";
+    [endHourLabel setFont:SYFont15];
+    endHourLabel.textColor = SYColor4;
+    [dateView addSubview:endHourLabel];
+    SYTextField *endHourTextField = [[SYTextField alloc] initWithFrame:CGRectMake(endHourLabel.frame.origin.x-20, 40, 20, 40) type:SYTextFieldSeparator];
+    endHourTextField.textColor = SYColor1;
+    endHourTextField.textAlignment = NSTextAlignmentRight;
+    endHourTextField.keyboardType = UIKeyboardTypeNumberPad;
+    endHourTextField.tag = 24;
+    [dateView addSubview:endHourTextField];
+    UILabel *endDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(endHourTextField.frame.origin.x-20, 40, 20, 40)];
+    endDayLabel.text = @"日";
+    [endDayLabel setFont:SYFont15];
+    endDayLabel.textColor = SYColor4;
+    [dateView addSubview:endDayLabel];
+    SYTextField *endDayTextField = [[SYTextField alloc] initWithFrame:CGRectMake(endDayLabel.frame.origin.x-20, 40, 20, 40) type:SYTextFieldSeparator];
+    endDayTextField.textColor = SYColor1;
+    endDayTextField.textAlignment = NSTextAlignmentRight;
+    endDayTextField.keyboardType = UIKeyboardTypeNumberPad;
+    endDayTextField.tag = 23;
+    [dateView addSubview:endDayTextField];
+    UILabel *endMonthLabel = [[UILabel alloc] initWithFrame:CGRectMake(endDayTextField.frame.origin.x-20, 40, 20, 40)];
+    endMonthLabel.text = @"月";
+    [endMonthLabel setFont:SYFont15];
+    endMonthLabel.textColor = SYColor4;
+    [dateView addSubview:endMonthLabel];
+    SYTextField *endMonthTextField = [[SYTextField alloc] initWithFrame:CGRectMake(endMonthLabel.frame.origin.x-20, 40, 20, 40) type:SYTextFieldSeparator];
+    endMonthTextField.textColor = SYColor1;
+    endMonthTextField.textAlignment = NSTextAlignmentRight;
+    endMonthTextField.keyboardType = UIKeyboardTypeNumberPad;
+    endMonthTextField.tag = 22;
+    [dateView addSubview:endMonthTextField];
+    UILabel *endYearLabel = [[UILabel alloc] initWithFrame:CGRectMake(endMonthTextField.frame.origin.x-20, 40, 20, 40)];
+    endYearLabel.text = @"年";
+    [endYearLabel setFont:SYFont15];
+    endYearLabel.textColor = SYColor4;
+    [dateView addSubview:endYearLabel];
+    SYTextField *endYearTextField = [[SYTextField alloc] initWithFrame:CGRectMake(endYearLabel.frame.origin.x-40, 40, 40, 40) type:SYTextFieldSeparator];
+    endYearTextField.textColor = SYColor1;
+    endYearTextField.textAlignment = NSTextAlignmentRight;
+    endYearTextField.keyboardType = UIKeyboardTypeNumberPad;
+    endYearTextField.tag = 21;
+    [dateView addSubview:endYearTextField];
+    UIView *checkView = [[UIView alloc] initWithFrame:CGRectMake(viewWidth-originX-150-10-15, 80+12.5, 15, 15)];
+    checkView.tag = 31;
+    checkView.layer.borderWidth = 1;
+    checkView.layer.borderColor = [SYColor1 CGColor];
+    [dateView addSubview:checkView];
+    UILabel *meetLabel = [[UILabel alloc] initWithFrame:CGRectMake(checkView.frame.origin.x+checkView.frame.size.width+10, 80, 150, 40)];
+    meetLabel.text = @"不设定活动时间";
+    meetLabel.textColor = SYColor4;
+    [meetLabel setFont:SYFont20];
+    meetLabel.textAlignment = NSTextAlignmentRight;
+    [dateView addSubview:meetLabel];
+    timeAgg = NO;
+    UIButton *timeAggButton = [[UIButton alloc] initWithFrame:CGRectMake(checkView.frame.origin.x, 80, 60, 40)];
+    [timeAggButton addTarget:self action:@selector(timeAggResponse) forControlEvents:UIControlEventTouchUpInside];
+    [dateView addSubview:timeAggButton];
+//    UIButton *dateButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 20, viewWidth-2*originX, 60)];
+//    [dateButton setTitle:@"请选择活动日期" forState:UIControlStateNormal];
+//    [dateButton setTitleColor:SYColor3 forState:UIControlStateNormal];
+//    [dateButton setTitleColor:SYColor1 forState:UIControlStateSelected];
+//    dateButton.tag = 11;
+//    dateButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+//    [dateButton addTarget:self action:@selector(dateResponse:) forControlEvents:UIControlEventTouchUpInside];
+//    [dateView addSubview:dateButton];
     
-    datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-216, self.view.frame.size.width, 216)];
-    datePicker.backgroundColor = [UIColor whiteColor];
-    datePicker.datePickerMode = UIDatePickerModeDate;
-    NSDate *currentDate = [NSDate date];
-    [datePicker setDate:currentDate];
-    [datePicker addTarget:self action:@selector(datePickerChanged) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:datePicker];
-    datePicker.hidden = YES;
-    
+//    datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-216, self.view.frame.size.width, 216)];
+//    datePicker.backgroundColor = [UIColor whiteColor];
+//    datePicker.datePickerMode = UIDatePickerModeDate;
+//    NSDate *currentDate = [NSDate date];
+//    [datePicker setDate:currentDate];
+//    [datePicker addTarget:self action:@selector(datePickerChanged) forControlEvents:UIControlEventValueChanged];
+//    [self.view addSubview:datePicker];
+//    datePicker.hidden = YES;
+//    
     /*title*/
-    titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 100)];
+    titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 50)];
     titleView.hidden = YES;
-    UILabel *titleTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 40)];
-    titleTitleLabel.text = @"标题";
-    titleTitleLabel.textColor = SYColor1;
-    [titleView addSubview:titleTitleLabel];
-    UITextField *textfield = [[UITextField alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 30)];
+    SYTextField *textfield = [[SYTextField alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 40) type:SYTextFieldShare];
     textfield.tag = 11;
-    [textfield addTarget:self action:@selector(titleEmptyCheck) forControlEvents:UIControlEventEditingChanged];
-    textfield.backgroundColor = [UIColor whiteColor];
+    textfield.placeholder = @"标题";
     [titleView addSubview:textfield];
     
     /*introduction*/
-    introductionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 180)];
+    introductionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 110)];
     introductionView.hidden = YES;
-    UILabel *introductionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 40)];
-    introductionTitleLabel.text = @"简介";
-    introductionTitleLabel.textColor = SYColor1;
-    [introductionView addSubview:introductionTitleLabel];
-    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 100)];
+    SYTextView *textView = [[SYTextView alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 90) type:SYTextViewShare];
     textView.tag = 11;
-    textView.delegate = self;
-    textView.backgroundColor = [UIColor whiteColor];
+    [textView setPlaceholder:@"描述"];
     [introductionView addSubview:textView];
     
     /*price*/
     priceView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 140)];
     priceView.hidden = YES;
-    UILabel *priceTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 100, 60)];
-    priceTitleLabel.text = @"价格";
-    priceTitleLabel.textColor = SYColor1;
-    [priceView addSubview:priceTitleLabel];
-    SYPriceSlider *priceSlider = [[SYPriceSlider alloc] initWithFrame:CGRectMake(originX, 60, viewWidth-2*originX, 50) type:SYPriceSliderSingle];
-    priceSlider.delegate = self;
-    [priceView addSubview:priceSlider];
-    priceString = @"150";
+    UILabel *numberTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 0, 110, 40)];
+    numberTitleLabel.text = @"活动人数";
+    [numberTitleLabel setFont:SYFont20];
+    numberTitleLabel.textColor = SYColor1;
+    [priceView addSubview:numberTitleLabel];
+    SYTextField *numberTextField = [[SYTextField alloc] initWithFrame:CGRectMake(numberTitleLabel.frame.size.width+numberTitleLabel.frame.origin.x+20, 7.5, 57, 25) type:SYTextFieldSeparator];
+    numberTextField.textAlignment = NSTextAlignmentCenter;
+    numberTextField.tag = 12;
+    numberTextField.keyboardType = UIKeyboardTypeNumberPad;
+    [priceView addSubview:numberTextField];
+    numberString = @"0";
+    UILabel *numberUnitLabel = [[UILabel alloc] initWithFrame:CGRectMake(numberTextField.frame.size.width+numberTextField.frame.origin.x+4, 0, 85, 40)];
+    numberUnitLabel.text = @"人";
+    numberUnitLabel.textColor = SYColor1;
+    [numberUnitLabel setFont:SYFont20];
+    [priceView addSubview:numberUnitLabel];
+    UIView *numberCheckView = [[UIView alloc] initWithFrame:CGRectMake(viewWidth-originX-40-10-15, 12.5, 15, 15)];
+    numberCheckView.tag = 13;
+    numberCheckView.layer.borderWidth = 1;
+    numberCheckView.layer.borderColor = [SYColor1 CGColor];
+    [priceView addSubview:numberCheckView];
+    UILabel *numberAggLabel = [[UILabel alloc] initWithFrame:CGRectMake(numberCheckView.frame.origin.x+numberCheckView.frame.size.width+10, 0, 40, 40)];
+    numberAggLabel.text = @"不限";
+    numberAggLabel.textColor = SYColor4;
+    [numberAggLabel setFont:SYFont20];
+    numberAggLabel.textAlignment = NSTextAlignmentRight;
+    [priceView addSubview:numberAggLabel];
+    numberAgg = NO;
+    UIButton *numberAggButton = [[UIButton alloc] initWithFrame:CGRectMake(numberCheckView.frame.origin.x, 0, 60, 40)];
+    [numberAggButton addTarget:self action:@selector(numberAggResponse) forControlEvents:UIControlEventTouchUpInside];
+    [priceView addSubview:numberAggButton];
+    UILabel *price2TitleLabel = [[UILabel alloc] init];
+    price2TitleLabel.text = @"费用";
+    [price2TitleLabel setFont:SYFont20];
+    price2TitleLabel.textColor = SYColor1;
+    [price2TitleLabel sizeToFit];
+    price2TitleLabel.frame = CGRectMake(originX, 50, price2TitleLabel.frame.size.width, 40);
+    [priceView addSubview:price2TitleLabel];
+    UITextField *price2TextField = [[UITextField alloc] initWithFrame:CGRectMake(price2TitleLabel.frame.size.width+price2TitleLabel.frame.origin.x+4, 50+7.5, 57, 25)];
+    price2TextField.textColor = SYColor1;
+    [price2TextField setFont:SYFont20];
+    price2TextField.textAlignment = NSTextAlignmentCenter;
+    price2TextField.tag = 11;
+    price2TextField.keyboardType = UIKeyboardTypeNumberPad;
+    price2TextField.backgroundColor = UIColorFromRGB(0xF6EDBE);
+    price2TextField.layer.cornerRadius = 6;
+    price2TextField.clipsToBounds = YES;
+    //    [price2TextField addTarget:self action:@selector(priceEmptyCheck) forControlEvents:UIControlEventEditingChanged];
+    [priceView addSubview:price2TextField];
+    priceString = @"0";
+    UILabel *unitLabel = [[UILabel alloc] initWithFrame:CGRectMake(price2TextField.frame.size.width+price2TextField.frame.origin.x+4, 50, 85, 40)];
+    unitLabel.text = @"美元/人";
+    unitLabel.textColor = SYColor1;
+    [unitLabel setFont:SYFont20];
+    [priceView addSubview:unitLabel];
     
-    nextButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 44)];
-    [nextButton setTitle:@"下一步" forState:UIControlStateNormal];
+    
+    nextButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 35)];
+    [nextButton setTitle:@"提交" forState:UIControlStateNormal];
     [nextButton setBackgroundColor:SYColor4];
     [nextButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [nextButton.titleLabel setFont:SYFont20S];
+    [nextButton.titleLabel setFont:SYFont20M];
     [nextButton addTarget:self action:@selector(nextResponse) forControlEvents:UIControlEventTouchUpInside];
-    nextButton.layer.cornerRadius = nextButton.frame.size.height/2;
+    nextButton.layer.cornerRadius = 8;
     nextButton.clipsToBounds = YES;
     nextButton.hidden = YES;
     
@@ -228,38 +413,46 @@
     
     
     switch (_controllerType) {
-        case DiscoverPlayPartner:
-            [mainScrollView addSubview:typeView];
-            [viewsArray addObject:typeView];
-            [mainScrollView addSubview:locationView];
-            [viewsArray addObject:locationView];
+//        case DiscoverPlayPartner:
+//            [mainScrollView addSubview:typeView];
+//            [viewsArray addObject:typeView];
+//            [mainScrollView addSubview:locationView];
+//            [viewsArray addObject:locationView];
+//            [mainScrollView addSubview:titleView];
+//            [viewsArray addObject:titleView];
+//            [mainScrollView addSubview:introductionView];
+//            [viewsArray addObject:introductionView];
+//            break;
+        case DiscoverPlayActivity:
+            dateView.hidden = NO;locationView.hidden = NO;
+            titleView.hidden = NO; introductionView.hidden = NO;
+            priceView.hidden = NO; nextButton.hidden = NO;
+            if (_subcate1!=99) {
+                [mainScrollView addSubview:typeView];
+                [viewsArray addObject:typeView];
+            }
             [mainScrollView addSubview:titleView];
             [viewsArray addObject:titleView];
             [mainScrollView addSubview:introductionView];
             [viewsArray addObject:introductionView];
-            break;
-        case DiscoverPlayActivity:
-            [mainScrollView addSubview:typeView];
-            [viewsArray addObject:typeView];
             [mainScrollView addSubview:dateView];
             [viewsArray addObject:dateView];
             [mainScrollView addSubview:locationView];
             [viewsArray addObject:locationView];
-            [mainScrollView addSubview:titleView];
-            [viewsArray addObject:titleView];
+            
             [mainScrollView addSubview:priceView];
             [viewsArray addObject:priceView];
-            [mainScrollView addSubview:introductionView];
-            [viewsArray addObject:introductionView];
+            
             break;
-        case DiscoverPlayOther:
-            locationView.hidden = NO;
-            [mainScrollView addSubview:locationView];
-            [viewsArray addObject:locationView];
-            [mainScrollView addSubview:titleView];
-            [viewsArray addObject:titleView];
-            [mainScrollView addSubview:introductionView];
-            [viewsArray addObject:introductionView];
+//        case DiscoverPlayOther:
+//            locationView.hidden = NO;
+//            [mainScrollView addSubview:locationView];
+//            [viewsArray addObject:locationView];
+//            [mainScrollView addSubview:titleView];
+//            [viewsArray addObject:titleView];
+//            [mainScrollView addSubview:introductionView];
+//            [viewsArray addObject:introductionView];
+//            break;
         default:
             break;
     }
@@ -312,16 +505,26 @@
     UIButton *button = sender;
     button.selected = YES;
     if (!typeString) {
-        typeString = @"0";
+        typeString = @"00";
         [button setTitle:[typeArray objectAtIndex:0] forState:UIControlStateSelected];
     }
     typePickerView.hidden = NO;
     confirmBackgroundView.hidden = NO;
-    if (_controllerType==DiscoverPlayActivity) {
-        dateView.hidden = NO;
-    }
-    else
-        locationView.hidden = NO;
+//    if (_controllerType==DiscoverPlayActivity) {
+//        dateView.hidden = NO;
+//    }
+//    else
+//        locationView.hidden = NO;
+}
+-(void)timeAggResponse{
+    UIView *checkView = [dateView viewWithTag:31];
+    timeAgg = !timeAgg;
+    checkView.backgroundColor = (timeAgg)?SYColor4:[UIColor clearColor];
+}
+-(void)numberAggResponse{
+    UIView *checkView = [priceView viewWithTag:13];
+    numberAgg = !numberAgg;
+    checkView.backgroundColor = (numberAgg)?SYColor4:[UIColor clearColor];
 }
 -(void)locationResponse{
     [self dismissKeyboard];
@@ -350,24 +553,29 @@
     NSString *subCate;
     NSString *startLatitude;
     NSString *startLongitude;
-
+    UITextField *numberField = [priceView viewWithTag:12];
+    numberString = (numberAgg)?@"999":numberField.text;
+    priceString = [(UITextField*)[priceView viewWithTag:11] text];
+    
+    NSString *startTimeString =(timeAgg)?@"2099-01-01 09:00":[NSString stringWithFormat:@"%@-%@-%@ %@:%@",[(UITextField*)[dateView viewWithTag:11] text],[(UITextField*)[dateView viewWithTag:12] text],[(UITextField*)[dateView viewWithTag:13] text],[(UITextField*)[dateView viewWithTag:14] text],[(UITextField*)[dateView viewWithTag:15] text]];
+    NSString *endTimeString =(timeAgg)?@"2099-01-01 09:00":[NSString stringWithFormat:@"%@-%@-%@ %@:%@",[(UITextField*)[dateView viewWithTag:21] text],[(UITextField*)[dateView viewWithTag:22] text],[(UITextField*)[dateView viewWithTag:23] text],[(UITextField*)[dateView viewWithTag:24] text],[(UITextField*)[dateView viewWithTag:25] text]];
     switch (_controllerType) {
-        case DiscoverPlayPartner:
-            subCate= [NSString stringWithFormat:@"01%02ld0000",[typeString integerValue]];
-            startLatitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
-            startLongitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
-            priceString = @"1";
-            break;
+//        case DiscoverPlayPartner:
+//            subCate= [NSString stringWithFormat:@"%02ld%02ld0000",_subcate1,[typeString integerValue]];
+//            startLatitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
+//            startLongitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
+//            priceString = @"1";
+//            break;
         case DiscoverPlayActivity:
-            subCate= [NSString stringWithFormat:@"02%02ld0000",[typeString integerValue]];
+            subCate= [NSString stringWithFormat:@"01%02ld%02ld00",_subcate1,[typeString integerValue]];
             startLatitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
             startLongitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
             break;
-        case DiscoverPlayOther:
-            subCate= [NSString stringWithFormat:@"99%02ld0000",[typeString integerValue]];
-            startLatitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
-            startLongitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
-            break;
+//        case DiscoverPlayOther:
+//            subCate= [NSString stringWithFormat:@"99%02ld0000",[typeString integerValue]];
+//            startLatitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
+//            startLongitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
+//            break;
             
         default:
             break;
@@ -376,7 +584,7 @@
     UITextField *title = [titleView viewWithTag:11];
     UITextView *introduction = [introductionView viewWithTag:11];
     
-    NSString *requestBody = [NSString stringWithFormat:@"expire_date=%@&email=%@&latitude=%f&longitude=%f&category=4&subcate=%@&title=%@&introduction=%@&start_lati=%@&start_long=%@&price=%@",dateString,MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,title.text, introduction.text,startLatitude,startLongitude,priceString];
+    NSString *requestBody = [NSString stringWithFormat:@"expire_date=%@&email=%@&latitude=%f&longitude=%f&category=4&subcate=%@&title=%@&introduction=%@&start_lati=%@&start_long=%@&price=%@&number=%@&start_time=%@&end_time=%@&is_other=%d",startTimeString,MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,title.text, introduction.text,startLatitude,startLongitude,priceString,numberString,startTimeString,endTimeString,is_other];
     NSLog(@"%@/n",requestBody);
     /*改上面的 query 和 URLstring 就好了*/
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@newshare",basicURL]];
@@ -431,6 +639,30 @@
     [textField resignFirstResponder];
     UITextView *textView = [introductionView viewWithTag:11];
     [textView resignFirstResponder];
+    textField = [priceView viewWithTag:11];
+    [textField resignFirstResponder];
+    textField = [priceView viewWithTag:12];
+    [textField resignFirstResponder];
+    textField = [dateView viewWithTag:11];
+    [textField resignFirstResponder];
+    textField = [dateView viewWithTag:12];
+    [textField resignFirstResponder];
+    textField = [dateView viewWithTag:13];
+    [textField resignFirstResponder];
+    textField = [dateView viewWithTag:14];
+    [textField resignFirstResponder];
+    textField = [dateView viewWithTag:15];
+    [textField resignFirstResponder];
+    textField = [dateView viewWithTag:21];
+    [textField resignFirstResponder];
+    textField = [dateView viewWithTag:22];
+    [textField resignFirstResponder];
+    textField = [dateView viewWithTag:23];
+    [textField resignFirstResponder];
+    textField = [dateView viewWithTag:24];
+    [textField resignFirstResponder];
+    textField = [dateView viewWithTag:25];
+    [textField resignFirstResponder];
 }
 
 

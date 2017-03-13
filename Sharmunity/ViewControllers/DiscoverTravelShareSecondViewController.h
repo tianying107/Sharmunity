@@ -28,6 +28,7 @@
     UIView *cityView;
     UIView *typeView;
     UIView *personView;
+    UIView *roundTripView;
     UIView *timeView;
     UIView *priceView;
     UIView *price2View;
@@ -50,14 +51,19 @@
     BOOL priceAgg;
     BOOL priceFree;
     BOOL toCN;
+    BOOL roundTrip;
     NSArray *airportArray;
     
     NSMutableArray *viewsArray;
 }
 -(void)locationCompleteResponse;
+-(void)arriveCompleteResponse;
+-(void)departCompleteResponse;
 @property NSInteger controllerType;
 @property NSMutableDictionary *shareDict;
 @property MKMapItem *selectedItem;
+@property MKMapItem *departItem;
+@property MKMapItem *arriveItem;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end

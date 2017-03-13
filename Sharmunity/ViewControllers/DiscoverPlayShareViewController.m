@@ -9,6 +9,7 @@
 #import "DiscoverPlayShareViewController.h"
 #import "DiscoverPlayShareActiveViewController.h"
 #import "DiscoverOtherShareViewController.h"
+#import "DiscoverArticalShareViewController.h"
 #import "Header.h"
 #import "SYHeader.h"
 @interface DiscoverPlayShareViewController ()
@@ -59,8 +60,8 @@
     _otherButton.layer.borderWidth = 1;
     
     
-    [_partnerButton addTarget:self action:@selector(partnerResponse) forControlEvents:UIControlEventTouchUpInside];
-    [_activityButton addTarget:self action:@selector(activityResponse) forControlEvents:UIControlEventTouchUpInside];
+//    [_partnerButton addTarget:self action:@selector(partnerResponse) forControlEvents:UIControlEventTouchUpInside];
+//    [_activityButton addTarget:self action:@selector(activityResponse) forControlEvents:UIControlEventTouchUpInside];
     [_articalButton addTarget:self action:@selector(articalResponse) forControlEvents:UIControlEventTouchUpInside];
     [_otherButton addTarget:self action:@selector(otherResponse) forControlEvents:UIControlEventTouchUpInside];
     
@@ -91,26 +92,32 @@
 
 }
 
--(void)partnerResponse{
-    DiscoverPlayShareActiveViewController *viewController = [DiscoverPlayShareActiveViewController new];
-    viewController.controllerType = DiscoverPlayPartner;
-    [self.navigationController pushViewController:viewController animated:YES];
-}
--(void)activityResponse{
-    DiscoverPlayShareActiveViewController *viewController = [DiscoverPlayShareActiveViewController new];
-    viewController.controllerType = DiscoverPlayActivity;
-    [self.navigationController pushViewController:viewController animated:YES];
-
-}
+//-(void)partnerResponse{
+//    DiscoverPlayShareActiveViewController *viewController = [DiscoverPlayShareActiveViewController new];
+//    viewController.controllerType = DiscoverPlayPartner;
+//    [self.navigationController pushViewController:viewController animated:YES];
+//}
+//-(void)activityResponse{
+//    DiscoverPlayShareActiveViewController *viewController = [DiscoverPlayShareActiveViewController new];
+//    viewController.controllerType = DiscoverPlayActivity;
+//    [self.navigationController pushViewController:viewController animated:YES];
+//
+//}
 -(void)articalResponse{
-    
+    DiscoverArticalShareViewController *viewController = [DiscoverArticalShareViewController new];
+    viewController.shareType = discoverPlay;
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 -(void)otherResponse{
-    DiscoverPlayShareActiveViewController *viewController = [DiscoverPlayShareActiveViewController new];
-    viewController.controllerType = DiscoverPlayOther;
+    DiscoverOtherShareViewController *viewController = [DiscoverOtherShareViewController new];
+    viewController.shareType = discoverPlay;
     [self.navigationController pushViewController:viewController animated:YES];
 }
-
+//-(void)otherResponse{
+//    DiscoverPlayShareActiveViewController *viewController = [DiscoverPlayShareActiveViewController new];
+//    viewController.controllerType = DiscoverPlayOther;
+//    [self.navigationController pushViewController:viewController animated:YES];
+//}
 
 
 
