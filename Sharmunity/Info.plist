@@ -26,6 +26,8 @@
 	<string>My App would use your camera.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>My App would pretty please like to use your GPS.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>My App would use your photo library.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>SF-UI-Display-Regular.otf</string>

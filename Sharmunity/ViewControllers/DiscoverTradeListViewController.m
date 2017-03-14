@@ -23,6 +23,18 @@
     [super viewDidLoad];
     self.navigationItem.title = @"交易";
     
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+        
+    }
+    CLAuthorizationStatus authorizationStatus= [CLLocationManager authorizationStatus];
+    if (authorizationStatus == kCLAuthorizationStatusAuthorizedAlways ||
+        authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        [self.locationManager startUpdatingLocation];
+    }
+    
     [self requestShareFromServer];
     
     _sellButton.layer.cornerRadius = _sellButton.frame.size.height/2;
@@ -146,25 +158,26 @@
 -(void)requestShareFromServer{
     shareIDArray = [NSArray new];
     MEID = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"admin"] valueForKey:@"id"];
-    NSString *requestQuery = [NSString stringWithFormat:@"email=%@&category=6",MEID];
-    NSString *urlString = [NSString stringWithFormat:@"%@searchShare?%@",basicURL,requestQuery];
+//    NSString *requestQuery = [NSString stringWithFormat:@"category=6&latitude=%f&longitude=%f&distance=50",self.locationManager.location.coordinate.latitude,self.locationManager.location.coordinate.longitude];
+    NSString *requestQuery = @"category=6";
+    NSString *urlString = [NSString stringWithFormat:@"%@searchshare?%@",basicURL,requestQuery];
     NSLog(@"%@",requestQuery);
     NSURLSession *session = [NSURLSession sharedSession];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLSessionTask *task = [session dataTaskWithURL:url
                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                        NSMutableArray *array = [NSJSONSerialization JSONObjectWithData:data
+                                        NSArray *array = [NSJSONSerialization JSONObjectWithData:data
                                                                                          options:kNilOptions
                                                                                            error:&error];
                                         
-                                        array = [[NSMutableArray alloc] initWithObjects:@"1",@"2",@"3",@"4",@"5",@"6",@"1",@"2",@"3",@"4",@"5",@"6",@"1",@"2",@"3",@"4",@"5",@"6", nil];
+                                        NSMutableArray *muArray = [[NSMutableArray alloc] initWithArray:array];
                                         
-                                        [array insertObject:@"tradeMoney" atIndex:2];
                                         NSLog(@"server said: %@",array);
                                         dispatch_async(dispatch_get_main_queue(), ^{
                                             
+                                            [muArray insertObject:@"tradeMoney" atIndex:MIN(2, muArray.count)];
                                             
-                                            shareIDArray = array;
+                                            shareIDArray = muArray;
                                             [self addButtons];
                                             
                                         });

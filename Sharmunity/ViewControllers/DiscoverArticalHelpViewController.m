@@ -10,6 +10,7 @@
 #import "Header.h"
 #import "SYHeader.h"
 #import "SYArticalAbstract.h"
+#import "DiscoverArticalDetailViewController.h"
 @interface DiscoverArticalHelpViewController ()
 
 @end
@@ -37,10 +38,10 @@
     
     MEID = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"admin"] valueForKey:@"id"];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+//                                   initWithTarget:self
+//                                   action:@selector(dismissKeyboard)];
+//    [self.view addGestureRecognizer:tap];
     
 //    popOut = [SYPopOut new];
     [self viewsSetup];
@@ -126,9 +127,10 @@
 
 -(void)requestHelpFromServer:(NSString*)keyword{
     basicViewArray = [NSMutableArray new];
+    UITextField *textField = [titleView viewWithTag:11];
     MEID = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"admin"] valueForKey:@"id"];
-    NSString *requestQuery = [NSString stringWithFormat:@"email=%@&category=4",MEID];
-    NSString *urlString = [NSString stringWithFormat:@"%@allhelps?%@",basicURL,requestQuery];
+    NSString *requestQuery = [NSString stringWithFormat:@"category=4&subcate=02000000&keyword=%@",textField.text];
+    NSString *urlString = [NSString stringWithFormat:@"%@searchshare?%@",basicURL,requestQuery];
     NSLog(@"%@",requestQuery);
     NSURLSession *session = [NSURLSession sharedSession];
     NSURL *url = [NSURL URLWithString:urlString];
@@ -175,7 +177,6 @@
     
     if ((indexPath.row+1)>basicViewArray.count) {
         SYArticalAbstract *abstractView = [[SYArticalAbstract alloc] initWithFrame:CGRectMake(0, 0, helpTable.frame.size.width, 50) shareID:[helpIDArray objectAtIndex:indexPath.row]];
-//        SYHelp *helpView = [[SYHelp alloc] initWithFrame:CGRectMake(0, 0, helpTable.frame.size.width, 50) helpID:[helpIDArray objectAtIndex:indexPath.row] withHeadView:NO];
         [basicViewArray addObject:abstractView];
         [cell setBasicView:abstractView];
     }
@@ -185,7 +186,10 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSString *shareID = [helpIDArray objectAtIndex:indexPath.row];
+    DiscoverArticalDetailViewController *viewController = [DiscoverArticalDetailViewController new];
+    viewController.shareID = shareID;
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 @end

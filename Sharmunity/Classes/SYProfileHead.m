@@ -8,6 +8,8 @@
 
 #import "SYProfileHead.h"
 #import "Header.h"
+#import <AWSCore/AWSCore.h>
+#import <AWSS3/AWSS3.h>
 @implementation SYProfileHead
 @synthesize userDict;
 -(id)initWithUserID:(NSString*)ID frame:(CGRect)frame{
@@ -30,6 +32,7 @@
     [self addSubview:avatarImageView];
     _avatarButton.frame = avatarImageView.frame;
     [self addSubview:_avatarButton];
+    [self requestAvatarFromServer];
     
     UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(avatarImageView.frame.origin.x*2+avatarImageView.frame.size.width, 10, 200, 40)];
     nameLabel.text = [NSString stringWithFormat:@"昵称: %@",[userDict valueForKey:@"name"]];
@@ -69,5 +72,42 @@
                                     }];
     [task resume];
 
+}
+-(void)requestAvatarFromServer{
+    avatarImageView.image = [UIImage imageNamed:@"defaultAvatar"];
+    AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
+    // Construct the NSURL for the download location.
+    NSString *downloadingFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"avatar%@.jpg",userID]];
+    NSURL *downloadingFileURL = [NSURL fileURLWithPath:downloadingFilePath];
+    
+    AWSS3TransferManagerDownloadRequest *downloadRequest = [AWSS3TransferManagerDownloadRequest new];
+    
+    downloadRequest.bucket = @"sharmunitymobile";
+    downloadRequest.key = [NSString stringWithFormat:@"account/Avatar%@.jpg",userID];
+    downloadRequest.downloadingFileURL = downloadingFileURL;
+    // Download the file.
+    [[transferManager download:downloadRequest] continueWithExecutor:[AWSExecutor mainThreadExecutor]
+                                                           withBlock:^id(AWSTask *task) {
+                                                               if (task.error){
+                                                                   if ([task.error.domain isEqualToString:AWSS3TransferManagerErrorDomain]) {
+                                                                       switch (task.error.code) {
+                                                                           case AWSS3TransferManagerErrorCancelled:
+                                                                           case AWSS3TransferManagerErrorPaused:
+                                                                               break;
+                                                                           default:
+                                                                               NSLog(@"Error: %@", task.error);
+                                                                               break;
+                                                                       }
+                                                                   } else {
+                                                                       NSLog(@"Error: %@", task.error);
+                                                                   }
+                                                               }
+                                                               
+                                                               if (task.result) {
+                                                                   avatarImageView.image = ([UIImage imageWithContentsOfFile:downloadingFilePath])?[UIImage imageWithContentsOfFile:downloadingFilePath]:[UIImage imageNamed:@"defaultAvatar"];
+                                                               }
+                                                               return nil;
+                                                           }];
+    
 }
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "AccountMainViewController.h"
+#import "SingleImageEditor.h"
 #import "SYHeader.h"
 @interface AccountMainViewController (){
     SYProfileHead *SYHeadView;
@@ -47,6 +48,7 @@
     
     SYHeadView = [[SYProfileHead alloc] initWithUserID:MEID frame:CGRectMake(0, 0, headView.frame.size.width, 0)];
     [headView addSubview:SYHeadView];
+    [SYHeadView.avatarButton addTarget:self action:@selector(pickAvatarFromPhotoLibrary) forControlEvents:UIControlEventTouchUpInside];
     
     extendView = [[SYProfileExtend alloc] initWithUserID:MEID frame:CGRectMake(0, SYHeadView.frame.size.height, headView.frame.size.width, 0)];
     extendView.backgroundColor = SYBackgroundColorExtraLight;
@@ -84,4 +86,26 @@
     [self presentViewController:viewController animated:YES completion:nil];
 }
 
+- (void)pickAvatarFromPhotoLibrary {
+    avaterPicker = [[UIImagePickerController alloc] init];
+    avaterPicker.delegate = self;
+    avaterPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:avaterPicker animated:YES completion:nil];
+}
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    if (picker == avaterPicker) {
+        UIImage *newHeadImg = [info valueForKey:UIImagePickerControllerOriginalImage];
+        
+//        [SYHeadView.avatarButton setImage: newHeadImg forState:UIControlStateNormal];
+        //    [headImgButton setImage: newHeadImg forState:UIControlStateNormal];
+        [picker dismissViewControllerAnimated:YES completion:nil];
+        
+        SingleImageEditor *viewController = [[SingleImageEditor alloc] initWithType:SYImageTpyeAvatar];
+        viewController.MEID = MEID;
+        viewController.inputImage = newHeadImg;
+        viewController.senderObject = SYHeadView.avatarButton;
+        viewController.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
+}
 @end

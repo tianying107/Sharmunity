@@ -399,7 +399,7 @@
 }
 
 -(void)nextResponse{
-    NSString *subCate = [NSString stringWithFormat:@"01%@000000",typeString];
+    NSString *subCate = [NSString stringWithFormat:@"01%@0000",typeString];
     NSString *latitude;
     NSString *longitude;
     latitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
@@ -434,8 +434,6 @@
 -(void)submitHandle:(NSDictionary*)dict{
     BOOL success =[[dict valueForKey:@"success"] boolValue];
     NSString *shareID = [dict valueForKey:@"share_id"];
-    shareID = @"6";
-    success = YES;
     if (success){
         /*insert S3 upload function here*/
         [self uploadImagesWithID:shareID];

@@ -48,7 +48,7 @@
     [self addSubview:cateIcon];
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 10, self.frame.size.width-35, 20)];
-    titleLabel.text = [shareDict valueForKey:@"title"];
+    titleLabel.text = [[shareDict valueForKey:@"keyword"] valueForKey:@"title"];
     titleLabel.textColor = SYColor1;
     [titleLabel setFont:SYFont15];
     [self addSubview:titleLabel];
@@ -59,8 +59,6 @@
     [postLabel setFont: SYFont11];
     [self addSubview:postLabel];
     
-    
-    
-    
+
 }
 @end

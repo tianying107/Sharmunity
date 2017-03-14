@@ -345,7 +345,8 @@
     upperString =[upperPriceField.text isEqualToString:@""]?@"99999":upperPriceField.text;
     
     subCate=(typeString)?[NSString stringWithFormat:@"%@000000",typeString]:@"99999999";
-    NSString *expire = (expireString)?expireString:@"0";
+    NSArray *postArray = [[NSArray alloc] initWithObjects:@"0",@"1",@"7",@"30", nil];
+    NSString *expire = (expireString)?[postArray objectAtIndex:[expireString integerValue]]:@"0";
     requestQuery = [NSString stringWithFormat:@"latitude=%@&longitude=%@&category=6&subcate=%@&upper_price=%@&lower_price=%@&post=%@&distance=%@",latitude,longitude,subCate,upperString,lowerString,expire,distance];
     NSString *urlString = [NSString stringWithFormat:@"%@search?%@",basicURL,requestQuery];
     NSLog(@"%@/n",urlString);

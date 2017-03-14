@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AccountMainViewController : UIViewController<UIScrollViewDelegate>{
+@interface AccountMainViewController : UIViewController<UIScrollViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
     NSString *MEID;
+    
+    UIImagePickerController *avaterPicker;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 @property (weak, nonatomic) IBOutlet UIView *headView;

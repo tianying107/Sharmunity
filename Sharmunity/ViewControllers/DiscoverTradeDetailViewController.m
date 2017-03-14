@@ -93,7 +93,7 @@
     
     /*price*/
     UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, heightCount-40, 120, 40)];
-    priceLabel.text = [NSString stringWithFormat:@"$%@",[shareDict valueForKey:@"price"]];
+    priceLabel.text = [NSString stringWithFormat:@"$%@",[[shareDict valueForKey:@"keyword"] valueForKey:@"price"]];
     priceLabel.textColor = [UIColor whiteColor];
     [priceLabel setFont:SYFont20];
     [mainScrollView addSubview:priceLabel];
@@ -109,7 +109,7 @@
     
     /*Title*/
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, heightCount+40, viewWidth-2*originX, 25)];
-    titleLabel.text = [shareDict valueForKey:@"title"];
+    titleLabel.text = [[shareDict valueForKey:@"keyword"] valueForKey:@"title"];
     titleLabel.textColor = SYColor1;
     [titleLabel setFont:SYFont20];
     [mainScrollView addSubview:titleLabel];
@@ -143,7 +143,7 @@
     heightCount += functionView.frame.size.height;
     
     /*introduction*/
-    NSMutableAttributedString *attributeSting = [[NSMutableAttributedString alloc] initWithString:[shareDict valueForKey:@"introduction"] attributes:@{NSFontAttributeName:SYFont15,NSForegroundColorAttributeName:SYColor1}];
+    NSMutableAttributedString *attributeSting = [[NSMutableAttributedString alloc] initWithString:[[shareDict valueForKey:@"keyword"] valueForKey:@"introduction"] attributes:@{NSFontAttributeName:SYFont15,NSForegroundColorAttributeName:SYColor1}];
     NSMutableParagraphStyle *paragraphstyle = [[NSMutableParagraphStyle alloc] init];
     paragraphstyle.lineSpacing = 2.f;
     [attributeSting addAttribute:NSParagraphStyleAttributeName value:paragraphstyle range:NSMakeRange(0, attributeSting.length)];
@@ -173,15 +173,15 @@
     distanceLabel.textAlignment = NSTextAlignmentCenter;
     [distanceLabel setFont:SYFont15];
     [mainScrollView addSubview:distanceLabel];
-    CLLocation* helpeeLocation = [[CLLocation alloc] initWithLatitude:[[shareDict valueForKey:@"latitude"] floatValue] longitude:[[shareDict valueForKey:@"longitude"] floatValue]];
+    CLLocation* helpeeLocation = [[CLLocation alloc] initWithLatitude:[[[shareDict valueForKey:@"location"] valueForKey:@"latitude"] floatValue] longitude:[[[shareDict valueForKey:@"location"] valueForKey:@"longitude"] floatValue]];
     CLLocationDistance meters = [helpeeLocation distanceFromLocation:self.locationManager.location];
     distanceLabel.text = [NSString stringWithFormat:@"%.1f",meters/1600];
     heightCount += distance1Label.frame.size.height;
     
     /*map view*/
     SYMap *mapView = [[SYMap alloc] initWithFrame:CGRectMake(originX, heightCount, viewWidth-2*originX, 110) ];
-    [mapView setLocationWithLatitude:[[shareDict valueForKey:@"latitude"] floatValue] longitude:[[shareDict valueForKey:@"longitude"] floatValue]];
-    [mapView addMapPinAnnotation:[[shareDict valueForKey:@"latitude"] floatValue] longitude:[[shareDict valueForKey:@"longitude"] floatValue]];
+    [mapView setLocationWithLatitude:[[[shareDict valueForKey:@"location"] valueForKey:@"latitude"] floatValue] longitude:[[[shareDict valueForKey:@"location"] valueForKey:@"longitude"] floatValue]];
+    [mapView addMapPinAnnotation:[[[shareDict valueForKey:@"location"] valueForKey:@"latitude"] floatValue] longitude:[[[shareDict valueForKey:@"location"] valueForKey:@"longitude"] floatValue]];
     [mainScrollView addSubview:mapView];
     heightCount += mapView.frame.size.height;
     
@@ -193,10 +193,30 @@
 }
 
 -(void)requestShareFromServer{
-    shareDict = [[NSDictionary alloc] initWithObjectsAndKeys:@"4500",@"price",@"红色丰田卡罗拉2003年",@"title",@"红色丰田卡罗拉，2003年产，现在走了11.5万迈， Clean title。回国急卖，价格还可商量。",@"introduction",@"37.781834",@"latitude",@"-122.406417",@"longitude",@"2017/3/8/ 15:30",@"post_date",@"starfrombeijing@gmail.com",@"owner_id", nil];
-    imageNumbers = 2;
+    NSString *requestQuery = [NSString stringWithFormat:@"share_id=%@",shareID];
+    NSString *urlString = [NSString stringWithFormat:@"%@reqShare?%@",basicURL,requestQuery];
+    NSLog(@"%@",requestQuery);
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLSessionTask *task = [session dataTaskWithURL:url
+                                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
+                                                                                             options:kNilOptions
+                                                                                               error:&error];
+                                        //                                        NSLog(@"server said: %@",dict);
+                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                            shareDict = dict;
+                                            imageNumbers = [[[shareDict valueForKey:@"keyword"] valueForKey:@"images"] integerValue];
+                                            [self viewsSetup];
+                                        });
+                                        
+                                    }];
+    [task resume];
     
-    [self viewsSetup];
+//    shareDict = [[NSDictionary alloc] initWithObjectsAndKeys:@"4500",@"price",@"红色丰田卡罗拉2003年",@"title",@"红色丰田卡罗拉，2003年产，现在走了11.5万迈， Clean title。回国急卖，价格还可商量。",@"introduction",@"37.781834",@"latitude",@"-122.406417",@"longitude",@"2017/3/8/ 15:30",@"post_date",@"starfrombeijing@gmail.com",@"owner_id", nil];
+//    imageNumbers = 2;
+    
+    
 }
 -(void)requestImageFromServerAtIndex{
     for (int i = 0; i<imageNumbers; i++) {
@@ -252,7 +272,7 @@
     AWSS3TransferManagerDownloadRequest *downloadRequest = [AWSS3TransferManagerDownloadRequest new];
     
     downloadRequest.bucket = @"sharmunitymobile";
-    downloadRequest.key = [NSString stringWithFormat:@"account/%@.jpg",[shareDict valueForKey:@"owner_id"]];
+    downloadRequest.key = [NSString stringWithFormat:@"account/Avatar%@.jpg",[shareDict valueForKey:@"owner_id"]];
     downloadRequest.downloadingFileURL = downloadingFileURL;
     // Download the file.
     [[transferManager download:downloadRequest] continueWithExecutor:[AWSExecutor mainThreadExecutor]

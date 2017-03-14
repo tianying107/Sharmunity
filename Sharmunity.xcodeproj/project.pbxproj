@@ -45,6 +45,9 @@
 		4458AB2F1E763D99009B1FF8 /* TradeType_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4458AB2E1E763D99009B1FF8 /* TradeType_cn.txt */; };
 		4458AB321E76471C009B1FF8 /* DiscoverTradeSellSubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4458AB311E76471C009B1FF8 /* DiscoverTradeSellSubmitViewController.m */; };
 		4458AB351E7680D6009B1FF8 /* SYArticalAbstract.m in Sources */ = {isa = PBXBuildFile; fileRef = 4458AB341E7680D6009B1FF8 /* SYArticalAbstract.m */; };
+		4458AB391E775608009B1FF8 /* SingleImageEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4458AB381E775608009B1FF8 /* SingleImageEditor.m */; };
+		4458AB3C1E7758EC009B1FF8 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 4458AB3B1E7758EC009B1FF8 /* UIImage+Resize.m */; };
+		4458AB411E776269009B1FF8 /* DiscoverArticalDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4458AB401E776269009B1FF8 /* DiscoverArticalDetailViewController.m */; };
 		4470840D1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4470840C1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m */; };
 		447084121E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447084111E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.m */; };
 		447084191E54FEB800DEAB75 /* ChoiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447084181E54FEB800DEAB75 /* ChoiceDetailViewController.m */; };
@@ -210,6 +213,12 @@
 		4458AB331E7680D6009B1FF8 /* SYArticalAbstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYArticalAbstract.h; path = Classes/SYArticalAbstract.h; sourceTree = "<group>"; };
 		4458AB341E7680D6009B1FF8 /* SYArticalAbstract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYArticalAbstract.m; path = Classes/SYArticalAbstract.m; sourceTree = "<group>"; };
 		4458AB361E774D52009B1FF8 /* SYDiscoverTradeBasicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYDiscoverTradeBasicView.h; path = Classes/SYDiscoverTradeBasicView.h; sourceTree = "<group>"; };
+		4458AB371E775608009B1FF8 /* SingleImageEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleImageEditor.h; path = ViewControllers/SingleImageEditor.h; sourceTree = "<group>"; };
+		4458AB381E775608009B1FF8 /* SingleImageEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SingleImageEditor.m; path = ViewControllers/SingleImageEditor.m; sourceTree = "<group>"; };
+		4458AB3A1E7758EC009B1FF8 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "Classes/UIImage+Resize/UIImage+Resize.h"; sourceTree = "<group>"; };
+		4458AB3B1E7758EC009B1FF8 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "Classes/UIImage+Resize/UIImage+Resize.m"; sourceTree = "<group>"; };
+		4458AB3F1E776269009B1FF8 /* DiscoverArticalDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverArticalDetailViewController.h; path = ViewControllers/DiscoverArticalDetailViewController.h; sourceTree = "<group>"; };
+		4458AB401E776269009B1FF8 /* DiscoverArticalDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverArticalDetailViewController.m; path = ViewControllers/DiscoverArticalDetailViewController.m; sourceTree = "<group>"; };
 		4470840B1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverPlayShareActiveViewController.h; path = ViewControllers/DiscoverPlayShareActiveViewController.h; sourceTree = "<group>"; };
 		4470840C1E542BF800DEAB75 /* DiscoverPlayShareActiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoverPlayShareActiveViewController.m; path = ViewControllers/DiscoverPlayShareActiveViewController.m; sourceTree = "<group>"; };
 		447084101E54E9A600DEAB75 /* DiscoverPlayHelpActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoverPlayHelpActiveViewController.h; path = ViewControllers/DiscoverPlayHelpActiveViewController.h; sourceTree = "<group>"; };
@@ -440,6 +449,7 @@
 		442F486F1E31D19F00FB0561 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				4458AB3D1E7758F7009B1FF8 /* UIImage+Resize */,
 				4449115F1E5F866C000F3218 /* SYTextView */,
 				4449115B1E5F8477000F3218 /* SYTextField */,
 				44AD3C401E565551008774CD /* SYBasic */,
@@ -511,10 +521,7 @@
 				44A4940D1E4CB169006CD069 /* DiscoverLocationViewController.m */,
 				44DADD171E66213000B5C085 /* DiscoverOtherShareViewController.h */,
 				44DADD181E66213000B5C085 /* DiscoverOtherShareViewController.m */,
-				44DADD1A1E66693300B5C085 /* DiscoverArticalShareViewController.h */,
-				44DADD1B1E66693300B5C085 /* DiscoverArticalShareViewController.m */,
-				4458AB161E7343B3009B1FF8 /* DiscoverArticalHelpViewController.h */,
-				4458AB171E7343B3009B1FF8 /* DiscoverArticalHelpViewController.m */,
+				4458AB3E1E77610E009B1FF8 /* DiscoverArtical */,
 			);
 			name = DiscoverGeneral;
 			sourceTree = "<group>";
@@ -534,6 +541,28 @@
 				4458AB311E76471C009B1FF8 /* DiscoverTradeSellSubmitViewController.m */,
 			);
 			name = Trade;
+			sourceTree = "<group>";
+		};
+		4458AB3D1E7758F7009B1FF8 /* UIImage+Resize */ = {
+			isa = PBXGroup;
+			children = (
+				4458AB3A1E7758EC009B1FF8 /* UIImage+Resize.h */,
+				4458AB3B1E7758EC009B1FF8 /* UIImage+Resize.m */,
+			);
+			name = "UIImage+Resize";
+			sourceTree = "<group>";
+		};
+		4458AB3E1E77610E009B1FF8 /* DiscoverArtical */ = {
+			isa = PBXGroup;
+			children = (
+				44DADD1A1E66693300B5C085 /* DiscoverArticalShareViewController.h */,
+				44DADD1B1E66693300B5C085 /* DiscoverArticalShareViewController.m */,
+				4458AB161E7343B3009B1FF8 /* DiscoverArticalHelpViewController.h */,
+				4458AB171E7343B3009B1FF8 /* DiscoverArticalHelpViewController.m */,
+				4458AB3F1E776269009B1FF8 /* DiscoverArticalDetailViewController.h */,
+				4458AB401E776269009B1FF8 /* DiscoverArticalDetailViewController.m */,
+			);
+			name = DiscoverArtical;
 			sourceTree = "<group>";
 		};
 		4470841A1E54FED200DEAB75 /* SYProfile */ = {
@@ -641,6 +670,8 @@
 			children = (
 				447E41141E3296EF0010CAA4 /* AccountMainViewController.h */,
 				447E41151E3296EF0010CAA4 /* AccountMainViewController.m */,
+				4458AB371E775608009B1FF8 /* SingleImageEditor.h */,
+				4458AB381E775608009B1FF8 /* SingleImageEditor.m */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -1151,6 +1182,7 @@
 				4458AB241E75D63A009B1FF8 /* SYDiscoverTradeBasicView.m in Sources */,
 				4458AB271E75E260009B1FF8 /* DiscoverTradeDetailViewController.m in Sources */,
 				447E40E01E32789F0010CAA4 /* SYSignUpPassword.m in Sources */,
+				4458AB3C1E7758EC009B1FF8 /* UIImage+Resize.m in Sources */,
 				44A173E41E52355A00FABC4F /* DiscoverLearnHelpViewController.m in Sources */,
 				44A502C51E47AB5A0008C4AD /* DiscoverLiveHelpViewController.m in Sources */,
 				44B815061E552F2D008B98F3 /* DiscoverTravelHelpViewController.m in Sources */,
@@ -1175,7 +1207,9 @@
 				4470841E1E54FEFC00DEAB75 /* SYProfileHead.m in Sources */,
 				44DADD1C1E66693300B5C085 /* DiscoverArticalShareViewController.m in Sources */,
 				44AD3C3D1E561C9C008774CD /* SYTitle.m in Sources */,
+				4458AB391E775608009B1FF8 /* SingleImageEditor.m in Sources */,
 				4426A0D81E4FD7B300D91D6F /* DiscoverEatShareViewController.m in Sources */,
+				4458AB411E776269009B1FF8 /* DiscoverArticalDetailViewController.m in Sources */,
 				44A494151E4CB515006CD069 /* MapPin.m in Sources */,
 				442F486D1E31D11500FB0561 /* LaunchScreenViewController.m in Sources */,
 				44A4941E1E4CCE79006CD069 /* NMRangeSlider.m in Sources */,
