@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "Header.h"
 
-@interface DiscoverEatHelpViewController : UIViewController<CLLocationManagerDelegate,UITableViewDelegate, UITableViewDataSource>{
+@interface DiscoverEatHelpViewController : UIViewController<CLLocationManagerDelegate,UITableViewDelegate, UITableViewDataSource,UIScrollViewDelegate>{
     UITableView *helpTable;
     NSString *MEID;
     NSArray *helpIDArray;

@@ -57,6 +57,17 @@
 -(void)goBack{
     [self.navigationController popViewControllerAnimated:YES];
 }
+-(void) viewWillAppear:(BOOL)animated{
+    _mainScrollView.delegate=self;
+    [self scrollViewDidScroll:_mainScrollView];
+    _mainScrollView.contentSize = CGSizeMake(0, 1000);
+}
+-(void) viewDidAppear:(BOOL)animated{
+    [_mainScrollView setScrollEnabled:YES];
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -105,7 +116,7 @@
     [self.view addSubview:matchLabel];
     heightCount += matchLabel.frame.size.height;
     
-    helpTable = [[UITableView alloc] initWithFrame:CGRectMake(0, heightCount, self.view.frame.size.width, self.view.frame.size.height-heightCount) style:UITableViewStylePlain];
+    helpTable = [[UITableView alloc] initWithFrame:CGRectMake(0, heightCount, self.view.frame.size.width, 300) style:UITableViewStylePlain];
     helpTable.delegate = self;
     helpTable.dataSource = self;
     helpTable.alwaysBounceVertical = NO;
@@ -117,6 +128,7 @@
             helpTable.hidden = NO;
         }];
     }];
+    heightCount += helpTable.frame.size.height;
     
     
    

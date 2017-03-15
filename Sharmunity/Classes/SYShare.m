@@ -91,6 +91,7 @@
     interestButton.frame = CGRectMake(baseView.cardSize.width-originX-150, heightCount+10, 150, 40);
     interestButton.backgroundColor = SYColor4;
     [interestButton setTitle:@"我感兴趣" forState:UIControlStateNormal];
+    [interestButton setTitle:@"已感兴趣" forState:UIControlStateSelected];
     [interestButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [interestButton.titleLabel setFont:SYFont18M];
     interestButton.layer.cornerRadius = interestButton.frame.size.height/2;

@@ -1228,6 +1228,13 @@
     [textField resignFirstResponder];
     textField = [flightView viewWithTag:11];
     [textField resignFirstResponder];
+    textField = [departAirportView viewWithTag:11];
+    [textField resignFirstResponder];
+    textField = [arriveAirportView viewWithTag:11];
+    [textField resignFirstResponder];
+    
+    UITextView *textView = [introductionView viewWithTag:11];
+    [textView resignFirstResponder];
 }
 
 

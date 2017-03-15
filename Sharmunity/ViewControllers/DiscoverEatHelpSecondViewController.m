@@ -332,11 +332,11 @@
 -(void)nextResponse{
     NSString *subCate;
     if (_controllerType==discoverEatRegion) {
-        subCate= [NSString stringWithFormat:@"01%02ld%02ld00",[regionString integerValue],[subRegionString integerValue]];
+        subCate= [NSString stringWithFormat:@"01%02ld%02ld01",[regionString integerValue],[subRegionString integerValue]];
     }
     
     else if (_controllerType == discoverEatFood){
-        subCate= [NSString stringWithFormat:@"02%02ld0000",[foodString integerValue]];
+        subCate= [NSString stringWithFormat:@"01%02ld0002",[foodString integerValue]];
     }
 //    UITextField *keyword = [keywordView viewWithTag:11];
     
@@ -399,10 +399,10 @@
 //        nextButton.hidden = NO;
 //    }
 //}
-//-(void)dismissKeyboard {
+-(void)dismissKeyboard {
 //    UITextField *textField = [keywordView viewWithTag:11];
 //    [textField resignFirstResponder];
-//}
+}
 
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
@@ -436,6 +436,7 @@
         regionString = [NSString stringWithFormat:@"%ld",row];
         if (row) {
             subRegionView.hidden = YES;
+            locationView.hidden = NO;
             [viewsArray removeObject:subRegionView];
             subRegionString = @"0";
             [self viewsLayout];
@@ -456,6 +457,7 @@
         UIButton *subregionButton = [subRegionView viewWithTag:11];
         [subregionButton setTitle:[subRegionArray objectAtIndex:row] forState:UIControlStateSelected];
         subRegionString = [NSString stringWithFormat:@"%ld",row];
+        locationView.hidden = NO;
     }
     else if ([pickerView isEqual:foodPickerView]){
         is_other = (row==foodArray.count-1)?YES:NO;

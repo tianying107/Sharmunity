@@ -246,6 +246,14 @@
             return;
             break;
         
+        case SYDiscoverNextShareLearn:
+            viewController = _previousController;
+            ((DiscoverLearnShareSubmitViewController*)viewController).selectedItem = selectedItem;
+            [(DiscoverLearnShareSubmitViewController*)viewController locationCompleteResponse];
+            [self.navigationController popViewControllerAnimated:YES];
+            return;
+            break;
+            
         case SYDiscoverNextCarpoolDepart:
             viewController = _previousController;
             ((DiscoverTravelShareSecondViewController*)viewController).departItem = selectedItem;
@@ -260,11 +268,6 @@
             [self.navigationController popViewControllerAnimated:YES];
             return;
             break;
-        case SYDiscoverNextHelpLearn:
-            viewController = [DiscoverLearnHelpSubmitViewController new];
-
-            break;
-            
             
         default:
             break;

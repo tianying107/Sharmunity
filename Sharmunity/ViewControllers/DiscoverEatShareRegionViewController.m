@@ -413,19 +413,19 @@
 -(void)nextResponse{
     NSString *subCate;
     if (_controllerType==discoverEatRegion) {
-        subCate= [NSString stringWithFormat:@"01%02ld%02ld00",[regionString integerValue],[subRegionString integerValue]];
+        subCate= [NSString stringWithFormat:@"01%02ld%02ld01",[regionString integerValue],[subRegionString integerValue]];
     }
     else if (_controllerType == discoverEatFood){
-        subCate= [NSString stringWithFormat:@"02%02ld0000",[foodString integerValue]];
+        subCate= [NSString stringWithFormat:@"01%02ld0002",[foodString integerValue]];
     }
     UITextView *introduction = [introductionView viewWithTag:11];
-    
+    NSString *price = [(UITextField*)[priceView viewWithTag:11] text];
     NSString *requestBody;
     if (is_other) {
-        requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=1&subcate=%@&title=%@&description=%@&is_other=1&price=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,_titleString, introduction.text,priceView];
+        requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=1&subcate=%@&title=%@&description=%@&is_other=1&price=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,_titleString, introduction.text,price];
     }
     else
-        requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=1&subcate=%@&title=%@&introduction=%@&is_other=0&price=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,_titleString, introduction.text,priceView];
+        requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=1&subcate=%@&title=%@&introduction=%@&is_other=0&price=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,_titleString, introduction.text,price];
     NSLog(@"%@/n",requestBody);
     /*改上面的 query 和 URLstring 就好了*/
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@newshare",basicURL]];
