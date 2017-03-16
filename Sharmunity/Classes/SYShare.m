@@ -19,8 +19,16 @@
         shareID = ID;
         interestButton = [UIButton new];
         [self requestShareFromServer];
+        [self testExist];
     }
     return self;
+}
+-(void)testExist{
+    NSArray *shareArray = [[NSUserDefaults standardUserDefaults] arrayForKey:@"interestedShare"];
+    if ([shareArray containsObject:shareID]) {
+        interestButton.selected = YES;
+        interestButton.userInteractionEnabled = NO;
+    }
 }
 -(void)abstractViewSetup{
     float height = self.frame.size.height;
@@ -79,7 +87,7 @@
     [baseView addGoSubview:postsDateLabel];
     heightCount += postsDateLabel.frame.size.height;
     
-    UILabel *statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount, baseView.cardSize.width-40, 40)];
+    statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, heightCount, baseView.cardSize.width-40, 40)];
     NSString *statusString = [shareDict valueForKey:@"count"];
     statusLabel.text = [NSString stringWithFormat:@"已有%@人感兴趣",statusString];
     statusLabel.textColor = SYColor1;
@@ -98,7 +106,10 @@
     interestButton.clipsToBounds = YES;
     [baseView addGoSubview:interestButton];
 }
-
+-(void)addInterest{
+    NSInteger interestInt = [[shareDict valueForKey:@"count"] integerValue]+1;
+    statusLabel.text = [NSString stringWithFormat:@"已有%ld人感兴趣",interestInt];
+}
 -(void)requestShareFromServer{
     NSString *requestQuery = [NSString stringWithFormat:@"share_id=%@",shareID];
     NSString *urlString = [NSString stringWithFormat:@"%@reqShare?%@",basicURL,requestQuery];

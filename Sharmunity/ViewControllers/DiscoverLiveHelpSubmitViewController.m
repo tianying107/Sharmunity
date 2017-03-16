@@ -208,7 +208,7 @@
     viewController.previousController = self;
     viewController.needDistance = NO;
     viewController.nextControllerType = SYDiscoverNextHelpMoveIn;
-    [self.navigationController pushViewController:viewController animated:YES];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 -(void)locationInCompleteResponse{
     UIButton *locationButton = [locationInView viewWithTag:11];
@@ -223,7 +223,7 @@
     viewController.previousController = self;
     viewController.needDistance = NO;
     viewController.nextControllerType = SYDiscoverNextHelpMoveOut;
-    [self.navigationController pushViewController:viewController animated:YES];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 -(void)locationOutCompleteResponse{
     UIButton *locationButton = [locationOutView viewWithTag:11];

@@ -55,6 +55,39 @@
      */
     jobIDArray = [NSMutableArray new];
 }
+
+-(void)setLongPressAddPin{
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
+                                          initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = 0.6; //user needs to press for 2 seconds
+    [self addGestureRecognizer:lpgr];
+}
+- (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer{
+    if (gestureRecognizer.state != UIGestureRecognizerStateBegan)
+        return;
+    
+    CGPoint touchPoint = [gestureRecognizer locationInView:self];
+    CLLocationCoordinate2D touchMapCoordinate =
+    [self convertPoint:touchPoint toCoordinateFromView:self];
+    
+    CLGeocoder *ceo = [[CLGeocoder alloc]init];
+    CLLocation *loc = [[CLLocation alloc]initWithLatitude:touchMapCoordinate.latitude longitude:touchMapCoordinate.longitude];
+    [ceo reverseGeocodeLocation:loc
+              completionHandler:^(NSArray *placemarks, NSError *error) {
+                  CLPlacemark *placemark = [placemarks firstObject];
+                  MKPlacemark *mkplaceMark = [[MKPlacemark alloc]initWithPlacemark:placemark];
+                  MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:mkplaceMark];
+                  [self removeAnnotations];
+                  [self addMapItemAnnotation:mapItem];
+                  [self setLocationWithLatitude:mapItem.placemark.location.coordinate.latitude longitude:mapItem.placemark.location.coordinate.longitude];
+                  //    [self updateAddressWithMapItem:mapItem];
+                  [self.SYDelegate SYMap:self didSelectedSearchResult:mapItem];
+                  
+              }
+     ];
+    
+}
+
 - (SYAnnotationView *)mapView:(MKMapView *)tmapView viewForAnnotation:(id <MKAnnotation>)annotation{
     SYAnnotationView *pinView = nil;
     if ([annotation isKindOfClass:[MapPin class]]){

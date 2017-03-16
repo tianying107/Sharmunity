@@ -581,7 +581,7 @@
     changableView.hidden = YES;
     priceAgg = NO;
     UILabel *changeLabel = [[UILabel alloc] initWithFrame:CGRectMake(viewWidth/2-130, 0, 130, 40)];
-    changeLabel.text = @"价格是否可以";
+    changeLabel.text = @"价格是否可议";
     changeLabel.textColor = SYColor1;
     [changeLabel setFont:SYFont20];
     changeLabel.textAlignment = NSTextAlignmentRight;
@@ -928,7 +928,7 @@
     viewController.previousController = self;
     viewController.needDistance = YES;
     viewController.nextControllerType = SYDiscoverNextHelp;
-    [self.navigationController pushViewController:viewController animated:YES];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 -(void)departResponse{
     [self dismissKeyboard];
@@ -937,7 +937,7 @@
     DiscoverLocationViewController *viewController = [DiscoverLocationViewController new];
     viewController.previousController = self;
     viewController.nextControllerType = SYDiscoverNextCarpoolDepart;
-    [self.navigationController pushViewController:viewController animated:YES];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 -(void)arriveResponse{
     [self dismissKeyboard];
@@ -946,7 +946,7 @@
     DiscoverLocationViewController *viewController = [DiscoverLocationViewController new];
     viewController.previousController = self;
     viewController.nextControllerType = SYDiscoverNextCarpoolArrive;
-    [self.navigationController pushViewController:viewController animated:YES];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 -(void)locationCompleteResponse{
     UIButton *locationButton = [locationView viewWithTag:11];
@@ -1041,7 +1041,7 @@
     UITextField *time = [timeView viewWithTag:11];
 //    UITextField *title = [titleView viewWithTag:11];
     UITextView *introduction = [introductionView viewWithTag:11];
-    UITextView *goods = [introductionView viewWithTag:10];
+    UITextView *goods = [cityView viewWithTag:10];
     UITextField *price1 = [priceView viewWithTag:11];
 //    UITextField *price2 = [price2View viewWithTag:11];
     UITextField *price3 = [price3View viewWithTag:11];

@@ -19,6 +19,8 @@
     UILabel *priceLabel;
     UILabel *postDateLabel;
     UILabel *introductionLabel;
+    
+    UILabel *statusLabel;
 }
 
 -(id)initContentWithFrame:(CGRect)frame shareDict:(NSDictionary*)share;

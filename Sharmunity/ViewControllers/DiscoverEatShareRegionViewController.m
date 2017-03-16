@@ -394,7 +394,7 @@
     DiscoverLocationViewController *viewController = [DiscoverLocationViewController new];
     viewController.previousController = self;
     viewController.nextControllerType = SYDiscoverNextShareEat;
-    [self.navigationController pushViewController:viewController animated:YES];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 -(void)locationCompleteResponse{

@@ -10,6 +10,7 @@
 #define DiscoverEat 1
 #define DiscoverLive 2
 #define DiscoverLearn 3
+#define DiscoverPlay 4
 #define DiscoverTravel 5
 @interface SYTitle : NSObject{
     NSInteger category;

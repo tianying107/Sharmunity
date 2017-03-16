@@ -109,7 +109,7 @@
     [noLimitButton setTitle:@"不限" forState:UIControlStateNormal];
     [noLimitButton setTitleColor:SYColor8 forState:UIControlStateNormal];
     [noLimitButton.titleLabel setFont:SYFont20];
-    noLimitButton.tag = 10;
+    noLimitButton.tag = 13;
     [noLimitButton addTarget:self action:@selector(genderReponse:) forControlEvents:UIControlEventTouchUpInside];
     [genderView addSubview:noLimitButton];
     UIButton *boyOnlyButton = [[UIButton alloc] initWithFrame:CGRectMake(viewWidth/2-50-100, 0, 100, 40)];
@@ -123,7 +123,7 @@
     [girlOnlyButton setTitle:@"女室友" forState:UIControlStateNormal];
     [girlOnlyButton setTitleColor:SYColor8 forState:UIControlStateNormal];
     [girlOnlyButton.titleLabel setFont:SYFont20];
-    girlOnlyButton.tag = 12;
+    girlOnlyButton.tag = 15;
     [girlOnlyButton addTarget:self action:@selector(genderReponse:) forControlEvents:UIControlEventTouchUpInside];
     [genderView addSubview:girlOnlyButton];
     
@@ -398,7 +398,7 @@
         [button2.titleLabel setFont:SYFont20];
         [button3.titleLabel setFont:SYFont20];
     }
-    else if(button.tag == 12){
+    else if(button.tag == 15){
         [button setTitleColor:SYColor4 forState:UIControlStateNormal];
         UIButton *button2 = [genderView viewWithTag:10];
         [button2 setTitleColor:SYColor8 forState:UIControlStateNormal];
@@ -510,7 +510,7 @@
     viewController.previousController = self;
     viewController.needDistance = NO;
     viewController.nextControllerType = SYDiscoverNextShareLearn;
-    [self.navigationController pushViewController:viewController animated:YES];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 -(void)locationCompleteResponse{

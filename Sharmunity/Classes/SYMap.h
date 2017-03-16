@@ -58,6 +58,7 @@
 - (void)removeAnnotations;
 - (void)addCircleWithDistanse:(float)tdistance latitude:(float)latitude longitude:(float)longitude;
 - (void)removeCircles;
+-(void)setLongPressAddPin;
 
 @property (nonatomic, weak) id <SYMapDelegate> SYDelegate;
 
@@ -74,6 +75,7 @@
 - (void)setupSearchBar;
 - (void)removeSearchBarViews;
 - (void)searchViewShowUp;
+
 @property UITextField *searchBar;
 
 @end

@@ -348,7 +348,7 @@
     DiscoverLocationViewController *viewController = [DiscoverLocationViewController new];
     viewController.previousController = self;
     viewController.nextControllerType = SYDiscoverNextShareLearn;
-    [self.navigationController pushViewController:viewController animated:YES];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 -(void)locationCompleteResponse{

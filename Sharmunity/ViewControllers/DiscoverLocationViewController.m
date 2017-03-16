@@ -46,6 +46,7 @@
         [mapView setLocationWithLatitude:_preferLatitude longitude:_preferLongitude];
         [mapView addCircleWithDistanse:_preferDistance latitude:_preferLatitude longitude:_preferLongitude];
     }
+    [mapView setLongPressAddPin];
     [self.view addSubview:mapView];
     
     if (selectedItem) {
@@ -56,9 +57,11 @@
     UIImage *backBtnImage = [UIImage imageNamed:@"SYBackBackground"];
     [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(goback) forControlEvents:UIControlEventTouchUpInside];
-    backBtn.bounds = CGRectMake(0, 0, 48, 48);
-    backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
-    self.navigationItem.leftBarButtonItem = backButton;
+//    backBtn.bounds = CGRectMake(0, 0, 48, 48);
+    backBtn.frame = CGRectMake(20, 20, 48, 48);
+    [self.view addSubview:backBtn];
+//    backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+//    self.navigationItem.leftBarButtonItem = backButton;
     
     
     if (_needDistance) {
@@ -68,8 +71,8 @@
         distanceSlider = [[SYDistanceSlider alloc] initWithFrame:CGRectMake(20, 10, self.view.frame.size.width-40, 70)];
         [distanceSlider.distanceSlider addTarget:self action:@selector(updateDistance) forControlEvents:UIControlEventValueChanged];
         [bottomView addSubview:distanceSlider];
-        [self setDistance:3];
-        previousDistance = 3;
+        [self setDistance:1];
+        previousDistance = 1;
     }
     
     
@@ -96,6 +99,7 @@
 //        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
     
 }
+
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                   forBarMetrics:UIBarMetricsDefault];
@@ -118,7 +122,7 @@
 //}
 - (void)goback{
     [mapView removeSearchBarViews];
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)SYMap:(SYMap *)SYMap didSelectedSharePin:(MKAnnotationView *)placemarkPin mapItem:(MKMapItem *)mapItem{
     for (UIView *view in cardView.subviews){
@@ -193,6 +197,10 @@
     [locationButton setFrame:frame3];
     [UIView commitAnimations];
     selectedItem = mapItem;
+    if (_needDistance) {
+        [self setDistance:previousDistance];
+    }
+    
 }
 
 - (void)cardSelectResponse{
@@ -204,7 +212,8 @@
             viewController = _previousController;
             ((DiscoverEatShareSecondViewController*)viewController).selectedItem = selectedItem;
             [(DiscoverEatShareSecondViewController*)viewController locationCompleteResponse];
-            [self.navigationController popViewControllerAnimated:YES];
+//            [self.navigationController popViewControllerAnimated:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
             return;
             break;
         case SYDiscoverNextShareLease:
@@ -221,7 +230,8 @@
             }
             ((DiscoverLiveHelpRentViewController*)viewController).selectedItem = selectedItem;
             [(DiscoverLiveHelpRentViewController*)viewController locationCompleteResponse];
-            [self.navigationController popViewControllerAnimated:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
+//            [self.navigationController popViewControllerAnimated:YES];
             return;
             break;
         case SYDiscoverNextShareMove:
@@ -235,14 +245,14 @@
             viewController = _previousController;
             ((DiscoverLiveHelpSubmitViewController*)viewController).selectedOutItem = selectedItem;
             [(DiscoverLiveHelpSubmitViewController*)viewController locationOutCompleteResponse];
-            [self.navigationController popViewControllerAnimated:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
             return;
             break;
         case SYDiscoverNextHelpMoveIn:
             viewController = _previousController;
             ((DiscoverLiveHelpSubmitViewController*)viewController).selectedInItem = selectedItem;
             [(DiscoverLiveHelpSubmitViewController*)viewController locationInCompleteResponse];
-            [self.navigationController popViewControllerAnimated:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
             return;
             break;
         
@@ -250,7 +260,8 @@
             viewController = _previousController;
             ((DiscoverLearnShareSubmitViewController*)viewController).selectedItem = selectedItem;
             [(DiscoverLearnShareSubmitViewController*)viewController locationCompleteResponse];
-            [self.navigationController popViewControllerAnimated:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
+//            [self.navigationController popViewControllerAnimated:YES];
             return;
             break;
             
@@ -258,14 +269,16 @@
             viewController = _previousController;
             ((DiscoverTravelShareSecondViewController*)viewController).departItem = selectedItem;
             [(DiscoverTravelShareSecondViewController*)viewController departCompleteResponse];
-            [self.navigationController popViewControllerAnimated:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
+
             return;
             break;
         case SYDiscoverNextCarpoolArrive:
             viewController = _previousController;
             ((DiscoverTravelShareSecondViewController*)viewController).arriveItem = selectedItem;
             [(DiscoverTravelShareSecondViewController*)viewController arriveCompleteResponse];
-            [self.navigationController popViewControllerAnimated:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
+
             return;
             break;
             

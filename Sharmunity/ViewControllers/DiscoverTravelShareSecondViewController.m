@@ -898,7 +898,7 @@
     DiscoverLocationViewController *viewController = [DiscoverLocationViewController new];
     viewController.previousController = self;
     viewController.nextControllerType = SYDiscoverNextShareLearn;
-    [self.navigationController pushViewController:viewController animated:YES];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 -(void)departResponse{
     [self dismissKeyboard];
@@ -907,7 +907,7 @@
     DiscoverLocationViewController *viewController = [DiscoverLocationViewController new];
     viewController.previousController = self;
     viewController.nextControllerType = SYDiscoverNextCarpoolDepart;
-    [self.navigationController pushViewController:viewController animated:YES];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 -(void)arriveResponse{
     [self dismissKeyboard];
@@ -916,7 +916,7 @@
     DiscoverLocationViewController *viewController = [DiscoverLocationViewController new];
     viewController.previousController = self;
     viewController.nextControllerType = SYDiscoverNextCarpoolArrive;
-    [self.navigationController pushViewController:viewController animated:YES];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 -(void)locationCompleteResponse{
     UIButton *locationButton = [locationView viewWithTag:11];

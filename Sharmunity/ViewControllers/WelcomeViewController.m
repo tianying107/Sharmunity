@@ -113,7 +113,12 @@
             NSDictionary *adminDict = [[NSDictionary alloc] initWithObjectsAndKeys:[emailTextField.text lowercaseString],@"id",[passwordTextField.text lowercaseString],@"password",statusString,@"status", nil];
             NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
             [userDefault setObject:adminDict forKey:@"admin"];
+            
+            NSMutableArray *interestedShareArray = [NSMutableArray new];
+            [userDefault setObject:interestedShareArray forKey:@"interestedShare"];
+            
             [userDefault synchronize];
+            
             
         }
         else if ([[dictionary valueForKey:@"message"] isEqualToString:@"You've already registered, please verify your email!"]){

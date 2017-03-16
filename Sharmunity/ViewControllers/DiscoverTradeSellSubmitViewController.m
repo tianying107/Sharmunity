@@ -306,7 +306,7 @@
     viewController.previousController = self;
     viewController.needDistance = NO;
     viewController.nextControllerType = SYDiscoverNextHelp;
-    [self.navigationController pushViewController:viewController animated:YES];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 -(void)locationCompleteResponse{

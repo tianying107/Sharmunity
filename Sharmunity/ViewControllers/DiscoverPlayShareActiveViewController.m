@@ -174,66 +174,94 @@
     startTitleLabel.textColor = SYColor1;
     [startTitleLabel setFont:SYFont20];
     [dateView addSubview:startTitleLabel];
-    UILabel *startMinLabel = [[UILabel alloc] initWithFrame:CGRectMake(viewWidth-originX-20, 0, 20, 40)];
-    startMinLabel.text = @"分";
-    [startMinLabel setFont:SYFont15];
-    startMinLabel.textColor = SYColor4;
-    [dateView addSubview:startMinLabel];
-    SYTextField *startMinTextField = [[SYTextField alloc] initWithFrame:CGRectMake(startMinLabel.frame.origin.x-20, 0, 20, 40) type:SYTextFieldSeparator];
-    startMinTextField.textColor = SYColor1;
-    startMinTextField.textAlignment = NSTextAlignmentRight;
-    startMinTextField.keyboardType = UIKeyboardTypeNumberPad;
-    startMinTextField.tag = 15;
-    [dateView addSubview:startMinTextField];
-    UILabel *startHourLabel = [[UILabel alloc] initWithFrame:CGRectMake(startMinTextField.frame.origin.x-20, 0, 20, 40)];
-    startHourLabel.text = @"时";
-    [startHourLabel setFont:SYFont15];
-    startHourLabel.textColor = SYColor4;
-    [dateView addSubview:startHourLabel];
-    SYTextField *startHourTextField = [[SYTextField alloc] initWithFrame:CGRectMake(startHourLabel.frame.origin.x-20, 0, 20, 40) type:SYTextFieldSeparator];
-    startHourTextField.textColor = SYColor1;
-    startHourTextField.textAlignment = NSTextAlignmentRight;
-    startHourTextField.keyboardType = UIKeyboardTypeNumberPad;
-    startHourTextField.tag = 14;
-    [dateView addSubview:startHourTextField];
-    UILabel *startDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(startHourTextField.frame.origin.x-20, 0, 20, 40)];
-    startDayLabel.text = @"日";
-    [startDayLabel setFont:SYFont15];
-    startDayLabel.textColor = SYColor4;
-    [dateView addSubview:startDayLabel];
-    SYTextField *startDayTextField = [[SYTextField alloc] initWithFrame:CGRectMake(startDayLabel.frame.origin.x-20, 0, 20, 40) type:SYTextFieldSeparator];
-    startDayTextField.textColor = SYColor1;
-    startDayTextField.textAlignment = NSTextAlignmentRight;
-    startDayTextField.keyboardType = UIKeyboardTypeNumberPad;
-    startDayTextField.tag = 13;
-    [dateView addSubview:startDayTextField];
-    UILabel *startMonthLabel = [[UILabel alloc] initWithFrame:CGRectMake(startDayTextField.frame.origin.x-20, 0, 20, 40)];
-    startMonthLabel.text = @"月";
-    [startMonthLabel setFont:SYFont15];
-    startMonthLabel.textColor = SYColor4;
-    [dateView addSubview:startMonthLabel];
-    SYTextField *startMonthTextField = [[SYTextField alloc] initWithFrame:CGRectMake(startMonthLabel.frame.origin.x-20, 0, 20, 40) type:SYTextFieldSeparator];
-    startMonthTextField.textColor = SYColor1;
-    startMonthTextField.textAlignment = NSTextAlignmentRight;
-    startMonthTextField.keyboardType = UIKeyboardTypeNumberPad;
-    startMonthTextField.tag = 12;
-    [dateView addSubview:startMonthTextField];
-    UILabel *startYearLabel = [[UILabel alloc] initWithFrame:CGRectMake(startMonthTextField.frame.origin.x-20, 0, 20, 40)];
-    startYearLabel.text = @"年";
-    [startYearLabel setFont:SYFont15];
-    startYearLabel.textColor = SYColor4;
-    [dateView addSubview:startYearLabel];
-    SYTextField *startYearTextField = [[SYTextField alloc] initWithFrame:CGRectMake(startYearLabel.frame.origin.x-40, 0, 40, 40) type:SYTextFieldSeparator];
-    startYearTextField.textColor = SYColor1;
-    startYearTextField.textAlignment = NSTextAlignmentRight;
-    startYearTextField.keyboardType = UIKeyboardTypeNumberPad;
-    startYearTextField.tag = 11;
-    [dateView addSubview:startYearTextField];
+    UIButton *dateButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 0, viewWidth-2*originX, 40)];
+    [dateButton setTitle:@"请选择开始时间" forState:UIControlStateNormal];
+    [dateButton setTitleColor:SYColor10 forState:UIControlStateNormal];
+    [dateButton setTitleColor:SYColor4 forState:UIControlStateSelected];
+    [dateButton.titleLabel setFont:SYFont20];
+    dateButton.tag = 11;
+    dateButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    [dateButton addTarget:self action:@selector(dateResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [dateView addSubview:dateButton];
+    
+    datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-216, self.view.frame.size.width, 216)];
+    datePicker.backgroundColor = [UIColor whiteColor];
+    datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+    NSDate *currentDate = [NSDate date];
+    [datePicker setDate:currentDate];
+    [datePicker addTarget:self action:@selector(datePickerChanged) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:datePicker];
+    datePicker.hidden = YES;
+    
+//    UILabel *startMinLabel = [[UILabel alloc] initWithFrame:CGRectMake(viewWidth-originX-20, 0, 20, 40)];
+//    startMinLabel.text = @"分";
+//    [startMinLabel setFont:SYFont15];
+//    startMinLabel.textColor = SYColor4;
+//    [dateView addSubview:startMinLabel];
+//    SYTextField *startMinTextField = [[SYTextField alloc] initWithFrame:CGRectMake(startMinLabel.frame.origin.x-20, 0, 20, 40) type:SYTextFieldSeparator];
+//    startMinTextField.textColor = SYColor1;
+//    startMinTextField.textAlignment = NSTextAlignmentRight;
+//    startMinTextField.keyboardType = UIKeyboardTypeNumberPad;
+//    startMinTextField.tag = 15;
+//    [dateView addSubview:startMinTextField];
+//    UILabel *startHourLabel = [[UILabel alloc] initWithFrame:CGRectMake(startMinTextField.frame.origin.x-20, 0, 20, 40)];
+//    startHourLabel.text = @"时";
+//    [startHourLabel setFont:SYFont15];
+//    startHourLabel.textColor = SYColor4;
+//    [dateView addSubview:startHourLabel];
+//    SYTextField *startHourTextField = [[SYTextField alloc] initWithFrame:CGRectMake(startHourLabel.frame.origin.x-20, 0, 20, 40) type:SYTextFieldSeparator];
+//    startHourTextField.textColor = SYColor1;
+//    startHourTextField.textAlignment = NSTextAlignmentRight;
+//    startHourTextField.keyboardType = UIKeyboardTypeNumberPad;
+//    startHourTextField.tag = 14;
+//    [dateView addSubview:startHourTextField];
+//    UILabel *startDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(startHourTextField.frame.origin.x-20, 0, 20, 40)];
+//    startDayLabel.text = @"日";
+//    [startDayLabel setFont:SYFont15];
+//    startDayLabel.textColor = SYColor4;
+//    [dateView addSubview:startDayLabel];
+//    SYTextField *startDayTextField = [[SYTextField alloc] initWithFrame:CGRectMake(startDayLabel.frame.origin.x-20, 0, 20, 40) type:SYTextFieldSeparator];
+//    startDayTextField.textColor = SYColor1;
+//    startDayTextField.textAlignment = NSTextAlignmentRight;
+//    startDayTextField.keyboardType = UIKeyboardTypeNumberPad;
+//    startDayTextField.tag = 13;
+//    [dateView addSubview:startDayTextField];
+//    UILabel *startMonthLabel = [[UILabel alloc] initWithFrame:CGRectMake(startDayTextField.frame.origin.x-20, 0, 20, 40)];
+//    startMonthLabel.text = @"月";
+//    [startMonthLabel setFont:SYFont15];
+//    startMonthLabel.textColor = SYColor4;
+//    [dateView addSubview:startMonthLabel];
+//    SYTextField *startMonthTextField = [[SYTextField alloc] initWithFrame:CGRectMake(startMonthLabel.frame.origin.x-20, 0, 20, 40) type:SYTextFieldSeparator];
+//    startMonthTextField.textColor = SYColor1;
+//    startMonthTextField.textAlignment = NSTextAlignmentRight;
+//    startMonthTextField.keyboardType = UIKeyboardTypeNumberPad;
+//    startMonthTextField.tag = 12;
+//    [dateView addSubview:startMonthTextField];
+//    UILabel *startYearLabel = [[UILabel alloc] initWithFrame:CGRectMake(startMonthTextField.frame.origin.x-20, 0, 20, 40)];
+//    startYearLabel.text = @"年";
+//    [startYearLabel setFont:SYFont15];
+//    startYearLabel.textColor = SYColor4;
+//    [dateView addSubview:startYearLabel];
+//    SYTextField *startYearTextField = [[SYTextField alloc] initWithFrame:CGRectMake(startYearLabel.frame.origin.x-40, 0, 40, 40) type:SYTextFieldSeparator];
+//    startYearTextField.textColor = SYColor1;
+//    startYearTextField.textAlignment = NSTextAlignmentRight;
+//    startYearTextField.keyboardType = UIKeyboardTypeNumberPad;
+//    startYearTextField.tag = 11;
+//    [dateView addSubview:startYearTextField];
     UILabel *endTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(originX, 40, 100, 40)];
     endTitleLabel.text = @"结束时间";
     endTitleLabel.textColor = SYColor1;
     [endTitleLabel setFont:SYFont20];
     [dateView addSubview:endTitleLabel];
+    UIButton *endButton = [[UIButton alloc] initWithFrame:CGRectMake(originX, 40, viewWidth-2*originX, 40)];
+    [endButton setTitle:@"请选择结束时间" forState:UIControlStateNormal];
+    [endButton setTitleColor:SYColor10 forState:UIControlStateNormal];
+    [endButton setTitleColor:SYColor4 forState:UIControlStateSelected];
+    [endButton.titleLabel setFont:SYFont20];
+    endButton.tag = 12;
+    endButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    [endButton addTarget:self action:@selector(dateResponse:) forControlEvents:UIControlEventTouchUpInside];
+    [dateView addSubview:endButton];/*
     UILabel *endMinLabel = [[UILabel alloc] initWithFrame:CGRectMake(viewWidth-originX-20, 40, 20, 40)];
     endMinLabel.text = @"分";
     [endMinLabel setFont:SYFont15];
@@ -289,6 +317,7 @@
     endYearTextField.keyboardType = UIKeyboardTypeNumberPad;
     endYearTextField.tag = 21;
     [dateView addSubview:endYearTextField];
+    */
     UIView *checkView = [[UIView alloc] initWithFrame:CGRectMake(viewWidth-originX-150-10-15, 80+12.5, 15, 15)];
     checkView.tag = 31;
     checkView.layer.borderWidth = 1;
@@ -474,32 +503,46 @@
     mainScrollView.contentSize = CGSizeMake(0, height+20+44+10);
 }
 -(IBAction)dateResponse:(id)sender{
-    if (!dateString) {
-        NSDate *currentDate = [NSDate date];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-        NSString *dtrDate = [dateFormatter stringFromDate:currentDate];
-        UIButton *button = [dateView viewWithTag:11];
-        button.selected = YES;
-        [button setTitle:dtrDate forState:UIControlStateSelected];
-        
-        NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:dtrDate, @"available_date", nil];
-        [_shareDict addEntriesFromDictionary:dict];
-        dateString = dtrDate;
+    [self dismissKeyboard];
+    currentDateButton = sender;
+    UIButton *button = sender;
+    if (button.tag == 11) {
+        if (!dateString) {
+            NSDate *currentDate = [NSDate date];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm"];
+            NSString *dtrDate = [dateFormatter stringFromDate:currentDate];
+            button.selected = YES;
+            [button setTitle:dtrDate forState:UIControlStateSelected];
+            dateString = dtrDate;
+        }
+    }
+    else if (button.tag == 12){
+        if (!endString) {
+            NSDate *currentDate = [NSDate date];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm"];
+            NSString *dtrDate = [dateFormatter stringFromDate:currentDate];
+            button.selected = YES;
+            [button setTitle:dtrDate forState:UIControlStateSelected];
+            endString = dtrDate;
+        }
     }
     datePicker.hidden = NO;
     confirmBackgroundView.hidden = NO;
-    locationView.hidden = NO;
 }
 -(void)datePickerChanged{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm"];
     NSString *dtrDate = [dateFormatter stringFromDate:datePicker.date];
-    UIButton *button = [dateView viewWithTag:11];
+    UIButton *button = currentDateButton;
     [button setTitle:dtrDate forState:UIControlStateSelected];
-    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:dtrDate, @"available_date", nil];
-    [_shareDict addEntriesFromDictionary:dict];
-    dateString = dtrDate;
+    if (button.tag == 11){
+        dateString = dtrDate;
+    }
+    else if (button.tag == 12){
+        endString = dtrDate;
+    }
 }
 -(IBAction)typeResponse:(id)sender{
     UIButton *button = sender;
@@ -533,7 +576,8 @@
     DiscoverLocationViewController *viewController = [DiscoverLocationViewController new];
     viewController.previousController = self;
     viewController.nextControllerType = SYDiscoverNextShareLearn;
-    [self.navigationController pushViewController:viewController animated:YES];
+    [self presentViewController:viewController animated:YES completion:nil];
+//    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 -(void)locationCompleteResponse{
@@ -557,8 +601,7 @@
     numberString = (numberAgg)?@"999":numberField.text;
     priceString = [(UITextField*)[priceView viewWithTag:11] text];
     
-    NSString *startTimeString =(timeAgg)?@"2099-01-01 09:00":[NSString stringWithFormat:@"%@-%@-%@ %@:%@",[(UITextField*)[dateView viewWithTag:11] text],[(UITextField*)[dateView viewWithTag:12] text],[(UITextField*)[dateView viewWithTag:13] text],[(UITextField*)[dateView viewWithTag:14] text],[(UITextField*)[dateView viewWithTag:15] text]];
-    NSString *endTimeString =(timeAgg)?@"2099-01-01 09:00":[NSString stringWithFormat:@"%@-%@-%@ %@:%@",[(UITextField*)[dateView viewWithTag:21] text],[(UITextField*)[dateView viewWithTag:22] text],[(UITextField*)[dateView viewWithTag:23] text],[(UITextField*)[dateView viewWithTag:24] text],[(UITextField*)[dateView viewWithTag:25] text]];
+//    NSString *endTimeString =(timeAgg)?@"2099-01-01 09:00":[NSString stringWithFormat:@"%@-%@-%@ %@:%@",[(UITextField*)[dateView viewWithTag:21] text],[(UITextField*)[dateView viewWithTag:22] text],[(UITextField*)[dateView viewWithTag:23] text],[(UITextField*)[dateView viewWithTag:24] text],[(UITextField*)[dateView viewWithTag:25] text]];
     switch (_controllerType) {
 //        case DiscoverPlayPartner:
 //            subCate= [NSString stringWithFormat:@"%02ld%02ld0000",_subcate1,[typeString integerValue]];
@@ -584,7 +627,7 @@
     UITextField *title = [titleView viewWithTag:11];
     UITextView *introduction = [introductionView viewWithTag:11];
     
-    NSString *requestBody = [NSString stringWithFormat:@"expire_date=%@&email=%@&latitude=%f&longitude=%f&category=4&subcate=%@&title=%@&introduction=%@&start_lati=%@&start_long=%@&price=%@&number=%@&start_time=%@&end_time=%@&is_other=%d",startTimeString,MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,title.text, introduction.text,startLatitude,startLongitude,priceString,numberString,startTimeString,endTimeString,is_other];
+    NSString *requestBody = [NSString stringWithFormat:@"expire_date=%@&email=%@&latitude=%f&longitude=%f&category=4&subcate=%@&title=%@&introduction=%@&start_lati=%@&start_long=%@&price=%@&number=%@&start_time=%@&end_time=%@&is_other=%d",dateString,MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,title.text, introduction.text,startLatitude,startLongitude,priceString,numberString,dateString,endString,is_other];
     NSLog(@"%@/n",requestBody);
     /*改上面的 query 和 URLstring 就好了*/
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@newshare",basicURL]];

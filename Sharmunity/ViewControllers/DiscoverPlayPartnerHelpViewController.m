@@ -241,7 +241,7 @@
 }
 
 -(void)nextResponse{
-    NSString *subCate= [NSString stringWithFormat:@"02%02ld0000",[typeString integerValue]];
+    NSString *subCate= [NSString stringWithFormat:@"03%02ld0000",[typeString integerValue]];
     NSString *latitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.latitude];
     NSString *longitude = [NSString stringWithFormat:@"%lf",self.locationManager.location.coordinate.longitude];
 

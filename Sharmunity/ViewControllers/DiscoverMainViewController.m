@@ -311,7 +311,15 @@
 }
 -(IBAction)createInterestHelp:(id)sender{
     UIButton *interestButton = sender;
-    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&share_id=%@&keyword= ",MEID,self.locationManager.location.coordinate.latitude,self.locationManager.location.coordinate.longitude,[recentShareArray objectAtIndex:interestButton.tag]];
+    NSString *shareID = [recentShareArray objectAtIndex:interestButton.tag];
+    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&share_id=%@&keyword= ",MEID,self.locationManager.location.coordinate.latitude,self.locationManager.location.coordinate.longitude,shareID];
+    interestButton.selected = YES;
+    NSMutableArray *interestedShare = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"interestedShare"]];
+    [interestedShare addObject:shareID];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setObject:interestedShare forKey:@"interestedShare"];
+    [userDefault synchronize];
+    
     NSLog(@"%@/n",requestBody);
     /*改上面的 query 和 URLstring 就好了*/
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@otohelp",basicURL]];

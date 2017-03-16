@@ -77,7 +77,7 @@
     switch (_shareType) {
         case discoverEat:
             [backBtn setTitle:@"吃" forState:UIControlStateNormal];
-            subCate = @"03000000";
+            subCate = @"00000030";
             break;
         case discoverLive:
             [backBtn setTitle:@"住" forState:UIControlStateNormal];
