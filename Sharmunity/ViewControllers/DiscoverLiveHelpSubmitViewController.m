@@ -271,7 +271,8 @@
     nextButton.hidden = !empty;
 }
 - (void)nextResponse{
-    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=2&subcate=%@&lower_price=%@&upper_price=%@&date=%@&distance=%@&placemark=%@&expire_date=2099-01-01",MEID,[[_selectedOutItem placemark] coordinate].latitude,[[_selectedOutItem placemark] coordinate].longitude,_subcate,lowerPriceString,upperPriceString,dateString,distanceString,_selectedOutItem.name];
+    UITextView *introduction = [introductionView viewWithTag:11];
+    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=2&subcate=%@&lower_price=%@&upper_price=%@&date=%@&distance=%@&placemark=%@&expire_date=2099-01-01&introduction=%@",MEID,[[_selectedOutItem placemark] coordinate].latitude,[[_selectedOutItem placemark] coordinate].longitude,_subcate,lowerPriceString,upperPriceString,dateString,distanceString,_selectedOutItem.name,introduction.text];
     NSLog(@"%@/n",requestBody);
     /*改上面的 query 和 URLstring 就好了*/
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@newhelp",basicURL]];

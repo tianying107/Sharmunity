@@ -376,7 +376,7 @@
         else if (type == 3){
             NSString *partnerString = [partnerArray objectAtIndex:subtype-1];
             
-            result = [NSString stringWithFormat:@"找%@ %@",partnerString,[keyword valueForKey:@"keyword"]];
+            result = [NSString stringWithFormat:@"找%@ %@",partnerString,[(NSArray*)[keyword valueForKey:@"keyword"] componentsJoinedByString:@","]];
 
         }
     }

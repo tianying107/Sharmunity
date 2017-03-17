@@ -463,7 +463,7 @@
         subCate = [NSString stringWithFormat:@"02%@%@%@00",shareRentString,houseString,typeString];
     }
     else subCate = [NSString stringWithFormat:@"01%@%@%@00",shareRentString,houseString,typeString];
-    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=2&subcate=%@&lower_price=%@&upper_price=%@&date=%@&distance=%@&placemark=%@&short_term=%@",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,lowerPriceString,upperPriceString,dateString,_distanceString,_selectedItem.name,shortString];
+    NSString *requestBody = [NSString stringWithFormat:@"email=%@&latitude=%f&longitude=%f&category=2&subcate=%@&lower_price=%@&upper_price=%@&date=%@&distance=%@&placemark=%@&short_term=%@&introduction=",MEID,[[_selectedItem placemark] coordinate].latitude,[[_selectedItem placemark] coordinate].longitude,subCate,lowerPriceString,upperPriceString,dateString,_distanceString,_selectedItem.name,shortString];
     /*改上面的 query 和 URLstring 就好了*/
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@newhelp",basicURL]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];

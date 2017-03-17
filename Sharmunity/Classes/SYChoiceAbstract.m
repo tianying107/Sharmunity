@@ -12,7 +12,7 @@
 @implementation SYChoiceAbstract
 @synthesize choiceID, choiceDict,shareDict, personDict, helpID, helpDict;
 -(id)initWithFrame:(CGRect)frame choiceDict:(NSDictionary*)choiceDic helpID:(NSString*)ID{
-    self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 80)];
+    self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 60)];
     if (self) {
         choiceDict = choiceDic;
         choiceID = [choiceDict valueForKey:@"choice_id"];
@@ -44,9 +44,9 @@
         [attributeSting addAttribute:NSParagraphStyleAttributeName value:paragraphstyle range:NSMakeRange(0, attributeSting.length)];
         CGRect rect = [attributeSting boundingRectWithSize:(CGSize){self.frame.size.width-35, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
         float height = rect.size.height;
-        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, heightCount, self.frame.size.width-35, height)];
+        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, heightCount, self.frame.size.width-35, 20)];
         [self addSubview:titleLabel];
-        titleLabel.numberOfLines = 0;
+        titleLabel.numberOfLines = 1;
         titleLabel.attributedText = attributeSting;
         heightCount += titleLabel.frame.size.height;
         

@@ -1155,7 +1155,7 @@
     
 }
 -(void)helpResponse:(NSString*)helpID{
-    SYSuscard *baseView = [[SYSuscard alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen]bounds].size.height) withCardSize:CGSizeMake(320, 300) keyboard:NO];
+    SYSuscard *baseView = [[SYSuscard alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen]bounds].size.height) withCardSize:CGSizeMake(320, 400) keyboard:NO];
     baseView.cardBackgroundView.backgroundColor = SYBackgroundColorExtraLight;
     baseView.scrollView.scrollEnabled = NO;
     baseView.backButton.hidden = YES;
@@ -1231,6 +1231,14 @@
     textField = [departAirportView viewWithTag:11];
     [textField resignFirstResponder];
     textField = [arriveAirportView viewWithTag:11];
+    [textField resignFirstResponder];
+    textField = [cityView viewWithTag:10];
+    [textField resignFirstResponder];
+    textField = [cityView viewWithTag:13];
+    [textField resignFirstResponder];
+    textField = [cityView viewWithTag:14];
+    [textField resignFirstResponder];
+    textField = [priceView viewWithTag:11];
     [textField resignFirstResponder];
     
     UITextView *textView = [introductionView viewWithTag:11];
